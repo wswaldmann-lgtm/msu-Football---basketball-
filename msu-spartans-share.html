@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#18453B">
+<title>MSU Spartans Game Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --spartan-green:#18453B;
+  --spartan-green-dark:#0F2B24;
+  --spartan-green-light:#1E5A4C;
+  --gold-accent:#C5A551;
+  --card-bg:#FAFAF8;
+  --text-primary:#1A1A1A;
+  --text-secondary:#5A5A5A;
+  --text-muted:#8A8A8A;
+  --border:#E8E6E1;
+  --bg:#F2F0EB;
+  --chip-bg:#FFFFFF;
+  --shadow:rgba(0,0,0,.08);
+  --next-glow:rgba(197,165,81,.35);
+}
+body.dark{
+  --card-bg:#1C2422;
+  --text-primary:#EDEBE6;
+  --text-secondary:#B0ADA6;
+  --text-muted:#6E6C66;
+  --border:#2C3532;
+  --bg:#121917;
+  --chip-bg:#1C2422;
+  --shadow:rgba(0,0,0,.4);
+  --next-glow:rgba(197,165,81,.2);
+}
+html{font-size:16px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  font-family:'Source Sans 3',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text-primary);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s;
+}
+.header{
+  background:linear-gradient(135deg, var(--spartan-green-dark) 0%, var(--spartan-green) 50%, var(--spartan-green-light) 100%);
+  color:#fff;
+  padding:1.5rem 1.25rem 1rem;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+}
+.header-top{display:flex;align-items:center;gap:.75rem}
+.spartan-logo{
+  width:44px;height:44px;
+  background:rgba(255,255,255,.12);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.4rem;
+  color:var(--gold-accent);
+  flex-shrink:0;
+}
+.header h1{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;font-size:1.35rem;
+  letter-spacing:.02em;text-transform:uppercase;
+  line-height:1.15;
+}
+.header .sub{font-size:.78rem;opacity:.7}
+.mode-toggle{
+  margin-left:auto;
+  width:40px;height:40px;
+  border-radius:10px;
+  background:rgba(255,255,255,.12);
+  border:none;color:#fff;
+  font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.mode-toggle:active{background:rgba(255,255,255,.25)}
+
+/* Live countdown strip */
+.countdown-strip{
+  margin-top:.9rem;
+  background:rgba(0,0,0,.25);
+  border-radius:12px;
+  padding:.7rem .9rem;
+  display:flex;align-items:center;gap:.75rem;
+}
+.countdown-strip .vs{
+  font-family:'Oswald',sans-serif;font-weight:600;
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;
+  opacity:.85;line-height:1.3;flex:1;min-width:0;
+}
+.countdown-strip .vs strong{font-size:.95rem;display:block;letter-spacing:.03em}
+.timer{display:flex;gap:.45rem;flex-shrink:0}
+.timer .unit{text-align:center;min-width:34px}
+.timer .num{
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.25rem;
+  color:var(--gold-accent);line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.timer .lbl{font-size:.55rem;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:2px}
+
+.tabs{
+  display:flex;gap:0;
+  margin:0 1.25rem;
+  position:relative;top:-1px;
+}
+.tab{
+  flex:1;padding:.7rem .5rem;text-align:center;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.9rem;
+  letter-spacing:.05em;text-transform:uppercase;
+  background:var(--card-bg);color:var(--text-muted);
+  border:1px solid var(--border);border-bottom:none;
+  cursor:pointer;transition:all .2s;
+  border-radius:10px 10px 0 0;
+}
+.tab.active{background:var(--spartan-green);color:#fff;border-color:var(--spartan-green)}
+
+/* Filter chips */
+.filters{
+  display:flex;gap:.5rem;
+  padding:.85rem 1.25rem .35rem;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.filters::-webkit-scrollbar{display:none}
+.chip{
+  padding:.35rem .85rem;
+  border-radius:999px;
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:.78rem;
+  letter-spacing:.04em;text-transform:uppercase;
+  background:var(--chip-bg);color:var(--text-secondary);
+  border:1px solid var(--border);
+  cursor:pointer;white-space:nowrap;
+  transition:all .2s;
+}
+.chip.active{background:var(--spartan-green);color:#fff;border-color:var(--spartan-green)}
+
+/* Season progress */
+.progress-wrap{padding:.5rem 1.25rem 0}
+.progress-label{
+  display:flex;justify-content:space-between;
+  font-size:.68rem;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:.3rem;
+  font-family:'Oswald',sans-serif;
+}
+.progress-bar{
+  height:5px;border-radius:3px;
+  background:var(--border);overflow:hidden;
+}
+.progress-fill{
+  height:100%;border-radius:3px;
+  background:linear-gradient(90deg,var(--spartan-green),var(--gold-accent));
+  width:0%;transition:width 1s ease;
+}
+
+.section{display:none;padding:.75rem 1.25rem 6rem}
+.section.active{display:block}
+
+.game-card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:14px;
+  margin-bottom:.75rem;
+  overflow:hidden;
+  transition:box-shadow .2s,transform .1s,border-color .3s;
+  cursor:pointer;
+}
+.game-card:active{transform:scale(.985)}
+.game-card.next-game{
+  border-color:var(--gold-accent);
+  box-shadow:0 0 0 1px var(--gold-accent),0 4px 20px var(--next-glow);
+}
+.next-banner{
+  background:linear-gradient(90deg,var(--gold-accent),#D4B968);
+  color:#1A1A1A;
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;
+  text-align:center;padding:.3rem;
+}
+.game-card.bye{
+  background:repeating-linear-gradient(45deg, var(--card-bg), var(--card-bg) 10px, rgba(128,128,128,.05) 10px, rgba(128,128,128,.05) 20px);
+  opacity:.6;cursor:default;
+}
+.game-card.past{opacity:.55}
+.game-main{display:flex;align-items:center;padding:1rem;gap:.85rem}
+.game-date{flex-shrink:0;width:52px;text-align:center}
+.game-date .month{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.65rem;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);
+}
+body.dark .game-date .month{color:var(--gold-accent)}
+.game-date .day{
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.6rem;
+  line-height:1.1;color:var(--text-primary);
+}
+.game-date .weekday{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em}
+.game-divider{width:3px;height:44px;border-radius:2px;flex-shrink:0}
+.game-divider.home{background:var(--spartan-green)}
+body.dark .game-divider.home{background:#2E7D5F}
+.game-divider.away{background:var(--gold-accent)}
+.game-divider.neutral{background:var(--text-muted)}
+.game-info{flex:1;min-width:0}
+.game-opponent{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:1.05rem;
+  letter-spacing:.01em;line-height:1.2;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.game-meta{
+  font-size:.78rem;color:var(--text-secondary);margin-top:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tv-tag{
+  display:inline-block;
+  background:var(--spartan-green);color:#fff;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.6rem;
+  letter-spacing:.05em;padding:.1rem .35rem;border-radius:4px;
+  vertical-align:1px;
+}
+.game-badge{
+  flex-shrink:0;padding:.25rem .6rem;border-radius:6px;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;
+  letter-spacing:.05em;text-transform:uppercase;
+}
+.badge-home{background:rgba(24,69,59,.08);color:var(--spartan-green)}
+body.dark .badge-home{background:rgba(46,125,95,.2);color:#5BBF97}
+.badge-away{background:rgba(197,165,81,.12);color:#8B7230}
+body.dark .badge-away{background:rgba(197,165,81,.15);color:var(--gold-accent)}
+.badge-neutral{background:rgba(128,128,128,.1);color:var(--text-muted)}
+.game-chevron{
+  flex-shrink:0;width:20px;height:20px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-muted);transition:transform .3s;font-size:.7rem;
+}
+.game-card.expanded .game-chevron{transform:rotate(180deg)}
+.game-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.game-card.expanded .game-detail{max-height:1400px}
+.detail-inner{padding:0 1rem 1.25rem;border-top:1px solid var(--border)}
+.detail-section{margin-top:1rem}
+.detail-label{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--spartan-green);
+  margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem;
+}
+body.dark .detail-label{color:var(--gold-accent)}
+.detail-text{font-size:.88rem;line-height:1.55;color:var(--text-secondary)}
+.prediction-box{
+  background:linear-gradient(135deg, var(--spartan-green-dark), var(--spartan-green));
+  color:#fff;border-radius:10px;padding:1rem 1.1rem;margin-top:.75rem;
+}
+.prediction-box .pred-label{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:.35rem;
+}
+.prediction-box .pred-winner{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.02em}
+.prediction-box .pred-score{font-size:.85rem;opacity:.8;margin-top:.15rem}
+.link-row{display:flex;gap:.5rem;margin-top:.85rem}
+.mini-link{
+  flex:1;text-align:center;
+  padding:.55rem;border-radius:8px;
+  background:rgba(24,69,59,.06);
+  color:var(--spartan-green);
+  border:1px solid var(--border);
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;transition:background .2s;
+}
+body.dark .mini-link{background:rgba(197,165,81,.08);color:var(--gold-accent)}
+.mini-link:active{background:rgba(24,69,59,.15)}
+.season-outlook{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:14px;padding:1.25rem;margin-bottom:.75rem;
+}
+.season-outlook h3{
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.05rem;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--spartan-green);
+  margin-bottom:.6rem;
+}
+body.dark .season-outlook h3{color:var(--gold-accent)}
+.outlook-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.75rem}
+.outlook-stat{background:rgba(24,69,59,.04);border-radius:8px;padding:.65rem .75rem;text-align:center}
+body.dark .outlook-stat{background:rgba(255,255,255,.04)}
+.outlook-stat .val{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.15rem;color:var(--spartan-green)}
+body.dark .outlook-stat .val{color:#5BBF97}
+.outlook-stat .lbl{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem}
+.outlook-text{font-size:.85rem;line-height:1.55;color:var(--text-secondary)}
+.record-tracker{
+  display:flex;align-items:center;justify-content:center;gap:1.5rem;
+  padding:.85rem;margin-bottom:.75rem;
+  background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
+}
+.record-item{text-align:center}
+.record-item .num{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.7rem;line-height:1}
+.record-item .num.w{color:#27AE60}
+.record-item .num.l{color:#E74C3C}
+.record-item .lbl{font-size:.62rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem;font-family:'Oswald',sans-serif}
+.record-sep{font-family:'Oswald',sans-serif;font-weight:300;font-size:1.5rem;color:var(--text-muted)}
+.no-preview{
+  padding:.75rem 1rem;background:rgba(128,128,128,.06);border-radius:8px;
+  font-size:.82rem;color:var(--text-muted);font-style:italic;margin-top:.5rem;
+}
+.jump-btn{
+  position:fixed;bottom:1.25rem;right:1.25rem;z-index:90;
+  background:var(--spartan-green);color:#fff;
+  border:none;border-radius:999px;
+  padding:.7rem 1.1rem;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.78rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+  cursor:pointer;display:flex;align-items:center;gap:.4rem;
+}
+.jump-btn:active{transform:scale(.95)}
+@media(min-width:500px){
+  body{max-width:480px;margin:0 auto;box-shadow:0 0 40px var(--shadow)}
+  .jump-btn{right:calc(50% - 240px + 1.25rem)}
+}
+
+/* ===== Live score card ===== */
+.live-card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:14px;padding:1rem 1.1rem;margin-bottom:.75rem;
+}
+.live-card.is-live{border-color:#E74C3C;box-shadow:0 0 0 1px #E74C3C,0 4px 16px rgba(231,76,60,.2)}
+.live-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+.live-title{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--spartan-green);
+  display:flex;align-items:center;gap:.4rem;
+}
+body.dark .live-title{color:var(--gold-accent)}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#E74C3C;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.refresh-btn{
+  background:none;border:1px solid var(--border);border-radius:8px;
+  color:var(--text-secondary);font-size:.85rem;padding:.3rem .6rem;
+  cursor:pointer;font-family:'Oswald',sans-serif;
+}
+.refresh-btn:active{background:rgba(128,128,128,.1)}
+.score-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.score-team{flex:1;text-align:center}
+.score-team .tname{font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;line-height:1.2}
+.score-team .tscore{font-family:'Oswald',sans-serif;font-weight:700;font-size:2rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.score-team.msu .tscore{color:var(--spartan-green)}
+body.dark .score-team.msu .tscore{color:#5BBF97}
+.score-status{
+  flex-shrink:0;text-align:center;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;
+  max-width:90px;line-height:1.4;
+}
+.live-msg{font-size:.82rem;color:var(--text-muted);text-align:center;padding:.35rem 0}
+
+/* ===== Rankings card ===== */
+.rank-card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:14px;margin-bottom:.75rem;overflow:hidden;
+}
+.rank-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.1rem;cursor:pointer;
+}
+.rank-head .live-title{margin:0}
+.rank-body{display:none;padding:0 1.1rem 1rem;border-top:1px solid var(--border)}
+.rank-card.open .rank-body{display:block}
+.rank-tabs{display:flex;gap:.4rem;margin:.85rem 0 .6rem}
+.rank-tab{
+  flex:1;text-align:center;padding:.4rem;border-radius:8px;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.05em;text-transform:uppercase;
+  background:rgba(128,128,128,.06);color:var(--text-muted);
+  cursor:pointer;border:1px solid var(--border);
+}
+.rank-tab.active{background:var(--spartan-green);color:#fff;border-color:var(--spartan-green)}
+.rank-row{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.45rem .35rem;border-bottom:1px solid var(--border);
+  font-size:.85rem;
+}
+.rank-row:last-child{border-bottom:none}
+.rank-row .rnum{
+  font-family:'Oswald',sans-serif;font-weight:700;width:26px;text-align:center;
+  color:var(--text-muted);flex-shrink:0;font-variant-numeric:tabular-nums;
+}
+.rank-row .rteam{flex:1;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-row .rrec{color:var(--text-muted);font-size:.78rem;flex-shrink:0;font-variant-numeric:tabular-nums}
+.rank-row.msu-row{
+  background:rgba(24,69,59,.07);border-radius:8px;border-bottom:none;
+  margin:.15rem -.35rem;padding:.45rem .7rem;
+}
+body.dark .rank-row.msu-row{background:rgba(91,191,151,.1)}
+.rank-row.msu-row .rteam{color:var(--spartan-green)}
+body.dark .rank-row.msu-row .rteam{color:#5BBF97}
+
+
+
+.rsvp-row{display:flex;align-items:center;gap:.4rem;margin-bottom:.4rem}
+.rsvp-name{flex:1;background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:.4rem .55rem;font-size:.85rem;color:var(--text-primary);font-family:'Source Sans 3',system-ui,sans-serif;outline:none}
+.rsvp-count{width:50px;background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:.4rem;font-size:.85rem;color:var(--text-primary);text-align:center;font-family:'Oswald',sans-serif;font-weight:600;outline:none}
+.rsvp-del{background:none;border:none;color:var(--text-muted);font-size:1rem;cursor:pointer;padding:.2rem .4rem}
+/* Hype share + extras */
+.hype-bar{
+  display:flex;gap:.5rem;padding:.5rem 1.25rem;
+}
+.hype-btn,.talk-btn,.tailgate-btn{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:.35rem;
+  padding:.6rem .5rem;border-radius:10px;border:1px solid var(--border);
+  background:var(--card-bg);color:var(--text-secondary);
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+  transition:all .2s;white-space:nowrap;
+}
+.hype-btn:active,.talk-btn:active,.tailgate-btn:active{transform:scale(.96)}
+.hype-btn{background:var(--spartan-green);color:#fff;border-color:var(--spartan-green)}
+body.dark .hype-btn{background:var(--gold-accent);color:#1A1A1A;border-color:var(--gold-accent)}
+.talk-modal,.tailgate-modal{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;
+  background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:1.25rem;
+}
+.talk-modal.open,.tailgate-modal.open{display:flex}
+.modal-box{
+  background:var(--card-bg);border-radius:16px;padding:1.5rem;
+  max-width:380px;width:100%;box-shadow:0 16px 48px rgba(0,0,0,.3);
+  position:relative;
+}
+.modal-close{
+  position:absolute;top:.75rem;right:.75rem;background:none;border:none;
+  font-size:1.2rem;color:var(--text-muted);cursor:pointer;
+}
+.modal-box h3{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;color:var(--spartan-green);margin-bottom:.75rem}
+body.dark .modal-box h3{color:var(--gold-accent)}
+.trash-line{
+  font-size:1.05rem;line-height:1.5;color:var(--text-primary);
+  padding:1rem;background:rgba(24,69,59,.05);border-radius:10px;
+  text-align:center;min-height:80px;display:flex;align-items:center;justify-content:center;
+}
+body.dark .trash-line{background:rgba(255,255,255,.05)}
+.modal-actions{display:flex;gap:.5rem;margin-top:1rem}
+.modal-actions button{
+  flex:1;padding:.6rem;border-radius:8px;border:none;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.78rem;
+  letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+}
+.btn-primary{background:var(--spartan-green);color:#fff}
+body.dark .btn-primary{background:var(--gold-accent);color:#1A1A1A}
+.btn-secondary{background:rgba(128,128,128,.1);color:var(--text-secondary)}
+.watch-tag{
+  display:inline-block;background:rgba(128,128,128,.08);color:var(--text-secondary);
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:.6rem;
+  padding:.15rem .35rem;border-radius:4px;margin-left:.3rem;letter-spacing:.03em;
+}
+.tg-list{list-style:none;margin:.5rem 0}
+.tg-list li{
+  display:flex;align-items:center;gap:.5rem;padding:.5rem 0;
+  border-bottom:1px solid var(--border);font-size:.88rem;color:var(--text-primary);
+}
+.tg-list li:last-child{border:none}
+.tg-check{width:20px;height:20px;border-radius:6px;border:2px solid var(--border);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.7rem}
+.tg-check.checked{background:var(--spartan-green);border-color:var(--spartan-green);color:#fff}
+body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gold-accent);color:#1A1A1A}
+.tg-input{flex:1;background:none;border:none;font-size:.85rem;color:var(--text-primary);font-family:'Source Sans 3',system-ui,sans-serif;outline:none}
+.tg-add{background:none;border:1px dashed var(--border);border-radius:8px;padding:.5rem;text-align:center;color:var(--text-muted);font-size:.8rem;cursor:pointer;width:100%;margin-top:.5rem}
+</style>
+</head>
+<body>
+
+
+<div id="installBanner" style="background:var(--gold-accent);color:#1A1A1A;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.03em;">
+  <span style="font-size:1.2rem">📲</span>
+  <span style="flex:1">Add to Home Screen to use like an app!</span>
+  <button onclick="document.getElementById('installBanner').style.display='none';localStorage.setItem('msu_installed','1')" style="background:rgba(0,0,0,.15);border:none;color:#1A1A1A;padding:.3rem .6rem;border-radius:6px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;cursor:pointer">GOT IT</button>
+</div>
+<script>if(localStorage.getItem('msu_installed'))document.getElementById('installBanner').style.display='none';</script>
+<div class="header">
+  <div class="header-top">
+    <div class="spartan-logo">S</div>
+    <div>
+      <h1>MSU Spartans</h1>
+      <div class="sub">Game Tracker &middot; 2026–27 &middot; Pass it on, Go Green! 💚</div>
+    </div>
+    <button class="mode-toggle" onclick="toggleDark()" aria-label="Toggle dark mode" id="modeBtn">🌙</button>
+  </div>
+  <div class="countdown-strip" id="countdownStrip">
+    <div class="vs" id="nextGameLabel">Next up<strong>Loading…</strong></div>
+    <div class="timer" id="liveTimer"></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-tab="football" onclick="switchTab('football',this)">🏈 Football</div>
+  <div class="tab" data-tab="basketball" onclick="switchTab('basketball',this)">🏀 Basketball</div>
+</div>
+
+<div class="filters" id="filterRow">
+  <div class="chip active" data-filter="all" onclick="setFilter('all',this)">All Games</div>
+  <div class="chip" data-filter="home" onclick="setFilter('home',this)">🏟 Home</div>
+  <div class="chip" data-filter="away" onclick="setFilter('away',this)">✈️ Away</div>
+  <div class="chip" data-filter="star" onclick="setFilter('star',this)">⭐ Marquee</div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-label"><span id="progressText">Season Progress</span><span id="progressPct">0%</span></div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+
+
+<div class="hype-bar">
+  <button class="hype-btn" onclick="shareHype()">📣 Share Hype</button>
+  <button class="talk-btn" onclick="openTrashTalk()">🔥 Trash Talk</button>
+  <button class="tailgate-btn" onclick="openTailgate()">🍔 Tailgate</button>
+</div>
+
+<div id="football" class="section active">
+
+  <div class="live-card" id="football-live">
+    <div class="live-head">
+      <div class="live-title" id="football-live-title">🏈 Scoreboard</div>
+      <button class="refresh-btn" onclick="loadScore('football')" aria-label="Refresh score">↻</button>
+    </div>
+    <div id="football-live-body"><div class="live-msg">Tap ↻ to load the latest MSU score</div></div>
+  </div>
+
+  <div class="rank-card" id="football-rank">
+    <div class="rank-head" onclick="toggleRank('football')">
+      <div class="live-title">📊 Rankings &amp; Standings</div>
+      <div class="game-chevron" id="football-rank-chev">▼</div>
+    </div>
+    <div class="rank-body">
+      <div class="rank-tabs">
+        <div class="rank-tab active" id="football-tab-ap" onclick="showRankTab('football','ap',this)">🇺🇸 AP Top 25</div>
+        <div class="rank-tab" id="football-tab-b1g" onclick="showRankTab('football','b1g',this)">B1G Standings</div>
+      </div>
+      <div id="football-rank-content"><div class="live-msg">Loading…</div></div>
+    </div>
+  </div>
+
+  <div class="record-tracker">
+    <div class="record-item"><div class="num w">7</div><div class="lbl">Proj. Wins</div></div>
+    <div class="record-sep">–</div>
+    <div class="record-item"><div class="num l">5</div><div class="lbl">Proj. Losses</div></div>
+    <div class="record-item" style="margin-left:.75rem;padding-left:1.25rem;border-left:1px solid var(--border)">
+      <div class="num" style="color:var(--gold-accent)">3</div><div class="lbl">Media Favored</div>
+    </div>
+  </div>
+
+  <div class="season-outlook">
+    <h3>2026 Season Outlook</h3>
+    <div class="outlook-grid">
+      <div class="outlook-stat"><div class="val">4.6–7.4</div><div class="lbl">ESPN FPI Proj.</div></div>
+      <div class="outlook-stat"><div class="val">32.7%</div><div class="lbl">Bowl Elig. Chance</div></div>
+      <div class="outlook-stat"><div class="val">1st Yr</div><div class="lbl">Coach Fitzgerald</div></div>
+      <div class="outlook-stat"><div class="val">4 Yrs</div><div class="lbl">Bowl Drought</div></div>
+    </div>
+    <div class="outlook-text">
+      Pat Fitzgerald takes over a program coming off four straight losing seasons. Nearly 40 players entered the transfer portal. Best case: bowl eligibility as one of the Big Ten's best stories. Media consensus: give Fitzgerald a year, then look out.
+    </div>
+  </div>
+
+  <!-- FOOTBALL -->
+  <div class="game-card" data-loc="home" data-date="2026-09-04T19:00:00-04:00" id="fb-toledo" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Sep</div><div class="day">4</div><div class="weekday">Fri</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Toledo</div>
+        <div class="game-meta">Friday Night &middot; Spartan Stadium <span class="watch-tag">ESPN+</span></div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 LSJ / Spartans Wire Preview</div>
+        <div class="detail-text">Season opener and both head coaches' debuts. Only the second MSU–Toledo meeting ever — Spartans won 58-0 in 1925. Toledo's Mike Jacobs jumps up from FCS Mercer. Openers are typically sloppy for MSU, but the Power-conference talent gap should decide it. Watch QB Alessio Milivojevic.</div>
+      </div>
+      <div class="prediction-box">
+        <div class="pred-label">🏆 Predicted Winner</div>
+        <div class="pred-winner">Michigan State</div>
+        <div class="pred-score">Predicted Score: MSU 31, Toledo 13</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-09-12T15:30:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Sep</div><div class="day">12</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Eastern Michigan</div>
+        <div class="game-meta">3:30 PM &middot; <span class="tv-tag">BTN</span> <span class="watch-tag">Peacock</span> &middot; Spartan Stadium</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Preview</div>
+        <div class="detail-text">Former Spartan QB Noah Kim returns leading the Eagles. EMU has never beaten Michigan State. MSU should find its rhythm late even with new-coach growing pains.</div>
+      </div>
+      <div class="prediction-box">
+        <div class="pred-label">🏆 Predicted Winner</div>
+        <div class="pred-winner">Michigan State</div>
+        <div class="pred-score">MSU handles business at home</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-star="1" data-date="2026-09-19T19:30:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Sep</div><div class="day">19</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Notre Dame ⭐</div>
+        <div class="game-meta">7:30 PM &middot; <span class="tv-tag">NBC</span> <span class="watch-tag">Peacock</span> &middot; South Bend</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Preview</div>
+        <div class="detail-text">Notre Dame has overtaken Oregon as the national title favorite in Vegas. Rivalry renewal in South Bend under the lights. Media outlets say this is where MSU could shock the college football world — with most predicting the Spartans fall just short in a statement performance.</div>
+      </div>
+      <div class="prediction-box" style="background:linear-gradient(135deg,#3D2314,#6B3A1F)">
+        <div class="pred-label">🏆 Predicted Winner</div>
+        <div class="pred-winner">Notre Dame (close)</div>
+        <div class="pred-score">MSU predicted to fall just short</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-09-26T12:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Sep</div><div class="day">26</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Nebraska</div>
+        <div class="game-meta">Time TBD &middot; Big Ten Opener</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Preview</div>
+        <div class="detail-text">Big Ten play begins at home. Confidence should be growing in East Lansing — this is a winnable conference opener for Fitzgerald's squad.</div>
+      </div>
+      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-10-03T12:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">3</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Wisconsin</div>
+        <div class="game-meta">Time TBD &middot; Camp Randall</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-10-10T12:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">10</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Illinois</div>
+        <div class="game-meta">Time TBD &middot; Homecoming</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Note</div>
+        <div class="detail-text">Former MSU QB Katin Houser returns to East Lansing for MSU's homecoming game.</div>
+      </div>
+      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-10-17T12:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">17</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Northwestern</div>
+        <div class="game-meta">Time TBD &middot; Fitzgerald's old team</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Note</div>
+        <div class="detail-text">Fitzgerald faces the program he led for 17 seasons. One of only three games ESPN FPI has MSU favored in this season.</div>
+      </div>
+      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-10-24T12:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">24</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at UCLA</div>
+        <div class="game-meta">Time TBD &middot; Rose Bowl, Pasadena</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card bye" data-loc="bye">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">31</div><div class="weekday">Sat</div></div>
+      <div class="game-divider neutral"></div>
+      <div class="game-info">
+        <div class="game-opponent" style="color:var(--text-muted)">BYE WEEK</div>
+        <div class="game-meta">Rest up for the stretch run 🎃</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-star="1" data-date="2026-11-07T12:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">7</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Michigan ⭐</div>
+        <div class="game-meta">Time TBD &middot; The Big House &middot; Paul Bunyan Trophy</div>
+      </div>
+      <div class="game-badge badge-away">Rivalry</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Preview</div>
+        <div class="detail-text">Second time in three years both rivals have first-year head coaches facing off. Michigan is one of the nation's most intriguing teams — huge gap between ceiling and floor. MSU comes off the bye looking to reclaim Paul Bunyan.</div>
+      </div>
+      <div class="no-preview">Full LSJ rivalry preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-14T12:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">14</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Washington</div>
+        <div class="game-meta">Time TBD &middot; Spartan Stadium</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-star="1" data-date="2026-11-21T12:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">21</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Oregon ⭐</div>
+        <div class="game-meta">Time TBD &middot; Senior Day territory</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Note</div>
+        <div class="detail-text">One of the toughest home tests of the season. Oregon has been a national-title contender each year since joining the Big Ten.</div>
+      </div>
+      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-11-28T12:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">28</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Rutgers</div>
+        <div class="game-meta">Time TBD &middot; Season Finale</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+</div><!-- end football -->
+
+<div id="basketball" class="section">
+
+  <div class="live-card" id="basketball-live">
+    <div class="live-head">
+      <div class="live-title" id="basketball-live-title">🏀 Scoreboard</div>
+      <button class="refresh-btn" onclick="loadScore('basketball')" aria-label="Refresh score">↻</button>
+    </div>
+    <div id="basketball-live-body"><div class="live-msg">Tap ↻ to load the latest MSU score</div></div>
+  </div>
+
+  <div class="rank-card" id="basketball-rank">
+    <div class="rank-head" onclick="toggleRank('basketball')">
+      <div class="live-title">📊 Rankings &amp; Standings</div>
+      <div class="game-chevron" id="basketball-rank-chev">▼</div>
+    </div>
+    <div class="rank-body">
+      <div class="rank-tabs">
+        <div class="rank-tab active" id="basketball-tab-ap" onclick="showRankTab('basketball','ap',this)">🇺🇸 AP Top 25</div>
+        <div class="rank-tab" id="basketball-tab-b1g" onclick="showRankTab('basketball','b1g',this)">B1G Standings</div>
+      </div>
+      <div id="basketball-rank-content"><div class="live-msg">Loading…</div></div>
+    </div>
+  </div>
+
+  <div class="record-tracker">
+    <div class="record-item"><div class="num" style="color:var(--gold-accent)">Top 10</div><div class="lbl">Preseason</div></div>
+    <div class="record-item" style="margin-left:.75rem;padding-left:1.25rem;border-left:1px solid var(--border)">
+      <div class="num w">#1</div><div class="lbl">USA Today</div>
+    </div>
+    <div class="record-item" style="margin-left:.75rem;padding-left:1.25rem;border-left:1px solid var(--border)">
+      <div class="num" style="color:var(--spartan-green)">28</div><div class="lbl">Straight NCAAs</div>
+    </div>
+  </div>
+
+  <div class="season-outlook">
+    <h3>2026–27 Season Outlook</h3>
+    <div class="outlook-grid">
+      <div class="outlook-stat"><div class="val">27–8</div><div class="lbl">Last Season</div></div>
+      <div class="outlook-stat"><div class="val">Sweet 16</div><div class="lbl">2026 Finish</div></div>
+      <div class="outlook-stat"><div class="val">32nd Yr</div><div class="lbl">Coach Izzo</div></div>
+      <div class="outlook-stat"><div class="val">15.2/9.4</div><div class="lbl">Fears PPG/APG</div></div>
+    </div>
+    <div class="outlook-text">
+      Consensus preseason top-10. All-American Jeremy Fears Jr. withdrew from the NBA Draft and returns. MSU adds 7'2" Charlotte transfer Anton Bonke plus a loaded freshman class led by five-star center Ethan Taylor. USA Today has the Spartans at No. 1.
+    </div>
+  </div>
+
+  <div class="game-card" data-loc="neutral" data-star="1" data-date="2026-11-10T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">10</div><div class="weekday">Tue</div></div>
+      <div class="game-divider neutral"></div>
+      <div class="game-info">
+        <div class="game-opponent">vs Duke ⭐</div>
+        <div class="game-meta">Champions Classic &middot; <span class="tv-tag">ESPN</span> <span class="watch-tag">ESPN App</span> &middot; Chicago</div>
+      </div>
+      <div class="game-badge badge-neutral">Neutral</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Preview</div>
+        <div class="detail-text">Season opener at the Champions Classic in Chicago. Blue-blood showdown to tip off Izzo's 32nd season with a potential No. 1-ranked roster.</div>
+      </div>
+      <div class="no-preview">Full LSJ preview drops 2 weeks before tip-off — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="neutral" data-date="2026-11-26T14:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">26</div><div class="weekday">Thu</div></div>
+      <div class="game-divider neutral"></div>
+      <div class="game-info">
+        <div class="game-opponent">vs Arkansas</div>
+        <div class="game-meta">Thanksgiving &middot; Little Caesars Arena</div>
+      </div>
+      <div class="game-badge badge-neutral">Neutral</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Preview</div>
+        <div class="detail-text">Izzo vs. Calipari on Thanksgiving Day in Detroit. Two Hall of Fame-caliber coaches in a holiday showcase at Little Caesars Arena.</div>
+      </div>
+      <div class="no-preview">Full LSJ preview drops 2 weeks before tip-off — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="neutral" data-star="1" data-date="2026-12-19T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">19</div><div class="weekday">Sat</div></div>
+      <div class="game-divider neutral"></div>
+      <div class="game-info">
+        <div class="game-opponent">vs Gonzaga ⭐</div>
+        <div class="game-meta">Acrisure Series &middot; Palm Desert, CA</div>
+      </div>
+      <div class="game-badge badge-neutral">Neutral</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📰 Preview</div>
+        <div class="detail-text">Acrisure Series clash in the California desert. Two programs with deep March pedigrees in a marquee December test.</div>
+      </div>
+      <div class="no-preview">Full LSJ preview drops 2 weeks before tip-off — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="season-outlook" style="margin-top:.5rem">
+    <h3>Big Ten Opponents (Dates TBA)</h3>
+    <div class="outlook-text">
+      <strong>Home:</strong> Michigan, Maryland, Nebraska, Minnesota, Oregon, Penn State, Purdue, Rutgers, Washington, Wisconsin<br><br>
+      <strong>Away:</strong> Michigan, Maryland, Nebraska, Illinois, Indiana, Iowa, Northwestern, Ohio State, UCLA, USC<br><br>
+      <strong>Also coming:</strong> at Tennessee, Baylor, Bahamas holiday tournament &mdash; ask Claude to refresh this app when dates drop.
+    </div>
+  </div>
+
+</div><!-- end basketball -->
+
+<button class="jump-btn" onclick="jumpToNext()">⚡ Next Game</button>
+
+<script>
+// ===== Dark mode =====
+function toggleDark() {
+  document.body.classList.toggle('dark');
+  document.getElementById('modeBtn').textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+}
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.classList.add('dark');
+  document.getElementById('modeBtn').textContent = '☀️';
+}
+
+// ===== Tabs =====
+let activeTab = 'football';
+function switchTab(tab, el) {
+  activeTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  el.classList.add('active');
+  setFilter('all', document.querySelector('.chip[data-filter="all"]'));
+  markNextGame();
+  updateProgress();
+}
+
+// ===== Filters =====
+function setFilter(f, el) {
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const cards = document.querySelectorAll('#' + activeTab + ' .game-card');
+  cards.forEach(c => {
+    const loc = c.dataset.loc;
+    const star = c.dataset.star === '1';
+    let show = true;
+    if (f === 'home') show = loc === 'home';
+    else if (f === 'away') show = loc === 'away' || loc === 'neutral';
+    else if (f === 'star') show = star;
+    if (loc === 'bye' && f !== 'all') show = false;
+    c.style.display = show ? '' : 'none';
+  });
+}
+
+// ===== Expand cards =====
+function toggleCard(card) {
+  if (card.classList.contains('bye')) return;
+  const wasExpanded = card.classList.contains('expanded');
+  document.querySelectorAll('.game-card.expanded').forEach(c => c.classList.remove('expanded'));
+  if (!wasExpanded) card.classList.add('expanded');
+}
+
+// ===== Next game detection + live countdown =====
+function getGames(section) {
+  return Array.from(document.querySelectorAll('#' + section + ' .game-card[data-date]'))
+    .map(c => ({el: c, date: new Date(c.dataset.date)}))
+    .sort((a,b) => a.date - b.date);
+}
+
+function findNext() {
+  const now = new Date();
+  const games = getGames(activeTab);
+  for (const g of games) {
+    // game "ends" ~4 hours after start
+    if (now < new Date(g.date.getTime() + 4*3600*1000)) return g;
+  }
+  return null;
+}
+
+function markNextGame() {
+  document.querySelectorAll('.next-banner').forEach(b => b.remove());
+  document.querySelectorAll('.game-card').forEach(c => c.classList.remove('next-game'));
+  const now = new Date();
+  getGames('football').concat(getGames('basketball')).forEach(g => {
+    if (new Date(g.date.getTime() + 4*3600*1000) < now) g.el.classList.add('past');
+  });
+  const next = findNext();
+  if (next) {
+    next.el.classList.add('next-game');
+    const banner = document.createElement('div');
+    banner.className = 'next-banner';
+    banner.textContent = '⚡ Next Game';
+    next.el.insertBefore(banner, next.el.firstChild);
+  }
+}
+
+function updateCountdown() {
+  const next = findNext();
+  const label = document.getElementById('nextGameLabel');
+  const timer = document.getElementById('liveTimer');
+  if (!next) {
+    label.innerHTML = 'Season<strong>Complete — Go Green!</strong>';
+    timer.innerHTML = '';
+    return;
+  }
+  const opp = next.el.querySelector('.game-opponent').textContent.replace('⭐','').trim();
+  const diff = next.date - new Date();
+  if (diff <= 0) {
+    label.innerHTML = 'Live now<strong>' + opp + '</strong>';
+    timer.innerHTML = '<div class="unit"><div class="num">🔴</div><div class="lbl">Live</div></div>';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor(diff % 86400000 / 3600000);
+  const m = Math.floor(diff % 3600000 / 60000);
+  const s = Math.floor(diff % 60000 / 1000);
+  label.innerHTML = 'Next up<strong>' + opp + '</strong>';
+  timer.innerHTML =
+    '<div class="unit"><div class="num">' + d + '</div><div class="lbl">Days</div></div>' +
+    '<div class="unit"><div class="num">' + String(h).padStart(2,'0') + '</div><div class="lbl">Hrs</div></div>' +
+    '<div class="unit"><div class="num">' + String(m).padStart(2,'0') + '</div><div class="lbl">Min</div></div>' +
+    '<div class="unit"><div class="num">' + String(s).padStart(2,'0') + '</div><div class="lbl">Sec</div></div>';
+}
+
+// ===== Season progress =====
+function updateProgress() {
+  const games = getGames(activeTab);
+  if (!games.length) return;
+  const now = new Date();
+  const played = games.filter(g => new Date(g.date.getTime() + 4*3600*1000) < now).length;
+  const pct = Math.round(played / games.length * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = played + ' of ' + games.length + ' games';
+  document.getElementById('progressText').textContent = (activeTab === 'football' ? '🏈' : '🏀') + ' Season Progress';
+}
+
+// ===== Jump to next game =====
+function jumpToNext() {
+  const next = findNext();
+  if (next) {
+    next.el.scrollIntoView({behavior:'smooth', block:'center'});
+    if (!next.el.classList.contains('expanded')) toggleCard(next.el);
+  }
+}
+
+// ===== Init =====
+markNextGame();
+updateProgress();
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ===== LIVE SCORES + RANKINGS (ESPN public feeds — needs internet) =====
+const ESPN = {
+  football: {
+    sched:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/127/schedule',
+    rank:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings',
+    stand:'https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=5'
+  },
+  basketball: {
+    sched:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/127/schedule',
+    rank:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/rankings',
+    stand:'https://site.api.espn.com/apis/v2/sports/basketball/mens-college-basketball/standings?group=5'
+  }
+};
+let liveTimers = {};
+
+async function loadScore(sport) {
+  const body = document.getElementById(sport + '-live-body');
+  const card = document.getElementById(sport + '-live');
+  const title = document.getElementById(sport + '-live-title');
+  body.innerHTML = '<div class="live-msg">Loading…</div>';
+  try {
+    const r = await fetch(ESPN[sport].sched);
+    const data = await r.json();
+    const events = (data.events || []).slice();
+    if (!events.length) throw new Error('no events');
+    const now = new Date();
+    // Prefer a live game; else the closest game to now
+    let ev = events.find(e => e.competitions?.[0]?.status?.type?.state === 'in');
+    if (!ev) {
+      events.sort((a,b) => Math.abs(new Date(a.date)-now) - Math.abs(new Date(b.date)-now));
+      ev = events[0];
+    }
+    const comp = ev.competitions[0];
+    const st = comp.status?.type || {};
+    const isLive = st.state === 'in';
+    const teams = comp.competitors || [];
+    const rows = teams.map(t => {
+      const isMSU = (t.team?.abbreviation === 'MSU' || /Michigan State/i.test(t.team?.displayName||''));
+      const score = (t.score && (t.score.displayValue ?? t.score.value ?? t.score)) ?? '–';
+      const rank = t.curatedRank?.current && t.curatedRank.current <= 25 ? '#' + t.curatedRank.current + ' ' : '';
+      return '<div class="score-team' + (isMSU ? ' msu' : '') + '">' +
+        '<div class="tscore">' + score + '</div>' +
+        '<div class="tname">' + rank + (t.team?.shortDisplayName || t.team?.displayName || '?') + '</div></div>';
+    });
+    const statusTxt = st.shortDetail || st.detail || st.description || '';
+    body.innerHTML = '<div class="score-row">' + rows[0] +
+      '<div class="score-status">' + statusTxt + '</div>' + rows[1] + '</div>';
+    card.classList.toggle('is-live', isLive);
+    title.innerHTML = isLive
+      ? '<span class="live-dot"></span> Live Now'
+      : (st.state === 'post' ? (sport==='football'?'🏈':'🏀') + ' Final' : (sport==='football'?'🏈':'🏀') + ' Scoreboard');
+    // Auto-refresh every 45s while live
+    clearInterval(liveTimers[sport]);
+    if (isLive) liveTimers[sport] = setInterval(() => loadScore(sport), 45000);
+  } catch (e) {
+    body.innerHTML = '<div class="live-msg">Couldn\'t load the score — check your connection and tap ↻ to retry.</div>';
+  }
+}
+
+function toggleRank(sport) {
+  const card = document.getElementById(sport + '-rank');
+  card.classList.toggle('open');
+  if (card.classList.contains('open')) showRankTab(sport, 'ap', document.getElementById(sport + '-tab-ap'));
+}
+
+async function showRankTab(sport, which, el) {
+  event && event.stopPropagation && event.stopPropagation();
+  document.querySelectorAll('#' + sport + '-rank .rank-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const box = document.getElementById(sport + '-rank-content');
+  box.innerHTML = '<div class="live-msg">Loading…</div>';
+  try {
+    if (which === 'ap') {
+      const r = await fetch(ESPN[sport].rank);
+      const data = await r.json();
+      const ap = (data.rankings || []).find(x => /AP/i.test(x.name || x.shortName || '')) || data.rankings?.[0];
+      if (!ap) throw new Error('no poll');
+      const ranks = ap.ranks || [];
+      let msuRank = null;
+      let out = ranks.slice(0, 10).map(t => rankRow(t)).join('');
+      const msu = ranks.find(t => /Michigan State/i.test(t.team?.location || t.team?.displayName || ''));
+      if (msu && msu.current > 10) out += '<div class="live-msg">⋯</div>' + rankRow(msu);
+      else if (!msu) out += '<div class="live-msg">MSU not currently ranked in the ' + (ap.shortName || 'AP Top 25') + '</div>';
+      box.innerHTML = '<div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;font-family:Oswald">' + (ap.name || 'AP Top 25') + '</div>' + out;
+    } else {
+      const r = await fetch(ESPN[sport].stand);
+      const data = await r.json();
+      const entries = data.standings?.entries || data.children?.[0]?.standings?.entries || [];
+      if (!entries.length) throw new Error('no standings');
+      const rows = entries.map(en => {
+        const t = en.team || {};
+        const stats = en.stats || [];
+        const conf = stats.find(s => s.type==='vsconf' || /conf/i.test(s.name||''));
+        const ovr = stats.find(s => s.type==='total' || /overall/i.test(s.name||''));
+        return {name: t.shortDisplayName || t.displayName, conf: conf?.displayValue || '', ovr: ovr?.displayValue || '',
+                msu: /Michigan State/i.test(t.displayName || '')};
+      });
+      box.innerHTML = '<div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;font-family:Oswald">Big Ten &middot; Conf / Overall</div>' +
+        rows.map((t,i) => '<div class="rank-row' + (t.msu ? ' msu-row' : '') + '"><div class="rnum">' + (i+1) + '</div><div class="rteam">' + t.name + '</div><div class="rrec">' + t.conf + ' &middot; ' + t.ovr + '</div></div>').join('');
+    }
+  } catch (e) {
+    box.innerHTML = '<div class="live-msg">Couldn\'t load — check your connection and try again.</div>';
+  }
+}
+function rankRow(t) {
+  const isMSU = /Michigan State/i.test(t.team?.location || t.team?.displayName || '');
+  return '<div class="rank-row' + (isMSU ? ' msu-row' : '') + '"><div class="rnum">' + t.current + '</div>' +
+    '<div class="rteam">' + (t.team?.location || t.team?.displayName || '?') + '</div>' +
+    '<div class="rrec">' + (t.recordSummary || '') + '</div></div>';
+}
+// Auto-load score on open
+loadScore('football');
+
+</script>
+
+
+<!-- Trash Talk Modal -->
+<div class="talk-modal" id="talkModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('talkModal').classList.remove('open')">&times;</button>
+    <h3>🔥 Trash Talk Generator</h3>
+    <div class="trash-line" id="trashLine">Tap below for ammo</div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="genTrash()">🎲 New One</button>
+      <button class="btn-primary" onclick="copyTrash()">📋 Copy</button>
+    </div>
+  </div>
+</div>
+
+<!-- Tailgate Modal -->
+<div class="tailgate-modal" id="tailgateModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box" style="max-height:85vh;overflow-y:auto">
+    <button class="modal-close" onclick="document.getElementById('tailgateModal').classList.remove('open')">&times;</button>
+    <h3>🍔 Tailgate Planner</h3>
+
+    <div style="background:linear-gradient(135deg,var(--spartan-green-dark),var(--spartan-green));color:#fff;border-radius:10px;padding:.85rem;margin-bottom:.85rem">
+      <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7;margin-bottom:.3rem">🏟 Planning For</div>
+      <select id="tgGameSelect" onchange="switchTgGame()" style="width:100%;padding:.5rem;border-radius:8px;border:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:1rem;color:#1A1A1A;background:#fff;cursor:pointer"></select>
+    </div>
+
+    <div style="background:rgba(24,69,59,.06);border-radius:10px;padding:.85rem;margin-bottom:.85rem">
+      <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);margin-bottom:.5rem">👥 Who's Coming?</div>
+      <div id="rsvpList"></div>
+      <button class="tg-add" onclick="addRsvp()" style="margin-top:.4rem">+ Add Person</button>
+      <div style="margin-top:.5rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:.9rem;color:var(--text-primary);text-align:center" id="headcount">Total: 0 people</div>
+    </div>
+
+    <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);margin-bottom:.35rem">📋 Who's Bringing What?</div>
+    <ul class="tg-list" id="tgList"></ul>
+    <button class="tg-add" onclick="addTgItem()">+ Add Item</button>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="resetTg()">🗑 Reset This Game</button>
+      <button class="btn-primary" onclick="shareTg()">📤 Share Plan</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== HYPE SHARE =====
+function shareHype() {
+  const next = findNext();
+  if (!next) { alert('Season complete — Go Green!'); return; }
+  const opp = next.el.querySelector('.game-opponent').textContent.replace('⭐','').trim();
+  const diff = next.date - new Date();
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor(diff % 86400000 / 3600000);
+  let timeStr = d > 0 ? d + ' day' + (d>1?'s':'') + ', ' + h + ' hour' + (h>1?'s':'') : h + ' hour' + (h>1?'s':'');
+  if (diff <= 0) timeStr = 'RIGHT NOW';
+  const loc = next.el.dataset.loc;
+  const emoji = loc === 'home' ? '🏟' : '✈️';
+  const text = '🏈 ' + timeStr + ' until MSU ' + (loc==='away'?'@ ':'vs ') + opp + ' ' + emoji + '💚 Go Green!';
+  if (navigator.share) {
+    navigator.share({text: text}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.hype-btn');
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.innerHTML = '📣 Share Hype', 2000);
+    });
+  } else {
+    prompt('Copy this:', text);
+  }
+}
+
+// ===== TRASH TALK =====
+const trashLines = [
+  "Michigan hasn't earned the right to talk trash since before their players needed NIL money to stay 😂",
+  "Imagine losing to App State AND having the worst fight song in college football 🎵🗑",
+  "Little Brother? We literally own a trophy with YOUR mascot on it 🪓",
+  "Wolverines hibernate all winter. Spartans don't stop. 💪",
+  "MSU: Where Heisman candidates are made. Michigan: Where 5-stars go to disappoint.",
+  "27 straight NCAA tournaments in basketball. Michigan could never. 🏀",
+  "We beat Ohio State with a punter throwing passes. Your program peaked with a sign-stealing scandal.",
+  "Spartan Stadium on a night game > 110,000 fans watching Michigan lose at home",
+  "Tom Izzo has more Final Fours than Michigan has had good coaches this century 🐐",
+  "Remember when Trouble With The Snap happened? We do. Every. Single. Day. 😘",
+  "Pat Fitzgerald is about to do more with less than Michigan does with everything 🟢",
+  "Fun fact: MSU leads the all-time series. Look it up. Then cry about it. 💚",
+  "We tailgate with real food. Michigan fans bring wine and cheese to a football game 🧀",
+  "Sparty does push-ups after touchdowns. Your mascot just stands there looking confused.",
+  "The Big House? More like the Big Quiet when MSU is up in the 4th quarter 🤫"
+];
+function genTrash() {
+  document.getElementById('trashLine').textContent = trashLines[Math.floor(Math.random() * trashLines.length)];
+}
+function openTrashTalk() {
+  genTrash();
+  document.getElementById('talkModal').classList.add('open');
+}
+function copyTrash() {
+  const text = document.getElementById('trashLine').textContent;
+  if (navigator.share) {
+    navigator.share({text: text}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('#talkModal .btn-primary');
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.innerHTML = '📋 Copy', 1500);
+    });
+  } else {
+    prompt('Copy:', text);
+  }
+}
+
+// ===== TAILGATE PLANNER (per-game) =====
+let currentTgGame = '';
+function getHomeGames() {
+  const cards = document.querySelectorAll('#football .game-card[data-loc="home"][data-date]');
+  const now = new Date();
+  const games = [];
+  cards.forEach(c => {
+    const d = new Date(c.dataset.date);
+    if (d.getTime() + 4*3600*1000 > now.getTime()) {
+      const opp = c.querySelector('.game-opponent').textContent.replace('\u2b50','').trim();
+      const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
+      const wd = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()];
+      const label = wd + ' ' + mo + ' ' + d.getDate() + ' \u2014 ' + opp;
+      games.push({key:'tg_'+d.toISOString().slice(0,10), label:label, opp:opp, dateStr:mo+' '+d.getDate()});
+    }
+  });
+  return games;
+}
+function populateGameSelect() {
+  const sel = document.getElementById('tgGameSelect');
+  const games = getHomeGames();
+  sel.innerHTML = games.map(g => '<option value="'+g.key+'">'+g.label+'</option>').join('');
+  if (!games.length) { sel.innerHTML = '<option>No upcoming home games</option>'; return; }
+  if (!currentTgGame || !games.find(g=>g.key===currentTgGame)) currentTgGame = games[0].key;
+  sel.value = currentTgGame;
+}
+function switchTgGame() { currentTgGame = document.getElementById('tgGameSelect').value; renderRsvp(); renderTg(); }
+
+const defaultItems = [
+  {text:'Burgers & brats',who:'',done:false},{text:'Buns',who:'',done:false},
+  {text:'Cooler + ice',who:'',done:false},{text:'Drinks (beer/pop/water)',who:'',done:false},
+  {text:'Chips & dip',who:'',done:false},{text:'Chairs',who:'',done:false},
+  {text:'Grill + charcoal/propane',who:'',done:false},{text:'Plates, cups & napkins',who:'',done:false},
+  {text:'Cornhole / games',who:'',done:false}
+];
+
+function getRsvp() {
+  try { return JSON.parse(localStorage.getItem(currentTgGame+'_rsvp')) || [{name:'',count:1}]; }
+  catch(e) { return [{name:'',count:1}]; }
+}
+function saveRsvp(d) { try{localStorage.setItem(currentTgGame+'_rsvp',JSON.stringify(d))}catch(e){} }
+function renderRsvp() {
+  const data = getRsvp();
+  document.getElementById('rsvpList').innerHTML = data.map((p,i) =>
+    '<div class="rsvp-row">' +
+    '<input class="rsvp-name" value="'+(p.name||'').replace(/"/g,'&quot;')+'" placeholder="Name" onchange="editRsvp('+i+',\'name\',this.value)">' +
+    '<input class="rsvp-count" type="number" min="1" max="20" value="'+(p.count||1)+'" onchange="editRsvp('+i+',\'count\',this.value)">' +
+    '<button class="rsvp-del" onclick="delRsvp('+i+')">\u00d7</button></div>'
+  ).join('');
+  const total = data.reduce((s,p) => s+(parseInt(p.count)||1), 0);
+  document.getElementById('headcount').textContent = 'Total: '+total+' people';
+}
+function editRsvp(i,field,val) {
+  const d=getRsvp(); if(field==='count')d[i].count=Math.max(1,parseInt(val)||1); else d[i][field]=val; saveRsvp(d); renderRsvp();
+}
+function addRsvp() {
+  const d=getRsvp(); d.push({name:'',count:1}); saveRsvp(d); renderRsvp();
+  setTimeout(()=>{const inp=document.querySelectorAll('.rsvp-name');inp[inp.length-1].focus()},100);
+}
+function delRsvp(i) { const d=getRsvp(); if(d.length<=1)return; d.splice(i,1); saveRsvp(d); renderRsvp(); }
+
+function getTgData() {
+  try { return JSON.parse(localStorage.getItem(currentTgGame+'_items')) || JSON.parse(JSON.stringify(defaultItems)); }
+  catch(e) { return JSON.parse(JSON.stringify(defaultItems)); }
+}
+function saveTg(d) { try{localStorage.setItem(currentTgGame+'_items',JSON.stringify(d))}catch(e){} }
+function renderTg() {
+  const data = getTgData();
+  document.getElementById('tgList').innerHTML = data.map((item,i) =>
+    '<li><div class="tg-check'+(item.done?' checked':'')+'" onclick="toggleTgItem('+i+')">'+(item.done?'\u2713':'')+'</div>' +
+    '<input class="tg-input" value="'+(item.text||'').replace(/"/g,'&quot;')+'" onchange="editTgItem('+i+',\'text\',this.value)" placeholder="Item..." style="flex:1">' +
+    '<input class="tg-input" value="'+(item.who||'').replace(/"/g,'&quot;')+'" onchange="editTgItem('+i+',\'who\',this.value)" placeholder="Who?" style="width:65px;flex:none;text-align:center;font-size:.78rem"></li>'
+  ).join('');
+}
+function toggleTgItem(i) { const d=getTgData(); d[i].done=!d[i].done; saveTg(d); renderTg(); }
+function editTgItem(i,field,val) { const d=getTgData(); d[i][field]=val; saveTg(d); }
+function addTgItem() {
+  const d=getTgData(); d.push({text:'',who:'',done:false}); saveTg(d); renderTg();
+  setTimeout(()=>{const inp=document.querySelectorAll('#tgList .tg-input');inp[inp.length-2].focus()},100);
+}
+function resetTg() { localStorage.removeItem(currentTgGame+'_items'); localStorage.removeItem(currentTgGame+'_rsvp'); renderTg(); renderRsvp(); }
+function openTailgate() { populateGameSelect(); renderTg(); renderRsvp(); document.getElementById('tailgateModal').classList.add('open'); }
+function shareTg() {
+  const rsvp=getRsvp(), data=getTgData();
+  const total=rsvp.reduce((s,p)=>s+(parseInt(p.count)||1),0);
+  const game=getHomeGames().find(g=>g.key===currentTgGame);
+  const gl=game?game.label:'Game Day';
+  let t='\ud83c\udf54 MSU TAILGATE \u2014 '+gl+'\n\n\ud83d\udc65 WHO\'S COMING ('+total+'):\n';
+  t+=rsvp.filter(p=>p.name).map(p=>'  \u2022 '+p.name+(p.count>1?' (+' +(p.count-1)+')':'')).join('\n');
+  if(!rsvp.filter(p=>p.name).length) t+='  (add names above)';
+  t+='\n\n\ud83d\udccb BRINGING:\n';
+  t+=data.filter(x=>x.text).map(x=>(x.done?'\u2705':'\u2b1c')+' '+x.text+(x.who?' \u2014 '+x.who:'')).join('\n');
+  t+='\n\n\ud83d\udcaa Go Green!';
+  if(navigator.share){navigator.share({text:t}).catch(()=>{});}
+  else if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>{
+    const b=document.querySelector('#tailgateModal .btn-primary');b.textContent='\u2705 Copied!';
+    setTimeout(()=>b.innerHTML='\ud83d\udce4 Share Plan',1500);
+  });}else{prompt('Copy:',t);}
+}
+</script>
+</body>
+</html>
