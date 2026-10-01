@@ -80,7 +80,7 @@ No tailgate for hoops, so throw a watch party at a bar or someone's house.
 No accounts or sign-ups. The app counts how many phones open it using a random ID, with no names or personal info. Tailgate lists stay on your phone. Watch-party invites and answers are stored on the invite service so the host and guests can see them.
 
 ### 💚 Support
-Free, ad-free, made by a Spartan fan. The **Support this app** button at the bottom of the schedule goes to Venmo (@Sparty-Tracker).
+Free, ad-free, made by a Spartan fan. Tap **Chip in** near the top of the schedule, or **Support this app** at the bottom, to tip on Venmo (@Sparty-Tracker). The top strip can be hidden with ×; it comes back after two weeks, or two months after someone chips in.
 
 *Unofficial fan app. Not affiliated with Michigan State University.*
 

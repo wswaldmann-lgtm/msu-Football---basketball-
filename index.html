@@ -578,6 +578,15 @@ body.dark .wp-label{color:#5BBF97}
 .help-sec b{color:var(--text-primary)}
 .help-note{font-style:italic}
 .help-foot{text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:.9rem}
+
+/* ===== Support strip (near the top) ===== */
+.support-strip{display:flex;align-items:center;gap:.55rem;margin:.1rem 16px .75rem;padding:.55rem .6rem .55rem .8rem;border-radius:12px;background:rgba(197,165,81,.14);border:1px solid rgba(197,165,81,.45)}
+.support-strip[hidden]{display:none}
+.ss-heart{font-size:1.05rem}
+.ss-text{flex:1;min-width:0;font-size:.82rem;color:var(--text-secondary);line-height:1.3}
+.ss-text b{color:var(--text-primary)}
+.ss-btn{flex:none;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:var(--spartan-green);color:#fff;border-radius:999px;padding:.45rem .85rem}
+.ss-x{flex:none;border:none;background:none;color:var(--text-muted);font-size:1.15rem;line-height:1;padding:.1rem .25rem;cursor:pointer}
 </style>
 </head>
 <body>
@@ -647,6 +656,13 @@ body.dark .wp-label{color:#5BBF97}
   <button class="hype-btn" onclick="shareHype()">📣 Share Hype</button>
   <button class="talk-btn" onclick="openTrashTalk()">🔥 Trash Talk</button>
   <button class="tailgate-btn gd-label" onclick="openGameDay()">🍔 Tailgate</button>
+</div>
+
+<div class="support-strip" id="supportStrip" hidden>
+  <span class="ss-heart">💚</span>
+  <span class="ss-text"><b>Free &amp; ad-free</b>, made by a Spartan fan</span>
+  <a class="ss-btn" id="supportStripBtn" href="#" target="_blank" rel="noopener" onclick="return supportStripClick(event)">Chip in</a>
+  <button class="ss-x" aria-label="Hide for now" onclick="hideSupportStrip(14)">×</button>
 </div>
 
 <div id="football" class="section active">
@@ -2258,7 +2274,7 @@ loadScore('football');
     </details>
 
     <details class="help-sec"><summary>💚 Support</summary>
-      <p>The tracker is free, ad-free and made by a Spartan fan. If you like it, the <b>Support this app</b> button at the bottom of the schedule goes to Venmo.</p>
+      <p>The tracker is free, ad-free and made by a Spartan fan. If you like it, tap <b>Chip in</b> near the top of the schedule (or <b>Support this app</b> at the bottom) to send a tip on Venmo.</p>
     </details>
 
     <p class="help-foot">Unofficial fan app. Not affiliated with Michigan State University. Go Green! 💚</p>
@@ -2588,6 +2604,25 @@ const VENMO_USER = 'Sparty-Tracker';
     btn.href = 'https://venmo.com/u/' + encodeURIComponent(VENMO_USER);
     btn.textContent = '💚 Support this app on Venmo';
   }
+})();
+// ===== Support strip near the top =====
+// Shows on open; × hides it for 14 days, and tapping through to Venmo hides it for 60 days.
+function hideSupportStrip(days) {
+  try { localStorage.setItem('msu_support_hide_until', String(Date.now() + days * 86400000)); } catch (e) {}
+  document.getElementById('supportStrip').hidden = true;
+}
+function supportStripClick(e) {
+  if (!VENMO_USER) { e.preventDefault(); return false; }
+  hideSupportStrip(60);
+  return true;
+}
+(function () {
+  const strip = document.getElementById('supportStrip');
+  if (!strip || !VENMO_USER) return;
+  let until = 0; try { until = +localStorage.getItem('msu_support_hide_until') || 0; } catch (e) {}
+  if (Date.now() < until) return;
+  document.getElementById('supportStripBtn').href = 'https://venmo.com/u/' + encodeURIComponent(VENMO_USER);
+  strip.hidden = false;
 })();
 function supportClick(e) {
   if (VENMO_USER) return true;            // follow the Venmo link
