@@ -104,3 +104,19 @@ Free, ad-free, made by a Spartan fan. Tap **Chip in** near the top of the schedu
 - Calendar subscriptions made at the old address keep working, since the `.ics` feeds are still published there.
 
 **Fight-song intro:** synthesized in code (baritones and tubas) from the public-domain melody of "Victory for MSU" (F. I. Lankey, 1915). No audio file.
+
+---
+
+## Other teams (Western Michigan and future schools)
+
+The MSU app is the master copy. Other schools get their own app made from it, so fixes to the MSU app reach every team on the next deploy.
+
+| Team | Address | Settings |
+|---|---|---|
+| Western Michigan Broncos | https://wmu-gameday.netlify.app | [`teams/wmu.json`](teams/wmu.json) |
+
+- **Schedules, colors, names, links, trash talk:** edit the team's file in [`teams/`](teams/). Time `"TBA"` means not announced; add `"result": "W 31–17"` after a game and update the `record`.
+- **Build it:** `python3 tools/make_team.py wmu` writes `wmu/index.html` (the Netlify build runs this automatically). `python3 tools/make_team_icons.py wmu` makes the app icon and splash background (original artwork, no school logos).
+- **Hosting:** each team is its own Netlify project linked to this repo with base directory `stats` and a `TEAM` environment variable (`wmu`). Each team keeps its own visitor stats (`/stats`) and watch-party invites.
+- Other teams have no fight-song intro (yet).
+- **Adding a school:** copy `teams/wmu.json`, change the details (ESPN team id, conference standings group), run the two scripts, and create a Netlify project with `TEAM` set to the new name.

@@ -1,0 +1,145 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Broncos Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:WMU Football
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:wmu-football-20260905@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20260905T233000Z
+DTEND:20260906T013000Z
+SUMMARY:🏈 WMU at Michigan
+LOCATION:Michigan Stadium\, Ann Arbor
+DESCRIPTION:7:30 PM · NBC · Michigan Stadium\, Ann Arbor\nhttps://wmu-gam
+ eday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20260912@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20260912T223000Z
+DTEND:20260913T003000Z
+SUMMARY:🏈 WMU vs Monmouth
+LOCATION:Waldo Stadium
+DESCRIPTION:6:30 PM · ESPN+ · Waldo Stadium\nhttps://wmu-gameday.netlify.
+ app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20260919@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20260919T230000Z
+DTEND:20260920T010000Z
+SUMMARY:🏈 WMU at Rice
+LOCATION:Rice Stadium\, Houston
+DESCRIPTION:7:00 PM · ESPN+ · Rice Stadium\, Houston\nhttps://wmu-gameday
+ .netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20260926@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:🏈 WMU vs Boise State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Waldo Stadium
+DESCRIPTION:Time TBA · Waldo Stadium\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20261003@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20261003T170000Z
+DTEND:20261003T190000Z
+SUMMARY:🏈 WMU at Buffalo
+LOCATION:UB Stadium\, Buffalo
+DESCRIPTION:1:00 PM · ESPN+ · UB Stadium\, Buffalo\nhttps://wmu-gameday.n
+ etlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20261010@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20261010T193000Z
+DTEND:20261010T213000Z
+SUMMARY:🏈 WMU vs Kent State
+LOCATION:Waldo Stadium
+DESCRIPTION:3:30 PM · ESPN+ · Waldo Stadium\nhttps://wmu-gameday.netlify.
+ app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20261017@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:🏈 WMU at Central Michigan (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Kelly/Shorts Stadium\, Mount Pleasant
+DESCRIPTION:Time TBA · Kelly/Shorts Stadium\, Mount Pleasant\nhttps://wmu-
+ gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20261024@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏈 WMU at Toledo (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Glass Bowl\, Toledo
+DESCRIPTION:Time TBA · Glass Bowl\, Toledo\nhttps://wmu-gameday.netlify.ap
+ p/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20261031@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20261031T160000Z
+DTEND:20261031T180000Z
+SUMMARY:🏈 WMU vs Bowling Green
+LOCATION:Waldo Stadium
+DESCRIPTION:12:00 PM · CBSSN · Waldo Stadium\nhttps://wmu-gameday.netlify
+ .app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20261110@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20261111T000000Z
+DTEND:20261111T020000Z
+SUMMARY:🏈 WMU at Akron
+LOCATION:InfoCision Stadium\, Akron
+DESCRIPTION:7:00 PM · ESPN+ · InfoCision Stadium\, Akron\nhttps://wmu-gam
+ eday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20261117@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20261118T000000Z
+DTEND:20261118T020000Z
+SUMMARY:🏈 WMU vs Eastern Michigan
+LOCATION:Waldo Stadium
+DESCRIPTION:7:00 PM · ESPN+ · Waldo Stadium\nhttps://wmu-gameday.netlify.
+ app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-football-20261124@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261124
+DTEND;VALUE=DATE:20261125
+SUMMARY:🏈 WMU vs Miami (OH) (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Waldo Stadium
+DESCRIPTION:Time TBA · ESPN+ · Waldo Stadium\nhttps://wmu-gameday.netlify
+ .app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

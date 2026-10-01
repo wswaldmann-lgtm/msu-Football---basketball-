@@ -2,34 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script>
-// The app's home is now spartans-gameday.netlify.app. Browser visits to the old GitHub address
-// go straight there. Home-screen installs of the old address get a "we moved" banner instead,
-// because jumping to another site from an installed app opens an awkward in-app browser on iPhone.
-(function () {
-  if (location.hostname !== 'wswaldmann-lgtm.github.io') return;
-  var installed = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone;
-  if (!installed) location.replace('https://spartans-gameday.netlify.app/' + location.search + location.hash);
-  else window.__movedBanner = true;
-})();
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#18453B">
-<meta name="apple-mobile-web-app-title" content="Spartans">
+<meta name="theme-color" content="#5A3A22">
+<meta name="apple-mobile-web-app-title" content="Broncos">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
-<title>Spartans Game Tracker</title>
+<title>Broncos Game Tracker</title>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --spartan-green:#18453B;
-  --spartan-green-dark:#0F2B24;
-  --spartan-green-light:#1E5A4C;
-  --gold-accent:#C5A551;
+  --spartan-green:#5A3A22;
+  --spartan-green-dark:#3A2414;
+  --spartan-green-light:#74492A;
+  --gold-accent:#F1C400;
   --card-bg:#FAFAF8;
   --text-primary:#1A1A1A;
   --text-secondary:#5A5A5A;
@@ -219,7 +208,7 @@ body.dark .game-date .month{color:var(--gold-accent)}
 .game-date .weekday{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em}
 .game-divider{width:3px;height:44px;border-radius:2px;flex-shrink:0}
 .game-divider.home{background:var(--spartan-green)}
-body.dark .game-divider.home{background:#2E7D5F}
+body.dark .game-divider.home{background:#8A5A35}
 .game-divider.away{background:var(--gold-accent)}
 .game-divider.neutral{background:var(--text-muted)}
 .game-info{flex:1;min-width:0}
@@ -253,8 +242,8 @@ body.dark .game-divider.home{background:#2E7D5F}
   font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;
   letter-spacing:.05em;text-transform:uppercase;
 }
-.badge-home{background:rgba(24,69,59,.08);color:var(--spartan-green)}
-body.dark .badge-home{background:rgba(46,125,95,.2);color:#5BBF97}
+.badge-home{background:rgba(90,58,34,.08);color:var(--spartan-green)}
+body.dark .badge-home{background:rgba(138,90,53,.2);color:#F4CF3A}
 .badge-away{background:rgba(197,165,81,.12);color:#8B7230}
 body.dark .badge-away{background:rgba(197,165,81,.15);color:var(--gold-accent)}
 .badge-neutral{background:rgba(128,128,128,.1);color:var(--text-muted)}
@@ -289,7 +278,7 @@ body.dark .detail-label{color:var(--gold-accent)}
 .mini-link{
   flex:1;text-align:center;
   padding:.55rem;border-radius:8px;
-  background:rgba(24,69,59,.06);
+  background:rgba(90,58,34,.06);
   color:var(--spartan-green);
   border:1px solid var(--border);
   font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
@@ -297,7 +286,7 @@ body.dark .detail-label{color:var(--gold-accent)}
   text-decoration:none;transition:background .2s;
 }
 body.dark .mini-link{background:rgba(197,165,81,.08);color:var(--gold-accent)}
-.mini-link:active{background:rgba(24,69,59,.15)}
+.mini-link:active{background:rgba(90,58,34,.15)}
 .season-outlook{
   background:var(--card-bg);border:1px solid var(--border);
   border-radius:14px;padding:1.25rem;margin-bottom:.75rem;
@@ -309,10 +298,10 @@ body.dark .mini-link{background:rgba(197,165,81,.08);color:var(--gold-accent)}
 }
 body.dark .season-outlook h3{color:var(--gold-accent)}
 .outlook-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.75rem}
-.outlook-stat{background:rgba(24,69,59,.04);border-radius:8px;padding:.65rem .75rem;text-align:center}
+.outlook-stat{background:rgba(90,58,34,.04);border-radius:8px;padding:.65rem .75rem;text-align:center}
 body.dark .outlook-stat{background:rgba(255,255,255,.04)}
 .outlook-stat .val{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.15rem;color:var(--spartan-green)}
-body.dark .outlook-stat .val{color:#5BBF97}
+body.dark .outlook-stat .val{color:#F4CF3A}
 .outlook-stat .lbl{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem}
 .outlook-text{font-size:.85rem;line-height:1.55;color:var(--text-secondary)}
 .record-tracker{
@@ -372,7 +361,7 @@ body.dark .live-title{color:var(--gold-accent)}
 .score-team .tname{font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;line-height:1.2}
 .score-team .tscore{font-family:'Oswald',sans-serif;font-weight:700;font-size:2rem;line-height:1.1;font-variant-numeric:tabular-nums}
 .score-team.msu .tscore{color:var(--spartan-green)}
-body.dark .score-team.msu .tscore{color:#5BBF97}
+body.dark .score-team.msu .tscore{color:#F4CF3A}
 .score-status{
   flex-shrink:0;text-align:center;
   font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
@@ -415,12 +404,12 @@ body.dark .score-team.msu .tscore{color:#5BBF97}
 .rank-row .rteam{flex:1;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rank-row .rrec{color:var(--text-muted);font-size:.78rem;flex-shrink:0;font-variant-numeric:tabular-nums}
 .rank-row.msu-row{
-  background:rgba(24,69,59,.07);border-radius:8px;border-bottom:none;
+  background:rgba(90,58,34,.07);border-radius:8px;border-bottom:none;
   margin:.15rem -.35rem;padding:.45rem .7rem;
 }
 body.dark .rank-row.msu-row{background:rgba(91,191,151,.1)}
 .rank-row.msu-row .rteam{color:var(--spartan-green)}
-body.dark .rank-row.msu-row .rteam{color:#5BBF97}
+body.dark .rank-row.msu-row .rteam{color:#F4CF3A}
 
 
 
@@ -461,7 +450,7 @@ body.dark .hype-btn{background:var(--gold-accent);color:#1A1A1A;border-color:var
 body.dark .modal-box h3{color:var(--gold-accent)}
 .trash-line{
   font-size:1.05rem;line-height:1.5;color:var(--text-primary);
-  padding:1rem;background:rgba(24,69,59,.05);border-radius:10px;
+  padding:1rem;background:rgba(90,58,34,.05);border-radius:10px;
   text-align:center;min-height:80px;display:flex;align-items:center;justify-content:center;
 }
 body.dark .trash-line{background:rgba(255,255,255,.05)}
@@ -497,7 +486,7 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
 .support-btn{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.04em;font-size:.95rem;padding:.65rem 1.1rem;border-radius:10px;background:#008CFF;color:#fff;text-decoration:none;white-space:nowrap}
 .support-note{flex-basis:100%;font-size:.82rem;color:var(--text-muted)}
 /* ===== Warm-up (launch) screen + Exit sheet ===== */
-#splash{position:fixed;inset:0;z-index:1000;background:#06120e url(icons/splash.jpg) center/cover no-repeat;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 16px calc(env(safe-area-inset-bottom,0px) + 9vh);cursor:pointer;transition:opacity .45s ease}
+#splash{position:fixed;inset:0;z-index:1000;background:#1E1209 url(icons/splash.jpg) center/cover no-repeat;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 16px calc(env(safe-area-inset-bottom,0px) + 9vh);cursor:pointer;transition:opacity .45s ease}
 #splash.hide{opacity:0;pointer-events:none}
 #splash .s-title{font-family:'Oswald',sans-serif;font-weight:700;color:#fff;font-size:clamp(1.6rem,7vw,2.4rem);letter-spacing:.06em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.6);text-align:center}
 #splash .s-sub{font-family:'Oswald',sans-serif;color:#d8f0e2;letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;margin-top:.35rem;text-shadow:0 1px 8px rgba(0,0,0,.6)}
@@ -549,7 +538,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 .wp-gamebox{background:linear-gradient(135deg,var(--spartan-green-dark),var(--spartan-green));border-radius:10px;padding:.8rem;margin-bottom:.7rem}
 .wp-select{width:100%;padding:.5rem;border-radius:8px;border:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:.95rem;color:#1A1A1A;background:#fff}
 .wp-label{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);margin:.55rem 0 .25rem}
-body.dark .wp-label{color:#5BBF97}
+body.dark .wp-label{color:#F4CF3A}
 .wp-in{width:100%;padding:.6rem .7rem;border-radius:8px;border:1px solid var(--border);background:var(--chip-bg);color:var(--text-primary);font-family:'Source Sans 3',sans-serif;font-size:.95rem}
 .wp-two{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
 .wp-msg{text-align:center;font-size:.85rem;color:var(--text-secondary);min-height:1.1em;margin-top:.5rem}
@@ -591,8 +580,8 @@ body.dark .wp-label{color:#5BBF97}
 </head>
 <body>
 <div id="splash" role="button" aria-label="Enter the game tracker" onclick="hideSplash(true)" hidden>
-  <div class="s-title">Spartans Game Tracker</div>
-  <div class="s-sub">Unofficial fan app &middot; Go Green</div>
+  <div class="s-title">Broncos Game Tracker</div>
+  <div class="s-sub">Unofficial fan app &middot; Go Broncos</div>
   <div class="s-tap">Tap to enter</div>
 </div>
 <div id="exitSheet" hidden onclick="if(event.target===this)closeExit()">
@@ -605,26 +594,20 @@ body.dark .wp-label{color:#5BBF97}
 </div>
 
 
-<div id="movedBanner" hidden style="background:#C5A551;color:#1A1A1A;padding:.75rem 1rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.02em;font-size:.88rem;line-height:1.35;text-align:center">
-  📲 The Spartans Game Tracker has a new home!<br>
-  <a href="https://spartans-gameday.netlify.app/" target="_blank" rel="noopener" style="color:#0F2B24;text-decoration:underline">Open spartans-gameday.netlify.app</a>, then <b>Add to Home Screen</b> again and delete this old icon.
-</div>
-<script>if (window.__movedBanner) document.getElementById('movedBanner').hidden = false;</script>
 <div id="installBanner" style="background:var(--gold-accent);color:#1A1A1A;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.03em;">
   <span style="font-size:1.2rem">📲</span>
   <span style="flex:1">Add to Home Screen to use like an app!</span>
   <button onclick="document.getElementById('installBanner').style.display='none';localStorage.setItem('msu_installed','1')" style="background:rgba(0,0,0,.15);border:none;color:#1A1A1A;padding:.3rem .6rem;border-radius:6px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;cursor:pointer">GOT IT</button>
 </div>
-<script>if(localStorage.getItem('msu_installed')||window.__movedBanner)document.getElementById('installBanner').style.display='none';</script>
+<script>if(localStorage.getItem('msu_installed'))document.getElementById('installBanner').style.display='none';</script>
 <div class="header">
   <div class="header-top">
     <img class="spartan-logo" src="icons/icon-192.png" alt="" width="44" height="44" style="padding:0;object-fit:cover">
     <div>
-      <h1>Spartans Game Tracker</h1>
-      <div class="sub">Unofficial fan app &middot; 2026–27 &middot; Go Green! 💚</div>
+      <h1>Broncos Game Tracker</h1>
+      <div class="sub">Unofficial fan app &middot; 2026–27 &middot; Go Broncos! 💛</div>
     </div>
     <button class="mode-toggle" onclick="openHelp()" aria-label="How it works" title="How it works" style="margin-right:.4rem;font-weight:700">?</button>
-    <button class="mode-toggle" onclick="toggleSound()" aria-label="Game-day intro sound" title="Game-day intro sound" id="soundBtn" style="margin-right:.4rem">🔊</button>
     <button class="mode-toggle" onclick="toggleDark()" aria-label="Toggle dark mode" id="modeBtn">🌙</button>
     <button class="mode-toggle" onclick="openExit()" aria-label="Exit" title="Exit" style="margin-left:.4rem;font-size:1rem;font-weight:700">✕</button>
   </div>
@@ -659,20 +642,21 @@ body.dark .wp-label{color:#5BBF97}
 </div>
 
 <div class="support-strip" id="supportStrip" hidden>
-  <span class="ss-heart">💚</span>
-  <span class="ss-text"><b>Free &amp; ad-free</b>, made by a Spartan fan</span>
+  <span class="ss-heart">💛</span>
+  <span class="ss-text"><b>Free &amp; ad-free</b>, made by a Bronco fan</span>
   <a class="ss-btn" id="supportStripBtn" href="#" target="_blank" rel="noopener" onclick="return supportStripClick(event)">Chip in</a>
   <button class="ss-x" aria-label="Hide for now" onclick="hideSupportStrip(14)">×</button>
 </div>
 
 <div id="football" class="section active">
 
+
   <div class="live-card" id="football-live">
     <div class="live-head">
       <div class="live-title" id="football-live-title">🏈 Scoreboard</div>
       <button class="refresh-btn" onclick="loadScore('football')" aria-label="Refresh score">↻</button>
     </div>
-    <div id="football-live-body"><div class="live-msg">Tap ↻ to load the latest MSU score</div></div>
+    <div id="football-live-body"><div class="live-msg">Tap ↻ to load the latest WMU score</div></div>
   </div>
 
   <div class="rank-card" id="football-rank">
@@ -683,7 +667,7 @@ body.dark .wp-label{color:#5BBF97}
     <div class="rank-body">
       <div class="rank-tabs">
         <div class="rank-tab active" id="football-tab-ap" onclick="showRankTab('football','ap',this)">🇺🇸 AP Top 25</div>
-        <div class="rank-tab" id="football-tab-b1g" onclick="showRankTab('football','b1g',this)">B1G Standings</div>
+        <div class="rank-tab" id="football-tab-b1g" onclick="showRankTab('football','b1g',this)">MAC Standings</div>
       </div>
       <div id="football-rank-content"><div class="live-msg">Loading…</div></div>
     </div>
@@ -694,22 +678,10 @@ body.dark .wp-label{color:#5BBF97}
     <div class="record-sep">–</div>
     <div class="record-item"><div class="num l">2</div><div class="lbl">Losses</div></div>
     <div class="record-item" style="margin-left:.75rem;padding-left:1.25rem;border-left:1px solid var(--border)">
-      <div class="num" style="color:var(--gold-accent)">0–1</div><div class="lbl">Big Ten</div>
+      <div class="num" style="color:var(--gold-accent)">0–0</div><div class="lbl">MAC</div>
     </div>
   </div>
 
-  <div class="season-outlook">
-    <h3>2026 Season Outlook</h3>
-    <div class="outlook-grid">
-      <div class="outlook-stat"><div class="val">4.6–7.4</div><div class="lbl">ESPN FPI Proj.</div></div>
-      <div class="outlook-stat"><div class="val">32.7%</div><div class="lbl">Bowl Elig. Chance</div></div>
-      <div class="outlook-stat"><div class="val">1st Yr</div><div class="lbl">Coach Fitzgerald</div></div>
-      <div class="outlook-stat"><div class="val">4 Yrs</div><div class="lbl">Bowl Drought</div></div>
-    </div>
-    <div class="outlook-text">
-      Pat Fitzgerald takes over a program coming off four straight losing seasons. Nearly 40 players entered the transfer portal. Best case: bowl eligibility as one of the Big Ten's best stories. Media consensus: give Fitzgerald a year, then look out.
-    </div>
-  </div>
 
   <div class="cal-card" data-kind="football">
     <h3>📅 Add football games to your calendar</h3>
@@ -723,134 +695,121 @@ body.dark .wp-label{color:#5BBF97}
   </div>
 
   <!-- FOOTBALL -->
-  <div class="game-card" data-loc="home" data-date="2026-09-04T19:00:00-04:00" id="fb-toledo" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-star="1" data-date="2026-09-05T19:30:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Sep</div><div class="day">4</div><div class="weekday">Fri</div></div>
-      <div class="game-divider home"></div>
+      <div class="game-date"><div class="month">Sep</div><div class="day">5</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">Toledo</div>
-        <div class="game-meta">Friday Night &middot; Spartan Stadium <span class="watch-tag">ESPN+</span></div>
-        <div class="game-result win">Final: W 30–20</div>
+        <div class="game-opponent">at Michigan ⭐</div>
+        <div class="game-meta">7:30 PM &middot; <span class="tv-tag">NBC</span> &middot; Michigan Stadium, Ann Arbor</div>
+        <div class="game-result loss">Final: L 12–13</div>
       </div>
-      <div class="game-badge badge-home">Home</div>
+      <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 LSJ / Spartans Wire Preview</div>
-        <div class="detail-text">Season opener and both head coaches' debuts. Only the second MSU–Toledo meeting ever — Spartans won 58-0 in 1925. Toledo's Mike Jacobs jumps up from FCS Mercer. Openers are typically sloppy for MSU, but the Power-conference talent gap should decide it. Watch QB Alessio Milivojevic.</div>
-      </div>
-      <div class="prediction-box">
-        <div class="pred-label">🏆 Predicted Winner</div>
-        <div class="pred-winner">Michigan State</div>
-        <div class="pred-score">Predicted Score: MSU 31, Toledo 13</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Michigan Stadium, Ann Arbor. TV: NBC.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-date="2026-09-12T15:30:00-04:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-date="2026-09-12T18:30:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Sep</div><div class="day">12</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Eastern Michigan</div>
-        <div class="game-meta">3:30 PM &middot; <span class="tv-tag">BTN</span> <span class="watch-tag">Peacock</span> &middot; Spartan Stadium</div>
-        <div class="game-result win">Final: W 35–7</div>
+        <div class="game-opponent">Monmouth</div>
+        <div class="game-meta">6:30 PM &middot; <span class="watch-tag">ESPN+</span> &middot; Waldo Stadium</div>
+        <div class="game-result win">Final: W 49–14</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 Preview</div>
-        <div class="detail-text">Former Spartan QB Noah Kim returns leading the Eagles. EMU has never beaten Michigan State. MSU should find its rhythm late even with new-coach growing pains.</div>
-      </div>
-      <div class="prediction-box">
-        <div class="pred-label">🏆 Predicted Winner</div>
-        <div class="pred-winner">Michigan State</div>
-        <div class="pred-score">MSU handles business at home</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Waldo Stadium. TV: ESPN+.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-star="1" data-date="2026-09-19T19:30:00-04:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2026-09-19T19:00:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Sep</div><div class="day">19</div><div class="weekday">Sat</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Notre Dame ⭐</div>
-        <div class="game-meta">7:30 PM &middot; <span class="tv-tag">NBC</span> <span class="watch-tag">Peacock</span> &middot; South Bend</div>
-        <div class="game-result loss">Final: L 10–27</div>
+        <div class="game-opponent">at Rice</div>
+        <div class="game-meta">7:00 PM &middot; <span class="watch-tag">ESPN+</span> &middot; Rice Stadium, Houston</div>
+        <div class="game-result win">Final: W 28–21</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 Preview</div>
-        <div class="detail-text">Notre Dame has overtaken Oregon as the national title favorite in Vegas. Rivalry renewal in South Bend under the lights. Media outlets say this is where MSU could shock the college football world — with most predicting the Spartans fall just short in a statement performance.</div>
-      </div>
-      <div class="prediction-box" style="background:linear-gradient(135deg,#3D2314,#6B3A1F)">
-        <div class="pred-label">🏆 Predicted Winner</div>
-        <div class="pred-winner">Notre Dame (close)</div>
-        <div class="pred-score">MSU predicted to fall just short</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Rice Stadium, Houston. TV: ESPN+.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-date="2026-09-26T12:00:00-04:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-star="1" data-date="2026-09-26T15:30:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Sep</div><div class="day">26</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Nebraska</div>
-        <div class="game-meta">Time TBD &middot; Big Ten Opener</div>
-        <div class="game-result loss">Final: L 13–31</div>
+        <div class="game-opponent">Boise State ⭐</div>
+        <div class="game-meta">Time TBA &middot; Waldo Stadium</div>
+        <div class="game-result loss">Final: L 7–32</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 Preview</div>
-        <div class="detail-text">Big Ten play begins at home. Confidence should be growing in East Lansing — this is a winnable conference opener for Fitzgerald's squad.</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Waldo Stadium. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
-      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-date="2026-10-03T12:30:00-04:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2026-10-03T13:00:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Oct</div><div class="day">3</div><div class="weekday">Sat</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Wisconsin</div>
-        <div class="game-meta">12:30 PM &middot; <span class="tv-tag">BTN</span> <span class="watch-tag">FOX One</span> &middot; Camp Randall</div>
+        <div class="game-opponent">at Buffalo</div>
+        <div class="game-meta">1:00 PM &middot; <span class="watch-tag">ESPN+</span> &middot; UB Stadium, Buffalo</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
-      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 UB Stadium, Buffalo. TV: ESPN+.</div>
+      </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -860,178 +819,178 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Oct</div><div class="day">10</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Illinois</div>
-        <div class="game-meta">3:30 PM &middot; <span class="tv-tag">FS1</span> &middot; Homecoming</div>
+        <div class="game-opponent">Kent State</div>
+        <div class="game-meta">3:30 PM &middot; <span class="watch-tag">ESPN+</span> &middot; Waldo Stadium</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 Note</div>
-        <div class="detail-text">Former MSU QB Katin Houser returns to East Lansing for MSU's homecoming game.</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Waldo Stadium. TV: ESPN+.</div>
       </div>
-      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-date="2026-10-17T12:00:00-04:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-star="1" data-date="2026-10-17T15:30:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Oct</div><div class="day">17</div><div class="weekday">Sat</div></div>
-      <div class="game-divider home"></div>
+      <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">Northwestern</div>
-        <div class="game-meta">Time TBD &middot; Fitzgerald's old team</div>
+        <div class="game-opponent">at Central Michigan ⭐</div>
+        <div class="game-meta">Time TBA &middot; Kelly/Shorts Stadium, Mount Pleasant</div>
       </div>
-      <div class="game-badge badge-home">Home</div>
+      <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 Note</div>
-        <div class="detail-text">Fitzgerald faces the program he led for 17 seasons. One of only three games ESPN FPI has MSU favored in this season.</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Kelly/Shorts Stadium, Mount Pleasant. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet. Rivalry game. The Michigan MAC Trophy is on the line.</div>
       </div>
-      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-date="2026-10-24T12:00:00-04:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2026-10-24T15:30:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Oct</div><div class="day">24</div><div class="weekday">Sat</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at UCLA</div>
-        <div class="game-meta">Time TBD &middot; Rose Bowl, Pasadena</div>
+        <div class="game-opponent">at Toledo</div>
+        <div class="game-meta">Time TBA &middot; Glass Bowl, Toledo</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
-      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Glass Bowl, Toledo. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card bye" data-loc="bye">
+  <div class="game-card" data-loc="home" data-date="2026-10-31T12:00:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Oct</div><div class="day">31</div><div class="weekday">Sat</div></div>
-      <div class="game-divider neutral"></div>
-      <div class="game-info">
-        <div class="game-opponent" style="color:var(--text-muted)">BYE WEEK</div>
-        <div class="game-meta">Rest up for the stretch run 🎃</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="game-card" data-loc="away" data-star="1" data-date="2026-11-07T12:00:00-05:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">7</div><div class="weekday">Sat</div></div>
-      <div class="game-divider away"></div>
-      <div class="game-info">
-        <div class="game-opponent">at Michigan ⭐</div>
-        <div class="game-meta">Time TBD &middot; The Big House &middot; Paul Bunyan Trophy</div>
-      </div>
-      <div class="game-badge badge-away">Rivalry</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="detail-section">
-        <div class="detail-label">📰 Preview</div>
-        <div class="detail-text">Second time in three years both rivals have first-year head coaches facing off. Michigan is one of the nation's most intriguing teams — huge gap between ceiling and floor. MSU comes off the bye looking to reclaim Paul Bunyan.</div>
-      </div>
-      <div class="no-preview">Full LSJ rivalry preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="home" data-date="2026-11-14T12:00:00-05:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">14</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Washington</div>
-        <div class="game-meta">Time TBD &middot; Spartan Stadium</div>
-      </div>
-      <div class="game-badge badge-home">Home</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="home" data-star="1" data-date="2026-11-21T12:00:00-05:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">21</div><div class="weekday">Sat</div></div>
-      <div class="game-divider home"></div>
-      <div class="game-info">
-        <div class="game-opponent">Oregon ⭐</div>
-        <div class="game-meta">Time TBD &middot; Senior Day territory</div>
+        <div class="game-opponent">Bowling Green</div>
+        <div class="game-meta">12:00 PM &middot; <span class="tv-tag">CBSSN</span> &middot; Waldo Stadium</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 Note</div>
-        <div class="detail-text">One of the toughest home tests of the season. Oregon has been a national-title contender each year since joining the Big Ten.</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Waldo Stadium. TV: CBSSN.</div>
       </div>
-      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-date="2026-11-28T12:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2026-11-10T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">28</div><div class="weekday">Sat</div></div>
+      <div class="game-date"><div class="month">Nov</div><div class="day">10</div><div class="weekday">Tue</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Rutgers</div>
-        <div class="game-meta">Time TBD &middot; Season Finale</div>
+        <div class="game-opponent">at Akron</div>
+        <div class="game-meta">7:00 PM &middot; <span class="watch-tag">ESPN+</span> &middot; InfoCision Stadium, Akron</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
-      <div class="no-preview">Full LSJ preview drops 2 weeks before kickoff — ask Claude to refresh.</div>
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 InfoCision Stadium, Akron. TV: ESPN+. Tuesday night MACtion.</div>
+      </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/football/schedule" target="_blank" onclick="event.stopPropagation()">🏈 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-star="1" data-date="2026-11-17T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">17</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Eastern Michigan ⭐</div>
+        <div class="game-meta">7:00 PM &middot; <span class="watch-tag">ESPN+</span> &middot; Waldo Stadium</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Waldo Stadium. TV: ESPN+. Tuesday night MACtion, and a Michigan MAC Trophy game.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-24T15:30:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">24</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Miami (OH)</div>
+        <div class="game-meta">Time TBA &middot; <span class="watch-tag">ESPN+</span> &middot; Waldo Stadium</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Waldo Stadium. TV: ESPN+. Start time not announced yet. Regular-season finale.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://wmubroncos.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="season-outlook" style="margin-top:.5rem">
+    <h3>🏈 Postseason</h3>
+    <div class="outlook-text"><strong>MAC Championship:</strong> Saturday, Dec. 5, 2026 &middot; Noon &middot; Ford Field, Detroit</div>
   </div>
 
 </div><!-- end football -->
 
 <div id="basketball" class="section">
 
+
   <div class="live-card" id="basketball-live">
     <div class="live-head">
       <div class="live-title" id="basketball-live-title">🏀 Scoreboard</div>
       <button class="refresh-btn" onclick="loadScore('basketball')" aria-label="Refresh score">↻</button>
     </div>
-    <div id="basketball-live-body"><div class="live-msg">Tap ↻ to load the latest MSU score</div></div>
+    <div id="basketball-live-body"><div class="live-msg">Tap ↻ to load the latest WMU score</div></div>
   </div>
 
   <div class="rank-card" id="basketball-rank">
@@ -1042,34 +1001,21 @@ body.dark .wp-label{color:#5BBF97}
     <div class="rank-body">
       <div class="rank-tabs">
         <div class="rank-tab active" id="basketball-tab-ap" onclick="showRankTab('basketball','ap',this)">🇺🇸 AP Top 25</div>
-        <div class="rank-tab" id="basketball-tab-b1g" onclick="showRankTab('basketball','b1g',this)">B1G Standings</div>
+        <div class="rank-tab" id="basketball-tab-b1g" onclick="showRankTab('basketball','b1g',this)">MAC Standings</div>
       </div>
       <div id="basketball-rank-content"><div class="live-msg">Loading…</div></div>
     </div>
   </div>
 
   <div class="record-tracker">
-    <div class="record-item"><div class="num" style="color:var(--gold-accent)">Top 10</div><div class="lbl">Preseason</div></div>
+    <div class="record-item"><div class="num w">0</div><div class="lbl">Wins</div></div>
+    <div class="record-sep">–</div>
+    <div class="record-item"><div class="num l">0</div><div class="lbl">Losses</div></div>
     <div class="record-item" style="margin-left:.75rem;padding-left:1.25rem;border-left:1px solid var(--border)">
-      <div class="num w">#1</div><div class="lbl">USA Today</div>
-    </div>
-    <div class="record-item" style="margin-left:.75rem;padding-left:1.25rem;border-left:1px solid var(--border)">
-      <div class="num" style="color:var(--spartan-green)">28</div><div class="lbl">Straight NCAAs</div>
+      <div class="num" style="color:var(--gold-accent)">0–0</div><div class="lbl">MAC</div>
     </div>
   </div>
 
-  <div class="season-outlook">
-    <h3>2026–27 Season Outlook</h3>
-    <div class="outlook-grid">
-      <div class="outlook-stat"><div class="val">27–8</div><div class="lbl">Last Season</div></div>
-      <div class="outlook-stat"><div class="val">Sweet 16</div><div class="lbl">2026 Finish</div></div>
-      <div class="outlook-stat"><div class="val">32nd Yr</div><div class="lbl">Coach Izzo</div></div>
-      <div class="outlook-stat"><div class="val">15.2/9.4</div><div class="lbl">Fears PPG/APG</div></div>
-    </div>
-    <div class="outlook-text">
-      Consensus preseason top-10. All-American Jeremy Fears Jr. withdrew from the NBA Draft and returns. MSU adds 7'2" Charlotte transfer Anton Bonke plus a loaded freshman class led by five-star center Ethan Taylor. USA Today has the Spartans at No. 1.
-    </div>
-  </div>
 
   <div class="cal-card" data-kind="basketball">
     <h3>📅 Add basketball games to your calendar</h3>
@@ -1082,59 +1028,14 @@ body.dark .wp-label{color:#5BBF97}
     </div>
   </div>
 
-  <div class="game-card" data-loc="home" data-date="2026-10-02T19:00:00-04:00" onclick="toggleCard(this)">
+  <!-- BASKETBALL -->
+  <div class="game-card" data-loc="away" data-date="2026-11-02T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Oct</div><div class="day">2</div><div class="weekday">Fri</div></div>
-      <div class="game-divider home"></div>
-      <div class="game-info">
-        <div class="game-opponent">Incarnate Word (Exh.)</div>
-        <div class="game-meta">7:00 PM &middot; Breslin Center</div>
-      </div>
-      <div class="game-badge badge-home">Home</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="detail-section">
-        <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Izzone Campout exhibition. Season-ticket holders and Izzone members only. Tip times and TV for most games are announced closer to the season.</div>
-      </div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="home" data-star="1" data-date="2026-10-20T19:00:00-04:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Oct</div><div class="day">20</div><div class="weekday">Tue</div></div>
-      <div class="game-divider home"></div>
-      <div class="game-info">
-        <div class="game-opponent">UConn (Exh.) ⭐</div>
-        <div class="game-meta">7:00 PM &middot; Breslin Center</div>
-      </div>
-      <div class="game-badge badge-home">Home</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="detail-section">
-        <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Exhibition. Tip times and TV for most games are announced closer to the season.</div>
-      </div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="away" data-date="2026-10-25T19:00:00-04:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Oct</div><div class="day">25</div><div class="weekday">Sun</div></div>
+      <div class="game-date"><div class="month">Nov</div><div class="day">2</div><div class="weekday">Mon</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Marquette (Exh.)</div>
-        <div class="game-meta">Time TBA &middot; Milwaukee</div>
+        <div class="game-opponent">at Old Dominion</div>
+        <div class="game-meta">Time TBA &middot; Norfolk, Va.</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -1142,34 +1043,11 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Exhibition. Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Norfolk, Va.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="home" data-date="2026-11-02T19:00:00-05:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">2</div><div class="weekday">Mon</div></div>
-      <div class="game-divider home"></div>
-      <div class="game-info">
-        <div class="game-opponent">Quinnipiac</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
-      </div>
-      <div class="game-badge badge-home">Home</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="detail-section">
-        <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Season opener. Tip times and TV for most games are announced closer to the season.</div>
-      </div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1179,8 +1057,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Nov</div><div class="day">5</div><div class="weekday">Thu</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Toledo</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">Kalamazoo College</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1188,45 +1066,22 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="neutral" data-star="1" data-date="2026-11-10T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-date="2026-11-08T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">10</div><div class="weekday">Tue</div></div>
-      <div class="game-divider neutral"></div>
-      <div class="game-info">
-        <div class="game-opponent">vs Duke ⭐</div>
-        <div class="game-meta">7:00 PM &middot; <span class="tv-tag">ESPN</span> Champions Classic · United Center, Chicago</div>
-      </div>
-      <div class="game-badge badge-neutral">Neutral</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="detail-section">
-        <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">State Farm Champions Classic, 6 PM CT. Tip times and TV for most games are announced closer to the season.</div>
-      </div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="home" data-date="2026-11-13T19:00:00-05:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">13</div><div class="weekday">Fri</div></div>
+      <div class="game-date"><div class="month">Nov</div><div class="day">8</div><div class="weekday">Sun</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Northern Iowa</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">Campbell</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1234,22 +1089,22 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-star="1" data-date="2026-11-17T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2026-11-12T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">17</div><div class="weekday">Tue</div></div>
+      <div class="game-date"><div class="month">Nov</div><div class="day">12</div><div class="weekday">Thu</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Tennessee ⭐</div>
-        <div class="game-meta">Time TBA &middot; Knoxville</div>
+        <div class="game-opponent">at Purdue Fort Wayne</div>
+        <div class="game-meta">Time TBA &middot; Fort Wayne, Ind.</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -1257,22 +1112,68 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Fort Wayne, Ind.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-date="2026-11-21T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2026-11-15T16:30:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">21</div><div class="weekday">Sat</div></div>
+      <div class="game-date"><div class="month">Nov</div><div class="day">15</div><div class="weekday">Sun</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Southern Indiana</div>
+        <div class="game-meta">4:30 PM &middot; <span class="watch-tag">ESPN+</span> &middot; Evansville, Ind.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Evansville, Ind.. TV: ESPN+.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-11-20T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">20</div><div class="weekday">Fri</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Mount St. Mary&#x27;s</div>
+        <div class="game-meta">7:00 PM &middot; Emmitsburg, Md.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Emmitsburg, Md.. TV and streaming are usually announced 1–2 weeks before the game.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-25T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">25</div><div class="weekday">Wed</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Detroit Mercy</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">Grace Christian</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1280,34 +1181,11 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="neutral" data-star="1" data-date="2026-11-26T16:30:00-05:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">26</div><div class="weekday">Thu</div></div>
-      <div class="game-divider neutral"></div>
-      <div class="game-info">
-        <div class="game-opponent">vs Arkansas ⭐</div>
-        <div class="game-meta">4:30 PM &middot; <span class="tv-tag">CBS</span> Thanksgiving · Little Caesars Arena, Detroit</div>
-      </div>
-      <div class="game-badge badge-neutral">Neutral</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="detail-section">
-        <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">CBS Sports Thanksgiving Classic. Tip times and TV for most games are announced closer to the season.</div>
-      </div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1317,8 +1195,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Dec</div><div class="day">2</div><div class="weekday">Wed</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Minnesota</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center · Big Ten opener</div>
+        <div class="game-opponent">Buffalo</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1326,34 +1204,34 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-date="2026-12-05T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2026-12-05T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Dec</div><div class="day">5</div><div class="weekday">Sat</div></div>
-      <div class="game-divider home"></div>
+      <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">Drake</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">at Bowling Green</div>
+        <div class="game-meta">Time TBA &middot; Bowling Green, Ohio</div>
       </div>
-      <div class="game-badge badge-home">Home</div>
+      <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Bowling Green, Ohio. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1363,8 +1241,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Dec</div><div class="day">9</div><div class="weekday">Wed</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Maryland</div>
-        <div class="game-meta">Time TBA &middot; College Park</div>
+        <div class="game-opponent">at UMass</div>
+        <div class="game-meta">Time TBA &middot; Amherst, Mass.</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -1372,11 +1250,11 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Amherst, Mass.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1386,8 +1264,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Dec</div><div class="day">12</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Merrimack</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">Toledo</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1395,80 +1273,57 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="neutral" data-star="1" data-date="2026-12-19T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-date="2026-12-18T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Dec</div><div class="day">19</div><div class="weekday">Sat</div></div>
-      <div class="game-divider neutral"></div>
+      <div class="game-date"><div class="month">Dec</div><div class="day">18</div><div class="weekday">Fri</div></div>
+      <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">vs Gonzaga ⭐</div>
-        <div class="game-meta">Time TBA &middot; Acrisure Series · Acrisure Arena, Coachella Valley, CA</div>
+        <div class="game-opponent">Great Lakes Christian</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
-      <div class="game-badge badge-neutral">Neutral</div>
+      <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Men's and women's doubleheader vs Gonzaga; first game 11 AM PT, order and TV TBA. Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-date="2026-12-22T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-star="1" data-date="2026-12-22T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Dec</div><div class="day">22</div><div class="weekday">Tue</div></div>
-      <div class="game-divider home"></div>
+      <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">Oakland</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">at USC ⭐</div>
+        <div class="game-meta">Time TBA &middot; Los Angeles</div>
       </div>
-      <div class="game-badge badge-home">Home</div>
+      <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Los Angeles. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="home" data-date="2026-12-29T19:00:00-05:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Dec</div><div class="day">29</div><div class="weekday">Tue</div></div>
-      <div class="game-divider home"></div>
-      <div class="game-info">
-        <div class="game-opponent">Penn</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
-      </div>
-      <div class="game-badge badge-home">Home</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="detail-section">
-        <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
-      </div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1478,8 +1333,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Jan</div><div class="day">2</div><div class="weekday">Sat</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Nebraska</div>
-        <div class="game-meta">Time TBA &middot; Lincoln</div>
+        <div class="game-opponent">at Akron</div>
+        <div class="game-meta">Time TBA &middot; Akron, Ohio</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -1487,22 +1342,22 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Akron, Ohio. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-date="2027-01-05T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-star="1" data-date="2027-01-05T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Jan</div><div class="day">5</div><div class="weekday">Tue</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Washington</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">Eastern Michigan ⭐</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1510,34 +1365,34 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-date="2027-01-09T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-date="2027-01-09T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Jan</div><div class="day">9</div><div class="weekday">Sat</div></div>
-      <div class="game-divider away"></div>
+      <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">at UCLA</div>
-        <div class="game-meta">Time TBA &middot; Los Angeles</div>
+        <div class="game-opponent">Kent State</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
-      <div class="game-badge badge-away">Away</div>
+      <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1547,8 +1402,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Jan</div><div class="day">12</div><div class="weekday">Tue</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at USC</div>
-        <div class="game-meta">Time TBA &middot; Los Angeles</div>
+        <div class="game-opponent">at Miami (OH)</div>
+        <div class="game-meta">Time TBA &middot; Oxford, Ohio</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -1556,11 +1411,11 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Oxford, Ohio. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1570,8 +1425,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Jan</div><div class="day">16</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Oregon</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">Ball State</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1579,22 +1434,22 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-date="2027-01-23T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2027-01-19T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Jan</div><div class="day">23</div><div class="weekday">Sat</div></div>
+      <div class="game-date"><div class="month">Jan</div><div class="day">19</div><div class="weekday">Tue</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Ohio State</div>
-        <div class="game-meta">Time TBA &middot; Columbus</div>
+        <div class="game-opponent">at Ohio</div>
+        <div class="game-meta">Time TBA &middot; Athens, Ohio</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -1602,11 +1457,34 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Athens, Ohio. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-star="1" data-date="2027-01-23T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">23</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Central Michigan ⭐</div>
+        <div class="game-meta">Time TBA &middot; Mount Pleasant</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Mount Pleasant. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1616,8 +1494,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Jan</div><div class="day">26</div><div class="weekday">Tue</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Penn State</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">Bowling Green</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1625,34 +1503,34 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-star="1" data-date="2027-01-30T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-star="1" data-date="2027-01-30T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Jan</div><div class="day">30</div><div class="weekday">Sat</div></div>
-      <div class="game-divider home"></div>
+      <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">Purdue ⭐</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">at Eastern Michigan ⭐</div>
+        <div class="game-meta">Time TBA &middot; Ypsilanti</div>
       </div>
-      <div class="game-badge badge-home">Home</div>
+      <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Ypsilanti. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1662,8 +1540,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Feb</div><div class="day">2</div><div class="weekday">Tue</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Maryland</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">Akron</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1671,45 +1549,22 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-star="1" data-date="2027-02-05T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-date="2027-02-06T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Feb</div><div class="day">5</div><div class="weekday">Fri</div></div>
-      <div class="game-divider away"></div>
-      <div class="game-info">
-        <div class="game-opponent">at Illinois ⭐</div>
-        <div class="game-meta">Time TBA &middot; Champaign</div>
-      </div>
-      <div class="game-badge badge-away">Away</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="detail-section">
-        <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
-      </div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="home" data-date="2027-02-10T19:00:00-05:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Feb</div><div class="day">10</div><div class="weekday">Wed</div></div>
+      <div class="game-date"><div class="month">Feb</div><div class="day">6</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Rutgers</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">MAC–Sun Belt Challenge (opponent TBA)</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1717,22 +1572,45 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-star="1" data-date="2027-02-13T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-date="2027-02-09T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">9</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Ohio</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-02-13T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Feb</div><div class="day">13</div><div class="weekday">Sat</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Michigan ⭐</div>
-        <div class="game-meta">Time TBA &middot; Ann Arbor</div>
+        <div class="game-opponent">at Toledo</div>
+        <div class="game-meta">Time TBA &middot; Toledo, Ohio</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -1740,11 +1618,11 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Toledo, Ohio. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1754,8 +1632,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Feb</div><div class="day">16</div><div class="weekday">Tue</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Iowa</div>
-        <div class="game-meta">Time TBA &middot; Iowa City</div>
+        <div class="game-opponent">at Kent State</div>
+        <div class="game-meta">Time TBA &middot; Kent, Ohio</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -1763,11 +1641,11 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Kent, Ohio. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1777,8 +1655,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Feb</div><div class="day">20</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Nebraska</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">UMass</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1786,11 +1664,11 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
@@ -1800,8 +1678,8 @@ body.dark .wp-label{color:#5BBF97}
       <div class="game-date"><div class="month">Feb</div><div class="day">23</div><div class="weekday">Tue</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
-        <div class="game-opponent">at Indiana</div>
-        <div class="game-meta">Time TBA &middot; Bloomington</div>
+        <div class="game-opponent">at Ball State</div>
+        <div class="game-meta">Time TBA &middot; Muncie, Ind.</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -1809,22 +1687,22 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">📍 Muncie, Ind.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-star="1" data-date="2027-02-26T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-star="1" data-date="2027-02-27T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Feb</div><div class="day">26</div><div class="weekday">Fri</div></div>
+      <div class="game-date"><div class="month">Feb</div><div class="day">27</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Michigan ⭐</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+        <div class="game-opponent">Central Michigan ⭐</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1832,45 +1710,22 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-date="2027-03-02T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-date="2027-03-02T19:00:00-05:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Mar</div><div class="day">2</div><div class="weekday">Tue</div></div>
-      <div class="game-divider away"></div>
-      <div class="game-info">
-        <div class="game-opponent">at Northwestern</div>
-        <div class="game-meta">Time TBA &middot; Evanston</div>
-      </div>
-      <div class="game-badge badge-away">Away</div>
-      <div class="game-chevron">▼</div>
-    </div>
-    <div class="game-detail"><div class="detail-inner">
-      <div class="detail-section">
-        <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
-      </div>
-      <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="game-card" data-loc="home" data-date="2027-03-06T19:00:00-05:00" onclick="toggleCard(this)">
-    <div class="game-main">
-      <div class="game-date"><div class="month">Mar</div><div class="day">6</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">Wisconsin</div>
-        <div class="game-meta">Time TBA &middot; Breslin Center · Regular-season finale</div>
+        <div class="game-opponent">Miami (OH)</div>
+        <div class="game-meta">Time TBA &middot; University Arena</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1878,23 +1733,41 @@ body.dark .wp-label{color:#5BBF97}
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
-        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+        <div class="detail-text">🏟 Home at University Arena. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet. Senior night is usually the last home game.</div>
       </div>
       <div class="link-row">
-        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
-        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-03-05T18:30:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Mar</div><div class="day">5</div><div class="weekday">Fri</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Buffalo</div>
+        <div class="game-meta">6:30 PM &middot; Buffalo, N.Y.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Buffalo, N.Y.. TV and streaming are usually announced 1–2 weeks before the game. Regular-season finale.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://wmubroncos.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 WMU Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
       </div>
     </div></div>
   </div>
 
   <div class="season-outlook" style="margin-top:.5rem">
-    <h3>Postseason Dates</h3>
-    <div class="outlook-text">
-      <strong>Big Ten Tournament:</strong> March 9–14, 2027 &middot; Gainbridge Fieldhouse, Indianapolis (final Sun., March 14)<br><br>
-      <strong>Selection Sunday:</strong> March 14, 2027 &middot; first 76-team NCAA bracket<br><br>
-      <strong>NCAA Tournament:</strong> Sweet 16 March 25–26 &middot; Elite Eight March 27–28<br><br>
-      <strong>Final Four:</strong> April 3 &amp; 5, 2027 &middot; Ford Field, Detroit
-    </div>
+    <h3>🏀 Postseason</h3>
+    <div class="outlook-text"><strong>MAC Tournament:</strong> March 10–13, 2027 &middot; Rocket Mortgage FieldHouse, Cleveland<br><br><strong>Selection Sunday:</strong> March 14, 2027</div>
   </div>
 
 </div><!-- end basketball -->
@@ -1904,7 +1777,7 @@ body.dark .wp-label{color:#5BBF97}
     <strong>Enjoying the tracker?</strong>
     <span>It's free, ad-free and made by a fan. Chip in if you like it.</span>
   </div>
-  <a class="support-btn" id="supportBtn" href="#" target="_blank" rel="noopener" onclick="return supportClick(event)">💚 Support this app</a>
+  <a class="support-btn" id="supportBtn" href="#" target="_blank" rel="noopener" onclick="return supportClick(event)">💛 Support this app</a>
   <div class="support-note" id="supportNote" hidden>Venmo link isn't set up yet. Check back soon!</div>
 </div>
 
@@ -2024,7 +1897,7 @@ function updateCountdown() {
   const label = document.getElementById('nextGameLabel');
   const timer = document.getElementById('liveTimer');
   if (!next) {
-    label.innerHTML = 'Season<strong>Complete — Go Green!</strong>';
+    label.innerHTML = 'Season<strong>Complete — Go Broncos!</strong>';
     timer.innerHTML = '';
     return;
   }
@@ -2077,14 +1950,14 @@ setInterval(updateCountdown, 1000);
 // ===== LIVE SCORES + RANKINGS (ESPN public feeds — needs internet) =====
 const ESPN = {
   football: {
-    sched:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/127/schedule',
+    sched:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/2711/schedule',
     rank:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings',
-    stand:'https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=5'
+    stand:'https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=15'
   },
   basketball: {
-    sched:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/127/schedule',
+    sched:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/2711/schedule',
     rank:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/rankings',
-    stand:'https://site.api.espn.com/apis/v2/sports/basketball/mens-college-basketball/standings?group=7'
+    stand:'https://site.api.espn.com/apis/v2/sports/basketball/mens-college-basketball/standings?group=14'
   }
 };
 let liveTimers = {};
@@ -2111,7 +1984,7 @@ async function loadScore(sport) {
     const isLive = st.state === 'in';
     const teams = comp.competitors || [];
     const rows = teams.map(t => {
-      const isMSU = (t.team?.abbreviation === 'MSU' || /Michigan State/i.test(t.team?.displayName||''));
+      const isMSU = (t.team?.abbreviation === 'WMU' || /Western Michigan/i.test(t.team?.displayName||''));
       const score = (t.score && (t.score.displayValue ?? t.score.value ?? t.score)) ?? '–';
       const rank = t.curatedRank?.current && t.curatedRank.current <= 25 ? '#' + t.curatedRank.current + ' ' : '';
       return '<div class="score-team' + (isMSU ? ' msu' : '') + '">' +
@@ -2154,9 +2027,9 @@ async function showRankTab(sport, which, el) {
       const ranks = ap.ranks || [];
       let msuRank = null;
       let out = ranks.slice(0, 10).map(t => rankRow(t)).join('');
-      const msu = ranks.find(t => /Michigan State/i.test(t.team?.location || t.team?.displayName || ''));
+      const msu = ranks.find(t => /Western Michigan/i.test(t.team?.location || t.team?.displayName || ''));
       if (msu && msu.current > 10) out += '<div class="live-msg">⋯</div>' + rankRow(msu);
-      else if (!msu) out += '<div class="live-msg">MSU not currently ranked in the ' + (ap.shortName || 'AP Top 25') + '</div>';
+      else if (!msu) out += '<div class="live-msg">WMU not currently ranked in the ' + (ap.shortName || 'AP Top 25') + '</div>';
       box.innerHTML = '<div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;font-family:Oswald">' + (ap.name || 'AP Top 25') + '</div>' + out;
     } else {
       const r = await fetch(ESPN[sport].stand);
@@ -2169,9 +2042,9 @@ async function showRankTab(sport, which, el) {
         const conf = stats.find(s => s.type==='vsconf' || /conf/i.test(s.name||''));
         const ovr = stats.find(s => s.type==='total' || /overall/i.test(s.name||''));
         return {name: t.shortDisplayName || t.displayName, conf: conf?.displayValue || '', ovr: ovr?.displayValue || '',
-                msu: /Michigan State/i.test(t.displayName || '')};
+                msu: /Western Michigan/i.test(t.displayName || '')};
       });
-      box.innerHTML = '<div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;font-family:Oswald">Big Ten &middot; Conf / Overall</div>' +
+      box.innerHTML = '<div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;font-family:Oswald">MAC &middot; Conf / Overall</div>' +
         rows.map((t,i) => '<div class="rank-row' + (t.msu ? ' msu-row' : '') + '"><div class="rnum">' + (i+1) + '</div><div class="rteam">' + t.name + '</div><div class="rrec">' + t.conf + ' &middot; ' + t.ovr + '</div></div>').join('');
     }
   } catch (e) {
@@ -2179,7 +2052,7 @@ async function showRankTab(sport, which, el) {
   }
 }
 function rankRow(t) {
-  const isMSU = /Michigan State/i.test(t.team?.location || t.team?.displayName || '');
+  const isMSU = /Western Michigan/i.test(t.team?.location || t.team?.displayName || '');
   return '<div class="rank-row' + (isMSU ? ' msu-row' : '') + '"><div class="rnum">' + t.current + '</div>' +
     '<div class="rteam">' + (t.team?.location || t.team?.displayName || '?') + '</div>' +
     '<div class="rrec">' + (t.recordSummary || '') + '</div></div>';
@@ -2213,7 +2086,7 @@ loadScore('football');
       <div class="hq-title">The basics</div>
       <ol>
         <li><b>Put it on your home screen.</b> iPhone: open in Safari, tap Share <span class="hk">⬆︎</span>, then <i>Add to Home Screen</i>. Android: in Chrome, tap <span class="hk">⋮</span>, then <i>Add to Home screen</i> or <i>Install</i>.</li>
-        <li><b>Tap in</b> from the start screen. The fight song plays (🔊 in the top bar mutes it).</li>
+        <li><b>Tap in</b> from the start screen.</li>
         <li><b>Use the bar at the bottom:</b> 🏈 Football or 🏀 Basketball schedule, ⚡ jump to the next game, 🍔 Tailgate (football) or 📺 Watch Party (basketball), and 🔥 Trash Talk.</li>
         <li><b>Tap any game</b> to open its preview and details.</li>
       </ol>
@@ -2225,8 +2098,8 @@ loadScore('football');
     </details>
 
     <details class="help-sec"><summary>🔴 Live scores &amp; rankings</summary>
-      <p>The <b>Scoreboard</b> card loads the latest MSU score. Tap <b>↻</b> to refresh during a game; it turns red while a game is live.</p>
-      <p>Tap <b>Rankings &amp; Standings</b> to open the AP Top 25 or the Big Ten standings. MSU's row is highlighted.</p>
+      <p>The <b>Scoreboard</b> card loads the latest WMU score. Tap <b>↻</b> to refresh during a game; it turns red while a game is live.</p>
+      <p>Tap <b>Rankings &amp; Standings</b> to open the AP Top 25 or the MAC standings. WMU's row is highlighted.</p>
     </details>
 
     <details class="help-sec"><summary>📆 Add games to your calendar</summary>
@@ -2256,13 +2129,12 @@ loadScore('football');
     </details>
 
     <details class="help-sec"><summary>📣 Share Hype &amp; 🔥 Trash Talk</summary>
-      <p><b>Share Hype</b> writes a countdown message ("6 days until MSU vs…") and opens your phone's share menu.</p>
+      <p><b>Share Hype</b> writes a countdown message ("6 days until WMU vs…") and opens your phone's share menu.</p>
       <p><b>Trash Talk</b> serves up a one-liner for the group chat. Tap 🎲 for another, 📋 to copy it.</p>
     </details>
 
     <details class="help-sec"><summary>⚙️ Settings &amp; buttons</summary>
       <ul>
-        <li><b>🔊 / 🔇</b> turns the fight-song intro on or off.</li>
         <li><b>🌙 / ☀️</b> switches dark mode.</li>
         <li><b>✕</b> goes back to the start screen.</li>
         <li><b>?</b> opens this guide.</li>
@@ -2273,11 +2145,11 @@ loadScore('football');
       <p>No accounts or sign-ups. The app counts how many phones open it, using a random ID (no names or personal info). Your tailgate lists stay on your phone. Watch party invites and answers are saved on the invite service so the host and friends can see them.</p>
     </details>
 
-    <details class="help-sec"><summary>💚 Support</summary>
-      <p>The tracker is free, ad-free and made by a Spartan fan. If you like it, tap <b>Chip in</b> near the top of the schedule (or <b>Support this app</b> at the bottom) to send a tip on Venmo.</p>
+    <details class="help-sec"><summary>💛 Support</summary>
+      <p>The tracker is free, ad-free and made by a Bronco fan. If you like it, tap <b>Chip in</b> near the top of the schedule (or <b>Support this app</b> at the bottom) to send a tip on Venmo.</p>
     </details>
 
-    <p class="help-foot">Unofficial fan app. Not affiliated with Michigan State University. Go Green! 💚</p>
+    <p class="help-foot">Unofficial fan app. Not affiliated with Western Michigan University. Go Broncos! 💛</p>
   </div>
 </div>
 
@@ -2323,7 +2195,7 @@ loadScore('football');
       <select id="tgGameSelect" onchange="switchTgGame()" style="width:100%;padding:.5rem;border-radius:8px;border:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:1rem;color:#1A1A1A;background:#fff;cursor:pointer"></select>
     </div>
 
-    <div style="background:rgba(24,69,59,.06);border-radius:10px;padding:.85rem;margin-bottom:.85rem">
+    <div style="background:rgba(90,58,34,.06);border-radius:10px;padding:.85rem;margin-bottom:.85rem">
       <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);margin-bottom:.5rem">👥 Who's Coming?</div>
       <div id="rsvpList"></div>
       <button class="tg-add" onclick="addRsvp()" style="margin-top:.4rem">+ Add Person</button>
@@ -2344,7 +2216,7 @@ loadScore('football');
 // ===== HYPE SHARE =====
 function shareHype() {
   const next = findNext();
-  if (!next) { alert('Season complete — Go Green!'); return; }
+  if (!next) { alert('Season complete — Go Broncos!'); return; }
   const opp = next.el.querySelector('.game-opponent').textContent.replace('⭐','').trim();
   const diff = next.date - new Date();
   const d = Math.floor(diff / 86400000);
@@ -2353,7 +2225,7 @@ function shareHype() {
   if (diff <= 0) timeStr = 'RIGHT NOW';
   const loc = next.el.dataset.loc;
   const emoji = loc === 'home' ? '🏟' : '✈️';
-  const text = '🏈 ' + timeStr + ' until MSU ' + (loc==='away'?'@ ':'vs ') + opp + ' ' + emoji + '💚 Go Green!';
+  const text = '🏈 ' + timeStr + ' until WMU ' + (loc==='away'?'@ ':'vs ') + opp + ' ' + emoji + '💛 Go Broncos!';
   if (navigator.share) {
     navigator.share({text: text}).catch(()=>{});
   } else if (navigator.clipboard) {
@@ -2369,21 +2241,16 @@ function shareHype() {
 
 // ===== TRASH TALK =====
 const trashLines = [
-  "Michigan hasn't earned the right to talk trash since before their players needed NIL money to stay 😂",
-  "Imagine losing to App State AND having the worst fight song in college football 🎵🗑",
-  "Little Brother? We literally own a trophy with YOUR mascot on it 🪓",
-  "Wolverines hibernate all winter. Spartans don't stop. 💪",
-  "MSU: Where Heisman candidates are made. Michigan: Where 5-stars go to disappoint.",
-  "27 straight NCAA tournaments in basketball. Michigan could never. 🏀",
-  "We beat Ohio State with a punter throwing passes. Your program peaked with a sign-stealing scandal.",
-  "Spartan Stadium on a night game > 110,000 fans watching Michigan lose at home",
-  "Tom Izzo has more Final Fours than Michigan has had good coaches this century 🐐",
-  "Remember when Trouble With The Snap happened? We do. Every. Single. Day. 😘",
-  "Pat Fitzgerald is about to do more with less than Michigan does with everything 🟢",
-  "Fun fact: MSU leads the all-time series. Look it up. Then cry about it. 💚",
-  "We tailgate with real food. Michigan fans bring wine and cheese to a football game 🧀",
-  "Sparty does push-ups after touchdowns. Your mascot just stands there looking confused.",
-  "The Big House? More like the Big Quiet when MSU is up in the 4th quarter 🤫"
+  "Central Michigan: the second-best directional school in Michigan. 🐴",
+  "Kalamazoo has a better name than Mount Pleasant, and it's not even close.",
+  "Chippewas vs. Broncos in a footrace? We'll wait at the finish line. 🐎",
+  "The Michigan MAC Trophy just looks right in Kalamazoo. 🏆",
+  "Brown and gold never goes out of style. Maroon and gold? Pick a lane.",
+  "Waldo Stadium on a Saturday beats anything in Mount Pleasant.",
+  "Bronco fans travel. Chippewa fans check the score on Monday.",
+  "Eastern Michigan fans: there's always room for you at Waldo. Lots of room.",
+  "Tuesday night MACtion hits different when the Broncos are winning. 📺",
+  "Saddle up. 🐴 Somebody tell Mount Pleasant we're coming."
 ];
 function genTrash() {
   document.getElementById('trashLine').textContent = trashLines[Math.floor(Math.random() * trashLines.length)];
@@ -2411,15 +2278,15 @@ function copyTrash() {
 function openHelp() { document.getElementById('helpModal').classList.add('open'); }
 
 // ===== WATCH PARTY (basketball) =====
-// Invites live on the Spartans Gameday project on Netlify, so friends' answers come back to you.
-const WP_API = 'https://spartans-gameday.netlify.app';
+// Invites live on the Broncos Gameday project on Netlify, so friends' answers come back to you.
+const WP_API = 'https://wmu-gameday.netlify.app';
 function wpGames() {
   const now = Date.now(), mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], wd = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   return [...document.querySelectorAll('#basketball .game-card[data-date]')].map(c => {
     const d = new Date(c.dataset.date); if (isNaN(d) || d.getTime() + 3 * 3600e3 < now) return null;
-    const opp = (c.querySelector('.game-opponent')?.textContent || 'Spartans').replace('⭐', '').trim().replace(/^(at|vs\.?)\s+/i, '');
+    const opp = (c.querySelector('.game-opponent')?.textContent || 'Broncos').replace('⭐', '').trim().replace(/^(at|vs\.?)\s+/i, '');
     const where = c.dataset.loc === 'home' ? 'vs' : (c.dataset.loc === 'away' ? '@' : 'vs');
-    return { date: c.dataset.date, label: wd[d.getDay()] + ' ' + mo[d.getMonth()] + ' ' + d.getDate() + ' — ' + where + ' ' + opp, game: 'MSU ' + where + ' ' + opp,
+    return { date: c.dataset.date, label: wd[d.getDay()] + ' ' + mo[d.getMonth()] + ' ' + d.getDate() + ' — ' + where + ' ' + opp, game: 'WMU ' + where + ' ' + opp,
              tba: /^Time TB/i.test((c.querySelector('.game-meta')?.textContent || '').trim()) };
   }).filter(Boolean);
 }
@@ -2469,8 +2336,8 @@ async function createWatchParty() {
 function shareWatchParty(id) {
   const p = wpLS.get('wp_mine', []).find(x => x.id === id); if (!p) return;
   const url = WP_API + '/p/' + id;
-  const text = '📺 MSU Watch Party: ' + p.label + '\n📍 ' + p.place + '\nAre you in? Tap to answer:';
-  if (navigator.share) navigator.share({ title: 'MSU Watch Party', text, url }).catch(() => {});
+  const text = '📺 WMU Watch Party: ' + p.label + '\n📍 ' + p.place + '\nAre you in? Tap to answer:';
+  if (navigator.share) navigator.share({ title: 'WMU Watch Party', text, url }).catch(() => {});
   else if (navigator.clipboard) navigator.clipboard.writeText(text + '\n' + url).then(() => { document.getElementById('wpMsg').textContent = '📋 Invite copied. Paste it in a text.'; });
   else prompt('Copy this invite:', text + '\n' + url);
 }
@@ -2580,12 +2447,12 @@ function shareTg() {
   const total=rsvp.reduce((s,p)=>s+(parseInt(p.count)||1),0);
   const game=getHomeGames().find(g=>g.key===currentTgGame);
   const gl=game?game.label:'Game Day';
-  let t='\ud83c\udf54 MSU TAILGATE \u2014 '+gl+'\n\n\ud83d\udc65 WHO\'S COMING ('+total+'):\n';
+  let t='\ud83c\udf54 WMU TAILGATE \u2014 '+gl+'\n\n\ud83d\udc65 WHO\'S COMING ('+total+'):\n';
   t+=rsvp.filter(p=>p.name).map(p=>'  \u2022 '+p.name+(p.count>1?' (+' +(p.count-1)+')':'')).join('\n');
   if(!rsvp.filter(p=>p.name).length) t+='  (add names above)';
   t+='\n\n\ud83d\udccb BRINGING:\n';
   t+=data.filter(x=>x.text).map(x=>(x.done?'\u2705':'\u2b1c')+' '+x.text+(x.who?' \u2014 '+x.who:'')).join('\n');
-  t+='\n\n\ud83d\udcaa Go Green!';
+  t+='\n\n\ud83d\udcaa Go Broncos!';
   if(navigator.share){navigator.share({text:t}).catch(()=>{});}
   else if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>{
     const b=document.querySelector('#tailgateModal .btn-primary');b.textContent='\u2705 Copied!';
@@ -2603,7 +2470,7 @@ const VENMO_USER = 'Sparty-Tracker';
   const btn = document.getElementById('supportBtn');
   if (VENMO_USER) {
     btn.href = 'https://venmo.com/u/' + encodeURIComponent(VENMO_USER);
-    btn.textContent = '💚 Support this app on Venmo';
+    btn.textContent = '💛 Support this app on Venmo';
   }
 })();
 // ===== Support strip near the top =====
@@ -2653,7 +2520,7 @@ let splashTimer = null;
 // ===== Game-day intro (synthesized: baritones + tubas play the first line of the "Victory for MSU" chorus) =====
 // Built in code with the Web Audio API, so there is no audio file and no recording rights to worry about.
 // Phones only allow sound after a tap, so it plays when you tap into the app from the splash screen.
-function soundOn() { try { return localStorage.getItem('msu_sound') !== 'off'; } catch (e) { return true; } }
+function soundOn() { return false; }  // no intro music for this team (yet)
 function paintSoundBtn() { const b = document.getElementById('soundBtn'); if (b) b.textContent = soundOn() ? '🔊' : '🔇'; }
 function toggleSound() {
   const on = !soundOn();
@@ -2782,14 +2649,14 @@ restoreState();
 try { if (!sessionStorage.getItem('msu_splashed')) { sessionStorage.setItem('msu_splashed', '1'); showSplash(!soundOn()); } } catch (e) { showSplash(!soundOn()); }
 
 // ===== Visitor counter =====
-// One ping per app open to the Spartans Gameday project on Netlify.
+// One ping per app open to the Broncos Gameday project on Netlify.
 // Sends only a random ID made for this device (no names, no personal info).
 (function () {
   try {
     if (!location.protocol.startsWith('http')) return;               // skip local copies
     let vid = localStorage.getItem('msu_vid');
     if (!vid) { vid = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now()).replace(/[^a-z0-9]/gi, '').slice(0, 24); localStorage.setItem('msu_vid', vid); }
-    const url = 'https://spartans-gameday.netlify.app/api/hit';
+    const url = 'https://wmu-gameday.netlify.app/api/hit';
     if (navigator.sendBeacon) navigator.sendBeacon(url, vid);
     else fetch(url, { method: 'POST', body: vid, mode: 'no-cors', keepalive: true }).catch(() => {});
   } catch (e) {}
@@ -2798,14 +2665,14 @@ if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 }
 function copyCalLink(kind, btn) {
-  const url = new URL('msu-' + kind + '.ics', location.href).href;
+  const url = new URL('wmu-' + kind + '.ics', location.href).href;
   const done = () => { const t = btn.textContent; btn.textContent = 'Copied ✓'; setTimeout(() => btn.textContent = t, 1800); };
   (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(done, () => prompt('Copy this calendar link:', url));
 }
 function calLinks() {
   document.querySelectorAll('.cal-card').forEach(card => {
     const kind = card.dataset.kind;
-    const ics = new URL('msu-' + kind + '.ics', location.href);
+    const ics = new URL('wmu-' + kind + '.ics', location.href);
     const webcal = 'webcal://' + ics.host + ics.pathname;
     card.querySelector('.cal-apple').href = webcal;
     card.querySelector('.cal-google').href = 'https://calendar.google.com/calendar/render?cid=' + encodeURIComponent(webcal);

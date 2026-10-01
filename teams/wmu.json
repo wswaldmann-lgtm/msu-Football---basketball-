@@ -1,0 +1,110 @@
+{
+  "_about": "Settings for the Western Michigan version of the app. tools/make_team.py turns the MSU app (index.html) into wmu/index.html using this file. Edit schedules here: time 'TBA' means not announced yet; add a result like 'W 31-17' after a game.",
+
+  "slug": "wmu",
+  "short": "WMU",
+  "school": "Western Michigan",
+  "university": "Western Michigan University",
+  "nick": "Broncos",
+  "nickSingular": "Bronco",
+  "appName": "Broncos Game Tracker",
+  "homeTitle": "Broncos",
+  "cheer": "Go Broncos!",
+  "heart": "💛",
+  "site": "https://wmu-gameday.netlify.app",
+  "netlifyProject": "wmu-gameday",
+  "espnId": 2711,
+  "standings": { "football": 15, "basketball": 14, "label": "MAC", "tabLabel": "MAC Standings" },
+  "season": "2026–27",
+
+  "colors": {
+    "primary": "#5A3A22",
+    "primaryDark": "#3A2414",
+    "primaryLight": "#74492A",
+    "accent": "#F1C400",
+    "primaryRgb": "90,58,34",
+    "darkText": "#F4CF3A",
+    "darkDivider": "#8A5A35",
+    "darkBadgeRgb": "138,90,53",
+    "splashBg": "#1E1209",
+    "manifestBg": "#3A2414"
+  },
+
+  "links": {
+    "football": [["🏈 WMU Schedule", "https://wmubroncos.com/sports/football/schedule/2026"], ["📊 ESPN", "https://www.espn.com/college-football/team/_/id/2711/western-michigan-broncos"]],
+    "basketball": [["🏀 WMU Schedule", "https://wmubroncos.com/sports/mens-basketball/schedule/2026-27"], ["📊 ESPN", "https://www.espn.com/mens-college-basketball/team/_/id/2711/western-michigan-broncos"]]
+  },
+
+  "football": {
+    "record": { "w": 2, "l": 2, "conf": "0–0" },
+    "home": "Waldo Stadium",
+    "games": [
+      { "date": "2026-09-05", "time": "7:30 PM", "loc": "away", "opp": "Michigan", "star": true, "tv": "NBC", "where": "Michigan Stadium, Ann Arbor", "result": "L 12–13" },
+      { "date": "2026-09-12", "time": "6:30 PM", "loc": "home", "opp": "Monmouth", "tv": "ESPN+", "where": "Waldo Stadium", "result": "W 49–14" },
+      { "date": "2026-09-19", "time": "7:00 PM", "loc": "away", "opp": "Rice", "tv": "ESPN+", "where": "Rice Stadium, Houston", "result": "W 28–21" },
+      { "date": "2026-09-26", "time": "TBA", "loc": "home", "opp": "Boise State", "star": true, "where": "Waldo Stadium", "result": "L 7–32" },
+      { "date": "2026-10-03", "time": "1:00 PM", "loc": "away", "opp": "Buffalo", "tv": "ESPN+", "where": "UB Stadium, Buffalo" },
+      { "date": "2026-10-10", "time": "3:30 PM", "loc": "home", "opp": "Kent State", "tv": "ESPN+", "where": "Waldo Stadium" },
+      { "date": "2026-10-17", "time": "TBA", "loc": "away", "opp": "Central Michigan", "star": true, "where": "Kelly/Shorts Stadium, Mount Pleasant", "note": "Rivalry game. The Michigan MAC Trophy is on the line." },
+      { "date": "2026-10-24", "time": "TBA", "loc": "away", "opp": "Toledo", "where": "Glass Bowl, Toledo" },
+      { "date": "2026-10-31", "time": "12:00 PM", "loc": "home", "opp": "Bowling Green", "tv": "CBSSN", "where": "Waldo Stadium" },
+      { "date": "2026-11-10", "time": "7:00 PM", "loc": "away", "opp": "Akron", "tv": "ESPN+", "where": "InfoCision Stadium, Akron", "note": "Tuesday night MACtion." },
+      { "date": "2026-11-17", "time": "7:00 PM", "loc": "home", "opp": "Eastern Michigan", "star": true, "tv": "ESPN+", "where": "Waldo Stadium", "note": "Tuesday night MACtion, and a Michigan MAC Trophy game." },
+      { "date": "2026-11-24", "time": "TBA", "loc": "home", "opp": "Miami (OH)", "tv": "ESPN+", "where": "Waldo Stadium", "note": "Regular-season finale." }
+    ],
+    "postseason": "<strong>MAC Championship:</strong> Saturday, Dec. 5, 2026 &middot; Noon &middot; Ford Field, Detroit"
+  },
+
+  "basketball": {
+    "record": { "w": 0, "l": 0, "conf": "0–0" },
+    "home": "University Arena",
+    "games": [
+      { "date": "2026-11-02", "time": "TBA", "loc": "away", "opp": "Old Dominion", "where": "Norfolk, Va." },
+      { "date": "2026-11-05", "time": "TBA", "loc": "home", "opp": "Kalamazoo College", "where": "University Arena" },
+      { "date": "2026-11-08", "time": "TBA", "loc": "home", "opp": "Campbell", "where": "University Arena" },
+      { "date": "2026-11-12", "time": "TBA", "loc": "away", "opp": "Purdue Fort Wayne", "where": "Fort Wayne, Ind." },
+      { "date": "2026-11-15", "time": "4:30 PM", "loc": "away", "opp": "Southern Indiana", "tv": "ESPN+", "where": "Evansville, Ind." },
+      { "date": "2026-11-20", "time": "7:00 PM", "loc": "away", "opp": "Mount St. Mary's", "where": "Emmitsburg, Md." },
+      { "date": "2026-11-25", "time": "TBA", "loc": "home", "opp": "Grace Christian", "where": "University Arena" },
+      { "date": "2026-12-02", "time": "TBA", "loc": "home", "opp": "Buffalo", "where": "University Arena" },
+      { "date": "2026-12-05", "time": "TBA", "loc": "away", "opp": "Bowling Green", "where": "Bowling Green, Ohio" },
+      { "date": "2026-12-09", "time": "TBA", "loc": "away", "opp": "UMass", "where": "Amherst, Mass." },
+      { "date": "2026-12-12", "time": "TBA", "loc": "home", "opp": "Toledo", "where": "University Arena" },
+      { "date": "2026-12-18", "time": "TBA", "loc": "home", "opp": "Great Lakes Christian", "where": "University Arena" },
+      { "date": "2026-12-22", "time": "TBA", "loc": "away", "opp": "USC", "star": true, "where": "Los Angeles" },
+      { "date": "2027-01-02", "time": "TBA", "loc": "away", "opp": "Akron", "where": "Akron, Ohio" },
+      { "date": "2027-01-05", "time": "TBA", "loc": "home", "opp": "Eastern Michigan", "star": true, "where": "University Arena" },
+      { "date": "2027-01-09", "time": "TBA", "loc": "home", "opp": "Kent State", "where": "University Arena" },
+      { "date": "2027-01-12", "time": "TBA", "loc": "away", "opp": "Miami (OH)", "where": "Oxford, Ohio" },
+      { "date": "2027-01-16", "time": "TBA", "loc": "home", "opp": "Ball State", "where": "University Arena" },
+      { "date": "2027-01-19", "time": "TBA", "loc": "away", "opp": "Ohio", "where": "Athens, Ohio" },
+      { "date": "2027-01-23", "time": "TBA", "loc": "away", "opp": "Central Michigan", "star": true, "where": "Mount Pleasant" },
+      { "date": "2027-01-26", "time": "TBA", "loc": "home", "opp": "Bowling Green", "where": "University Arena" },
+      { "date": "2027-01-30", "time": "TBA", "loc": "away", "opp": "Eastern Michigan", "star": true, "where": "Ypsilanti" },
+      { "date": "2027-02-02", "time": "TBA", "loc": "home", "opp": "Akron", "where": "University Arena" },
+      { "date": "2027-02-06", "time": "TBA", "loc": "home", "opp": "MAC–Sun Belt Challenge (opponent TBA)", "where": "University Arena" },
+      { "date": "2027-02-09", "time": "TBA", "loc": "home", "opp": "Ohio", "where": "University Arena" },
+      { "date": "2027-02-13", "time": "TBA", "loc": "away", "opp": "Toledo", "where": "Toledo, Ohio" },
+      { "date": "2027-02-16", "time": "TBA", "loc": "away", "opp": "Kent State", "where": "Kent, Ohio" },
+      { "date": "2027-02-20", "time": "TBA", "loc": "home", "opp": "UMass", "where": "University Arena" },
+      { "date": "2027-02-23", "time": "TBA", "loc": "away", "opp": "Ball State", "where": "Muncie, Ind." },
+      { "date": "2027-02-27", "time": "TBA", "loc": "home", "opp": "Central Michigan", "star": true, "where": "University Arena" },
+      { "date": "2027-03-02", "time": "TBA", "loc": "home", "opp": "Miami (OH)", "where": "University Arena", "note": "Senior night is usually the last home game." },
+      { "date": "2027-03-05", "time": "6:30 PM", "loc": "away", "opp": "Buffalo", "where": "Buffalo, N.Y.", "note": "Regular-season finale." }
+    ],
+    "postseason": "<strong>MAC Tournament:</strong> March 10–13, 2027 &middot; Rocket Mortgage FieldHouse, Cleveland<br><br><strong>Selection Sunday:</strong> March 14, 2027"
+  },
+
+  "trashTalk": [
+    "Central Michigan: the second-best directional school in Michigan. 🐴",
+    "Kalamazoo has a better name than Mount Pleasant, and it's not even close.",
+    "Chippewas vs. Broncos in a footrace? We'll wait at the finish line. 🐎",
+    "The Michigan MAC Trophy just looks right in Kalamazoo. 🏆",
+    "Brown and gold never goes out of style. Maroon and gold? Pick a lane.",
+    "Waldo Stadium on a Saturday beats anything in Mount Pleasant.",
+    "Bronco fans travel. Chippewa fans check the score on Monday.",
+    "Eastern Michigan fans: there's always room for you at Waldo. Lots of room.",
+    "Tuesday night MACtion hits different when the Broncos are winning. 📺",
+    "Saddle up. 🐴 Somebody tell Mount Pleasant we're coming."
+  ]
+}

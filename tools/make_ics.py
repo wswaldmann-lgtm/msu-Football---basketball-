@@ -2,6 +2,8 @@
 """Build calendar files (.ics) from the game cards in index.html.
 
     python3 tools/make_ics.py            # writes msu-basketball.ics + msu-football.ics
+    python3 tools/make_ics.py --dir wmu --prefix wmu --team WMU \
+        --page https://wmu-gameday.netlify.app/     # another team's app folder
 
 The schedule lives in index.html only; this script reads it, so the calendar
 can never disagree with the app. The Pages workflow runs it on every deploy.
@@ -10,6 +12,7 @@ Games with a published time become 2-hour events. Games whose time is still
 "Time TBA"/"Time TBD" become all-day events titled "(time TBA)", and update
 in subscribed calendars once the time is added to index.html.
 """
+import argparse
 import datetime as dt
 import html
 import os
@@ -41,15 +44,15 @@ def section(page, name):
     return page[start:end]
 
 
-def build(page, name, label, emoji):
+def build(page, name, label, emoji, team="MSU", prefix="msu", page_url=PAGE, app="Spartans Game Tracker"):
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//Spartans Game Tracker (unofficial fan app)//EN",
+        f"PRODID:-//{app} (unofficial fan app)//EN",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
-        f"X-WR-CALNAME:MSU {label}",
+        f"X-WR-CALNAME:{team} {label}",
         "X-WR-TIMEZONE:America/Detroit",
         "REFRESH-INTERVAL;VALUE=DURATION:PT12H",
         "X-PUBLISHED-TTL:PT12H",
@@ -62,8 +65,8 @@ def build(page, name, label, emoji):
         parts = [p.strip() for p in meta.split("·")]
         tba = parts[0].lower().startswith("time tb")
         where = parts[-1] if len(parts) > 1 else ""
-        title = f"{emoji} MSU {opp if opp.startswith(('at ', 'vs ')) else 'vs ' + opp}"
-        uid = f"msu-{name}-{start:%Y%m%d}@{HOST}"
+        title = f"{emoji} {team} {opp if opp.startswith(('at ', 'vs ')) else 'vs ' + opp}"
+        uid = f"{prefix}-{name}-{start:%Y%m%d}@{HOST}"
         lines += ["BEGIN:VEVENT", f"UID:{uid}", f"DTSTAMP:{stamp}"]
         if tba:
             day = start.date()
@@ -82,7 +85,7 @@ def build(page, name, label, emoji):
             ]
         if where:
             lines.append(f"LOCATION:{esc(where)}")
-        lines += [f"DESCRIPTION:{esc(meta + chr(10) + PAGE)}", f"URL:{PAGE}", "END:VEVENT"]
+        lines += [f"DESCRIPTION:{esc(meta + chr(10) + page_url)}", f"URL:{page_url}", "END:VEVENT"]
         count += 1
     lines.append("END:VCALENDAR")
     # RFC 5545: CRLF line endings, lines folded at 75 octets
@@ -102,11 +105,19 @@ def fold(line):
 
 
 def main():
-    with open(os.path.join(ROOT, "index.html"), encoding="utf-8") as f:
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--dir", default=".", help="app folder (relative to the repo root) holding index.html")
+    ap.add_argument("--prefix", default="msu", help="file prefix, e.g. msu -> msu-football.ics")
+    ap.add_argument("--team", default="MSU", help="short team name used in event titles")
+    ap.add_argument("--page", default=PAGE, help="app address put in each event")
+    ap.add_argument("--app", default="Spartans Game Tracker", help="app name for the calendar")
+    a = ap.parse_args()
+    folder = os.path.join(ROOT, a.dir)
+    with open(os.path.join(folder, "index.html"), encoding="utf-8") as f:
         page = f.read()
     for name, label, emoji in (("basketball", "Basketball", "🏀"), ("football", "Football", "🏈")):
-        body, count = build(page, name, label, emoji)
-        out = os.path.join(ROOT, f"msu-{name}.ics")
+        body, count = build(page, name, label, emoji, a.team, a.prefix, a.page, a.app)
+        out = os.path.join(folder, f"{a.prefix}-{name}.ics")
         with open(out, "w", encoding="utf-8", newline="") as f:
             f.write(body)
         print(f"{out}: {count} games")

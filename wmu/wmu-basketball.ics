@@ -1,0 +1,361 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Broncos Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:WMU Basketball
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:wmu-basketball-20261102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:🏀 WMU at Old Dominion (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Norfolk\, Va.
+DESCRIPTION:Time TBA · Norfolk\, Va.\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261105@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:🏀 WMU vs Kalamazoo College (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261108@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:🏀 WMU vs Campbell (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261112@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+SUMMARY:🏀 WMU at Purdue Fort Wayne (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Fort Wayne\, Ind.
+DESCRIPTION:Time TBA · Fort Wayne\, Ind.\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261115@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20261115T213000Z
+DTEND:20261115T233000Z
+SUMMARY:🏀 WMU at Southern Indiana
+LOCATION:Evansville\, Ind.
+DESCRIPTION:4:30 PM · ESPN+ · Evansville\, Ind.\nhttps://wmu-gameday.netl
+ ify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261120@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20261121T000000Z
+DTEND:20261121T020000Z
+SUMMARY:🏀 WMU at Mount St. Mary's
+LOCATION:Emmitsburg\, Md.
+DESCRIPTION:7:00 PM · Emmitsburg\, Md.\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261125@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:🏀 WMU vs Grace Christian (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261202@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:🏀 WMU vs Buffalo (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261205@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:🏀 WMU at Bowling Green (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Bowling Green\, Ohio
+DESCRIPTION:Time TBA · Bowling Green\, Ohio\nhttps://wmu-gameday.netlify.a
+ pp/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261209@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261210
+SUMMARY:🏀 WMU at UMass (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Amherst\, Mass.
+DESCRIPTION:Time TBA · Amherst\, Mass.\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261212@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:🏀 WMU vs Toledo (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261218@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:🏀 WMU vs Great Lakes Christian (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20261222@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20261222
+DTEND;VALUE=DATE:20261223
+SUMMARY:🏀 WMU at USC (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Los Angeles
+DESCRIPTION:Time TBA · Los Angeles\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270102
+DTEND;VALUE=DATE:20270103
+SUMMARY:🏀 WMU at Akron (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Akron\, Ohio
+DESCRIPTION:Time TBA · Akron\, Ohio\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270105@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270106
+SUMMARY:🏀 WMU vs Eastern Michigan (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270109@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:🏀 WMU vs Kent State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270112@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+SUMMARY:🏀 WMU at Miami (OH) (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Oxford\, Ohio
+DESCRIPTION:Time TBA · Oxford\, Ohio\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270116@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:🏀 WMU vs Ball State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270119@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270119
+DTEND;VALUE=DATE:20270120
+SUMMARY:🏀 WMU at Ohio (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Athens\, Ohio
+DESCRIPTION:Time TBA · Athens\, Ohio\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270123@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:🏀 WMU at Central Michigan (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Mount Pleasant
+DESCRIPTION:Time TBA · Mount Pleasant\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270126@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270126
+DTEND;VALUE=DATE:20270127
+SUMMARY:🏀 WMU vs Bowling Green (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270130@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:🏀 WMU at Eastern Michigan (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ypsilanti
+DESCRIPTION:Time TBA · Ypsilanti\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270202@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270202
+DTEND;VALUE=DATE:20270203
+SUMMARY:🏀 WMU vs Akron (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270206@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:🏀 WMU vs MAC–Sun Belt Challenge (opponent TBA) (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270209@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270209
+DTEND;VALUE=DATE:20270210
+SUMMARY:🏀 WMU vs Ohio (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270213@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:🏀 WMU at Toledo (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Toledo\, Ohio
+DESCRIPTION:Time TBA · Toledo\, Ohio\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270216@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270217
+SUMMARY:🏀 WMU at Kent State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Kent\, Ohio
+DESCRIPTION:Time TBA · Kent\, Ohio\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270220@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:🏀 WMU vs UMass (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270223@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270223
+DTEND;VALUE=DATE:20270224
+SUMMARY:🏀 WMU at Ball State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Muncie\, Ind.
+DESCRIPTION:Time TBA · Muncie\, Ind.\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270227@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:🏀 WMU vs Central Michigan (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270302@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART;VALUE=DATE:20270302
+DTEND;VALUE=DATE:20270303
+SUMMARY:🏀 WMU vs Miami (OH) (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:University Arena
+DESCRIPTION:Time TBA · University Arena\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:wmu-basketball-20270305@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T172442Z
+DTSTART:20270305T233000Z
+DTEND:20270306T013000Z
+SUMMARY:🏀 WMU at Buffalo
+LOCATION:Buffalo\, N.Y.
+DESCRIPTION:6:30 PM · Buffalo\, N.Y.\nhttps://wmu-gameday.netlify.app/
+URL:https://wmu-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

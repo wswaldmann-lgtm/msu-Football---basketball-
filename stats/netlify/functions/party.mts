@@ -41,6 +41,7 @@ export default async (req: Request) => {
       sport: clean(b.sport, 20) || "basketball",
       game: clean(b.game, 80),
       gameDate: clean(b.gameDate, 40),
+      tba: !!b.tba,                      // start time not announced yet
       place: clean(b.place, 80),
       address: clean(b.address, 160),
       time: clean(b.time, 40),
