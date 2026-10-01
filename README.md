@@ -1,3 +1,15 @@
+# MSU Spartans Game Tracker
+
+**Live:** https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+
+Single-file web app (`index.html`). Every push to `main` publishes it to GitHub Pages
+via `.github/workflows/pages.yml`. The old link (`msu-spartans-share.html`) redirects
+to the new address.
+
+One-time setup: repo **Settings -> Pages -> Build and deployment -> Source: GitHub Actions**.
+
+---
+
 📲 Install Banner — Gold bar at the top on first open reminding them to "Add to Home Screen." Tap "GOT IT" and it never shows again. The file itself can't auto-install as an icon (that's a phone OS thing), but this makes it obvious what to do.
 
 📣 Share Hype — One tap generates something like "🏈 6 days, 4 hours until MSU vs Toledo 🏟💚 Go Green!" and fires the phone's share sheet (or copies to clipboard on desktop). Zero typing.
