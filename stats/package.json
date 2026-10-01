@@ -1,0 +1,9 @@
+{
+  "name": "spartans-tracker-stats",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "*",
+    "@netlify/functions": "*"
+  }
+}

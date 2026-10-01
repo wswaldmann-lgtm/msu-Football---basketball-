@@ -2493,6 +2493,19 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) saveS
 restoreState();
 try { if (!sessionStorage.getItem('msu_splashed')) { sessionStorage.setItem('msu_splashed', '1'); showSplash(!soundOn()); } } catch (e) { showSplash(!soundOn()); }
 
+// ===== Visitor counter =====
+// One ping per app open to the Spartans Tracker Stats project on Netlify.
+// Sends only a random ID made for this device (no names, no personal info).
+(function () {
+  try {
+    if (!location.protocol.startsWith('http')) return;               // skip local copies
+    let vid = localStorage.getItem('msu_vid');
+    if (!vid) { vid = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now()).replace(/[^a-z0-9]/gi, '').slice(0, 24); localStorage.setItem('msu_vid', vid); }
+    const url = 'https://spartans-tracker-stats.netlify.app/api/hit';
+    if (navigator.sendBeacon) navigator.sendBeacon(url, vid);
+    else fetch(url, { method: 'POST', body: vid, mode: 'no-cors', keepalive: true }).catch(() => {});
+  } catch (e) {}
+})();
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 }

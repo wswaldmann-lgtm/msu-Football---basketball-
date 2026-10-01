@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Spartans Tracker Stats</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#18453B;--green-dark:#0F2B24;--gold:#C5A551;--bg:#F2F0EB;--card:#FAFAF8;--text:#1A1A1A;--muted:#6E6C66;--border:#E3E0D9}
+@media (prefers-color-scheme:dark){:root{--bg:#121917;--card:#1C2422;--text:#EDEBE6;--muted:#9C9992;--border:#2C3532}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',system-ui,sans-serif;max-width:640px;margin:0 auto;padding-bottom:2rem}
+header{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;padding:1.4rem 16px 1.2rem;border-bottom:3px solid var(--gold)}
+h1{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:1.5rem}
+.sub{opacity:.75;font-size:.9rem;margin-top:.2rem}
+main{padding:16px;display:grid;gap:14px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tile{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:.9rem 1rem}
+.tile .v{font-family:'Oswald',sans-serif;font-weight:700;font-size:2rem;line-height:1;color:var(--green)}
+@media (prefers-color-scheme:dark){.tile .v{color:#5BBF97}}
+.tile .l{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;font-family:'Oswald',sans-serif}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem}
+.card h2{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem;margin-bottom:.7rem}
+.row{display:grid;grid-template-columns:5.5rem 1fr 3.2rem 3.2rem;align-items:center;gap:.5rem;padding:.3rem 0;font-size:.9rem;font-variant-numeric:tabular-nums}
+.row.head{color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;font-family:'Oswald',sans-serif}
+.row .n{text-align:right}
+.bar{height:10px;border-radius:5px;background:var(--gold);min-width:2px}
+.prow{grid-template-columns:5.5rem 1fr 3.2rem}
+.empty,.err{color:var(--muted);font-size:.9rem;text-align:center;padding:1rem 0}
+.foot{color:var(--muted);font-size:.78rem;text-align:center}
+button{font:inherit;font-family:'Oswald',sans-serif;letter-spacing:.06em;text-transform:uppercase;font-size:.75rem;background:var(--green);color:#fff;border:none;border-radius:999px;padding:.5rem 1rem;cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+  <h1>Spartans Tracker Stats</h1>
+  <div class="sub">Who's opening the Spartans Game Tracker</div>
+</header>
+<main>
+  <div class="tiles">
+    <div class="tile"><div class="v" id="today">–</div><div class="l">Devices today</div></div>
+    <div class="tile"><div class="v" id="week">–</div><div class="l">Devices, last 7 days</div></div>
+    <div class="tile"><div class="v" id="devices">–</div><div class="l">Devices, all time</div></div>
+    <div class="tile"><div class="v" id="opens">–</div><div class="l">App opens, all time</div></div>
+  </div>
+  <div class="card">
+    <h2>By day</h2>
+    <div id="days"><div class="empty">Loading…</div></div>
+  </div>
+  <div class="card">
+    <h2>Where fans are</h2>
+    <div id="places"><div class="empty">Loading…</div></div>
+  </div>
+  <div class="foot">"Devices" counts each phone or computer once. No names or personal info are collected.<br><br><button onclick="load()">↻ Refresh</button> <span id="updated"></span></div>
+</main>
+<script>
+const NAMES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'Washington DC',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
+function placeName(p){ if(p.startsWith('US-')) return NAMES[p.slice(3)]||p.slice(3); return p==='XX'?'Unknown':p; }
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function fmtDay(d){ const [y,m,dd]=d.split('-').map(Number); return new Date(y,m-1,dd).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); }
+async function load(){
+  try{
+    const r=await fetch('/api/stats',{cache:'no-store'}); const s=await r.json();
+    const today=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
+    const t=s.days.find(d=>d.day===today);
+    document.getElementById('today').textContent=t?t.devices:0;
+    document.getElementById('devices').textContent=s.totalDevices;
+    document.getElementById('opens').textContent=s.totalOpens;
+    document.getElementById('week').textContent=s.week7Devices;
+    const days=s.days.slice(0,30);
+    if(!days.length){document.getElementById('days').innerHTML='<div class="empty">No opens yet. They\'ll show up here as fans use the app.</div>'}
+    else{
+      const max=Math.max(...days.map(d=>d.opens));
+      document.getElementById('days').innerHTML='<div class="row head"><span>Day</span><span></span><span class="n">Devices</span><span class="n">Opens</span></div>'+
+        days.map(d=>`<div class="row"><span>${esc(fmtDay(d.day))}</span><div class="bar" style="width:${Math.round(d.opens/max*100)}%"></div><span class="n">${d.devices}</span><span class="n">${d.opens}</span></div>`).join('');
+    }
+    if(!s.places.length){document.getElementById('places').innerHTML='<div class="empty">No data yet.</div>'}
+    else{
+      const pm=Math.max(...s.places.map(p=>p.opens));
+      document.getElementById('places').innerHTML=s.places.slice(0,25).map(p=>`<div class="row prow"><span>${esc(placeName(p.place))}</span><div class="bar" style="width:${Math.round(p.opens/pm*100)}%"></div><span class="n">${p.opens}</span></div>`).join('');
+    }
+    document.getElementById('updated').textContent='Updated '+new Date(s.updated).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  }catch(e){ document.getElementById('days').innerHTML='<div class="err">Couldn\'t load stats. Try Refresh.</div>'; }
+}
+load();
+</script>
+</body>
+</html>
