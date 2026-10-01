@@ -535,7 +535,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 </style>
 </head>
 <body>
-<div id="splash" role="button" aria-label="Enter the game tracker" onclick="hideSplash()" hidden>
+<div id="splash" role="button" aria-label="Enter the game tracker" onclick="hideSplash(true)" hidden>
   <div class="s-title">Spartans Game Tracker</div>
   <div class="s-sub">Unofficial fan app &middot; Go Green</div>
   <div class="s-tap">Tap to enter</div>
@@ -563,6 +563,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
       <h1>Spartans Game Tracker</h1>
       <div class="sub">Unofficial fan app &middot; 2026–27 &middot; Go Green! 💚</div>
     </div>
+    <button class="mode-toggle" onclick="toggleSound()" aria-label="Game-day intro sound" title="Game-day intro sound" id="soundBtn" style="margin-right:.4rem">🔊</button>
     <button class="mode-toggle" onclick="toggleDark()" aria-label="Toggle dark mode" id="modeBtn">🌙</button>
     <button class="mode-toggle" onclick="openExit()" aria-label="Exit" title="Exit" style="margin-left:.4rem;font-size:1rem;font-weight:700">✕</button>
   </div>
@@ -2361,13 +2362,93 @@ function restoreState() {
   if (st.y) requestAnimationFrame(() => window.scrollTo(0, st.y));
 }
 let splashTimer = null;
+// ===== Game-day intro (synthesized: drum roll + "Fight! Fight! Rah, Team Fight!" brass hits) =====
+// Built in code with the Web Audio API, so there is no audio file and no recording rights to worry about.
+// Phones only allow sound after a tap, so it plays when you tap into the app from the splash screen.
+function soundOn() { try { return localStorage.getItem('msu_sound') !== 'off'; } catch (e) { return true; } }
+function paintSoundBtn() { const b = document.getElementById('soundBtn'); if (b) b.textContent = soundOn() ? '🔊' : '🔇'; }
+function toggleSound() {
+  const on = !soundOn();
+  try { localStorage.setItem('msu_sound', on ? 'on' : 'off'); } catch (e) {}
+  paintSoundBtn();
+  if (on) playIntro(); else stopIntro();
+}
+let introCtx = null;
+function stopIntro() { if (introCtx) { try { introCtx.close(); } catch (e) {} introCtx = null; } }
+function playIntro() {
+  if (!soundOn()) return;
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  stopIntro();
+  const ctx = introCtx = new AC();
+  if (ctx.state === 'suspended') ctx.resume();
+  const master = ctx.createGain(); master.gain.value = 0.45;
+  const comp = ctx.createDynamicsCompressor(); master.connect(comp); comp.connect(ctx.destination);
+  const t0 = ctx.currentTime + 0.05;
+
+  // white-noise buffer shared by the drums
+  const nb = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+  const nd = nb.getChannelData(0); for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+  function noise(t, dur, vol, type, freq, q) {
+    const src = ctx.createBufferSource(); src.buffer = nb;
+    const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = q || 0.8;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    src.connect(f); f.connect(g); g.connect(master);
+    src.start(t, Math.random()); src.stop(t + dur + 0.05);
+  }
+  function brass(freq, t, dur, vol) {
+    const g = ctx.createGain(), f = ctx.createBiquadFilter(); f.type = 'lowpass'; f.Q.value = 2;
+    f.frequency.setValueAtTime(500, t);
+    f.frequency.linearRampToValueAtTime(3200, t + 0.06);
+    f.frequency.exponentialRampToValueAtTime(1300, t + Math.max(0.15, dur * 0.8));
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(vol, t + 0.03);
+    g.gain.setValueAtTime(vol * 0.8, t + dur * 0.7);
+    g.gain.exponentialRampToValueAtTime(0.001, t + dur + 0.08);
+    f.connect(g); g.connect(master);
+    [-7, 0, 7].forEach(cents => {
+      const o = ctx.createOscillator(); o.type = 'sawtooth';
+      o.frequency.value = freq; o.detune.value = cents;
+      o.connect(f); o.start(t); o.stop(t + dur + 0.12);
+    });
+  }
+  const hz = n => 440 * Math.pow(2, (n - 69) / 12);       // MIDI note -> Hz
+  const BB = [46, 58, 62, 65, 70];                          // B-flat major, band voicing
+  const BB_HI = [46, 58, 65, 70, 74, 77];                   // brighter voicing for the last hit
+  function chord(notes, t, dur, vol) { notes.forEach(n => brass(hz(n), t, dur, vol / Math.sqrt(notes.length))); }
+
+  // drum roll that builds up (about 0.9 s)
+  const rollEnd = t0 + 0.9;
+  for (let t = t0, i = 0; t < rollEnd; t += 0.045, i++) noise(t, 0.06, 0.08 + 0.32 * (i * 0.045 / 0.9), 'bandpass', 1900, 0.7);
+
+  // "Fight! Fight! Rah, Team Fight!"  (tempo ~132)
+  const b = 60 / 132, s = rollEnd + 0.05;
+  const hits = [
+    [s,             b * 0.75, BB,    0.9],   // Fight!
+    [s + b,         b * 0.75, BB,    0.9],   // Fight!
+    [s + 2 * b,     b * 0.4,  BB,    0.8],   // Rah,
+    [s + 2.5 * b,   b * 0.4,  BB,    0.8],   // Team
+    [s + 3 * b,     b * 2.6,  BB_HI, 1.0],   // FIGHT!
+  ];
+  hits.forEach(([t, d, notes, v]) => {
+    chord(notes, t, d, v);
+    noise(t, 0.12, 0.45, 'bandpass', 1900, 0.7);          // snare on each hit
+    noise(t, 0.25, 0.5, 'lowpass', 120, 1);               // bass drum
+  });
+  const last = hits[hits.length - 1][0];
+  noise(last, 1.8, 0.25, 'highpass', 5000, 0.5);          // cymbal crash
+  setTimeout(() => { if (introCtx === ctx) stopIntro(); }, (last - ctx.currentTime + 2.6) * 1000);
+}
+paintSoundBtn();
 function showSplash(autoHide) {
   const sp = document.getElementById('splash');
   sp.hidden = false; sp.classList.remove('hide');
   clearTimeout(splashTimer);
   if (autoHide) splashTimer = setTimeout(hideSplash, 1800);
 }
-function hideSplash() {
+function hideSplash(fromTap) {
+  if (fromTap) playIntro();
   const sp = document.getElementById('splash');
   if (exited) { exited = false; window.scrollTo(0, 0); }
   clearTimeout(splashTimer);
@@ -2390,7 +2471,7 @@ document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', saveS
 window.addEventListener('scroll', () => { clearTimeout(window._saveT); window._saveT = setTimeout(saveState, 300); }, { passive: true });
 document.addEventListener('visibilitychange', () => { if (document.hidden) saveState(); });
 restoreState();
-try { if (!sessionStorage.getItem('msu_splashed')) { sessionStorage.setItem('msu_splashed', '1'); showSplash(true); } } catch (e) { showSplash(true); }
+try { if (!sessionStorage.getItem('msu_splashed')) { sessionStorage.setItem('msu_splashed', '1'); showSplash(!soundOn()); } } catch (e) { showSplash(!soundOn()); }
 
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
