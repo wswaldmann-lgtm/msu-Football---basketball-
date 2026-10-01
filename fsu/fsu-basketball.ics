@@ -1,0 +1,421 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Noles Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FSU Basketball
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:fsu-basketball-20261010@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20261010T220000Z
+DTEND:20261011T000000Z
+SUMMARY:🏀 FSU vs Mississippi State (Exh.)
+LOCATION:Pensacola Bay Center\, Pensacola
+DESCRIPTION:6:00 PM · Pensacola Bay Center\, Pensacola\nhttps://fsu-gameda
+ y.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261014@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20261015T010000Z
+DTEND:20261015T030000Z
+SUMMARY:🏀 FSU vs Auburn (Exh.)
+LOCATION:Boutwell Auditorium\, Birmingham
+DESCRIPTION:9:00 PM · Boutwell Auditorium\, Birmingham\nhttps://fsu-gameda
+ y.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261024@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏀 FSU vs LSU (Exh.) (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20261103T013000Z
+DTEND:20261103T033000Z
+SUMMARY:🏀 FSU vs Florida A&M
+LOCATION:Benchmark International Arena\, Tampa
+DESCRIPTION:8:30 PM · Benchmark International Arena\, Tampa\nhttps://fsu-g
+ ameday.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261106@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:🏀 FSU vs Troy (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261110@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261111
+SUMMARY:🏀 FSU vs Florida (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261113@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:🏀 FSU vs Texas A&M-Corpus Christi (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261117@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+SUMMARY:🏀 FSU vs Ball State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261120@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:🏀 FSU vs Green Bay (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261124@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261124
+DTEND;VALUE=DATE:20261125
+SUMMARY:🏀 FSU vs UNC Asheville (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261129@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20261129T200000Z
+DTEND:20261129T220000Z
+SUMMARY:🏀 FSU vs West Florida
+LOCATION:Pensacola Bay Center\, Pensacola
+DESCRIPTION:3:00 PM · Pensacola Bay Center\, Pensacola\nhttps://fsu-gameda
+ y.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261201@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20261202T000000Z
+DTEND:20261202T020000Z
+SUMMARY:🏀 FSU at Tennessee
+LOCATION:Knoxville\, Tenn.
+DESCRIPTION:7:00 PM · ESPN2 · Knoxville\, Tenn.\nhttps://fsu-gameday.netl
+ ify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261205@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:🏀 FSU vs Dayton (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261212@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:🏀 FSU vs Texas A&M (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Toyota Center\, Houston
+DESCRIPTION:Time TBA · Toyota Center\, Houston\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261216@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:🏀 FSU vs Jacksonville (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261220@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:🏀 FSU vs Houston (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:VyStar Veterans Memorial Arena\, Jacksonville
+DESCRIPTION:Time TBA · VyStar Veterans Memorial Arena\, Jacksonville\nhttp
+ s://fsu-gameday.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261222@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261222
+DTEND;VALUE=DATE:20261223
+SUMMARY:🏀 FSU vs Bethune-Cookman (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20261229@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261229
+DTEND;VALUE=DATE:20261230
+SUMMARY:🏀 FSU vs Syracuse (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270106@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:🏀 FSU at Cal (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Berkeley\, Calif.
+DESCRIPTION:Time TBA · Berkeley\, Calif.\nhttps://fsu-gameday.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270109@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:🏀 FSU at Stanford (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Palo Alto\, Calif.
+DESCRIPTION:Time TBA · Palo Alto\, Calif.\nhttps://fsu-gameday.netlify.app
+ /
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270113@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:🏀 FSU vs North Carolina (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270116@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:🏀 FSU at Wake Forest (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Winston-Salem\, N.C.
+DESCRIPTION:Time TBA · Winston-Salem\, N.C.\nhttps://fsu-gameday.netlify.a
+ pp/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270120@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:🏀 FSU vs Virginia Tech (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270123@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:🏀 FSU at Clemson (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Clemson\, S.C.
+DESCRIPTION:Time TBA · Clemson\, S.C.\nhttps://fsu-gameday.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270126@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270126
+DTEND;VALUE=DATE:20270127
+SUMMARY:🏀 FSU vs Notre Dame (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270130@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:🏀 FSU vs Pitt (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270203@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270203
+DTEND;VALUE=DATE:20270204
+SUMMARY:🏀 FSU at NC State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Raleigh\, N.C.
+DESCRIPTION:Time TBA · Raleigh\, N.C.\nhttps://fsu-gameday.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270206@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:🏀 FSU at Miami (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Coral Gables\, Fla.
+DESCRIPTION:Time TBA · Coral Gables\, Fla.\nhttps://fsu-gameday.netlify.ap
+ p/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270213@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:🏀 FSU vs Clemson (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270216@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270217
+SUMMARY:🏀 FSU at Duke (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Durham\, N.C.
+DESCRIPTION:Time TBA · Durham\, N.C.\nhttps://fsu-gameday.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270221@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:🏀 FSU vs Louisville (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270223@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270223
+DTEND;VALUE=DATE:20270224
+SUMMARY:🏀 FSU vs Georgia Tech (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270227@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:🏀 FSU at Virginia (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Charlottesville\, Va.
+DESCRIPTION:Time TBA · Charlottesville\, Va.\nhttps://fsu-gameday.netlify.
+ app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270303@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270303
+DTEND;VALUE=DATE:20270304
+SUMMARY:🏀 FSU at Boston College (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Chestnut Hill\, Mass.
+DESCRIPTION:Time TBA · Chestnut Hill\, Mass.\nhttps://fsu-gameday.netlify.
+ app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-basketball-20270306@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:🏀 FSU vs Miami (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Donald L. Tucker Center
+DESCRIPTION:Time TBA · Donald L. Tucker Center\nhttps://fsu-gameday.netlif
+ y.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

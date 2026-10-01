@@ -1,0 +1,391 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Owls Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FAU Basketball
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:fau-basketball-20261021@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261021T230000Z
+DTEND:20261022T010000Z
+SUMMARY:🏀 FAU vs Keiser (Exh.)
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:7:00 PM · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netlif
+ y.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261025@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261025T180000Z
+DTEND:20261025T200000Z
+SUMMARY:🏀 FAU vs The Citadel (Exh.)
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:2:00 PM · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netlif
+ y.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261103T000000Z
+DTEND:20261103T020000Z
+SUMMARY:🏀 FAU vs LIU
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:7:00 PM · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netlif
+ y.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261106@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261107T000000Z
+DTEND:20261107T020000Z
+SUMMARY:🏀 FAU at Wright State
+LOCATION:Dayton\, Ohio
+DESCRIPTION:7:00 PM · Dayton\, Ohio\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261111@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261112T000000Z
+DTEND:20261112T020000Z
+SUMMARY:🏀 FAU vs William & Mary
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:7:00 PM · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netlif
+ y.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261114@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261114T190000Z
+DTEND:20261114T210000Z
+SUMMARY:🏀 FAU vs Coastal Georgia
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:2:00 PM · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netlif
+ y.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261118@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261119T000000Z
+DTEND:20261119T020000Z
+SUMMARY:🏀 FAU vs Florida Gulf Coast
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:7:00 PM · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netlif
+ y.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261124@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261124T230000Z
+DTEND:20261125T010000Z
+SUMMARY:🏀 FAU vs Mercer
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:6:00 PM · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netlif
+ y.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261129@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261129T190000Z
+DTEND:20261129T210000Z
+SUMMARY:🏀 FAU vs Davidson
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:2:00 PM · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netlif
+ y.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261202@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:🏀 FAU at FIU (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Miami
+DESCRIPTION:Time TBA · Miami\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261205@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261205T190000Z
+DTEND:20261205T210000Z
+SUMMARY:🏀 FAU at St. Bonaventure
+LOCATION:St. Bonaventure\, N.Y.
+DESCRIPTION:2:00 PM · St. Bonaventure\, N.Y.\nhttps://fau-gameday.netlify.
+ app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261209@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261210
+SUMMARY:🏀 FAU vs Barry (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261212@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261212T193000Z
+DTEND:20261212T213000Z
+SUMMARY:🏀 FAU vs VCU
+LOCATION:Kia Center\, Orlando
+DESCRIPTION:2:30 PM · Kia Center\, Orlando\nhttps://fau-gameday.netlify.ap
+ p/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261218@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261218T230000Z
+DTEND:20261219T010000Z
+SUMMARY:🏀 FAU vs Loyola Chicago
+LOCATION:Frisco\, Texas
+DESCRIPTION:6:00 PM · Frisco\, Texas\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261220@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261220T230000Z
+DTEND:20261221T010000Z
+SUMMARY:🏀 FAU vs Colorado State
+LOCATION:Frisco\, Texas
+DESCRIPTION:6:00 PM · Frisco\, Texas\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261227@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261227T180000Z
+DTEND:20261227T200000Z
+SUMMARY:🏀 FAU vs South Florida Bible College
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:1:00 PM · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netlif
+ y.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20261231@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:🏀 FAU vs Charlotte (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270103@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:🏀 FAU at Tulsa (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Tulsa\, Okla.
+DESCRIPTION:Time TBA · Tulsa\, Okla.\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270106@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:🏀 FAU at North Texas (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Denton\, Texas
+DESCRIPTION:Time TBA · Denton\, Texas\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270110@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270110
+DTEND;VALUE=DATE:20270111
+SUMMARY:🏀 FAU vs Memphis (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270114@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270114
+DTEND;VALUE=DATE:20270115
+SUMMARY:🏀 FAU at UAB (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Birmingham\, Ala.
+DESCRIPTION:Time TBA · Birmingham\, Ala.\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270120@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:🏀 FAU vs Tulsa (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270123@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:🏀 FAU vs Rice (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270128@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270129
+SUMMARY:🏀 FAU at East Carolina (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Greenville\, N.C.
+DESCRIPTION:Time TBA · Greenville\, N.C.\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270131@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:🏀 FAU vs South Florida (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270204@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270204
+DTEND;VALUE=DATE:20270205
+SUMMARY:🏀 FAU at UTSA (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:San Antonio
+DESCRIPTION:Time TBA · San Antonio\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270207@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:🏀 FAU vs Wichita State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270210@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+SUMMARY:🏀 FAU vs Temple (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270214@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270214
+DTEND;VALUE=DATE:20270215
+SUMMARY:🏀 FAU at Tulane (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:New Orleans
+DESCRIPTION:Time TBA · New Orleans\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270217@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270217
+DTEND;VALUE=DATE:20270218
+SUMMARY:🏀 FAU at Charlotte (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Charlotte\, N.C.
+DESCRIPTION:Time TBA · Charlotte\, N.C.\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270221@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270221
+DTEND;VALUE=DATE:20270222
+SUMMARY:🏀 FAU vs North Texas (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270228@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:🏀 FAU at Rice (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Houston
+DESCRIPTION:Time TBA · Houston\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270304@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270304
+DTEND;VALUE=DATE:20270305
+SUMMARY:🏀 FAU at South Florida (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Tampa
+DESCRIPTION:Time TBA · Tampa\nhttps://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-basketball-20270307@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:🏀 FAU vs UAB (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Eleanor R. Baldwin Arena
+DESCRIPTION:Time TBA · Eleanor R. Baldwin Arena\nhttps://fau-gameday.netli
+ fy.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

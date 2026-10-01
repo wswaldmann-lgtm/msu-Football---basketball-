@@ -1,0 +1,371 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Gators Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:UF Basketball
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:uf-basketball-20261018@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261018T180000Z
+DTEND:20261018T200000Z
+SUMMARY:🏀 UF vs Baylor (Exh.)
+LOCATION:Jacksonville\, Fla.
+DESCRIPTION:2:00 PM · Jacksonville\, Fla.\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261027@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261027T230000Z
+DTEND:20261028T010000Z
+SUMMARY:🏀 UF vs Stetson (Exh.)
+LOCATION:O'Connell Center
+DESCRIPTION:7:00 PM · SECN+ · O'Connell Center\nhttps://uf-gameday.netlif
+ y.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261102T230000Z
+DTEND:20261103T010000Z
+SUMMARY:🏀 UF vs Miami
+LOCATION:Tampa\, Fla.
+DESCRIPTION:6:00 PM · Tampa\, Fla.\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261105@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:🏀 UF vs Jacksonville (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261110@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261110T230000Z
+DTEND:20261111T010000Z
+SUMMARY:🏀 UF at Florida State
+LOCATION:Tallahassee\, Fla.
+DESCRIPTION:6:00 PM · ESPN2 · Tallahassee\, Fla.\nhttps://uf-gameday.netl
+ ify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261113@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:🏀 UF vs Merrimack (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261117@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261117T213000Z
+DTEND:20261117T233000Z
+SUMMARY:🏀 UF vs Notre Dame
+LOCATION:Michelob ULTRA Arena\, Las Vegas
+DESCRIPTION:4:30 PM · Michelob ULTRA Arena\, Las Vegas\nhttps://uf-gameday
+ .netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261118@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:🏀 UF vs Players Era (opponent TBA) (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Las Vegas
+DESCRIPTION:Time TBA · Las Vegas\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261124@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261124
+DTEND;VALUE=DATE:20261125
+SUMMARY:🏀 UF vs Milwaukee (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261201@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261202T023000Z
+DTEND:20261202T043000Z
+SUMMARY:🏀 UF vs Duke
+LOCATION:O'Connell Center
+DESCRIPTION:9:30 PM · ESPN · O'Connell Center\nhttps://uf-gameday.netlify
+ .app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261206@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:🏀 UF vs Vermont (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261212@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261212T170000Z
+DTEND:20261212T190000Z
+SUMMARY:🏀 UF vs Georgia Tech
+LOCATION:Orlando\, Fla.
+DESCRIPTION:12:00 PM · ESPNU · Orlando\, Fla.\nhttps://uf-gameday.netlify
+ .app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261218@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261218T230000Z
+DTEND:20261219T010000Z
+SUMMARY:🏀 UF vs Grand Canyon
+LOCATION:Jacksonville\, Fla.
+DESCRIPTION:6:00 PM · ESPNU · Jacksonville\, Fla.\nhttps://uf-gameday.net
+ lify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261221@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261221
+DTEND;VALUE=DATE:20261222
+SUMMARY:🏀 UF vs Florida A&M (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20261229@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261229
+DTEND;VALUE=DATE:20261230
+SUMMARY:🏀 UF vs LIU (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270102
+DTEND;VALUE=DATE:20270103
+SUMMARY:🏀 UF at Texas (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Austin\, Texas
+DESCRIPTION:Time TBA · Austin\, Texas\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270105@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270106
+SUMMARY:🏀 UF vs Oklahoma (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270109@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:🏀 UF vs Vanderbilt (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270112@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+SUMMARY:🏀 UF at Mississippi State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Starkville\, Miss.
+DESCRIPTION:Time TBA · Starkville\, Miss.\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270116@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:🏀 UF at Alabama (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Tuscaloosa\, Ala.
+DESCRIPTION:Time TBA · Tuscaloosa\, Ala.\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270119@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270119
+DTEND;VALUE=DATE:20270120
+SUMMARY:🏀 UF vs Texas A&M (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270123@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:🏀 UF at Georgia (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Athens\, Ga.
+DESCRIPTION:Time TBA · Athens\, Ga.\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270130@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:🏀 UF at Tennessee (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Knoxville\, Tenn.
+DESCRIPTION:Time TBA · Knoxville\, Tenn.\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270202@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270202
+DTEND;VALUE=DATE:20270203
+SUMMARY:🏀 UF vs South Carolina (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270206@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:🏀 UF vs Texas (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270209@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270209
+DTEND;VALUE=DATE:20270210
+SUMMARY:🏀 UF at Auburn (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Auburn\, Ala.
+DESCRIPTION:Time TBA · Auburn\, Ala.\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270213@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:🏀 UF vs Missouri (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270216@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270217
+SUMMARY:🏀 UF at LSU (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Baton Rouge\, La.
+DESCRIPTION:Time TBA · Baton Rouge\, La.\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270220@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:🏀 UF vs Georgia (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270223@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270223
+DTEND;VALUE=DATE:20270224
+SUMMARY:🏀 UF vs Ole Miss (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270227@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20270227T200000Z
+DTEND:20270227T220000Z
+SUMMARY:🏀 UF at Arkansas
+LOCATION:Fayetteville\, Ark.
+DESCRIPTION:3:00 PM · ABC · Fayetteville\, Ark.\nhttps://uf-gameday.netli
+ fy.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270302@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270302
+DTEND;VALUE=DATE:20270303
+SUMMARY:🏀 UF at South Carolina (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Columbia\, S.C.
+DESCRIPTION:Time TBA · Columbia\, S.C.\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-basketball-20270306@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:🏀 UF vs Kentucky (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:O'Connell Center
+DESCRIPTION:Time TBA · O'Connell Center\nhttps://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

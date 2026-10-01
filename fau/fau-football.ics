@@ -1,0 +1,146 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Owls Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FAU Football
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:fau-football-20260905@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20260905T234500Z
+DTEND:20260906T014500Z
+SUMMARY:🏈 FAU at Florida
+LOCATION:Ben Hill Griffin Stadium\, Gainesville
+DESCRIPTION:7:45 PM · SECN · Ben Hill Griffin Stadium\, Gainesville\nhttp
+ s://fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20260912@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20260912T233000Z
+DTEND:20260913T013000Z
+SUMMARY:🏈 FAU vs Navy
+LOCATION:Flagler Credit Union Stadium
+DESCRIPTION:7:30 PM · ESPNU · Flagler Credit Union Stadium\nhttps://fau-g
+ ameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20260919@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20260919T220000Z
+DTEND:20260920T000000Z
+SUMMARY:🏈 FAU vs FIU
+LOCATION:Flagler Credit Union Stadium
+DESCRIPTION:6:00 PM · ESPN+ · Flagler Credit Union Stadium\nhttps://fau-g
+ ameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20260926@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20260927T000000Z
+DTEND:20260927T020000Z
+SUMMARY:🏈 FAU at UL Monroe
+LOCATION:Malone Stadium\, Monroe\, La.
+DESCRIPTION:8:00 PM · ESPN+ · Malone Stadium\, Monroe\, La.\nhttps://fau-
+ gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20261003@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261003T220000Z
+DTEND:20261004T000000Z
+SUMMARY:🏈 FAU vs Texas Southern
+LOCATION:Flagler Credit Union Stadium
+DESCRIPTION:6:00 PM · ESPN+ · Flagler Credit Union Stadium\nhttps://fau-g
+ ameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20261017@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261017T160000Z
+DTEND:20261017T180000Z
+SUMMARY:🏈 FAU at Army
+LOCATION:Michie Stadium\, West Point\, N.Y.
+DESCRIPTION:12:00 PM · CBSSN · Michie Stadium\, West Point\, N.Y.\nhttps:
+ //fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20261024@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏈 FAU vs Rice (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Flagler Credit Union Stadium
+DESCRIPTION:Time TBA · Flagler Credit Union Stadium\nhttps://fau-gameday.n
+ etlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20261029@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261029T233000Z
+DTEND:20261030T013000Z
+SUMMARY:🏈 FAU at North Texas
+LOCATION:DATCU Stadium\, Denton\, Texas
+DESCRIPTION:7:30 PM · ESPN/ESPN2 · DATCU Stadium\, Denton\, Texas\nhttps:
+ //fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20261105@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART:20261106T010000Z
+DTEND:20261106T030000Z
+SUMMARY:🏈 FAU vs UTSA
+LOCATION:Flagler Credit Union Stadium
+DESCRIPTION:8:00 PM · ESPN/ESPN2 · Flagler Credit Union Stadium\nhttps://
+ fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20261114@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:🏈 FAU at Tulsa (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:H.A. Chapman Stadium\, Tulsa\, Okla.
+DESCRIPTION:Time TBA · H.A. Chapman Stadium\, Tulsa\, Okla.\nhttps://fau-g
+ ameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20261121@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🏈 FAU vs South Florida (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Flagler Credit Union Stadium
+DESCRIPTION:Time TBA · Flagler Credit Union Stadium\nhttps://fau-gameday.n
+ etlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fau-football-20261128@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173934Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:🏈 FAU at East Carolina (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Dowdy-Ficklen Stadium\, Greenville\, N.C.
+DESCRIPTION:Time TBA · Dowdy-Ficklen Stadium\, Greenville\, N.C.\nhttps://
+ fau-gameday.netlify.app/
+URL:https://fau-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

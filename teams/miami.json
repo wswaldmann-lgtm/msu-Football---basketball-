@@ -1,0 +1,433 @@
+{
+  "_about": "Settings for the Miami Hurricanes version of the app. tools/make_team.py turns the MSU app (index.html) into miami/index.html using this file. Edit schedules here: time 'TBA' means not announced yet; add a result like 'W 31-17' after a game.",
+  "slug": "miami",
+  "short": "Miami",
+  "school": "Miami",
+  "schoolRegex": "^Miami(?! \\(OH\\))( Hurricanes)?$|^Miami \\(FL\\)",
+  "university": "University of Miami",
+  "nick": "Hurricanes",
+  "nickSingular": "Hurricane",
+  "appName": "Canes Game Tracker",
+  "homeTitle": "Canes",
+  "cheer": "Go Canes!",
+  "heart": "💚",
+  "monogram": "CT",
+  "site": "https://miami-gameday.netlify.app",
+  "netlifyProject": "miami-gameday",
+  "espnId": 2390,
+  "standings": {
+    "football": 1,
+    "basketball": 2,
+    "label": "ACC",
+    "tabLabel": "ACC Standings"
+  },
+  "season": "2026–27",
+  "colors": {
+    "primary": "#005030",
+    "primaryDark": "#003A22",
+    "primaryLight": "#0B6640",
+    "accent": "#F47321",
+    "primaryRgb": "0,80,48",
+    "darkText": "#F89A5C",
+    "darkDivider": "#1E7A52",
+    "darkBadgeRgb": "30,122,82",
+    "splashBg": "#00140C",
+    "manifestBg": "#003A22"
+  },
+  "links": {
+    "football": [
+      [
+        "🏈 Miami Schedule",
+        "https://miamihurricanes.com/sports/football/schedule/"
+      ],
+      [
+        "📊 ESPN",
+        "https://www.espn.com/college-football/team/_/id/2390/miami-hurricanes"
+      ]
+    ],
+    "basketball": [
+      [
+        "🏀 Miami Schedule",
+        "https://miamihurricanes.com/sports/mens-basketball/schedule/"
+      ],
+      [
+        "📊 ESPN",
+        "https://www.espn.com/mens-college-basketball/team/_/id/2390/miami-hurricanes"
+      ]
+    ]
+  },
+  "football": {
+    "record": {
+      "w": 4,
+      "l": 0,
+      "conf": "2–0"
+    },
+    "home": "Hard Rock Stadium",
+    "games": [
+      {
+        "date": "2026-09-04",
+        "time": "9:00 PM",
+        "loc": "away",
+        "opp": "Stanford",
+        "tv": "ESPN",
+        "where": "Stanford Stadium, Stanford",
+        "result": "W 45–6"
+      },
+      {
+        "date": "2026-09-10",
+        "time": "8:00 PM",
+        "loc": "home",
+        "opp": "Florida A&M",
+        "tv": "ACCN",
+        "where": "Hard Rock Stadium",
+        "result": "W 77–7",
+        "note": "Home opener."
+      },
+      {
+        "date": "2026-09-18",
+        "time": "7:30 PM",
+        "loc": "away",
+        "opp": "Wake Forest",
+        "tv": "ESPN",
+        "where": "Allegacy Federal Credit Union Stadium, Winston-Salem",
+        "result": "W 33–20"
+      },
+      {
+        "date": "2026-09-26",
+        "time": "6:30 PM",
+        "loc": "home",
+        "opp": "Central Michigan",
+        "tv": "The CW",
+        "where": "Hard Rock Stadium",
+        "result": "W 52–3"
+      },
+      {
+        "date": "2026-10-03",
+        "time": "7:30 PM",
+        "loc": "away",
+        "opp": "Clemson",
+        "star": true,
+        "tv": "ABC",
+        "where": "Memorial Stadium, Clemson"
+      },
+      {
+        "date": "2026-10-17",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Florida State",
+        "star": true,
+        "where": "Hard Rock Stadium",
+        "note": "Rivalry game."
+      },
+      {
+        "date": "2026-10-24",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Pittsburgh",
+        "where": "Hard Rock Stadium"
+      },
+      {
+        "date": "2026-10-31",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "North Carolina",
+        "where": "Kenan Stadium, Chapel Hill"
+      },
+      {
+        "date": "2026-11-07",
+        "time": "7:30 PM",
+        "loc": "away",
+        "opp": "Notre Dame",
+        "star": true,
+        "tv": "NBC",
+        "where": "Notre Dame Stadium, Notre Dame, Ind."
+      },
+      {
+        "date": "2026-11-14",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Duke",
+        "where": "Hard Rock Stadium",
+        "note": "Homecoming."
+      },
+      {
+        "date": "2026-11-21",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Virginia Tech",
+        "where": "Hard Rock Stadium"
+      },
+      {
+        "date": "2026-11-28",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Boston College",
+        "where": "Hard Rock Stadium",
+        "note": "Regular-season finale."
+      }
+    ],
+    "postseason": "<strong>ACC Championship:</strong> Saturday, Dec. 5, 2026 &middot; Noon &middot; Bank of America Stadium, Charlotte &middot; ABC"
+  },
+  "basketball": {
+    "record": {
+      "w": 0,
+      "l": 0,
+      "conf": "0–0"
+    },
+    "home": "Watsco Center",
+    "games": [
+      {
+        "date": "2026-10-23",
+        "time": "6:00 PM",
+        "loc": "home",
+        "opp": "Vanderbilt (Exh.)",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2026-11-02",
+        "time": "6:00 PM",
+        "loc": "neutral",
+        "opp": "Florida",
+        "star": true,
+        "tv": "ESPN2",
+        "where": "Benchmark International Arena, Tampa",
+        "note": "Orion180 Tip-Off Classic."
+      },
+      {
+        "date": "2026-11-06",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Wagner",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2026-11-09",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "North Florida",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2026-11-13",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "North Alabama",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2026-11-17",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Rider",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2026-11-20",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Manhattan",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "3:00 PM",
+        "loc": "neutral",
+        "opp": "TCU",
+        "where": "Las Vegas",
+        "note": "Players Era 16, opening round."
+      },
+      {
+        "date": "2026-11-26",
+        "time": "TBA",
+        "loc": "neutral",
+        "opp": "Michigan or Creighton",
+        "where": "Las Vegas",
+        "note": "Players Era 16, second game; opponent depends on results."
+      },
+      {
+        "date": "2026-12-02",
+        "time": "9:15 PM",
+        "loc": "home",
+        "opp": "Alabama",
+        "tv": "ESPN",
+        "where": "Watsco Center",
+        "note": "SEC/ACC Challenge."
+      },
+      {
+        "date": "2026-12-05",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Stetson",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2026-12-12",
+        "time": "TBA",
+        "loc": "neutral",
+        "opp": "Texas",
+        "where": "Toyota Center, Houston",
+        "note": "Houston Hoopfest."
+      },
+      {
+        "date": "2026-12-16",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Alcorn State",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2026-12-21",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "USC Upstate",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2026-12-29",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "NC State",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2027-01-02",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Pitt",
+        "where": "Pittsburgh"
+      },
+      {
+        "date": "2027-01-05",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Georgia Tech",
+        "where": "Atlanta"
+      },
+      {
+        "date": "2027-01-09",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Syracuse",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2027-01-16",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Virginia",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2027-01-19",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Louisville",
+        "where": "Louisville, Ky."
+      },
+      {
+        "date": "2027-01-23",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Virginia Tech",
+        "where": "Blacksburg, Va."
+      },
+      {
+        "date": "2027-01-27",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Clemson",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2027-01-30",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Wake Forest",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2027-02-01",
+        "time": "7:00 PM",
+        "loc": "away",
+        "opp": "Duke",
+        "star": true,
+        "tv": "ESPN",
+        "where": "Durham, N.C."
+      },
+      {
+        "date": "2027-02-06",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Florida State",
+        "star": true,
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2027-02-10",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Stanford",
+        "where": "Stanford, Calif."
+      },
+      {
+        "date": "2027-02-13",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Cal",
+        "where": "Berkeley, Calif."
+      },
+      {
+        "date": "2027-02-20",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Notre Dame",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2027-02-22",
+        "time": "7:00 PM",
+        "loc": "away",
+        "opp": "North Carolina",
+        "tv": "ESPN",
+        "where": "Chapel Hill, N.C."
+      },
+      {
+        "date": "2027-02-27",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Pitt",
+        "where": "Watsco Center"
+      },
+      {
+        "date": "2027-03-02",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "SMU",
+        "where": "Watsco Center",
+        "note": "Last home game."
+      },
+      {
+        "date": "2027-03-06",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Florida State",
+        "star": true,
+        "where": "Tallahassee",
+        "note": "Regular-season finale."
+      }
+    ],
+    "postseason": "<strong>Players Era 16:</strong> Nov. 24–28, 2026 &middot; Las Vegas &middot; Miami is guaranteed two games and may play up to four; later opponents depend on results.<br><br><strong>ACC Tournament:</strong> March 9–13, 2027 &middot; Greensboro, N.C.<br><br><strong>Selection Sunday:</strong> March 14, 2027 &middot; <strong>Final Four:</strong> April 3–5, 2027 &middot; Detroit"
+  },
+  "trashTalk": [
+    "Tallahassee is a nice place to visit. Miami is a nice place to win. 🙌",
+    "Orange and green: the official colors of a Florida sunset and a Saturday W. 🧡💚",
+    "Gators, we hear the swamp is lovely this time of year. We'll stick with the beach. 🏖️",
+    "Hokies, the turkey is the best part of Blacksburg. We'll bring the turnover chain. 🦃",
+    "Boston College fans: come for the game, stay for the 80-degree November. ☀️",
+    "Seminole fans, Hard Rock Stadium has plenty of seats. Bring sunscreen.",
+    "It's all about the U. Everybody else is just a letter in the alphabet. 🙌",
+    "Florida schools rankings: 1. The U. 2. Everybody else. Tallahassee and Gainesville can fight over the rest.",
+    "Hurricane season ends in November. Canes season doesn't. 🌀",
+    "Eagles migrate south for the winter. The Canes are already here. 🦅➡️🌴"
+  ]
+}

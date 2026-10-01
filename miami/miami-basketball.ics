@@ -1,0 +1,365 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Canes Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Miami Basketball
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:miami-basketball-20261023@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20261023T220000Z
+DTEND:20261024T000000Z
+SUMMARY:🏀 Miami vs Vanderbilt (Exh.)
+LOCATION:Watsco Center
+DESCRIPTION:6:00 PM · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20261102T230000Z
+DTEND:20261103T010000Z
+SUMMARY:🏀 Miami vs Florida
+LOCATION:Benchmark International Arena\, Tampa
+DESCRIPTION:6:00 PM · ESPN2 · Benchmark International Arena\, Tampa\nhttp
+ s://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261106@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:🏀 Miami vs Wagner (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261109@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:🏀 Miami vs North Florida (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261113@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:🏀 Miami vs North Alabama (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261117@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+SUMMARY:🏀 Miami vs Rider (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261120@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:🏀 Miami vs Manhattan (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261124@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20261124T200000Z
+DTEND:20261124T220000Z
+SUMMARY:🏀 Miami vs TCU
+LOCATION:Las Vegas
+DESCRIPTION:3:00 PM · Las Vegas\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261126@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:🏀 Miami vs Michigan or Creighton (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Las Vegas
+DESCRIPTION:Time TBA · Las Vegas\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261202@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20261203T021500Z
+DTEND:20261203T041500Z
+SUMMARY:🏀 Miami vs Alabama
+LOCATION:Watsco Center
+DESCRIPTION:9:15 PM · ESPN · Watsco Center\nhttps://miami-gameday.netlify
+ .app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261205@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:🏀 Miami vs Stetson (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261212@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:🏀 Miami vs Texas (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Toyota Center\, Houston
+DESCRIPTION:Time TBA · Toyota Center\, Houston\nhttps://miami-gameday.netl
+ ify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261216@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:🏀 Miami vs Alcorn State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261221@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261221
+DTEND;VALUE=DATE:20261222
+SUMMARY:🏀 Miami vs USC Upstate (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20261229@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261229
+DTEND;VALUE=DATE:20261230
+SUMMARY:🏀 Miami vs NC State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270102
+DTEND;VALUE=DATE:20270103
+SUMMARY:🏀 Miami at Pitt (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Pittsburgh
+DESCRIPTION:Time TBA · Pittsburgh\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270105@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270106
+SUMMARY:🏀 Miami at Georgia Tech (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Atlanta
+DESCRIPTION:Time TBA · Atlanta\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270109@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:🏀 Miami vs Syracuse (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270116@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:🏀 Miami vs Virginia (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270119@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270119
+DTEND;VALUE=DATE:20270120
+SUMMARY:🏀 Miami at Louisville (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Louisville\, Ky.
+DESCRIPTION:Time TBA · Louisville\, Ky.\nhttps://miami-gameday.netlify.app
+ /
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270123@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:🏀 Miami at Virginia Tech (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Blacksburg\, Va.
+DESCRIPTION:Time TBA · Blacksburg\, Va.\nhttps://miami-gameday.netlify.app
+ /
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270127@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270127
+DTEND;VALUE=DATE:20270128
+SUMMARY:🏀 Miami vs Clemson (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270130@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:🏀 Miami vs Wake Forest (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270201@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20270202T000000Z
+DTEND:20270202T020000Z
+SUMMARY:🏀 Miami at Duke
+LOCATION:Durham\, N.C.
+DESCRIPTION:7:00 PM · ESPN · Durham\, N.C.\nhttps://miami-gameday.netlify
+ .app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270206@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:🏀 Miami vs Florida State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270210@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+SUMMARY:🏀 Miami at Stanford (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Stanford\, Calif.
+DESCRIPTION:Time TBA · Stanford\, Calif.\nhttps://miami-gameday.netlify.ap
+ p/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270213@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:🏀 Miami at Cal (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Berkeley\, Calif.
+DESCRIPTION:Time TBA · Berkeley\, Calif.\nhttps://miami-gameday.netlify.ap
+ p/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270220@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:🏀 Miami vs Notre Dame (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270222@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20270223T000000Z
+DTEND:20270223T020000Z
+SUMMARY:🏀 Miami at North Carolina
+LOCATION:Chapel Hill\, N.C.
+DESCRIPTION:7:00 PM · ESPN · Chapel Hill\, N.C.\nhttps://miami-gameday.ne
+ tlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270227@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:🏀 Miami vs Pitt (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270302@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270302
+DTEND;VALUE=DATE:20270303
+SUMMARY:🏀 Miami vs SMU (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Watsco Center
+DESCRIPTION:Time TBA · Watsco Center\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-basketball-20270306@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:🏀 Miami at Florida State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Tallahassee
+DESCRIPTION:Time TBA · Tallahassee\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

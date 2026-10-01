@@ -1,0 +1,456 @@
+{
+  "_about": "Settings for the Florida Gators version of the app. tools/make_team.py turns the MSU app (index.html) into uf/index.html using this file. Edit schedules here: time 'TBA' means not announced yet; add a result like 'W 31-17' after a game.",
+  "slug": "uf",
+  "short": "UF",
+  "school": "Florida",
+  "schoolRegex": "^Florida( Gators)?$",
+  "university": "University of Florida",
+  "nick": "Gators",
+  "nickSingular": "Gator",
+  "appName": "Gators Game Tracker",
+  "homeTitle": "Gators",
+  "cheer": "Go Gators!",
+  "heart": "💙",
+  "monogram": "GT",
+  "site": "https://uf-gameday.netlify.app",
+  "netlifyProject": "uf-gameday",
+  "espnId": 57,
+  "standings": {
+    "football": 8,
+    "basketball": 23,
+    "label": "SEC",
+    "tabLabel": "SEC Standings"
+  },
+  "season": "2026–27",
+  "colors": {
+    "primary": "#0021A5",
+    "primaryDark": "#00187A",
+    "primaryLight": "#1A3DC0",
+    "accent": "#FA4616",
+    "primaryRgb": "0,33,165",
+    "darkText": "#FF7A4D",
+    "darkDivider": "#3352C4",
+    "darkBadgeRgb": "51,82,196",
+    "splashBg": "#000B38",
+    "manifestBg": "#00187A"
+  },
+  "links": {
+    "football": [
+      [
+        "🏈 UF Schedule",
+        "https://floridagators.com/sports/football/schedule/2026"
+      ],
+      [
+        "📊 ESPN",
+        "https://www.espn.com/college-football/team/_/id/57/florida-gators"
+      ]
+    ],
+    "basketball": [
+      [
+        "🏀 UF Schedule",
+        "https://floridagators.com/sports/mens-basketball/schedule/2026-27"
+      ],
+      [
+        "📊 ESPN",
+        "https://www.espn.com/mens-college-basketball/team/_/id/57/florida-gators"
+      ]
+    ]
+  },
+  "football": {
+    "record": {
+      "w": 4,
+      "l": 0,
+      "conf": "2–0"
+    },
+    "home": "Ben Hill Griffin Stadium",
+    "games": [
+      {
+        "date": "2026-09-05",
+        "time": "7:45 PM",
+        "loc": "home",
+        "opp": "Florida Atlantic",
+        "tv": "SECN",
+        "where": "Ben Hill Griffin Stadium",
+        "result": "W 66–21"
+      },
+      {
+        "date": "2026-09-12",
+        "time": "5:30 PM",
+        "loc": "home",
+        "opp": "Campbell",
+        "tv": "SECN+",
+        "where": "Ben Hill Griffin Stadium",
+        "result": "W 52–3"
+      },
+      {
+        "date": "2026-09-19",
+        "time": "7:00 PM",
+        "loc": "away",
+        "opp": "Auburn",
+        "tv": "ESPN",
+        "where": "Jordan-Hare Stadium, Auburn",
+        "result": "W 44–39"
+      },
+      {
+        "date": "2026-09-26",
+        "time": "3:30 PM",
+        "loc": "home",
+        "opp": "Ole Miss",
+        "star": true,
+        "tv": "ABC",
+        "where": "Ben Hill Griffin Stadium",
+        "result": "W 52–28"
+      },
+      {
+        "date": "2026-10-03",
+        "time": "3:30 PM",
+        "loc": "away",
+        "opp": "Missouri",
+        "tv": "ABC",
+        "where": "Faurot Field at Memorial Stadium, Columbia"
+      },
+      {
+        "date": "2026-10-10",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "South Carolina",
+        "where": "Ben Hill Griffin Stadium",
+        "note": "Kickoff set for 12:00 or 12:45 PM."
+      },
+      {
+        "date": "2026-10-17",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Texas",
+        "star": true,
+        "where": "DKR-Texas Memorial Stadium, Austin",
+        "note": "Early window (noon–1 PM ET)."
+      },
+      {
+        "date": "2026-10-31",
+        "time": "3:30 PM",
+        "loc": "neutral",
+        "opp": "Georgia",
+        "star": true,
+        "tv": "ABC",
+        "where": "Mercedes-Benz Stadium, Atlanta",
+        "note": "Rivalry game."
+      },
+      {
+        "date": "2026-11-07",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Oklahoma",
+        "where": "Ben Hill Griffin Stadium"
+      },
+      {
+        "date": "2026-11-14",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Kentucky",
+        "where": "Kroger Field, Lexington",
+        "note": "Night window (6–8 PM ET)."
+      },
+      {
+        "date": "2026-11-21",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Vanderbilt",
+        "where": "Ben Hill Griffin Stadium",
+        "note": "Early window (noon–1 PM ET)."
+      },
+      {
+        "date": "2026-11-27",
+        "time": "3:30 PM",
+        "loc": "away",
+        "opp": "Florida State",
+        "star": true,
+        "tv": "ABC",
+        "where": "Doak Campbell Stadium, Tallahassee",
+        "note": "Rivalry game. Friday after Thanksgiving."
+      }
+    ],
+    "postseason": "<strong>SEC Championship:</strong> Saturday, Dec. 5, 2026 &middot; Mercedes-Benz Stadium, Atlanta"
+  },
+  "basketball": {
+    "record": {
+      "w": 0,
+      "l": 0,
+      "conf": "0–0"
+    },
+    "home": "O'Connell Center",
+    "games": [
+      {
+        "date": "2026-10-18",
+        "time": "2:00 PM",
+        "loc": "neutral",
+        "opp": "Baylor (Exh.)",
+        "where": "Jacksonville, Fla.",
+        "note": "Jacksonville Hoops Showdown."
+      },
+      {
+        "date": "2026-10-27",
+        "time": "7:00 PM",
+        "loc": "home",
+        "opp": "Stetson (Exh.)",
+        "tv": "SECN+",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2026-11-02",
+        "time": "6:00 PM",
+        "loc": "neutral",
+        "opp": "Miami",
+        "star": true,
+        "where": "Tampa, Fla.",
+        "note": "Orion180 Tip-Off Classic."
+      },
+      {
+        "date": "2026-11-05",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Jacksonville",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2026-11-10",
+        "time": "6:00 PM",
+        "loc": "away",
+        "opp": "Florida State",
+        "star": true,
+        "tv": "ESPN2",
+        "where": "Tallahassee, Fla."
+      },
+      {
+        "date": "2026-11-13",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Merrimack",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2026-11-17",
+        "time": "4:30 PM",
+        "loc": "neutral",
+        "opp": "Notre Dame",
+        "where": "Michelob ULTRA Arena, Las Vegas",
+        "note": "Players Era Festival opener."
+      },
+      {
+        "date": "2026-11-18",
+        "time": "TBA",
+        "loc": "neutral",
+        "opp": "Players Era (opponent TBA)",
+        "where": "Las Vegas",
+        "note": "Nov. 18 or 19; opponent depends on the opening result."
+      },
+      {
+        "date": "2026-11-24",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Milwaukee",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2026-12-01",
+        "time": "9:30 PM",
+        "loc": "home",
+        "opp": "Duke",
+        "star": true,
+        "tv": "ESPN",
+        "where": "O'Connell Center",
+        "note": "SEC/ACC Challenge."
+      },
+      {
+        "date": "2026-12-06",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Vermont",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2026-12-12",
+        "time": "12:00 PM",
+        "loc": "neutral",
+        "opp": "Georgia Tech",
+        "tv": "ESPNU",
+        "where": "Orlando, Fla.",
+        "note": "Hall of Fame Series."
+      },
+      {
+        "date": "2026-12-18",
+        "time": "6:00 PM",
+        "loc": "neutral",
+        "opp": "Grand Canyon",
+        "tv": "ESPNU",
+        "where": "Jacksonville, Fla.",
+        "note": "Jacksonville Hoops Showdown."
+      },
+      {
+        "date": "2026-12-21",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Florida A&M",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2026-12-29",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "LIU",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2027-01-02",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Texas",
+        "where": "Austin, Texas"
+      },
+      {
+        "date": "2027-01-05",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Oklahoma",
+        "where": "O'Connell Center",
+        "note": "Tue. or Wed. (Jan. 5–6); date TBA."
+      },
+      {
+        "date": "2027-01-09",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Vanderbilt",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2027-01-12",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Mississippi State",
+        "where": "Starkville, Miss.",
+        "note": "Tue. or Wed. (Jan. 12–13); date TBA."
+      },
+      {
+        "date": "2027-01-16",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Alabama",
+        "where": "Tuscaloosa, Ala."
+      },
+      {
+        "date": "2027-01-19",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Texas A&M",
+        "where": "O'Connell Center",
+        "note": "Tue. or Wed. (Jan. 19–20); date TBA."
+      },
+      {
+        "date": "2027-01-23",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Georgia",
+        "where": "Athens, Ga."
+      },
+      {
+        "date": "2027-01-30",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Tennessee",
+        "star": true,
+        "where": "Knoxville, Tenn."
+      },
+      {
+        "date": "2027-02-02",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "South Carolina",
+        "where": "O'Connell Center",
+        "note": "Tue. or Wed. (Feb. 2–3); date TBA."
+      },
+      {
+        "date": "2027-02-06",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Texas",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2027-02-09",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Auburn",
+        "where": "Auburn, Ala.",
+        "note": "Tue. or Wed. (Feb. 9–10); date TBA."
+      },
+      {
+        "date": "2027-02-13",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Missouri",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2027-02-16",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "LSU",
+        "where": "Baton Rouge, La.",
+        "note": "Tue. or Wed. (Feb. 16–17); date TBA."
+      },
+      {
+        "date": "2027-02-20",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Georgia",
+        "where": "O'Connell Center"
+      },
+      {
+        "date": "2027-02-23",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Ole Miss",
+        "where": "O'Connell Center",
+        "note": "Tue. or Wed. (Feb. 23–24); date TBA."
+      },
+      {
+        "date": "2027-02-27",
+        "time": "3:00 PM",
+        "loc": "away",
+        "opp": "Arkansas",
+        "tv": "ABC",
+        "where": "Fayetteville, Ark."
+      },
+      {
+        "date": "2027-03-02",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "South Carolina",
+        "where": "Columbia, S.C.",
+        "note": "Tue. or Wed. (Mar. 2–3); date TBA."
+      },
+      {
+        "date": "2027-03-06",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Kentucky",
+        "star": true,
+        "where": "O'Connell Center",
+        "note": "Regular-season finale."
+      }
+    ],
+    "postseason": "<strong>SEC Tournament:</strong> March 10–14, 2027 &middot; Nashville, Tenn.<br><br><strong>Selection Sunday:</strong> March 14, 2027"
+  },
+  "trashTalk": [
+    "Tallahassee is a nice place to visit. The Swamp is a nice place to win. 🐊",
+    "Orange and blue looks better in every photo. Garnet and gold, take notes. 📸",
+    "Georgia fans: we'll see you in Atlanta. Bring your bark, we'll bring the bite. 🐊",
+    "Bulldogs chase cars. Gators chase championships.",
+    "Rocky Top is a great song. It just sounds better from the visitors' side. 🎶",
+    "Tennessee orange vs. Gator orange? Only one of them comes with blue. 💙🧡",
+    "Hurricanes come and go. Gators live here year-round. 🌴",
+    "LSU's swamp is a bayou. Ours has a stadium in it.",
+    "The Swamp: only Gators get out alive. 🐊",
+    "Chomp, chomp. Somebody tell the rest of the SEC. 🐊"
+  ]
+}

@@ -1,0 +1,380 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Panthers Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FIU Basketball
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:fiu-basketball-20261022@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261022T220000Z
+DTEND:20261023T000000Z
+SUMMARY:🏀 FIU vs Murray State (Exh.)
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:6:00 PM · Ocean Bank Convocation Center\nhttps://fiu-gameday.n
+ etlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:🏀 FIU vs New College of Florida (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261106@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:🏀 FIU vs West Florida (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261113@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261114T000000Z
+DTEND:20261114T020000Z
+SUMMARY:🏀 FIU at FGCU
+LOCATION:Fort Myers\, Fla.
+DESCRIPTION:7:00 PM · Fort Myers\, Fla.\nhttps://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261117@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+SUMMARY:🏀 FIU at UAB (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Birmingham\, Ala.
+DESCRIPTION:Time TBA · Birmingham\, Ala.\nhttps://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261123@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261123
+DTEND;VALUE=DATE:20261124
+SUMMARY:🏀 FIU vs Long Beach State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · ESPN+ · Ocean Bank Convocation Center\nhttps://fiu
+ -gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261124@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261124
+DTEND;VALUE=DATE:20261125
+SUMMARY:🏀 FIU vs Southern Utah (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · ESPN+ · Ocean Bank Convocation Center\nhttps://fiu
+ -gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261125@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:🏀 FIU vs Arkansas State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · ESPN+ · Ocean Bank Convocation Center\nhttps://fiu
+ -gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261202@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:🏀 FIU vs Florida Atlantic (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261205@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:🏀 FIU at Jacksonville (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Jacksonville\, Fla.
+DESCRIPTION:Time TBA · Jacksonville\, Fla.\nhttps://fiu-gameday.netlify.ap
+ p/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261212@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:🏀 FIU at Xavier (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Cincinnati\, Ohio
+DESCRIPTION:Time TBA · Cincinnati\, Ohio\nhttps://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261216@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:🏀 FIU at UCF (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Orlando\, Fla.
+DESCRIPTION:Time TBA · Orlando\, Fla.\nhttps://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261220@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:🏀 FIU vs Lehigh (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261221@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20261221
+DTEND;VALUE=DATE:20261222
+SUMMARY:🏀 FIU vs TBA (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20261231@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261231T210000Z
+DTEND:20261231T230000Z
+SUMMARY:🏀 FIU at New Mexico State
+LOCATION:Las Cruces\, N.M.
+DESCRIPTION:4:00 PM · Las Cruces\, N.M.\nhttps://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270102
+DTEND;VALUE=DATE:20270103
+SUMMARY:🏀 FIU at Sam Houston (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Huntsville\, Texas
+DESCRIPTION:Time TBA · Huntsville\, Texas\nhttps://fiu-gameday.netlify.app
+ /
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270107@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270107
+DTEND;VALUE=DATE:20270108
+SUMMARY:🏀 FIU vs Liberty (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270109@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:🏀 FIU vs Delaware (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270116@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:🏀 FIU vs Missouri State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270121@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270121
+DTEND;VALUE=DATE:20270122
+SUMMARY:🏀 FIU at Middle Tennessee (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Murfreesboro\, Tenn.
+DESCRIPTION:Time TBA · Murfreesboro\, Tenn.\nhttps://fiu-gameday.netlify.a
+ pp/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270123@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:🏀 FIU at Western Kentucky (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Bowling Green\, Ky.
+DESCRIPTION:Time TBA · Bowling Green\, Ky.\nhttps://fiu-gameday.netlify.ap
+ p/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270128@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270129
+SUMMARY:🏀 FIU vs Jacksonville State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270130@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:🏀 FIU vs Kennesaw State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270204@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20270205T000000Z
+DTEND:20270205T020000Z
+SUMMARY:🏀 FIU at Delaware
+LOCATION:Newark\, Del.
+DESCRIPTION:7:00 PM · Newark\, Del.\nhttps://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270206@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:🏀 FIU at Liberty (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Lynchburg\, Va.
+DESCRIPTION:Time TBA · Lynchburg\, Va.\nhttps://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270213@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:🏀 FIU at Missouri State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Springfield\, Mo.
+DESCRIPTION:Time TBA · Springfield\, Mo.\nhttps://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270218@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270218
+DTEND;VALUE=DATE:20270219
+SUMMARY:🏀 FIU vs Western Kentucky (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270220@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:🏀 FIU vs Middle Tennessee (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270225@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20270226T000000Z
+DTEND:20270226T020000Z
+SUMMARY:🏀 FIU at Jacksonville State
+LOCATION:Jacksonville\, Ala.
+DESCRIPTION:7:00 PM · Jacksonville\, Ala.\nhttps://fiu-gameday.netlify.app
+ /
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270227@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:🏀 FIU at Kennesaw State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Kennesaw\, Ga.
+DESCRIPTION:Time TBA · Kennesaw\, Ga.\nhttps://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270304@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270304
+DTEND;VALUE=DATE:20270305
+SUMMARY:🏀 FIU vs Sam Houston (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-basketball-20270306@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:🏀 FIU vs New Mexico State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ocean Bank Convocation Center
+DESCRIPTION:Time TBA · Ocean Bank Convocation Center\nhttps://fiu-gameday.
+ netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

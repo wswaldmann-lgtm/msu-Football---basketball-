@@ -1,0 +1,112 @@
+{
+  "_about": "Settings for the South Florida version of the app. tools/make_team.py turns the MSU app (index.html) into usf/index.html using this file. Edit schedules here: time 'TBA' means not announced yet; add a result like 'W 31-17' after a game.",
+
+  "slug": "usf",
+  "short": "USF",
+  "school": "South Florida",
+  "university": "University of South Florida",
+  "nick": "Bulls",
+  "nickSingular": "Bull",
+  "appName": "Bulls Game Tracker",
+  "homeTitle": "Bulls",
+  "cheer": "Go Bulls!",
+  "heart": "💚",
+  "monogram": "BT",
+  "site": "https://usf-gameday.netlify.app",
+  "netlifyProject": "usf-gameday",
+  "espnId": 58,
+  "standings": { "football": 151, "basketball": 62, "label": "American", "tabLabel": "American Standings" },
+  "season": "2026–27",
+
+  "colors": {
+    "primary": "#006747",
+    "primaryDark": "#004D35",
+    "primaryLight": "#00805A",
+    "accent": "#CFC493",
+    "primaryRgb": "0,103,71",
+    "darkText": "#D9CF9F",
+    "darkDivider": "#2E7D5B",
+    "darkBadgeRgb": "46,125,91",
+    "splashBg": "#00261A",
+    "manifestBg": "#004D35"
+  },
+
+  "links": {
+    "football": [["🏈 USF Schedule", "https://gousfbulls.com/sports/football/schedule/2026"], ["📊 ESPN", "https://www.espn.com/college-football/team/_/id/58/south-florida-bulls"]],
+    "basketball": [["🏀 USF Schedule", "https://gousfbulls.com/sports/mens-basketball/schedule/2026-27"], ["📊 ESPN", "https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls"]]
+  },
+
+  "football": {
+    "record": { "w": 4, "l": 0, "conf": "1–0" },
+    "home": "Raymond James Stadium",
+    "games": [
+      { "date": "2026-09-05", "time": "7:00 PM", "loc": "home", "opp": "FIU", "star": true, "tv": "ESPN+", "where": "Raymond James Stadium", "result": "W 19–9" },
+      { "date": "2026-09-12", "time": "12:00 PM", "loc": "away", "opp": "Army", "tv": "CBSSN", "where": "Michie Stadium, West Point", "result": "W 28–24" },
+      { "date": "2026-09-19", "time": "7:00 PM", "loc": "home", "opp": "Delaware State", "tv": "ESPN+", "where": "Raymond James Stadium", "result": "W 59–17" },
+      { "date": "2026-09-26", "time": "5:00 PM", "loc": "away", "opp": "Bowling Green", "tv": "ESPN+", "where": "Doyt L. Perry Stadium, Bowling Green", "result": "W 14–6" },
+      { "date": "2026-10-03", "time": "7:30 PM", "loc": "home", "opp": "Temple", "tv": "ESPNU", "where": "Raymond James Stadium" },
+      { "date": "2026-10-08", "time": "7:30 PM", "loc": "away", "opp": "UTSA", "tv": "ESPN", "where": "Alamodome, San Antonio", "note": "Thursday night game." },
+      { "date": "2026-10-17", "time": "TBA", "loc": "home", "opp": "Kent State", "where": "Raymond James Stadium" },
+      { "date": "2026-10-31", "time": "TBA", "loc": "home", "opp": "UAB", "where": "Raymond James Stadium" },
+      { "date": "2026-11-06", "time": "7:30 PM", "loc": "away", "opp": "East Carolina", "tv": "ESPN2", "where": "Dowdy-Ficklen Stadium, Greenville", "note": "Friday night game." },
+      { "date": "2026-11-12", "time": "8:00 PM", "loc": "home", "opp": "Memphis", "star": true, "tv": "ESPN or ESPN2", "where": "Raymond James Stadium", "note": "Thursday night game." },
+      { "date": "2026-11-21", "time": "TBA", "loc": "away", "opp": "Florida Atlantic", "star": true, "where": "Flagler Credit Union Stadium, Boca Raton", "note": "In-state rivalry game." },
+      { "date": "2026-11-27", "time": "TBA", "loc": "home", "opp": "Tulane", "where": "Raymond James Stadium", "note": "Date is Friday, Nov. 27 or Saturday, Nov. 28 (to be set). Regular-season finale." }
+    ],
+    "postseason": "<strong>American Championship:</strong> Saturday, Dec. 5, 2026 &middot; 8:00 PM &middot; ABC &middot; Hosted by the top seed (site TBD)"
+  },
+
+  "basketball": {
+    "record": { "w": 0, "l": 0, "conf": "0–0" },
+    "home": "Yuengling Center",
+    "games": [
+      { "date": "2026-10-19", "time": "TBA", "loc": "home", "opp": "Saint Leo (Exh.)", "where": "Yuengling Center" },
+      { "date": "2026-11-02", "time": "TBA", "loc": "home", "opp": "Charleston Southern", "where": "Yuengling Center", "note": "Season opener." },
+      { "date": "2026-11-05", "time": "TBA", "loc": "away", "opp": "DePaul", "where": "Wintrust Arena, Chicago" },
+      { "date": "2026-11-11", "time": "3:00 PM", "loc": "neutral", "opp": "Saint Joseph's", "tv": "CBSSN", "where": "Alumni Hall, Annapolis, Md.", "note": "Veterans Classic." },
+      { "date": "2026-11-14", "time": "TBA", "loc": "home", "opp": "Coppin State", "where": "Yuengling Center" },
+      { "date": "2026-11-17", "time": "TBA", "loc": "home", "opp": "Tennessee State", "where": "Yuengling Center" },
+      { "date": "2026-11-21", "time": "TBA", "loc": "away", "opp": "George Mason", "where": "Fairfax, Va." },
+      { "date": "2026-11-24", "time": "TBA", "loc": "home", "opp": "Stetson", "where": "Yuengling Center" },
+      { "date": "2026-11-29", "time": "3:30 PM", "loc": "neutral", "opp": "Saint Louis", "tv": "ESPN or ESPN2", "where": "Nationwide Arena, Columbus, Ohio", "note": "A-10/American Showcase." },
+      { "date": "2026-12-02", "time": "TBA", "loc": "home", "opp": "West Florida", "where": "Yuengling Center" },
+      { "date": "2026-12-09", "time": "TBA", "loc": "home", "opp": "Jacksonville", "where": "Yuengling Center" },
+      { "date": "2026-12-12", "time": "TBA", "loc": "away", "opp": "Dayton", "where": "Dayton, Ohio" },
+      { "date": "2026-12-16", "time": "TBA", "loc": "home", "opp": "Alabama", "star": true, "where": "Yuengling Center" },
+      { "date": "2026-12-19", "time": "TBA", "loc": "home", "opp": "Kennesaw State", "where": "Yuengling Center", "note": "Love Wins Classic." },
+      { "date": "2026-12-22", "time": "TBA", "loc": "away", "opp": "Charleston", "where": "Charleston, S.C." },
+      { "date": "2026-12-30", "time": "TBA", "loc": "away", "opp": "Tulsa", "where": "Tulsa, Okla.", "note": "American opener." },
+      { "date": "2027-01-03", "time": "TBA", "loc": "home", "opp": "Memphis", "star": true, "where": "Yuengling Center" },
+      { "date": "2027-01-07", "time": "TBA", "loc": "home", "opp": "Charlotte", "where": "Yuengling Center" },
+      { "date": "2027-01-10", "time": "TBA", "loc": "away", "opp": "Tulane", "where": "New Orleans" },
+      { "date": "2027-01-14", "time": "TBA", "loc": "away", "opp": "Temple", "where": "Philadelphia" },
+      { "date": "2027-01-17", "time": "TBA", "loc": "home", "opp": "Tulsa", "where": "Yuengling Center" },
+      { "date": "2027-01-23", "time": "TBA", "loc": "away", "opp": "UTSA", "where": "San Antonio" },
+      { "date": "2027-01-26", "time": "TBA", "loc": "home", "opp": "Rice", "where": "Yuengling Center" },
+      { "date": "2027-01-31", "time": "TBA", "loc": "away", "opp": "Florida Atlantic", "star": true, "where": "Boca Raton, Fla." },
+      { "date": "2027-02-04", "time": "TBA", "loc": "home", "opp": "Wichita State", "where": "Yuengling Center" },
+      { "date": "2027-02-07", "time": "TBA", "loc": "away", "opp": "Charlotte", "where": "Charlotte, N.C." },
+      { "date": "2027-02-10", "time": "TBA", "loc": "away", "opp": "East Carolina", "where": "Greenville, N.C." },
+      { "date": "2027-02-13", "time": "TBA", "loc": "home", "opp": "Temple", "where": "Yuengling Center" },
+      { "date": "2027-02-18", "time": "TBA", "loc": "away", "opp": "Wichita State", "where": "Wichita, Kan." },
+      { "date": "2027-02-21", "time": "TBA", "loc": "home", "opp": "UAB", "where": "Yuengling Center" },
+      { "date": "2027-02-24", "time": "TBA", "loc": "home", "opp": "North Texas", "where": "Yuengling Center" },
+      { "date": "2027-02-28", "time": "TBA", "loc": "away", "opp": "Memphis", "star": true, "where": "Memphis, Tenn." },
+      { "date": "2027-03-04", "time": "TBA", "loc": "home", "opp": "Florida Atlantic", "star": true, "where": "Yuengling Center", "note": "Regular-season finale." }
+    ],
+    "postseason": "<strong>American Tournament:</strong> March 10–14, 2027 &middot; Yuengling Center, Tampa<br><br><strong>Selection Sunday:</strong> March 14, 2027<br><br>Tip times and TV for most games have not been announced yet."
+  },
+
+  "trashTalk": [
+    "The War on I-4 always ends with the road leading back to Tampa. 🐂",
+    "UCF fans: the I-4 traffic isn't the only thing that's slow in Orlando. 🚗",
+    "Green and gold looks better than black and gold. Ask anyone in Tampa.",
+    "Knights? We've got horns. Your move, Orlando. 🤘",
+    "Gainesville is a nice place to visit, but the Bulls live where the sun sets on the Bay. 🌅",
+    "Gators always want to talk about the past. Bulls are busy with the present.",
+    "FAU Owls: wise birds know better than to stay up late at Raymond James. 🦉",
+    "The road to Boca is long. The ride home with a win is short. 🛣️",
+    "Horns up, Tampa Bay. Raymond James is our house. 🤘",
+    "Go Bulls! Somebody tell I-4 we're coming through. 💚"
+  ]
+}

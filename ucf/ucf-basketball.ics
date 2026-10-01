@@ -1,0 +1,407 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Knights Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:UCF Basketball
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:ucf-basketball-20261014@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+SUMMARY:🏀 UCF at LSU (Exh.) (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Baton Rouge\, La.
+DESCRIPTION:Time TBA · Baton Rouge\, La.\nhttps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261028@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:🏀 UCF at Kentucky (Exh.) (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Lexington\, Ky.
+DESCRIPTION:Time TBA · Lexington\, Ky.\nhttps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:🏀 UCF vs FGCU (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261106@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:🏀 UCF vs Yale (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261110@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261111
+SUMMARY:🏀 UCF vs South Alabama (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261113@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:🏀 UCF vs Georgia Southern (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261117@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+SUMMARY:🏀 UCF vs Mississippi State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261120@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:🏀 UCF at Vanderbilt (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Nashville\, Tenn.
+DESCRIPTION:Time TBA · Nashville\, Tenn.\nhttps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261126@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20261126T183000Z
+DTEND:20261126T203000Z
+SUMMARY:🏀 UCF vs Boston College
+LOCATION:ESPN Wide World of Sports\, Kissimmee
+DESCRIPTION:1:30 PM · ESPN Wide World of Sports\, Kissimmee\nhttps://ucf-g
+ ameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261127@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20261128T000000Z
+DTEND:20261128T020000Z
+SUMMARY:🏀 UCF vs Georgia
+LOCATION:ESPN Wide World of Sports\, Kissimmee
+DESCRIPTION:7:00 PM · ESPN Wide World of Sports\, Kissimmee\nhttps://ucf-g
+ ameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261201@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:🏀 UCF vs Jacksonville (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261206@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:🏀 UCF vs American (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261212@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:🏀 UCF at Indiana (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Bloomington\, Ind.
+DESCRIPTION:Time TBA · Bloomington\, Ind.\nhttps://ucf-gameday.netlify.app
+ /
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261216@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:🏀 UCF vs FIU (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261219@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:🏀 UCF vs Virginia Tech (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Rick Case Arena\, Fort Lauderdale
+DESCRIPTION:Time TBA · Rick Case Arena\, Fort Lauderdale\nhttps://ucf-game
+ day.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20261222@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261222
+DTEND;VALUE=DATE:20261223
+SUMMARY:🏀 UCF vs Towson (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270102
+DTEND;VALUE=DATE:20270103
+SUMMARY:🏀 UCF vs Utah (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270106@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270107
+SUMMARY:🏀 UCF at Arizona (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Tucson\, Ariz.
+DESCRIPTION:Time TBA · Tucson\, Ariz.\nhttps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270109@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:🏀 UCF at Arizona State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Tempe\, Ariz.
+DESCRIPTION:Time TBA · Tempe\, Ariz.\nhttps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270113@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270113
+DTEND;VALUE=DATE:20270114
+SUMMARY:🏀 UCF vs Baylor (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270116@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:🏀 UCF at Kansas (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Lawrence\, Kan.
+DESCRIPTION:Time TBA · Lawrence\, Kan.\nhttps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270119@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270119
+DTEND;VALUE=DATE:20270120
+SUMMARY:🏀 UCF vs Colorado (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270123@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:🏀 UCF vs Iowa State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270130@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:🏀 UCF at Texas Tech (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Lubbock\, Texas
+DESCRIPTION:Time TBA · Lubbock\, Texas\nhttps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270203@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270203
+DTEND;VALUE=DATE:20270204
+SUMMARY:🏀 UCF vs West Virginia (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270206@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:🏀 UCF at Baylor (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Waco\, Texas
+DESCRIPTION:Time TBA · Waco\, Texas\nhttps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270210@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+SUMMARY:🏀 UCF vs Houston (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270213@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:🏀 UCF at Cincinnati (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Cincinnati\, Ohio
+DESCRIPTION:Time TBA · Cincinnati\, Ohio\nhttps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270216@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270217
+SUMMARY:🏀 UCF at West Virginia (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Morgantown\, W. Va.
+DESCRIPTION:Time TBA · Morgantown\, W. Va.\nhttps://ucf-gameday.netlify.ap
+ p/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270220@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:🏀 UCF vs Texas Tech (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270224@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270224
+DTEND;VALUE=DATE:20270225
+SUMMARY:🏀 UCF at Oklahoma State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Stillwater\, Okla.
+DESCRIPTION:Time TBA · Stillwater\, Okla.\nhttps://ucf-gameday.netlify.app
+ /
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270227@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270227
+DTEND;VALUE=DATE:20270228
+SUMMARY:🏀 UCF vs BYU (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270303@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270303
+DTEND;VALUE=DATE:20270304
+SUMMARY:🏀 UCF vs Kansas State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Addition Financial Arena
+DESCRIPTION:Time TBA · Addition Financial Arena\nhttps://ucf-gameday.netli
+ fy.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-basketball-20270306@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:🏀 UCF at TCU (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Fort Worth\, Texas
+DESCRIPTION:Time TBA · Fort Worth\, Texas\nhttps://ucf-gameday.netlify.app
+ /
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

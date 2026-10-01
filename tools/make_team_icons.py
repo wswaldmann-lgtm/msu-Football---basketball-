@@ -70,7 +70,7 @@ def main(slug):
     with open(os.path.join(ROOT, "teams", f"{slug}.json"), encoding="utf-8") as f:
         team = json.load(f)
     c = team["colors"]
-    bg, fg = hex_rgb(c["primary"]), hex_rgb(c["accent"])
+    bg, fg = hex_rgb(c["primary"]), hex_rgb(c.get("iconFg", c["accent"]))  # iconFg: optional, when the accent is too dark on primary
     letters = team.get("monogram", team["nick"][0] + "T")
     out = os.path.join(ROOT, slug, "icons")
     os.makedirs(out, exist_ok=True)

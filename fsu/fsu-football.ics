@@ -1,0 +1,146 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Noles Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FSU Football
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:fsu-football-20260829@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20260829T230000Z
+DTEND:20260830T010000Z
+SUMMARY:🏈 FSU vs New Mexico State
+LOCATION:Doak Campbell Stadium
+DESCRIPTION:7:00 PM · CW · Doak Campbell Stadium\nhttps://fsu-gameday.net
+ lify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20260907@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20260907T233000Z
+DTEND:20260908T013000Z
+SUMMARY:🏈 FSU vs SMU
+LOCATION:Doak Campbell Stadium
+DESCRIPTION:7:30 PM · ESPN · Doak Campbell Stadium\nhttps://fsu-gameday.n
+ etlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20260919@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20260919T193000Z
+DTEND:20260919T213000Z
+SUMMARY:🏈 FSU at Alabama
+LOCATION:Bryant–Denny Stadium\, Tuscaloosa
+DESCRIPTION:3:30 PM · ABC · Bryant–Denny Stadium\, Tuscaloosa\nhttps://
+ fsu-gameday.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20260926@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20260926T190000Z
+DTEND:20260926T210000Z
+SUMMARY:🏈 FSU vs Central Arkansas
+LOCATION:Doak Campbell Stadium
+DESCRIPTION:3:00 PM · ACCN · Doak Campbell Stadium\nhttps://fsu-gameday.n
+ etlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20261003@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20261003T193000Z
+DTEND:20261003T213000Z
+SUMMARY:🏈 FSU vs Virginia
+LOCATION:Doak Campbell Stadium
+DESCRIPTION:3:30 PM · ESPN2 · Doak Campbell Stadium\nhttps://fsu-gameday.
+ netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20261009@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20261009T230000Z
+DTEND:20261010T010000Z
+SUMMARY:🏈 FSU at Louisville
+LOCATION:L&N Federal Credit Union Stadium\, Louisville
+DESCRIPTION:7:00 PM · ESPN · L&N Federal Credit Union Stadium\, Louisvill
+ e\nhttps://fsu-gameday.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20261017@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:🏈 FSU at Miami (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Hard Rock Stadium\, Miami Gardens
+DESCRIPTION:Time TBA · Hard Rock Stadium\, Miami Gardens\nhttps://fsu-game
+ day.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20261031@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:🏈 FSU vs Clemson (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Doak Campbell Stadium
+DESCRIPTION:Time TBA · Doak Campbell Stadium\nhttps://fsu-gameday.netlify.
+ app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20261107@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:🏈 FSU at Boston College (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Alumni Stadium\, Chestnut Hill
+DESCRIPTION:Time TBA · Alumni Stadium\, Chestnut Hill\nhttps://fsu-gameday
+ .netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20261113@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20261114T000000Z
+DTEND:20261114T020000Z
+SUMMARY:🏈 FSU at Pitt
+LOCATION:Acrisure Stadium\, Pittsburgh
+DESCRIPTION:7:00 PM · ESPN · Acrisure Stadium\, Pittsburgh\nhttps://fsu-g
+ ameday.netlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20261121@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🏈 FSU vs NC State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Doak Campbell Stadium
+DESCRIPTION:Time TBA · Doak Campbell Stadium\nhttps://fsu-gameday.netlify.
+ app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fsu-football-20261127@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173903Z
+DTSTART:20261127T203000Z
+DTEND:20261127T223000Z
+SUMMARY:🏈 FSU vs Florida
+LOCATION:Doak Campbell Stadium
+DESCRIPTION:3:30 PM · ABC · Doak Campbell Stadium\nhttps://fsu-gameday.ne
+ tlify.app/
+URL:https://fsu-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,111 @@
+{
+  "_about": "Settings for the FIU version of the app. tools/make_team.py turns the MSU app (index.html) into fiu/index.html using this file. Edit schedules here: time 'TBA' means not announced yet; add a result like 'W 31-17' after a game.",
+
+  "slug": "fiu",
+  "short": "FIU",
+  "school": "Florida International",
+  "university": "Florida International University",
+  "nick": "Panthers",
+  "nickSingular": "Panther",
+  "appName": "Panthers Game Tracker",
+  "homeTitle": "Panthers",
+  "cheer": "Go Panthers!",
+  "heart": "💙",
+  "monogram": "PT",
+  "site": "https://fiu-gameday.netlify.app",
+  "netlifyProject": "fiu-gameday",
+  "espnId": 2229,
+  "standings": { "football": 12, "basketball": 11, "label": "C-USA", "tabLabel": "C-USA Standings" },
+  "season": "2026–27",
+
+  "colors": {
+    "primary": "#081E3F",
+    "primaryDark": "#04122A",
+    "primaryLight": "#14305C",
+    "accent": "#B6862C",
+    "primaryRgb": "8,30,63",
+    "darkText": "#D9AE55",
+    "darkDivider": "#2B4C80",
+    "darkBadgeRgb": "43,76,128",
+    "splashBg": "#020914",
+    "manifestBg": "#04122A"
+  },
+
+  "links": {
+    "football": [["🏈 FIU Schedule", "https://fiusports.com/sports/football/schedule/2026"], ["📊 ESPN", "https://www.espn.com/college-football/team/_/id/2229/florida-international-panthers"]],
+    "basketball": [["🏀 FIU Schedule", "https://fiusports.com/sports/mens-basketball/schedule/2026-27"], ["📊 ESPN", "https://www.espn.com/mens-college-basketball/team/_/id/2229/florida-international-panthers"]]
+  },
+
+  "football": {
+    "record": { "w": 2, "l": 2, "conf": "0–0" },
+    "home": "Pitbull Stadium",
+    "games": [
+      { "date": "2026-09-05", "time": "7:00 PM", "loc": "away", "opp": "South Florida", "star": true, "tv": "ESPN+", "where": "Raymond James Stadium, Tampa", "result": "L 9–19" },
+      { "date": "2026-09-12", "time": "6:00 PM", "loc": "home", "opp": "Buffalo", "tv": "ESPN+", "where": "Pitbull Stadium", "result": "W 33–20" },
+      { "date": "2026-09-19", "time": "6:00 PM", "loc": "away", "opp": "Florida Atlantic", "star": true, "tv": "ESPN+", "where": "Flagler Credit Union Stadium, Boca Raton", "note": "Shula Bowl rivalry game.", "result": "L 10–16" },
+      { "date": "2026-09-26", "time": "6:00 PM", "loc": "home", "opp": "LIU", "tv": "ESPN+", "where": "Pitbull Stadium", "result": "W 20–3" },
+      { "date": "2026-10-07", "time": "7:30 PM", "loc": "home", "opp": "New Mexico State", "tv": "ESPN2", "where": "Pitbull Stadium", "note": "Wednesday night C-USA opener." },
+      { "date": "2026-10-13", "time": "8:00 PM", "loc": "away", "opp": "Jacksonville State", "tv": "ESPNU", "where": "AmFirst Stadium, Jacksonville, Ala.", "note": "Tuesday night game." },
+      { "date": "2026-10-20", "time": "7:00 PM", "loc": "home", "opp": "Middle Tennessee", "tv": "CBSSN", "where": "Pitbull Stadium", "note": "Tuesday night game." },
+      { "date": "2026-10-31", "time": "3:30 PM", "loc": "away", "opp": "Liberty", "star": true, "tv": "CBSSN", "where": "Williams Stadium, Lynchburg, Va." },
+      { "date": "2026-11-07", "time": "4:00 PM", "loc": "home", "opp": "Missouri State", "tv": "ESPN+", "where": "Pitbull Stadium" },
+      { "date": "2026-11-14", "time": "3:00 PM", "loc": "away", "opp": "Delaware", "tv": "ESPN+", "where": "Delaware Stadium, Newark, Del." },
+      { "date": "2026-11-21", "time": "3:00 PM", "loc": "away", "opp": "Kennesaw State", "tv": "ESPN+", "where": "Fifth Third Stadium, Kennesaw, Ga." },
+      { "date": "2026-11-28", "time": "2:00 PM", "loc": "home", "opp": "Sam Houston", "tv": "ESPN+", "where": "Pitbull Stadium", "note": "Regular-season finale." }
+    ],
+    "postseason": "<strong>C-USA Championship:</strong> Friday, Dec. 4, 2026 &middot; Site TBA (hosted by a finalist)"
+  },
+
+  "basketball": {
+    "record": { "w": 0, "l": 0, "conf": "0–0" },
+    "home": "Ocean Bank Convocation Center",
+    "games": [
+      { "date": "2026-10-22", "time": "6:00 PM", "loc": "home", "opp": "Murray State (Exh.)", "where": "Ocean Bank Convocation Center", "note": "Public exhibition." },
+      { "date": "2026-11-02", "time": "TBA", "loc": "home", "opp": "New College of Florida", "where": "Ocean Bank Convocation Center" },
+      { "date": "2026-11-06", "time": "TBA", "loc": "home", "opp": "West Florida", "where": "Ocean Bank Convocation Center", "note": "First-ever meeting." },
+      { "date": "2026-11-13", "time": "7:00 PM", "loc": "away", "opp": "FGCU", "where": "Fort Myers, Fla." },
+      { "date": "2026-11-17", "time": "TBA", "loc": "away", "opp": "UAB", "where": "Birmingham, Ala." },
+      { "date": "2026-11-23", "time": "TBA", "loc": "home", "opp": "Long Beach State", "tv": "ESPN+", "where": "Ocean Bank Convocation Center", "note": "FIU MTE round robin." },
+      { "date": "2026-11-24", "time": "TBA", "loc": "home", "opp": "Southern Utah", "tv": "ESPN+", "where": "Ocean Bank Convocation Center", "note": "FIU MTE round robin." },
+      { "date": "2026-11-25", "time": "TBA", "loc": "home", "opp": "Arkansas State", "tv": "ESPN+", "where": "Ocean Bank Convocation Center", "note": "FIU MTE round robin." },
+      { "date": "2026-12-02", "time": "TBA", "loc": "home", "opp": "Florida Atlantic", "star": true, "where": "Ocean Bank Convocation Center", "note": "Rivalry game." },
+      { "date": "2026-12-05", "time": "TBA", "loc": "away", "opp": "Jacksonville", "where": "Jacksonville, Fla." },
+      { "date": "2026-12-12", "time": "TBA", "loc": "away", "opp": "Xavier", "star": true, "where": "Cincinnati, Ohio" },
+      { "date": "2026-12-16", "time": "TBA", "loc": "away", "opp": "UCF", "star": true, "where": "Orlando, Fla." },
+      { "date": "2026-12-20", "time": "TBA", "loc": "home", "opp": "Lehigh", "where": "Ocean Bank Convocation Center" },
+      { "date": "2026-12-21", "time": "TBA", "loc": "home", "opp": "TBA", "where": "Ocean Bank Convocation Center", "note": "Opponent not announced yet." },
+      { "date": "2026-12-31", "time": "4:00 PM", "loc": "away", "opp": "New Mexico State", "where": "Las Cruces, N.M.", "note": "C-USA opener." },
+      { "date": "2027-01-02", "time": "TBA", "loc": "away", "opp": "Sam Houston", "where": "Huntsville, Texas" },
+      { "date": "2027-01-07", "time": "TBA", "loc": "home", "opp": "Liberty", "where": "Ocean Bank Convocation Center" },
+      { "date": "2027-01-09", "time": "TBA", "loc": "home", "opp": "Delaware", "where": "Ocean Bank Convocation Center" },
+      { "date": "2027-01-16", "time": "TBA", "loc": "home", "opp": "Missouri State", "where": "Ocean Bank Convocation Center" },
+      { "date": "2027-01-21", "time": "TBA", "loc": "away", "opp": "Middle Tennessee", "where": "Murfreesboro, Tenn." },
+      { "date": "2027-01-23", "time": "TBA", "loc": "away", "opp": "Western Kentucky", "where": "Bowling Green, Ky." },
+      { "date": "2027-01-28", "time": "TBA", "loc": "home", "opp": "Jacksonville State", "where": "Ocean Bank Convocation Center" },
+      { "date": "2027-01-30", "time": "TBA", "loc": "home", "opp": "Kennesaw State", "where": "Ocean Bank Convocation Center" },
+      { "date": "2027-02-04", "time": "7:00 PM", "loc": "away", "opp": "Delaware", "where": "Newark, Del." },
+      { "date": "2027-02-06", "time": "TBA", "loc": "away", "opp": "Liberty", "where": "Lynchburg, Va." },
+      { "date": "2027-02-13", "time": "TBA", "loc": "away", "opp": "Missouri State", "where": "Springfield, Mo." },
+      { "date": "2027-02-18", "time": "TBA", "loc": "home", "opp": "Western Kentucky", "where": "Ocean Bank Convocation Center" },
+      { "date": "2027-02-20", "time": "TBA", "loc": "home", "opp": "Middle Tennessee", "where": "Ocean Bank Convocation Center" },
+      { "date": "2027-02-25", "time": "7:00 PM", "loc": "away", "opp": "Jacksonville State", "where": "Jacksonville, Ala." },
+      { "date": "2027-02-27", "time": "TBA", "loc": "away", "opp": "Kennesaw State", "where": "Kennesaw, Ga." },
+      { "date": "2027-03-04", "time": "TBA", "loc": "home", "opp": "Sam Houston", "where": "Ocean Bank Convocation Center" },
+      { "date": "2027-03-06", "time": "TBA", "loc": "home", "opp": "New Mexico State", "where": "Ocean Bank Convocation Center", "note": "Regular-season finale." }
+    ],
+    "postseason": "<strong>C-USA Tournament:</strong> March 2027 &middot; Dates and site TBA<br><br><strong>Selection Sunday:</strong> March 14, 2027<br><br>Most game times and TV not announced yet; one Dec. 21 opponent still TBA."
+  },
+
+  "trashTalk": [
+    "Shula Bowl week is the best week of the year in South Florida. 🏈",
+    "Boca is a nice place to visit. The Shula Bowl trophy would look nicer in Miami. 🏆",
+    "Owls stay up all night. Panthers just show up when it counts. 🐾",
+    "Blue and gold: the sharpest colors on I-95. 💙💛",
+    "FAU fans, the 305 has room for you in the visitors' section. Bring sunscreen. ☀️",
+    "Liberty's got mountains. We've got Biscayne Bay. Easy choice. 🌴",
+    "C-USA road trips are fun, but nothing beats a Saturday night at Pitbull Stadium.",
+    "Kennesaw State, welcome to the big stage. Mind the Panthers. 🐆",
+    "Middle Tennessee, you'll want to pack shorts for your trip to Miami. 😎",
+    "Go Panthers! Somebody tell Boca Raton we're coming. 🐆"
+  ]
+}

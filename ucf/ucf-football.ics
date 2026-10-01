@@ -1,0 +1,146 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Knights Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:UCF Football
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:ucf-football-20260903@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20260903T230000Z
+DTEND:20260904T010000Z
+SUMMARY:🏈 UCF vs Bethune-Cookman
+LOCATION:Acrisure Bounce House
+DESCRIPTION:7:00 PM · ESPN+ · Acrisure Bounce House\nhttps://ucf-gameday.
+ netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20260912@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20260912T193000Z
+DTEND:20260912T213000Z
+SUMMARY:🏈 UCF at Pittsburgh
+LOCATION:Acrisure Stadium\, Pittsburgh
+DESCRIPTION:3:30 PM · ESPN2 · Acrisure Stadium\, Pittsburgh\nhttps://ucf-
+ gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20260919@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20260919T230000Z
+DTEND:20260920T010000Z
+SUMMARY:🏈 UCF vs Georgia State
+LOCATION:Acrisure Bounce House
+DESCRIPTION:7:00 PM · ESPN+ · Acrisure Bounce House\nhttps://ucf-gameday.
+ netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20260926@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20260926T193000Z
+DTEND:20260926T213000Z
+SUMMARY:🏈 UCF vs TCU
+LOCATION:Acrisure Bounce House
+DESCRIPTION:3:30 PM · FS1 · Acrisure Bounce House\nhttps://ucf-gameday.ne
+ tlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20261003@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20261003T160000Z
+DTEND:20261003T180000Z
+SUMMARY:🏈 UCF at Houston
+LOCATION:TDECU Stadium\, Houston
+DESCRIPTION:12:00 PM · ESPN2 · TDECU Stadium\, Houston\nhttps://ucf-gamed
+ ay.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20261010@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20261010T160000Z
+DTEND:20261010T180000Z
+SUMMARY:🏈 UCF at Oklahoma State
+LOCATION:Boone Pickens Stadium\, Stillwater
+DESCRIPTION:12:00 PM · Boone Pickens Stadium\, Stillwater\nhttps://ucf-gam
+ eday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20261024@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏈 UCF vs BYU (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Acrisure Bounce House
+DESCRIPTION:Time TBA · Acrisure Bounce House\nhttps://ucf-gameday.netlify.
+ app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20261030@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20261030T233000Z
+DTEND:20261031T013000Z
+SUMMARY:🏈 UCF vs Baylor
+LOCATION:Acrisure Bounce House
+DESCRIPTION:7:30 PM · ESPN · Acrisure Bounce House\nhttps://ucf-gameday.n
+ etlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20261107@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:🏈 UCF at Kansas (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:David Booth Kansas Memorial Stadium\, Lawrence
+DESCRIPTION:Time TBA · David Booth Kansas Memorial Stadium\, Lawrence\nhtt
+ ps://ucf-gameday.netlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20261114@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:🏈 UCF vs Arizona State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Acrisure Bounce House
+DESCRIPTION:Time TBA · Acrisure Bounce House\nhttps://ucf-gameday.netlify.
+ app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20261120@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART:20261120T230000Z
+DTEND:20261121T010000Z
+SUMMARY:🏈 UCF vs Iowa State
+LOCATION:Acrisure Bounce House
+DESCRIPTION:6:00 PM · FS1 · Acrisure Bounce House\nhttps://ucf-gameday.ne
+ tlify.app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:ucf-football-20261128@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173855Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:🏈 UCF at Colorado (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Folsom Field\, Boulder
+DESCRIPTION:Time TBA · Folsom Field\, Boulder\nhttps://ucf-gameday.netlify
+ .app/
+URL:https://ucf-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

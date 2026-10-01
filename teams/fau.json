@@ -1,0 +1,447 @@
+{
+  "_about": "Settings for the Florida Atlantic version of the app. tools/make_team.py turns the MSU app (index.html) into fau/index.html using this file. Edit schedules here: time 'TBA' means not announced yet; add a result like 'W 31-17' after a game.",
+  "slug": "fau",
+  "short": "FAU",
+  "school": "Florida Atlantic",
+  "university": "Florida Atlantic University",
+  "nick": "Owls",
+  "nickSingular": "Owl",
+  "appName": "Owls Game Tracker",
+  "homeTitle": "Owls",
+  "cheer": "Go Owls!",
+  "heart": "💙",
+  "monogram": "OT",
+  "site": "https://fau-gameday.netlify.app",
+  "netlifyProject": "fau-gameday",
+  "espnId": 2226,
+  "standings": {
+    "football": 151,
+    "basketball": 62,
+    "label": "American",
+    "tabLabel": "American Standings"
+  },
+  "season": "2026–27",
+  "colors": {
+    "primary": "#003366",
+    "primaryDark": "#002147",
+    "primaryLight": "#0A4A80",
+    "accent": "#CC0000",
+    "primaryRgb": "0,51,102",
+    "darkText": "#8DB9E6",
+    "darkDivider": "#2A5A8C",
+    "darkBadgeRgb": "42,90,140",
+    "splashBg": "#00111F",
+    "manifestBg": "#002147",
+    "iconFg": "#FFFFFF"
+  },
+  "links": {
+    "football": [
+      [
+        "🏈 FAU Schedule",
+        "https://fausports.com/sports/football/schedule/2026"
+      ],
+      [
+        "📊 ESPN",
+        "https://www.espn.com/college-football/team/_/id/2226/florida-atlantic-owls"
+      ]
+    ],
+    "basketball": [
+      [
+        "🏀 FAU Schedule",
+        "https://fausports.com/sports/mens-basketball/schedule/2026-27"
+      ],
+      [
+        "📊 ESPN",
+        "https://www.espn.com/mens-college-basketball/team/_/id/2226/florida-atlantic-owls"
+      ]
+    ]
+  },
+  "football": {
+    "record": {
+      "w": 3,
+      "l": 1,
+      "conf": "1–0"
+    },
+    "home": "Flagler Credit Union Stadium",
+    "games": [
+      {
+        "date": "2026-09-05",
+        "time": "7:45 PM",
+        "loc": "away",
+        "opp": "Florida",
+        "star": true,
+        "tv": "SECN",
+        "where": "Ben Hill Griffin Stadium, Gainesville",
+        "result": "L 21–66"
+      },
+      {
+        "date": "2026-09-12",
+        "time": "7:30 PM",
+        "loc": "home",
+        "opp": "Navy",
+        "tv": "ESPNU",
+        "where": "Flagler Credit Union Stadium",
+        "result": "W 38–30"
+      },
+      {
+        "date": "2026-09-19",
+        "time": "6:00 PM",
+        "loc": "home",
+        "opp": "FIU",
+        "star": true,
+        "tv": "ESPN+",
+        "where": "Flagler Credit Union Stadium",
+        "note": "Shula Bowl rivalry game.",
+        "result": "W 16–10"
+      },
+      {
+        "date": "2026-09-26",
+        "time": "8:00 PM",
+        "loc": "away",
+        "opp": "UL Monroe",
+        "tv": "ESPN+",
+        "where": "Malone Stadium, Monroe, La.",
+        "result": "W 45–17"
+      },
+      {
+        "date": "2026-10-03",
+        "time": "6:00 PM",
+        "loc": "home",
+        "opp": "Texas Southern",
+        "tv": "ESPN+",
+        "where": "Flagler Credit Union Stadium"
+      },
+      {
+        "date": "2026-10-17",
+        "time": "12:00 PM",
+        "loc": "away",
+        "opp": "Army",
+        "tv": "CBSSN",
+        "where": "Michie Stadium, West Point, N.Y."
+      },
+      {
+        "date": "2026-10-24",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Rice",
+        "where": "Flagler Credit Union Stadium"
+      },
+      {
+        "date": "2026-10-29",
+        "time": "7:30 PM",
+        "loc": "away",
+        "opp": "North Texas",
+        "tv": "ESPN/ESPN2",
+        "where": "DATCU Stadium, Denton, Texas",
+        "note": "Thursday night game."
+      },
+      {
+        "date": "2026-11-05",
+        "time": "8:00 PM",
+        "loc": "home",
+        "opp": "UTSA",
+        "tv": "ESPN/ESPN2",
+        "where": "Flagler Credit Union Stadium",
+        "note": "Thursday night game."
+      },
+      {
+        "date": "2026-11-14",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Tulsa",
+        "where": "H.A. Chapman Stadium, Tulsa, Okla."
+      },
+      {
+        "date": "2026-11-21",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "South Florida",
+        "star": true,
+        "where": "Flagler Credit Union Stadium",
+        "note": "In-state conference rivalry."
+      },
+      {
+        "date": "2026-11-28",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "East Carolina",
+        "where": "Dowdy-Ficklen Stadium, Greenville, N.C.",
+        "note": "Date listed as Nov. 27 or 28; regular-season finale."
+      }
+    ],
+    "postseason": "<strong>American Championship:</strong> Saturday, Dec. 5, 2026 &middot; 8:00 PM &middot; ABC &middot; Home of the higher-seeded finalist"
+  },
+  "basketball": {
+    "record": {
+      "w": 0,
+      "l": 0,
+      "conf": "0–0"
+    },
+    "home": "Eleanor R. Baldwin Arena",
+    "games": [
+      {
+        "date": "2026-10-21",
+        "time": "7:00 PM",
+        "loc": "home",
+        "opp": "Keiser (Exh.)",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2026-10-25",
+        "time": "2:00 PM",
+        "loc": "home",
+        "opp": "The Citadel (Exh.)",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2026-11-02",
+        "time": "7:00 PM",
+        "loc": "home",
+        "opp": "LIU",
+        "where": "Eleanor R. Baldwin Arena",
+        "note": "Season opener."
+      },
+      {
+        "date": "2026-11-06",
+        "time": "7:00 PM",
+        "loc": "away",
+        "opp": "Wright State",
+        "where": "Dayton, Ohio"
+      },
+      {
+        "date": "2026-11-11",
+        "time": "7:00 PM",
+        "loc": "home",
+        "opp": "William & Mary",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2026-11-14",
+        "time": "2:00 PM",
+        "loc": "home",
+        "opp": "Coastal Georgia",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2026-11-18",
+        "time": "7:00 PM",
+        "loc": "home",
+        "opp": "Florida Gulf Coast",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2026-11-24",
+        "time": "6:00 PM",
+        "loc": "home",
+        "opp": "Mercer",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2026-11-29",
+        "time": "2:00 PM",
+        "loc": "home",
+        "opp": "Davidson",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2026-12-02",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "FIU",
+        "star": true,
+        "where": "Miami",
+        "note": "Rivalry game."
+      },
+      {
+        "date": "2026-12-05",
+        "time": "2:00 PM",
+        "loc": "away",
+        "opp": "St. Bonaventure",
+        "where": "St. Bonaventure, N.Y."
+      },
+      {
+        "date": "2026-12-09",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Barry",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2026-12-12",
+        "time": "2:30 PM",
+        "loc": "neutral",
+        "opp": "VCU",
+        "where": "Kia Center, Orlando",
+        "note": "Hall of Fame Series."
+      },
+      {
+        "date": "2026-12-18",
+        "time": "6:00 PM",
+        "loc": "neutral",
+        "opp": "Loyola Chicago",
+        "where": "Frisco, Texas",
+        "note": "Texas Legends College Classic."
+      },
+      {
+        "date": "2026-12-20",
+        "time": "6:00 PM",
+        "loc": "neutral",
+        "opp": "Colorado State",
+        "where": "Frisco, Texas",
+        "note": "Texas Legends College Classic."
+      },
+      {
+        "date": "2026-12-27",
+        "time": "1:00 PM",
+        "loc": "home",
+        "opp": "South Florida Bible College",
+        "where": "Eleanor R. Baldwin Arena",
+        "note": "Date listed as Dec. 27 or 28."
+      },
+      {
+        "date": "2026-12-31",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Charlotte",
+        "star": true,
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2027-01-03",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Tulsa",
+        "where": "Tulsa, Okla."
+      },
+      {
+        "date": "2027-01-06",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "North Texas",
+        "where": "Denton, Texas"
+      },
+      {
+        "date": "2027-01-10",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Memphis",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2027-01-14",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "UAB",
+        "where": "Birmingham, Ala."
+      },
+      {
+        "date": "2027-01-20",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Tulsa",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2027-01-23",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Rice",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2027-01-28",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "East Carolina",
+        "where": "Greenville, N.C."
+      },
+      {
+        "date": "2027-01-31",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "South Florida",
+        "star": true,
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2027-02-04",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "UTSA",
+        "where": "San Antonio"
+      },
+      {
+        "date": "2027-02-07",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Wichita State",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2027-02-10",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "Temple",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2027-02-14",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Tulane",
+        "where": "New Orleans"
+      },
+      {
+        "date": "2027-02-17",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Charlotte",
+        "star": true,
+        "where": "Charlotte, N.C."
+      },
+      {
+        "date": "2027-02-21",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "North Texas",
+        "where": "Eleanor R. Baldwin Arena"
+      },
+      {
+        "date": "2027-02-28",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "Rice",
+        "where": "Houston"
+      },
+      {
+        "date": "2027-03-04",
+        "time": "TBA",
+        "loc": "away",
+        "opp": "South Florida",
+        "star": true,
+        "where": "Tampa"
+      },
+      {
+        "date": "2027-03-07",
+        "time": "TBA",
+        "loc": "home",
+        "opp": "UAB",
+        "where": "Eleanor R. Baldwin Arena",
+        "note": "Regular-season finale."
+      }
+    ],
+    "postseason": "<strong>American Championship:</strong> March 10–14, 2027 &middot; Tampa, Fla.<br><br><strong>Selection Sunday:</strong> March 14, 2027<br><br>Most game times and TV are not announced yet."
+  },
+  "trashTalk": [
+    "Shula Bowl rule: the trophy looks better in Boca. 🏆",
+    "FIU fans, the drive up I-95 is shorter than your highlight reel. 🦉",
+    "Panthers prowl. Owls see everything. 👀",
+    "Boca Raton on a Saturday night beats anything in Westchester.",
+    "USF, nice bull. Shame it can't fly. 🐂",
+    "Tampa has the bay. Boca has the Owls. Easy choice. 🌊",
+    "Charlotte 49ers? We counted, and we've still got more Owls in the building.",
+    "Blue and red never looks better than under the lights at Flagler Credit Union Stadium. 💙❤️",
+    "Who? Who? Who's taking the Shula Bowl? The Owls, that's who. 🦉",
+    "Owl Up! Somebody tell Tampa and Miami we're coming."
+  ]
+}

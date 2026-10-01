@@ -120,3 +120,17 @@ The MSU app is the master copy. Other schools get their own app made from it, so
 - **Hosting:** each team is its own Netlify project linked to this repo with base directory `stats` and a `TEAM` environment variable (`wmu`). Each team keeps its own visitor stats (`/stats`) and watch-party invites.
 - Other teams have no fight-song intro (yet).
 - **Adding a school:** copy `teams/wmu.json`, change the details (ESPN team id, conference standings group), run the two scripts, and create a Netlify project with `TEAM` set to the new name.
+
+### Florida schools
+
+| Team | Address | Settings |
+|---|---|---|
+| UCF Knights | https://ucf-gameday.netlify.app | [`teams/ucf.json`](teams/ucf.json) |
+| Florida State Seminoles | https://fsu-gameday.netlify.app | [`teams/fsu.json`](teams/fsu.json) |
+| Florida Gators | https://uf-gameday.netlify.app | [`teams/uf.json`](teams/uf.json) |
+| Miami Hurricanes | https://miami-gameday.netlify.app | [`teams/miami.json`](teams/miami.json) |
+| USF Bulls | https://usf-gameday.netlify.app | [`teams/usf.json`](teams/usf.json) |
+| FAU Owls | https://fau-gameday.netlify.app | [`teams/fau.json`](teams/fau.json) |
+| FIU Panthers | https://fiu-gameday.netlify.app | [`teams/fiu.json`](teams/fiu.json) |
+
+Optional settings: `schoolRegex` (exact pattern for the team's row when the plain name would match other schools, e.g. Miami vs. Miami (OH)), `colors.iconFg` (icon letter color when the accent is too dark), `monogram` (two letters on the icon).

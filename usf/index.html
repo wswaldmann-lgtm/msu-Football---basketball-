@@ -1,0 +1,2708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#006747">
+<meta name="apple-mobile-web-app-title" content="Bulls">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<title>Bulls Game Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --spartan-green:#006747;
+  --spartan-green-dark:#004D35;
+  --spartan-green-light:#00805A;
+  --gold-accent:#CFC493;
+  --card-bg:#FAFAF8;
+  --text-primary:#1A1A1A;
+  --text-secondary:#5A5A5A;
+  --text-muted:#8A8A8A;
+  --border:#E8E6E1;
+  --bg:#F2F0EB;
+  --chip-bg:#FFFFFF;
+  --shadow:rgba(0,0,0,.08);
+  --next-glow:rgba(197,165,81,.35);
+}
+body.dark{
+  --card-bg:#1C2422;
+  --text-primary:#EDEBE6;
+  --text-secondary:#B0ADA6;
+  --text-muted:#6E6C66;
+  --border:#2C3532;
+  --bg:#121917;
+  --chip-bg:#1C2422;
+  --shadow:rgba(0,0,0,.4);
+  --next-glow:rgba(197,165,81,.2);
+}
+html{font-size:16px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  font-family:'Source Sans 3',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text-primary);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s;
+}
+.header{
+  background:linear-gradient(135deg, var(--spartan-green-dark) 0%, var(--spartan-green) 50%, var(--spartan-green-light) 100%);
+  color:#fff;
+  padding:1.5rem 1.25rem 1rem;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+}
+.header-top{display:flex;align-items:center;gap:.75rem}
+.spartan-logo{
+  width:44px;height:44px;
+  background:rgba(255,255,255,.12);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.4rem;
+  color:var(--gold-accent);
+  flex-shrink:0;
+}
+.header h1{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;font-size:1.35rem;
+  letter-spacing:.02em;text-transform:uppercase;
+  line-height:1.15;
+}
+.header .sub{font-size:.78rem;opacity:.7}
+.mode-toggle{
+  margin-left:auto;
+  width:40px;height:40px;
+  border-radius:10px;
+  background:rgba(255,255,255,.12);
+  border:none;color:#fff;
+  font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.mode-toggle:active{background:rgba(255,255,255,.25)}
+
+/* Live countdown strip */
+.countdown-strip{
+  margin-top:.9rem;
+  background:rgba(0,0,0,.25);
+  border-radius:12px;
+  padding:.7rem .9rem;
+  display:flex;align-items:center;gap:.75rem;
+}
+.countdown-strip .vs{
+  font-family:'Oswald',sans-serif;font-weight:600;
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;
+  opacity:.85;line-height:1.3;flex:1;min-width:0;
+}
+.countdown-strip .vs strong{font-size:.95rem;display:block;letter-spacing:.03em}
+.timer{display:flex;gap:.45rem;flex-shrink:0}
+.timer .unit{text-align:center;min-width:34px}
+.timer .num{
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.25rem;
+  color:var(--gold-accent);line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.timer .lbl{font-size:.55rem;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:2px}
+
+.tabs{
+  display:flex;gap:0;
+  margin:0 1.25rem;
+  position:relative;top:-1px;
+}
+.tab{
+  flex:1;padding:.7rem .5rem;text-align:center;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.9rem;
+  letter-spacing:.05em;text-transform:uppercase;
+  background:var(--card-bg);color:var(--text-muted);
+  border:1px solid var(--border);border-bottom:none;
+  cursor:pointer;transition:all .2s;
+  border-radius:10px 10px 0 0;
+}
+.tab.active{background:var(--spartan-green);color:#fff;border-color:var(--spartan-green)}
+
+/* Filter chips */
+.filters{
+  display:flex;gap:.5rem;
+  padding:.85rem 1.25rem .35rem;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.filters::-webkit-scrollbar{display:none}
+.chip{
+  padding:.35rem .85rem;
+  border-radius:999px;
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:.78rem;
+  letter-spacing:.04em;text-transform:uppercase;
+  background:var(--chip-bg);color:var(--text-secondary);
+  border:1px solid var(--border);
+  cursor:pointer;white-space:nowrap;
+  transition:all .2s;
+}
+.chip.active{background:var(--spartan-green);color:#fff;border-color:var(--spartan-green)}
+
+/* Season progress */
+.progress-wrap{padding:.5rem 1.25rem 0}
+.progress-label{
+  display:flex;justify-content:space-between;
+  font-size:.68rem;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:.3rem;
+  font-family:'Oswald',sans-serif;
+}
+.progress-bar{
+  height:5px;border-radius:3px;
+  background:var(--border);overflow:hidden;
+}
+.progress-fill{
+  height:100%;border-radius:3px;
+  background:linear-gradient(90deg,var(--spartan-green),var(--gold-accent));
+  width:0%;transition:width 1s ease;
+}
+
+.section{display:none;padding:.75rem 1.25rem 6rem}
+.section.active{display:block}
+
+.game-card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:14px;
+  margin-bottom:.75rem;
+  overflow:hidden;
+  transition:box-shadow .2s,transform .1s,border-color .3s;
+  cursor:pointer;
+}
+.game-card:active{transform:scale(.985)}
+.game-card.next-game{
+  border-color:var(--gold-accent);
+  box-shadow:0 0 0 1px var(--gold-accent),0 4px 20px var(--next-glow);
+}
+.next-banner{
+  background:linear-gradient(90deg,var(--gold-accent),#D4B968);
+  color:#1A1A1A;
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;
+  text-align:center;padding:.3rem;
+}
+.game-card.bye{
+  background:repeating-linear-gradient(45deg, var(--card-bg), var(--card-bg) 10px, rgba(128,128,128,.05) 10px, rgba(128,128,128,.05) 20px);
+  opacity:.6;cursor:default;
+}
+.game-card.past{opacity:.55}
+.game-main{display:flex;align-items:center;padding:1rem;gap:.85rem}
+.game-date{flex-shrink:0;width:52px;text-align:center}
+.game-date .month{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.65rem;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);
+}
+body.dark .game-date .month{color:var(--gold-accent)}
+.game-date .day{
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.6rem;
+  line-height:1.1;color:var(--text-primary);
+}
+.game-date .weekday{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em}
+.game-divider{width:3px;height:44px;border-radius:2px;flex-shrink:0}
+.game-divider.home{background:var(--spartan-green)}
+body.dark .game-divider.home{background:#2E7D5B}
+.game-divider.away{background:var(--gold-accent)}
+.game-divider.neutral{background:var(--text-muted)}
+.game-info{flex:1;min-width:0}
+.game-opponent{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:1.05rem;
+  letter-spacing:.01em;line-height:1.2;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.cal-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem;margin:0 0 1rem}
+.cal-card h3{font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.35rem}
+.cal-card p{font-size:.85rem;opacity:.8;margin-bottom:.7rem}
+.cal-btns{display:flex;flex-wrap:wrap;gap:.5rem}
+.cal-btns a,.cal-btns button{font-family:'Oswald',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:.03em;padding:.5rem .8rem;border-radius:8px;border:1px solid var(--border);background:transparent;color:inherit;text-decoration:none;cursor:pointer}
+.cal-btns a.primary{background:var(--spartan-green);border-color:var(--spartan-green);color:#fff}
+.game-result{display:inline-block;font-weight:700;font-size:.78rem;padding:.1rem .45rem;border-radius:4px;margin-top:.2rem;letter-spacing:.02em}
+.game-result.win{background:#1f6f43;color:#fff}
+.game-result.loss{background:#9b2c2c;color:#fff}
+.game-meta{
+  font-size:.78rem;color:var(--text-secondary);margin-top:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.tv-tag{
+  display:inline-block;
+  background:var(--spartan-green);color:#fff;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.6rem;
+  letter-spacing:.05em;padding:.1rem .35rem;border-radius:4px;
+  vertical-align:1px;
+}
+.game-badge{
+  flex-shrink:0;padding:.25rem .6rem;border-radius:6px;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;
+  letter-spacing:.05em;text-transform:uppercase;
+}
+.badge-home{background:rgba(0,103,71,.08);color:var(--spartan-green)}
+body.dark .badge-home{background:rgba(46,125,91,.2);color:#D9CF9F}
+.badge-away{background:rgba(197,165,81,.12);color:#8B7230}
+body.dark .badge-away{background:rgba(197,165,81,.15);color:var(--gold-accent)}
+.badge-neutral{background:rgba(128,128,128,.1);color:var(--text-muted)}
+.game-chevron{
+  flex-shrink:0;width:20px;height:20px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-muted);transition:transform .3s;font-size:.7rem;
+}
+.game-card.expanded .game-chevron{transform:rotate(180deg)}
+.game-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.game-card.expanded .game-detail{max-height:1400px}
+.detail-inner{padding:0 1rem 1.25rem;border-top:1px solid var(--border)}
+.detail-section{margin-top:1rem}
+.detail-label{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--spartan-green);
+  margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem;
+}
+body.dark .detail-label{color:var(--gold-accent)}
+.detail-text{font-size:.88rem;line-height:1.55;color:var(--text-secondary)}
+.prediction-box{
+  background:linear-gradient(135deg, var(--spartan-green-dark), var(--spartan-green));
+  color:#fff;border-radius:10px;padding:1rem 1.1rem;margin-top:.75rem;
+}
+.prediction-box .pred-label{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:.35rem;
+}
+.prediction-box .pred-winner{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.02em}
+.prediction-box .pred-score{font-size:.85rem;opacity:.8;margin-top:.15rem}
+.link-row{display:flex;gap:.5rem;margin-top:.85rem}
+.mini-link{
+  flex:1;text-align:center;
+  padding:.55rem;border-radius:8px;
+  background:rgba(0,103,71,.06);
+  color:var(--spartan-green);
+  border:1px solid var(--border);
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;transition:background .2s;
+}
+body.dark .mini-link{background:rgba(197,165,81,.08);color:var(--gold-accent)}
+.mini-link:active{background:rgba(0,103,71,.15)}
+.season-outlook{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:14px;padding:1.25rem;margin-bottom:.75rem;
+}
+.season-outlook h3{
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.05rem;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--spartan-green);
+  margin-bottom:.6rem;
+}
+body.dark .season-outlook h3{color:var(--gold-accent)}
+.outlook-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.75rem}
+.outlook-stat{background:rgba(0,103,71,.04);border-radius:8px;padding:.65rem .75rem;text-align:center}
+body.dark .outlook-stat{background:rgba(255,255,255,.04)}
+.outlook-stat .val{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.15rem;color:var(--spartan-green)}
+body.dark .outlook-stat .val{color:#D9CF9F}
+.outlook-stat .lbl{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem}
+.outlook-text{font-size:.85rem;line-height:1.55;color:var(--text-secondary)}
+.record-tracker{
+  display:flex;align-items:center;justify-content:center;gap:1.5rem;
+  padding:.85rem;margin-bottom:.75rem;
+  background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
+}
+.record-item{text-align:center}
+.record-item .num{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.7rem;line-height:1}
+.record-item .num.w{color:#27AE60}
+.record-item .num.l{color:#E74C3C}
+.record-item .lbl{font-size:.62rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem;font-family:'Oswald',sans-serif}
+.record-sep{font-family:'Oswald',sans-serif;font-weight:300;font-size:1.5rem;color:var(--text-muted)}
+.no-preview{
+  padding:.75rem 1rem;background:rgba(128,128,128,.06);border-radius:8px;
+  font-size:.82rem;color:var(--text-muted);font-style:italic;margin-top:.5rem;
+}
+.jump-btn{
+  position:fixed;bottom:1.25rem;right:1.25rem;z-index:90;
+  background:var(--spartan-green);color:#fff;
+  border:none;border-radius:999px;
+  padding:.7rem 1.1rem;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.78rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+  cursor:pointer;display:flex;align-items:center;gap:.4rem;
+}
+.jump-btn:active{transform:scale(.95)}
+@media(min-width:500px){
+  body{max-width:480px;margin:0 auto;box-shadow:0 0 40px var(--shadow)}
+  .jump-btn{right:calc(50% - 240px + 1.25rem)}
+}
+
+/* ===== Live score card ===== */
+.live-card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:14px;padding:1rem 1.1rem;margin-bottom:.75rem;
+}
+.live-card.is-live{border-color:#E74C3C;box-shadow:0 0 0 1px #E74C3C,0 4px 16px rgba(231,76,60,.2)}
+.live-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem}
+.live-title{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--spartan-green);
+  display:flex;align-items:center;gap:.4rem;
+}
+body.dark .live-title{color:var(--gold-accent)}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#E74C3C;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.refresh-btn{
+  background:none;border:1px solid var(--border);border-radius:8px;
+  color:var(--text-secondary);font-size:.85rem;padding:.3rem .6rem;
+  cursor:pointer;font-family:'Oswald',sans-serif;
+}
+.refresh-btn:active{background:rgba(128,128,128,.1)}
+.score-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.score-team{flex:1;text-align:center}
+.score-team .tname{font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;line-height:1.2}
+.score-team .tscore{font-family:'Oswald',sans-serif;font-weight:700;font-size:2rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.score-team.msu .tscore{color:var(--spartan-green)}
+body.dark .score-team.msu .tscore{color:#D9CF9F}
+.score-status{
+  flex-shrink:0;text-align:center;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;
+  max-width:90px;line-height:1.4;
+}
+.live-msg{font-size:.82rem;color:var(--text-muted);text-align:center;padding:.35rem 0}
+
+/* ===== Rankings card ===== */
+.rank-card{
+  background:var(--card-bg);border:1px solid var(--border);
+  border-radius:14px;margin-bottom:.75rem;overflow:hidden;
+}
+.rank-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.1rem;cursor:pointer;
+}
+.rank-head .live-title{margin:0}
+.rank-body{display:none;padding:0 1.1rem 1rem;border-top:1px solid var(--border)}
+.rank-card.open .rank-body{display:block}
+.rank-tabs{display:flex;gap:.4rem;margin:.85rem 0 .6rem}
+.rank-tab{
+  flex:1;text-align:center;padding:.4rem;border-radius:8px;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.05em;text-transform:uppercase;
+  background:rgba(128,128,128,.06);color:var(--text-muted);
+  cursor:pointer;border:1px solid var(--border);
+}
+.rank-tab.active{background:var(--spartan-green);color:#fff;border-color:var(--spartan-green)}
+.rank-row{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.45rem .35rem;border-bottom:1px solid var(--border);
+  font-size:.85rem;
+}
+.rank-row:last-child{border-bottom:none}
+.rank-row .rnum{
+  font-family:'Oswald',sans-serif;font-weight:700;width:26px;text-align:center;
+  color:var(--text-muted);flex-shrink:0;font-variant-numeric:tabular-nums;
+}
+.rank-row .rteam{flex:1;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-row .rrec{color:var(--text-muted);font-size:.78rem;flex-shrink:0;font-variant-numeric:tabular-nums}
+.rank-row.msu-row{
+  background:rgba(0,103,71,.07);border-radius:8px;border-bottom:none;
+  margin:.15rem -.35rem;padding:.45rem .7rem;
+}
+body.dark .rank-row.msu-row{background:rgba(91,191,151,.1)}
+.rank-row.msu-row .rteam{color:var(--spartan-green)}
+body.dark .rank-row.msu-row .rteam{color:#D9CF9F}
+
+
+
+.rsvp-row{display:flex;align-items:center;gap:.4rem;margin-bottom:.4rem}
+.rsvp-name{flex:1;background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:.4rem .55rem;font-size:.85rem;color:var(--text-primary);font-family:'Source Sans 3',system-ui,sans-serif;outline:none}
+.rsvp-count{width:50px;background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:.4rem;font-size:.85rem;color:var(--text-primary);text-align:center;font-family:'Oswald',sans-serif;font-weight:600;outline:none}
+.rsvp-del{background:none;border:none;color:var(--text-muted);font-size:1rem;cursor:pointer;padding:.2rem .4rem}
+/* Hype share + extras */
+.hype-bar{
+  display:flex;gap:.5rem;padding:.5rem 1.25rem;
+}
+.hype-btn,.talk-btn,.tailgate-btn{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:.35rem;
+  padding:.6rem .5rem;border-radius:10px;border:1px solid var(--border);
+  background:var(--card-bg);color:var(--text-secondary);
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+  transition:all .2s;white-space:nowrap;
+}
+.hype-btn:active,.talk-btn:active,.tailgate-btn:active{transform:scale(.96)}
+.hype-btn{background:var(--spartan-green);color:#fff;border-color:var(--spartan-green)}
+body.dark .hype-btn{background:var(--gold-accent);color:#1A1A1A;border-color:var(--gold-accent)}
+.talk-modal,.tailgate-modal{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;
+  background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:1.25rem;
+}
+.talk-modal.open,.tailgate-modal.open{display:flex}
+.modal-box{
+  background:var(--card-bg);border-radius:16px;padding:1.5rem;
+  max-width:380px;width:100%;box-shadow:0 16px 48px rgba(0,0,0,.3);
+  position:relative;
+}
+.modal-close{
+  position:absolute;top:.75rem;right:.75rem;background:none;border:none;
+  font-size:1.2rem;color:var(--text-muted);cursor:pointer;
+}
+.modal-box h3{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;color:var(--spartan-green);margin-bottom:.75rem}
+body.dark .modal-box h3{color:var(--gold-accent)}
+.trash-line{
+  font-size:1.05rem;line-height:1.5;color:var(--text-primary);
+  padding:1rem;background:rgba(0,103,71,.05);border-radius:10px;
+  text-align:center;min-height:80px;display:flex;align-items:center;justify-content:center;
+}
+body.dark .trash-line{background:rgba(255,255,255,.05)}
+.modal-actions{display:flex;gap:.5rem;margin-top:1rem}
+.modal-actions button{
+  flex:1;padding:.6rem;border-radius:8px;border:none;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.78rem;
+  letter-spacing:.05em;text-transform:uppercase;cursor:pointer;
+}
+.btn-primary{background:var(--spartan-green);color:#fff}
+body.dark .btn-primary{background:var(--gold-accent);color:#1A1A1A}
+.btn-secondary{background:rgba(128,128,128,.1);color:var(--text-secondary)}
+.watch-tag{
+  display:inline-block;background:rgba(128,128,128,.08);color:var(--text-secondary);
+  font-family:'Oswald',sans-serif;font-weight:500;font-size:.6rem;
+  padding:.15rem .35rem;border-radius:4px;margin-left:.3rem;letter-spacing:.03em;
+}
+.tg-list{list-style:none;margin:.5rem 0}
+.tg-list li{
+  display:flex;align-items:center;gap:.5rem;padding:.5rem 0;
+  border-bottom:1px solid var(--border);font-size:.88rem;color:var(--text-primary);
+}
+.tg-list li:last-child{border:none}
+.tg-check{width:20px;height:20px;border-radius:6px;border:2px solid var(--border);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.7rem}
+.tg-check.checked{background:var(--spartan-green);border-color:var(--spartan-green);color:#fff}
+body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gold-accent);color:#1A1A1A}
+.tg-input{flex:1;background:none;border:none;font-size:.85rem;color:var(--text-primary);font-family:'Source Sans 3',system-ui,sans-serif;outline:none}
+.tg-add{background:none;border:1px dashed var(--border);border-radius:8px;padding:.5rem;text-align:center;color:var(--text-muted);font-size:.8rem;cursor:pointer;width:100%;margin-top:.5rem}
+/* ===== Support (Venmo) ===== */
+.support-card{margin:1.5rem 16px 6rem;padding:1rem 1.1rem;border:1px solid var(--border);border-radius:14px;background:var(--card-bg);display:flex;flex-wrap:wrap;align-items:center;gap:.8rem}
+.support-text{flex:1 1 220px;min-width:0;display:grid;gap:.2rem;font-size:.88rem;color:var(--text-muted)}
+.support-text strong{color:var(--text-primary);font-family:'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;font-size:.95rem}
+.support-btn{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.04em;font-size:.95rem;padding:.65rem 1.1rem;border-radius:10px;background:#008CFF;color:#fff;text-decoration:none;white-space:nowrap}
+.support-note{flex-basis:100%;font-size:.82rem;color:var(--text-muted)}
+/* ===== Warm-up (launch) screen + Exit sheet ===== */
+#splash{position:fixed;inset:0;z-index:1000;background:#00261A url(icons/splash.jpg) center/cover no-repeat;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 16px calc(env(safe-area-inset-bottom,0px) + 9vh);cursor:pointer;transition:opacity .45s ease}
+#splash.hide{opacity:0;pointer-events:none}
+#splash .s-title{font-family:'Oswald',sans-serif;font-weight:700;color:#fff;font-size:clamp(1.6rem,7vw,2.4rem);letter-spacing:.06em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.6);text-align:center}
+#splash .s-sub{font-family:'Oswald',sans-serif;color:#d8f0e2;letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;margin-top:.35rem;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+#splash .s-tap{margin-top:1.4rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:.55rem 1.3rem;background:rgba(0,0,0,.25)}
+#exitSheet{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;justify-content:center;padding:0 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
+#exitSheet .box{background:var(--card-bg);color:var(--text-primary);border-radius:16px;padding:1.2rem;width:100%;max-width:420px;display:grid;gap:.6rem}
+#exitSheet h3{font-family:'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem}
+#exitSheet p{font-size:.88rem;color:var(--text-muted)}
+#exitSheet button{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.05em;font-size:.95rem;padding:.75rem;border-radius:10px;border:1px solid var(--border);background:transparent;color:inherit;cursor:pointer}
+#exitSheet button.go{background:var(--spartan-green);border-color:var(--spartan-green);color:#fff}
+@media (prefers-reduced-motion:reduce){#splash{transition:none}}
+#splash[hidden],#exitSheet[hidden]{display:none!important}
+
+/* ===== Bottom tab bar ===== */
+.tabs{display:none}
+.jump-btn{display:none}
+body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.bottom-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:150;
+  display:flex;justify-content:space-around;align-items:stretch;
+  background:var(--spartan-green-dark);
+  border-top:2px solid var(--gold-accent);
+  padding:0 4px env(safe-area-inset-bottom,0px);
+  box-shadow:0 -4px 16px rgba(0,0,0,.25);
+}
+.bb-item{
+  flex:1;min-width:0;height:62px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.62);
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.64rem;
+  letter-spacing:.03em;white-space:nowrap;text-transform:uppercase;
+  position:relative;
+}
+.bb-item .bb-ic{font-size:1.35rem;line-height:1;filter:grayscale(.35);transition:transform .15s}
+.bb-item.active{color:var(--gold-accent)}
+.bb-item.active .bb-ic{filter:none;transform:translateY(-1px) scale(1.08)}
+.bb-item.active::before{
+  content:'';position:absolute;top:0;left:22%;right:22%;height:3px;
+  background:var(--gold-accent);border-radius:0 0 3px 3px;
+}
+.bb-item:active .bb-ic{transform:scale(.9)}
+@media(min-width:500px){
+  .bottom-bar{max-width:480px;margin:0 auto}
+}
+
+/* ===== Watch Party ===== */
+.wp-intro{font-size:.85rem;color:var(--text-secondary);margin:-.2rem 0 .8rem;line-height:1.45}
+.wp-gamebox{background:linear-gradient(135deg,var(--spartan-green-dark),var(--spartan-green));border-radius:10px;padding:.8rem;margin-bottom:.7rem}
+.wp-select{width:100%;padding:.5rem;border-radius:8px;border:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:.95rem;color:#1A1A1A;background:#fff}
+.wp-label{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);margin:.55rem 0 .25rem}
+body.dark .wp-label{color:#D9CF9F}
+.wp-in{width:100%;padding:.6rem .7rem;border-radius:8px;border:1px solid var(--border);background:var(--chip-bg);color:var(--text-primary);font-family:'Source Sans 3',sans-serif;font-size:.95rem}
+.wp-two{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.wp-msg{text-align:center;font-size:.85rem;color:var(--text-secondary);min-height:1.1em;margin-top:.5rem}
+.wp-party{border:1px solid var(--border);border-radius:10px;padding:.7rem .8rem;margin-top:.5rem;background:var(--card-bg)}
+.wp-party .t{font-family:'Oswald',sans-serif;font-weight:600;font-size:.95rem;color:var(--text-primary)}
+.wp-party .s{font-size:.82rem;color:var(--text-secondary);margin-top:.1rem}
+.wp-party .c{font-size:.85rem;margin-top:.35rem;color:var(--text-primary)}
+.wp-party .a{display:flex;gap:.4rem;margin-top:.5rem}
+.wp-party .a button,.wp-party .a a{flex:1;text-align:center;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:.5rem;border-radius:8px;border:1px solid var(--border);background:var(--chip-bg);color:var(--text-primary);cursor:pointer}
+.wp-empty{font-size:.85rem;color:var(--text-muted);padding:.4rem 0}
+
+/* ===== How It Works guide ===== */
+.help-box{max-height:88vh;overflow-y:auto}
+.help-quick{background:linear-gradient(135deg,var(--spartan-green-dark),var(--spartan-green));color:#fff;border-radius:12px;padding:.9rem 1rem .8rem;margin-bottom:.8rem}
+.help-quick .hq-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-accent);margin-bottom:.4rem}
+.help-quick ol{padding-left:1.15rem;display:grid;gap:.45rem;font-size:.9rem;line-height:1.45}
+.hk{display:inline-block;padding:0 .3rem;border-radius:4px;background:rgba(255,255,255,.18)}
+.help-sec{border:1px solid var(--border);border-radius:10px;margin-top:.5rem;background:var(--card-bg)}
+.help-sec summary{cursor:pointer;list-style:none;padding:.75rem .9rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:.92rem;letter-spacing:.03em;color:var(--text-primary);display:flex;justify-content:space-between;align-items:center}
+.help-sec summary::-webkit-details-marker{display:none}
+.help-sec summary::after{content:'▾';color:var(--text-muted);transition:transform .2s}
+.help-sec[open] summary::after{transform:rotate(180deg)}
+.help-sec > :not(summary){padding:0 .95rem;font-size:.88rem;line-height:1.5;color:var(--text-secondary)}
+.help-sec p{margin-bottom:.55rem}
+.help-sec ul,.help-sec ol{padding-left:2.1rem;margin-bottom:.6rem;display:grid;gap:.3rem}
+.help-sec b{color:var(--text-primary)}
+.help-note{font-style:italic}
+.help-foot{text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:.9rem}
+
+/* ===== Support strip (near the top) ===== */
+.support-strip{display:flex;align-items:center;gap:.55rem;margin:.1rem 16px .75rem;padding:.55rem .6rem .55rem .8rem;border-radius:12px;background:rgba(197,165,81,.14);border:1px solid rgba(197,165,81,.45)}
+.support-strip[hidden]{display:none}
+.ss-heart{font-size:1.05rem}
+.ss-text{flex:1;min-width:0;font-size:.82rem;color:var(--text-secondary);line-height:1.3}
+.ss-text b{color:var(--text-primary)}
+.ss-btn{flex:none;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:var(--spartan-green);color:#fff;border-radius:999px;padding:.45rem .85rem}
+.ss-x{flex:none;border:none;background:none;color:var(--text-muted);font-size:1.15rem;line-height:1;padding:.1rem .25rem;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="splash" role="button" aria-label="Enter the game tracker" onclick="hideSplash(true)" hidden>
+  <div class="s-title">Bulls Game Tracker</div>
+  <div class="s-sub">Unofficial fan app &middot; Go Bulls</div>
+  <div class="s-tap">Tap to enter</div>
+</div>
+<div id="exitSheet" hidden onclick="if(event.target===this)closeExit()">
+  <div class="box" role="dialog" aria-labelledby="exitTitle">
+    <h3 id="exitTitle">Leave the game tracker?</h3>
+    <p>Exit takes you back to the start screen and clears where you left off. To close the app completely, swipe it away like any other app.</p>
+    <button class="go" onclick="doExit()">Exit</button>
+    <button onclick="closeExit()">Stay</button>
+  </div>
+</div>
+
+
+<div id="installBanner" style="background:var(--gold-accent);color:#1A1A1A;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.03em;">
+  <span style="font-size:1.2rem">📲</span>
+  <span style="flex:1">Add to Home Screen to use like an app!</span>
+  <button onclick="document.getElementById('installBanner').style.display='none';localStorage.setItem('msu_installed','1')" style="background:rgba(0,0,0,.15);border:none;color:#1A1A1A;padding:.3rem .6rem;border-radius:6px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;cursor:pointer">GOT IT</button>
+</div>
+<script>if(localStorage.getItem('msu_installed'))document.getElementById('installBanner').style.display='none';</script>
+<div class="header">
+  <div class="header-top">
+    <img class="spartan-logo" src="icons/icon-192.png" alt="" width="44" height="44" style="padding:0;object-fit:cover">
+    <div>
+      <h1>Bulls Game Tracker</h1>
+      <div class="sub">Unofficial fan app &middot; 2026–27 &middot; Go Bulls! 💚</div>
+    </div>
+    <button class="mode-toggle" onclick="openHelp()" aria-label="How it works" title="How it works" style="margin-right:.4rem;font-weight:700">?</button>
+    <button class="mode-toggle" onclick="toggleDark()" aria-label="Toggle dark mode" id="modeBtn">🌙</button>
+    <button class="mode-toggle" onclick="openExit()" aria-label="Exit" title="Exit" style="margin-left:.4rem;font-size:1rem;font-weight:700">✕</button>
+  </div>
+  <div class="countdown-strip" id="countdownStrip">
+    <div class="vs" id="nextGameLabel">Next up<strong>Loading…</strong></div>
+    <div class="timer" id="liveTimer"></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-tab="football" onclick="switchTab('football',this)">🏈 Football</div>
+  <div class="tab" data-tab="basketball" onclick="switchTab('basketball',this)">🏀 Basketball</div>
+</div>
+
+<div class="filters" id="filterRow">
+  <div class="chip active" data-filter="all" onclick="setFilter('all',this)">All Games</div>
+  <div class="chip" data-filter="home" onclick="setFilter('home',this)">🏟 Home</div>
+  <div class="chip" data-filter="away" onclick="setFilter('away',this)">✈️ Away</div>
+  <div class="chip" data-filter="star" onclick="setFilter('star',this)">⭐ Marquee</div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-label"><span id="progressText">Season Progress</span><span id="progressPct">0%</span></div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+
+
+<div class="hype-bar">
+  <button class="hype-btn" onclick="shareHype()">📣 Share Hype</button>
+  <button class="talk-btn" onclick="openTrashTalk()">🔥 Trash Talk</button>
+  <button class="tailgate-btn gd-label" onclick="openGameDay()">🍔 Tailgate</button>
+</div>
+
+<div class="support-strip" id="supportStrip" hidden>
+  <span class="ss-heart">💚</span>
+  <span class="ss-text"><b>Free &amp; ad-free</b>, made by a Bull fan</span>
+  <a class="ss-btn" id="supportStripBtn" href="#" target="_blank" rel="noopener" onclick="return supportStripClick(event)">Chip in</a>
+  <button class="ss-x" aria-label="Hide for now" onclick="hideSupportStrip(14)">×</button>
+</div>
+
+<div id="football" class="section active">
+
+
+  <div class="live-card" id="football-live">
+    <div class="live-head">
+      <div class="live-title" id="football-live-title">🏈 Scoreboard</div>
+      <button class="refresh-btn" onclick="loadScore('football')" aria-label="Refresh score">↻</button>
+    </div>
+    <div id="football-live-body"><div class="live-msg">Tap ↻ to load the latest USF score</div></div>
+  </div>
+
+  <div class="rank-card" id="football-rank">
+    <div class="rank-head" onclick="toggleRank('football')">
+      <div class="live-title">📊 Rankings &amp; Standings</div>
+      <div class="game-chevron" id="football-rank-chev">▼</div>
+    </div>
+    <div class="rank-body">
+      <div class="rank-tabs">
+        <div class="rank-tab active" id="football-tab-ap" onclick="showRankTab('football','ap',this)">🇺🇸 AP Top 25</div>
+        <div class="rank-tab" id="football-tab-b1g" onclick="showRankTab('football','b1g',this)">American Standings</div>
+      </div>
+      <div id="football-rank-content"><div class="live-msg">Loading…</div></div>
+    </div>
+  </div>
+
+  <div class="record-tracker">
+    <div class="record-item"><div class="num w">4</div><div class="lbl">Wins</div></div>
+    <div class="record-sep">–</div>
+    <div class="record-item"><div class="num l">0</div><div class="lbl">Losses</div></div>
+    <div class="record-item" style="margin-left:.75rem;padding-left:1.25rem;border-left:1px solid var(--border)">
+      <div class="num" style="color:var(--gold-accent)">1–0</div><div class="lbl">American</div>
+    </div>
+  </div>
+
+
+  <div class="cal-card" data-kind="football">
+    <h3>📅 Add football games to your calendar</h3>
+    <p>Subscribe once and new tip/kick times show up automatically as they're announced.</p>
+    <div class="cal-btns">
+      <a class="primary cal-apple" href="#">iPhone / Mac Calendar</a>
+      <a class="cal-google" href="#" target="_blank" rel="noopener">Google Calendar</a>
+      <a class="cal-file" href="#" download>Download .ics</a>
+      <button type="button" onclick="copyCalLink('football', this)">Copy link</button>
+    </div>
+  </div>
+
+  <!-- FOOTBALL -->
+  <div class="game-card" data-loc="home" data-star="1" data-date="2026-09-05T19:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Sep</div><div class="day">5</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">FIU ⭐</div>
+        <div class="game-meta">7:00 PM &middot; <span class="watch-tag">ESPN+</span> &middot; Raymond James Stadium</div>
+        <div class="game-result win">Final: W 19–9</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Raymond James Stadium. TV: ESPN+.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-09-12T12:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Sep</div><div class="day">12</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Army</div>
+        <div class="game-meta">12:00 PM &middot; <span class="tv-tag">CBSSN</span> &middot; Michie Stadium, West Point</div>
+        <div class="game-result win">Final: W 28–24</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Michie Stadium, West Point. TV: CBSSN.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-09-19T19:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Sep</div><div class="day">19</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Delaware State</div>
+        <div class="game-meta">7:00 PM &middot; <span class="watch-tag">ESPN+</span> &middot; Raymond James Stadium</div>
+        <div class="game-result win">Final: W 59–17</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Raymond James Stadium. TV: ESPN+.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-09-26T17:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Sep</div><div class="day">26</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Bowling Green</div>
+        <div class="game-meta">5:00 PM &middot; <span class="watch-tag">ESPN+</span> &middot; Doyt L. Perry Stadium, Bowling Green</div>
+        <div class="game-result win">Final: W 14–6</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Doyt L. Perry Stadium, Bowling Green. TV: ESPN+.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-10-03T19:30:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">3</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Temple</div>
+        <div class="game-meta">7:30 PM &middot; <span class="tv-tag">ESPNU</span> &middot; Raymond James Stadium</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Raymond James Stadium. TV: ESPNU.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-10-08T19:30:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">8</div><div class="weekday">Thu</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at UTSA</div>
+        <div class="game-meta">7:30 PM &middot; <span class="tv-tag">ESPN</span> &middot; Alamodome, San Antonio</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Alamodome, San Antonio. TV: ESPN. Thursday night game.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-10-17T15:30:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">17</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Kent State</div>
+        <div class="game-meta">Time TBA &middot; Raymond James Stadium</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Raymond James Stadium. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-10-31T15:30:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">31</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">UAB</div>
+        <div class="game-meta">Time TBA &middot; Raymond James Stadium</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Raymond James Stadium. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-11-06T19:30:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">6</div><div class="weekday">Fri</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at East Carolina</div>
+        <div class="game-meta">7:30 PM &middot; <span class="tv-tag">ESPN2</span> &middot; Dowdy-Ficklen Stadium, Greenville</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Dowdy-Ficklen Stadium, Greenville. TV: ESPN2. Friday night game.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-star="1" data-date="2026-11-12T20:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">12</div><div class="weekday">Thu</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Memphis ⭐</div>
+        <div class="game-meta">8:00 PM &middot; <span class="tv-tag">ESPN or ESPN2</span> &middot; Raymond James Stadium</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Raymond James Stadium. TV: ESPN or ESPN2. Thursday night game.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-star="1" data-date="2026-11-21T15:30:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">21</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Florida Atlantic ⭐</div>
+        <div class="game-meta">Time TBA &middot; Flagler Credit Union Stadium, Boca Raton</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Flagler Credit Union Stadium, Boca Raton. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet. In-state rivalry game.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-27T15:30:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">27</div><div class="weekday">Fri</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Tulane</div>
+        <div class="game-meta">Time TBA &middot; Raymond James Stadium</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Raymond James Stadium. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet. Date is Friday, Nov. 27 or Saturday, Nov. 28 (to be set). Regular-season finale.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/football/schedule/2026" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏈 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/college-football/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="season-outlook" style="margin-top:.5rem">
+    <h3>🏈 Postseason</h3>
+    <div class="outlook-text"><strong>American Championship:</strong> Saturday, Dec. 5, 2026 &middot; 8:00 PM &middot; ABC &middot; Hosted by the top seed (site TBD)</div>
+  </div>
+
+</div><!-- end football -->
+
+<div id="basketball" class="section">
+
+
+  <div class="live-card" id="basketball-live">
+    <div class="live-head">
+      <div class="live-title" id="basketball-live-title">🏀 Scoreboard</div>
+      <button class="refresh-btn" onclick="loadScore('basketball')" aria-label="Refresh score">↻</button>
+    </div>
+    <div id="basketball-live-body"><div class="live-msg">Tap ↻ to load the latest USF score</div></div>
+  </div>
+
+  <div class="rank-card" id="basketball-rank">
+    <div class="rank-head" onclick="toggleRank('basketball')">
+      <div class="live-title">📊 Rankings &amp; Standings</div>
+      <div class="game-chevron" id="basketball-rank-chev">▼</div>
+    </div>
+    <div class="rank-body">
+      <div class="rank-tabs">
+        <div class="rank-tab active" id="basketball-tab-ap" onclick="showRankTab('basketball','ap',this)">🇺🇸 AP Top 25</div>
+        <div class="rank-tab" id="basketball-tab-b1g" onclick="showRankTab('basketball','b1g',this)">American Standings</div>
+      </div>
+      <div id="basketball-rank-content"><div class="live-msg">Loading…</div></div>
+    </div>
+  </div>
+
+  <div class="record-tracker">
+    <div class="record-item"><div class="num w">0</div><div class="lbl">Wins</div></div>
+    <div class="record-sep">–</div>
+    <div class="record-item"><div class="num l">0</div><div class="lbl">Losses</div></div>
+    <div class="record-item" style="margin-left:.75rem;padding-left:1.25rem;border-left:1px solid var(--border)">
+      <div class="num" style="color:var(--gold-accent)">0–0</div><div class="lbl">American</div>
+    </div>
+  </div>
+
+
+  <div class="cal-card" data-kind="basketball">
+    <h3>📅 Add basketball games to your calendar</h3>
+    <p>Subscribe once and new tip/kick times show up automatically as they're announced.</p>
+    <div class="cal-btns">
+      <a class="primary cal-apple" href="#">iPhone / Mac Calendar</a>
+      <a class="cal-google" href="#" target="_blank" rel="noopener">Google Calendar</a>
+      <a class="cal-file" href="#" download>Download .ics</a>
+      <button type="button" onclick="copyCalLink('basketball', this)">Copy link</button>
+    </div>
+  </div>
+
+  <!-- BASKETBALL -->
+  <div class="game-card" data-loc="home" data-date="2026-10-19T19:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">19</div><div class="weekday">Mon</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Saint Leo (Exh.)</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-02T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">2</div><div class="weekday">Mon</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Charleston Southern</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet. Season opener.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-11-05T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">5</div><div class="weekday">Thu</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at DePaul</div>
+        <div class="game-meta">Time TBA &middot; Wintrust Arena, Chicago</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Wintrust Arena, Chicago. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="neutral" data-date="2026-11-11T15:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">11</div><div class="weekday">Wed</div></div>
+      <div class="game-divider neutral"></div>
+      <div class="game-info">
+        <div class="game-opponent">vs Saint Joseph&#x27;s</div>
+        <div class="game-meta">3:00 PM &middot; <span class="tv-tag">CBSSN</span> &middot; Alumni Hall, Annapolis, Md.</div>
+      </div>
+      <div class="game-badge badge-neutral">Neutral</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Alumni Hall, Annapolis, Md.. TV: CBSSN. Veterans Classic.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-14T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">14</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Coppin State</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-17T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">17</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Tennessee State</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-11-21T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">21</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at George Mason</div>
+        <div class="game-meta">Time TBA &middot; Fairfax, Va.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Fairfax, Va.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-24T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">24</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Stetson</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="neutral" data-date="2026-11-29T15:30:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">29</div><div class="weekday">Sun</div></div>
+      <div class="game-divider neutral"></div>
+      <div class="game-info">
+        <div class="game-opponent">vs Saint Louis</div>
+        <div class="game-meta">3:30 PM &middot; <span class="tv-tag">ESPN or ESPN2</span> &middot; Nationwide Arena, Columbus, Ohio</div>
+      </div>
+      <div class="game-badge badge-neutral">Neutral</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Nationwide Arena, Columbus, Ohio. TV: ESPN or ESPN2. A-10/American Showcase.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-12-02T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">2</div><div class="weekday">Wed</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">West Florida</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-12-09T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">9</div><div class="weekday">Wed</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Jacksonville</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-12-12T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">12</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Dayton</div>
+        <div class="game-meta">Time TBA &middot; Dayton, Ohio</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Dayton, Ohio. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-star="1" data-date="2026-12-16T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">16</div><div class="weekday">Wed</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Alabama ⭐</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-12-19T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">19</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Kennesaw State</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet. Love Wins Classic.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-12-22T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">22</div><div class="weekday">Tue</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Charleston</div>
+        <div class="game-meta">Time TBA &middot; Charleston, S.C.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Charleston, S.C.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-12-30T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">30</div><div class="weekday">Wed</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Tulsa</div>
+        <div class="game-meta">Time TBA &middot; Tulsa, Okla.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Tulsa, Okla.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet. American opener.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-star="1" data-date="2027-01-03T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">3</div><div class="weekday">Sun</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Memphis ⭐</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-01-07T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">7</div><div class="weekday">Thu</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Charlotte</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-01-10T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">10</div><div class="weekday">Sun</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Tulane</div>
+        <div class="game-meta">Time TBA &middot; New Orleans</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 New Orleans. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-01-14T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">14</div><div class="weekday">Thu</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Temple</div>
+        <div class="game-meta">Time TBA &middot; Philadelphia</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Philadelphia. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-01-17T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">17</div><div class="weekday">Sun</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Tulsa</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-01-23T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">23</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at UTSA</div>
+        <div class="game-meta">Time TBA &middot; San Antonio</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 San Antonio. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-01-26T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">26</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Rice</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-star="1" data-date="2027-01-31T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">31</div><div class="weekday">Sun</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Florida Atlantic ⭐</div>
+        <div class="game-meta">Time TBA &middot; Boca Raton, Fla.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Boca Raton, Fla.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-02-04T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">4</div><div class="weekday">Thu</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Wichita State</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-02-07T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">7</div><div class="weekday">Sun</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Charlotte</div>
+        <div class="game-meta">Time TBA &middot; Charlotte, N.C.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Charlotte, N.C.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-02-10T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">10</div><div class="weekday">Wed</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at East Carolina</div>
+        <div class="game-meta">Time TBA &middot; Greenville, N.C.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Greenville, N.C.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-02-13T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">13</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Temple</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-02-18T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">18</div><div class="weekday">Thu</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Wichita State</div>
+        <div class="game-meta">Time TBA &middot; Wichita, Kan.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Wichita, Kan.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-02-21T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">21</div><div class="weekday">Sun</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">UAB</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-02-24T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">24</div><div class="weekday">Wed</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">North Texas</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-star="1" data-date="2027-02-28T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">28</div><div class="weekday">Sun</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Memphis ⭐</div>
+        <div class="game-meta">Time TBA &middot; Memphis, Tenn.</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">📍 Memphis, Tenn.. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-star="1" data-date="2027-03-04T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Mar</div><div class="day">4</div><div class="weekday">Thu</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Florida Atlantic ⭐</div>
+        <div class="game-meta">Time TBA &middot; Yuengling Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">🏟 Home at Yuengling Center. TV and streaming are usually announced 1–2 weeks before the game. Start time not announced yet. Regular-season finale.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://gousfbulls.com/sports/mens-basketball/schedule/2026-27" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏀 USF Schedule</a>
+        <a class="mini-link" href="https://www.espn.com/mens-college-basketball/team/_/id/58/south-florida-bulls" target="_blank" rel="noopener" onclick="event.stopPropagation()">📊 ESPN</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="season-outlook" style="margin-top:.5rem">
+    <h3>🏀 Postseason</h3>
+    <div class="outlook-text"><strong>American Tournament:</strong> March 10–14, 2027 &middot; Yuengling Center, Tampa<br><br><strong>Selection Sunday:</strong> March 14, 2027<br><br>Tip times and TV for most games have not been announced yet.</div>
+  </div>
+
+</div><!-- end basketball -->
+
+<div class="support-card">
+  <div class="support-text">
+    <strong>Enjoying the tracker?</strong>
+    <span>It's free, ad-free and made by a fan. Chip in if you like it.</span>
+  </div>
+  <a class="support-btn" id="supportBtn" href="#" target="_blank" rel="noopener" onclick="return supportClick(event)">💚 Support this app</a>
+  <div class="support-note" id="supportNote" hidden>Venmo link isn't set up yet. Check back soon!</div>
+</div>
+
+<button class="jump-btn" onclick="jumpToNext()">⚡ Next Game</button>
+
+<nav class="bottom-bar" aria-label="Main">
+  <button class="bb-item active" data-bb="football" onclick="bbSport('football')"><span class="bb-ic">🏈</span>Football</button>
+  <button class="bb-item" data-bb="basketball" onclick="bbSport('basketball')"><span class="bb-ic">🏀</span>Basketball</button>
+  <button class="bb-item" onclick="jumpToNext()"><span class="bb-ic">⚡</span>Next Game</button>
+  <button class="bb-item" onclick="openGameDay()" id="bbGameDay"><span class="bb-ic">🍔</span><span class="bb-tx">Tailgate</span></button>
+  <button class="bb-item" onclick="openTrashTalk()"><span class="bb-ic">🔥</span>Trash Talk</button>
+</nav>
+
+<script>
+// ===== Dark mode =====
+function toggleDark() {
+  document.body.classList.toggle('dark');
+  document.getElementById('modeBtn').textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+}
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.classList.add('dark');
+  document.getElementById('modeBtn').textContent = '☀️';
+}
+
+// ===== Tabs =====
+let activeTab = 'football';
+function switchTab(tab, el) {
+  activeTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  el.classList.add('active');
+  setFilter('all', document.querySelector('.chip[data-filter="all"]'));
+  markNextGame();
+  updateProgress();
+}
+
+// ===== Bottom tab bar =====
+function bbSport(tab) {
+  const top = document.querySelector('.tab[data-tab="' + tab + '"]');
+  if (top) switchTab(tab, top);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function syncBottomBar() {
+  document.querySelectorAll('.bb-item[data-bb]').forEach(b => b.classList.toggle('active', b.dataset.bb === activeTab));
+  const hoops = activeTab === 'basketball';
+  const gd = document.getElementById('bbGameDay');
+  if (gd) { gd.querySelector('.bb-ic').textContent = hoops ? '📺' : '🍔'; gd.querySelector('.bb-tx').textContent = hoops ? 'Watch Party' : 'Tailgate'; }
+  document.querySelectorAll('.gd-label').forEach(b => b.textContent = hoops ? '📺 Watch Party' : '🍔 Tailgate');
+}
+// Football -> tailgate planner; basketball -> watch party invites
+function openGameDay() { if (activeTab === 'basketball') openWatchParty(); else openTailgate(); }
+const _switchTab = switchTab;
+switchTab = function(tab, el) { _switchTab(tab, el); syncBottomBar(); };
+
+// ===== Filters =====
+function setFilter(f, el) {
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const cards = document.querySelectorAll('#' + activeTab + ' .game-card');
+  cards.forEach(c => {
+    const loc = c.dataset.loc;
+    const star = c.dataset.star === '1';
+    let show = true;
+    if (f === 'home') show = loc === 'home';
+    else if (f === 'away') show = loc === 'away' || loc === 'neutral';
+    else if (f === 'star') show = star;
+    if (loc === 'bye' && f !== 'all') show = false;
+    c.style.display = show ? '' : 'none';
+  });
+}
+
+// ===== Expand cards =====
+function toggleCard(card) {
+  if (card.classList.contains('bye')) return;
+  const wasExpanded = card.classList.contains('expanded');
+  document.querySelectorAll('.game-card.expanded').forEach(c => c.classList.remove('expanded'));
+  if (!wasExpanded) card.classList.add('expanded');
+}
+
+// ===== Next game detection + live countdown =====
+function getGames(section) {
+  return Array.from(document.querySelectorAll('#' + section + ' .game-card[data-date]'))
+    .map(c => ({el: c, date: new Date(c.dataset.date)}))
+    .sort((a,b) => a.date - b.date);
+}
+
+function findNext() {
+  const now = new Date();
+  const games = getGames(activeTab);
+  for (const g of games) {
+    // game "ends" ~4 hours after start
+    if (now < new Date(g.date.getTime() + 4*3600*1000)) return g;
+  }
+  return null;
+}
+
+function markNextGame() {
+  document.querySelectorAll('.next-banner').forEach(b => b.remove());
+  document.querySelectorAll('.game-card').forEach(c => c.classList.remove('next-game'));
+  const now = new Date();
+  getGames('football').concat(getGames('basketball')).forEach(g => {
+    if (new Date(g.date.getTime() + 4*3600*1000) < now) g.el.classList.add('past');
+  });
+  const next = findNext();
+  if (next) {
+    next.el.classList.add('next-game');
+    const banner = document.createElement('div');
+    banner.className = 'next-banner';
+    banner.textContent = '⚡ Next Game';
+    next.el.insertBefore(banner, next.el.firstChild);
+  }
+}
+
+function updateCountdown() {
+  const next = findNext();
+  const label = document.getElementById('nextGameLabel');
+  const timer = document.getElementById('liveTimer');
+  if (!next) {
+    label.innerHTML = 'Season<strong>Complete — Go Bulls!</strong>';
+    timer.innerHTML = '';
+    return;
+  }
+  const opp = next.el.querySelector('.game-opponent').textContent.replace('⭐','').trim();
+  const diff = next.date - new Date();
+  if (diff <= 0) {
+    label.innerHTML = 'Live now<strong>' + opp + '</strong>';
+    timer.innerHTML = '<div class="unit"><div class="num">🔴</div><div class="lbl">Live</div></div>';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor(diff % 86400000 / 3600000);
+  const m = Math.floor(diff % 3600000 / 60000);
+  const s = Math.floor(diff % 60000 / 1000);
+  label.innerHTML = 'Next up<strong>' + opp + '</strong>';
+  timer.innerHTML =
+    '<div class="unit"><div class="num">' + d + '</div><div class="lbl">Days</div></div>' +
+    '<div class="unit"><div class="num">' + String(h).padStart(2,'0') + '</div><div class="lbl">Hrs</div></div>' +
+    '<div class="unit"><div class="num">' + String(m).padStart(2,'0') + '</div><div class="lbl">Min</div></div>' +
+    '<div class="unit"><div class="num">' + String(s).padStart(2,'0') + '</div><div class="lbl">Sec</div></div>';
+}
+
+// ===== Season progress =====
+function updateProgress() {
+  const games = getGames(activeTab);
+  if (!games.length) return;
+  const now = new Date();
+  const played = games.filter(g => new Date(g.date.getTime() + 4*3600*1000) < now).length;
+  const pct = Math.round(played / games.length * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = played + ' of ' + games.length + ' games';
+  document.getElementById('progressText').textContent = (activeTab === 'football' ? '🏈' : '🏀') + ' Season Progress';
+}
+
+// ===== Jump to next game =====
+function jumpToNext() {
+  const next = findNext();
+  if (next) {
+    next.el.scrollIntoView({behavior:'smooth', block:'center'});
+    if (!next.el.classList.contains('expanded')) toggleCard(next.el);
+  }
+}
+
+// ===== Init =====
+markNextGame();
+updateProgress();
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ===== LIVE SCORES + RANKINGS (ESPN public feeds — needs internet) =====
+const ESPN = {
+  football: {
+    sched:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/teams/58/schedule',
+    rank:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings',
+    stand:'https://site.api.espn.com/apis/v2/sports/football/college-football/standings?group=151'
+  },
+  basketball: {
+    sched:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams/58/schedule',
+    rank:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/rankings',
+    stand:'https://site.api.espn.com/apis/v2/sports/basketball/mens-college-basketball/standings?group=62'
+  }
+};
+let liveTimers = {};
+
+async function loadScore(sport) {
+  const body = document.getElementById(sport + '-live-body');
+  const card = document.getElementById(sport + '-live');
+  const title = document.getElementById(sport + '-live-title');
+  body.innerHTML = '<div class="live-msg">Loading…</div>';
+  try {
+    const r = await fetch(ESPN[sport].sched);
+    const data = await r.json();
+    const events = (data.events || []).slice();
+    if (!events.length) throw new Error('no events');
+    const now = new Date();
+    // Prefer a live game; else the closest game to now
+    let ev = events.find(e => e.competitions?.[0]?.status?.type?.state === 'in');
+    if (!ev) {
+      events.sort((a,b) => Math.abs(new Date(a.date)-now) - Math.abs(new Date(b.date)-now));
+      ev = events[0];
+    }
+    const comp = ev.competitions[0];
+    const st = comp.status?.type || {};
+    const isLive = st.state === 'in';
+    const teams = comp.competitors || [];
+    const rows = teams.map(t => {
+      const isMSU = (t.team?.abbreviation === 'USF' || /South\ Florida/i.test(t.team?.displayName||''));
+      const score = (t.score && (t.score.displayValue ?? t.score.value ?? t.score)) ?? '–';
+      const rank = t.curatedRank?.current && t.curatedRank.current <= 25 ? '#' + t.curatedRank.current + ' ' : '';
+      return '<div class="score-team' + (isMSU ? ' msu' : '') + '">' +
+        '<div class="tscore">' + score + '</div>' +
+        '<div class="tname">' + rank + (t.team?.shortDisplayName || t.team?.displayName || '?') + '</div></div>';
+    });
+    const statusTxt = st.shortDetail || st.detail || st.description || '';
+    body.innerHTML = '<div class="score-row">' + rows[0] +
+      '<div class="score-status">' + statusTxt + '</div>' + rows[1] + '</div>';
+    card.classList.toggle('is-live', isLive);
+    title.innerHTML = isLive
+      ? '<span class="live-dot"></span> Live Now'
+      : (st.state === 'post' ? (sport==='football'?'🏈':'🏀') + ' Final' : (sport==='football'?'🏈':'🏀') + ' Scoreboard');
+    // Auto-refresh every 45s while live
+    clearInterval(liveTimers[sport]);
+    if (isLive) liveTimers[sport] = setInterval(() => loadScore(sport), 45000);
+  } catch (e) {
+    body.innerHTML = '<div class="live-msg">Couldn\'t load the score — check your connection and tap ↻ to retry.</div>';
+  }
+}
+
+function toggleRank(sport) {
+  const card = document.getElementById(sport + '-rank');
+  card.classList.toggle('open');
+  if (card.classList.contains('open')) showRankTab(sport, 'ap', document.getElementById(sport + '-tab-ap'));
+}
+
+async function showRankTab(sport, which, el) {
+  event && event.stopPropagation && event.stopPropagation();
+  document.querySelectorAll('#' + sport + '-rank .rank-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const box = document.getElementById(sport + '-rank-content');
+  box.innerHTML = '<div class="live-msg">Loading…</div>';
+  try {
+    if (which === 'ap') {
+      const r = await fetch(ESPN[sport].rank);
+      const data = await r.json();
+      const ap = (data.rankings || []).find(x => /AP/i.test(x.name || x.shortName || '')) || data.rankings?.[0];
+      if (!ap) throw new Error('no poll');
+      const ranks = ap.ranks || [];
+      let msuRank = null;
+      let out = ranks.slice(0, 10).map(t => rankRow(t)).join('');
+      const msu = ranks.find(t => /South\ Florida/i.test(t.team?.location || t.team?.displayName || ''));
+      if (msu && msu.current > 10) out += '<div class="live-msg">⋯</div>' + rankRow(msu);
+      else if (!msu) out += '<div class="live-msg">USF not currently ranked in the ' + (ap.shortName || 'AP Top 25') + '</div>';
+      box.innerHTML = '<div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;font-family:Oswald">' + (ap.name || 'AP Top 25') + '</div>' + out;
+    } else {
+      const r = await fetch(ESPN[sport].stand);
+      const data = await r.json();
+      const entries = data.standings?.entries || data.children?.[0]?.standings?.entries || [];
+      if (!entries.length) throw new Error('no standings');
+      const rows = entries.map(en => {
+        const t = en.team || {};
+        const stats = en.stats || [];
+        const conf = stats.find(s => s.type==='vsconf' || /conf/i.test(s.name||''));
+        const ovr = stats.find(s => s.type==='total' || /overall/i.test(s.name||''));
+        return {name: t.shortDisplayName || t.displayName, conf: conf?.displayValue || '', ovr: ovr?.displayValue || '',
+                msu: /South\ Florida/i.test(t.displayName || '')};
+      });
+      box.innerHTML = '<div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;font-family:Oswald">American &middot; Conf / Overall</div>' +
+        rows.map((t,i) => '<div class="rank-row' + (t.msu ? ' msu-row' : '') + '"><div class="rnum">' + (i+1) + '</div><div class="rteam">' + t.name + '</div><div class="rrec">' + t.conf + ' &middot; ' + t.ovr + '</div></div>').join('');
+    }
+  } catch (e) {
+    box.innerHTML = '<div class="live-msg">Couldn\'t load — check your connection and try again.</div>';
+  }
+}
+function rankRow(t) {
+  const isMSU = /South\ Florida/i.test(t.team?.location || t.team?.displayName || '');
+  return '<div class="rank-row' + (isMSU ? ' msu-row' : '') + '"><div class="rnum">' + t.current + '</div>' +
+    '<div class="rteam">' + (t.team?.location || t.team?.displayName || '?') + '</div>' +
+    '<div class="rrec">' + (t.recordSummary || '') + '</div></div>';
+}
+// Auto-load score on open
+loadScore('football');
+
+</script>
+
+
+<!-- Trash Talk Modal -->
+<div class="talk-modal" id="talkModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('talkModal').classList.remove('open')">&times;</button>
+    <h3>🔥 Trash Talk Generator</h3>
+    <div class="trash-line" id="trashLine">Tap below for ammo</div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="genTrash()">🎲 New One</button>
+      <button class="btn-primary" onclick="copyTrash()">📋 Copy</button>
+    </div>
+  </div>
+</div>
+
+<!-- How It Works guide -->
+<div class="tailgate-modal" id="helpModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box help-box">
+    <button class="modal-close" onclick="document.getElementById('helpModal').classList.remove('open')">&times;</button>
+    <h3>❓ How It Works</h3>
+
+    <div class="help-quick">
+      <div class="hq-title">The basics</div>
+      <ol>
+        <li><b>Put it on your home screen.</b> iPhone: open in Safari, tap Share <span class="hk">⬆︎</span>, then <i>Add to Home Screen</i>. Android: in Chrome, tap <span class="hk">⋮</span>, then <i>Add to Home screen</i> or <i>Install</i>.</li>
+        <li><b>Tap in</b> from the start screen.</li>
+        <li><b>Use the bar at the bottom:</b> 🏈 Football or 🏀 Basketball schedule, ⚡ jump to the next game, 🍔 Tailgate (football) or 📺 Watch Party (basketball), and 🔥 Trash Talk.</li>
+        <li><b>Tap any game</b> to open its preview and details.</li>
+      </ol>
+    </div>
+
+    <details class="help-sec"><summary>📅 Schedule &amp; games</summary>
+      <p>The countdown at the top always shows the next game. Each game card shows date, time, TV network and where to stream it. Tap a card to see the preview and prediction.</p>
+      <p>Use the chips to show <b>All Games</b>, <b>Home</b>, <b>Away</b>, or <b>Marquee</b> matchups. The progress bar tracks how far into the season we are, and the record box keeps the W–L tally.</p>
+    </details>
+
+    <details class="help-sec"><summary>🔴 Live scores &amp; rankings</summary>
+      <p>The <b>Scoreboard</b> card loads the latest USF score. Tap <b>↻</b> to refresh during a game; it turns red while a game is live.</p>
+      <p>Tap <b>Rankings &amp; Standings</b> to open the AP Top 25 or the American standings. USF's row is highlighted.</p>
+    </details>
+
+    <details class="help-sec"><summary>📆 Add games to your calendar</summary>
+      <p>Find the <b>Add games to your calendar</b> card on each sport's schedule. Subscribe once (iPhone/Mac Calendar or Google Calendar) and new kickoff and tip-off times show up on their own as they're announced.</p>
+    </details>
+
+    <details class="help-sec"><summary>🍔 Tailgate planner (football)</summary>
+      <p>On the football tab, tap <b>Tailgate</b> and pick a home game.</p>
+      <ul>
+        <li><b>Who's Coming?</b> Add names and how many each person brings. The headcount totals at the bottom.</li>
+        <li><b>Who's Bringing What?</b> A starter list (burgers, buns, cooler, grill, chairs, cornhole…). Check items off, edit them, add your own, and put a name next to each.</li>
+        <li><b>Share Plan</b> turns it all into one text you can send the crew.</li>
+      </ul>
+      <p class="help-note">The tailgate plan is saved on your phone only. Share it to keep everyone in the loop.</p>
+    </details>
+
+    <details class="help-sec"><summary>📺 Watch Party (basketball)</summary>
+      <p>For hoops, there's no tailgate, so throw a watch party at a bar or someone's house.</p>
+      <ol>
+        <li>On the basketball tab, tap <b>Watch Party</b>.</li>
+        <li>Pick the game and fill in <b>where</b>, the <b>address</b>, what time to <b>meet</b>, your name and an optional note (like "wings half off").</li>
+        <li>Tap <b>Create &amp; Send Invite</b> and text the link to your friends.</li>
+      </ol>
+      <p><b>Your friends</b> tap the link (no app needed) and answer 🙌 <b>Meet you there</b> (with how many are coming), 🤔 <b>Maybe</b>, or 😞 <b>Can't make it</b>. They can change their answer any time and get a map button to the spot.</p>
+      <p><b>Forwarding:</b> anyone can tap <b>Invite a friend</b> to pass it on. People who answer from a forwarded link show as "Sue <i>via Dave</i>," so you can see how word spread.</p>
+      <p><b>As the host,</b> your parties are listed at the bottom of the Watch Party screen with live counts. Tap <b>Who's coming</b> to see everyone's answers. You can remove an answer with ×.</p>
+    </details>
+
+    <details class="help-sec"><summary>📣 Share Hype &amp; 🔥 Trash Talk</summary>
+      <p><b>Share Hype</b> writes a countdown message ("6 days until USF vs…") and opens your phone's share menu.</p>
+      <p><b>Trash Talk</b> serves up a one-liner for the group chat. Tap 🎲 for another, 📋 to copy it.</p>
+    </details>
+
+    <details class="help-sec"><summary>⚙️ Settings &amp; buttons</summary>
+      <ul>
+        <li><b>🌙 / ☀️</b> switches dark mode.</li>
+        <li><b>✕</b> goes back to the start screen.</li>
+        <li><b>?</b> opens this guide.</li>
+      </ul>
+    </details>
+
+    <details class="help-sec"><summary>🔒 Privacy</summary>
+      <p>No accounts or sign-ups. The app counts how many phones open it, using a random ID (no names or personal info). Your tailgate lists stay on your phone. Watch party invites and answers are saved on the invite service so the host and friends can see them.</p>
+    </details>
+
+    <details class="help-sec"><summary>💚 Support</summary>
+      <p>The tracker is free, ad-free and made by a Bull fan. If you like it, tap <b>Chip in</b> near the top of the schedule (or <b>Support this app</b> at the bottom) to send a tip on Venmo.</p>
+    </details>
+
+    <p class="help-foot">Unofficial fan app. Not affiliated with University of South Florida. Go Bulls! 💚</p>
+  </div>
+</div>
+
+<!-- Watch Party Modal (basketball) -->
+<div class="tailgate-modal" id="wpModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box" style="max-height:88vh;overflow-y:auto">
+    <button class="modal-close" onclick="document.getElementById('wpModal').classList.remove('open')">&times;</button>
+    <h3>📺 Watch Party</h3>
+    <p class="wp-intro">Pick a spot (a bar or someone's house), send the invite, and see who's meeting you there. Friends can forward it, and you'll see who brought who.</p>
+
+    <div class="wp-gamebox">
+      <div class="wp-label" style="color:#fff;opacity:.75">🏀 Game</div>
+      <select id="wpGame" class="wp-select"></select>
+    </div>
+    <label class="wp-label" for="wpPlace">Where</label>
+    <input id="wpPlace" class="wp-in" maxlength="80" placeholder="Bar name, or &quot;Mike's house&quot;">
+    <label class="wp-label" for="wpAddr">Address</label>
+    <input id="wpAddr" class="wp-in" maxlength="160" placeholder="Street, city (so the map works)">
+    <div class="wp-two">
+      <div><label class="wp-label" for="wpTime">Meet at</label><input id="wpTime" class="wp-in" maxlength="40" placeholder="6:30 PM"></div>
+      <div><label class="wp-label" for="wpHost">Your name</label><input id="wpHost" class="wp-in" maxlength="40" placeholder="Host"></div>
+    </div>
+    <label class="wp-label" for="wpNote">Note (optional)</label>
+    <input id="wpNote" class="wp-in" maxlength="300" placeholder="Wings are half off · bring a chair">
+    <div class="modal-actions" style="margin-top:.9rem">
+      <button class="btn-primary" style="flex:1" id="wpCreateBtn" onclick="createWatchParty()">📤 Create &amp; Send Invite</button>
+    </div>
+    <div class="wp-msg" id="wpMsg"></div>
+
+    <div class="wp-label" style="margin-top:1.1rem">Your watch parties</div>
+    <div id="wpList"></div>
+  </div>
+</div>
+
+<!-- Tailgate Modal -->
+<div class="tailgate-modal" id="tailgateModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box" style="max-height:85vh;overflow-y:auto">
+    <button class="modal-close" onclick="document.getElementById('tailgateModal').classList.remove('open')">&times;</button>
+    <h3>🍔 Tailgate Planner</h3>
+
+    <div style="background:linear-gradient(135deg,var(--spartan-green-dark),var(--spartan-green));color:#fff;border-radius:10px;padding:.85rem;margin-bottom:.85rem">
+      <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7;margin-bottom:.3rem">🏟 Planning For</div>
+      <select id="tgGameSelect" onchange="switchTgGame()" style="width:100%;padding:.5rem;border-radius:8px;border:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:1rem;color:#1A1A1A;background:#fff;cursor:pointer"></select>
+    </div>
+
+    <div style="background:rgba(0,103,71,.06);border-radius:10px;padding:.85rem;margin-bottom:.85rem">
+      <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);margin-bottom:.5rem">👥 Who's Coming?</div>
+      <div id="rsvpList"></div>
+      <button class="tg-add" onclick="addRsvp()" style="margin-top:.4rem">+ Add Person</button>
+      <div style="margin-top:.5rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:.9rem;color:var(--text-primary);text-align:center" id="headcount">Total: 0 people</div>
+    </div>
+
+    <div style="font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);margin-bottom:.35rem">📋 Who's Bringing What?</div>
+    <ul class="tg-list" id="tgList"></ul>
+    <button class="tg-add" onclick="addTgItem()">+ Add Item</button>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="resetTg()">🗑 Reset This Game</button>
+      <button class="btn-primary" onclick="shareTg()">📤 Share Plan</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== HYPE SHARE =====
+function shareHype() {
+  const next = findNext();
+  if (!next) { alert('Season complete — Go Bulls!'); return; }
+  const opp = next.el.querySelector('.game-opponent').textContent.replace('⭐','').trim();
+  const diff = next.date - new Date();
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor(diff % 86400000 / 3600000);
+  let timeStr = d > 0 ? d + ' day' + (d>1?'s':'') + ', ' + h + ' hour' + (h>1?'s':'') : h + ' hour' + (h>1?'s':'');
+  if (diff <= 0) timeStr = 'RIGHT NOW';
+  const loc = next.el.dataset.loc;
+  const emoji = loc === 'home' ? '🏟' : '✈️';
+  const text = '🏈 ' + timeStr + ' until USF ' + (loc==='away'?'@ ':'vs ') + opp + ' ' + emoji + '💚 Go Bulls!';
+  if (navigator.share) {
+    navigator.share({text: text}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.hype-btn');
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.innerHTML = '📣 Share Hype', 2000);
+    });
+  } else {
+    prompt('Copy this:', text);
+  }
+}
+
+// ===== TRASH TALK =====
+const trashLines = [
+  "The War on I-4 always ends with the road leading back to Tampa. 🐂",
+  "UCF fans: the I-4 traffic isn't the only thing that's slow in Orlando. 🚗",
+  "Green and gold looks better than black and gold. Ask anyone in Tampa.",
+  "Knights? We've got horns. Your move, Orlando. 🤘",
+  "Gainesville is a nice place to visit, but the Bulls live where the sun sets on the Bay. 🌅",
+  "Gators always want to talk about the past. Bulls are busy with the present.",
+  "FAU Owls: wise birds know better than to stay up late at Raymond James. 🦉",
+  "The road to Boca is long. The ride home with a win is short. 🛣️",
+  "Horns up, Tampa Bay. Raymond James is our house. 🤘",
+  "Go Bulls! Somebody tell I-4 we're coming through. 💚"
+];
+function genTrash() {
+  document.getElementById('trashLine').textContent = trashLines[Math.floor(Math.random() * trashLines.length)];
+}
+function openTrashTalk() {
+  genTrash();
+  document.getElementById('talkModal').classList.add('open');
+}
+function copyTrash() {
+  const text = document.getElementById('trashLine').textContent;
+  if (navigator.share) {
+    navigator.share({text: text}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('#talkModal .btn-primary');
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.innerHTML = '📋 Copy', 1500);
+    });
+  } else {
+    prompt('Copy:', text);
+  }
+}
+
+// ===== How It Works guide =====
+function openHelp() { document.getElementById('helpModal').classList.add('open'); }
+
+// ===== WATCH PARTY (basketball) =====
+// Invites live on the Bulls Gameday project on Netlify, so friends' answers come back to you.
+const WP_API = 'https://usf-gameday.netlify.app';
+function wpGames() {
+  const now = Date.now(), mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], wd = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  return [...document.querySelectorAll('#basketball .game-card[data-date]')].map(c => {
+    const d = new Date(c.dataset.date); if (isNaN(d) || d.getTime() + 3 * 3600e3 < now) return null;
+    const opp = (c.querySelector('.game-opponent')?.textContent || 'Bulls').replace('⭐', '').trim().replace(/^(at|vs\.?)\s+/i, '');
+    const where = c.dataset.loc === 'home' ? 'vs' : (c.dataset.loc === 'away' ? '@' : 'vs');
+    return { date: c.dataset.date, label: wd[d.getDay()] + ' ' + mo[d.getMonth()] + ' ' + d.getDate() + ' — ' + where + ' ' + opp, game: 'USF ' + where + ' ' + opp,
+             tba: /^Time TB/i.test((c.querySelector('.game-meta')?.textContent || '').trim()) };
+  }).filter(Boolean);
+}
+const wpLS = { get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+               set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+function wpId() { return ((crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now()).replace(/[^a-z0-9]/gi, '') + Math.random().toString(36).slice(2)).slice(0, 12).toLowerCase(); }
+function wpEsc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+function openWatchParty() {
+  const games = wpGames(), sel = document.getElementById('wpGame');
+  sel.innerHTML = games.length ? games.map((g, i) => '<option value="' + i + '">' + wpEsc(g.label) + '</option>').join('') : '<option>No upcoming games</option>';
+  const last = wpLS.get('wp_last', {});
+  ['Place', 'Addr', 'Time', 'Host'].forEach(f => { const el = document.getElementById('wp' + f); if (!el.value && last[f]) el.value = last[f]; });
+  document.getElementById('wpMsg').textContent = '';
+  document.getElementById('wpModal').classList.add('open');
+  renderWpList();
+}
+
+async function createWatchParty() {
+  const games = wpGames(), g = games[+document.getElementById('wpGame').value];
+  const v = f => document.getElementById('wp' + f).value.trim();
+  const msg = document.getElementById('wpMsg');
+  if (!g) { msg.textContent = 'No upcoming game to pick.'; return; }
+  if (!v('Place')) { msg.textContent = 'Add where you’re watching.'; document.getElementById('wpPlace').focus(); return; }
+  const party = { id: wpId(), hostKey: wpId() + wpId(), sport: 'basketball', game: g.game, gameDate: g.date, tba: !!g.tba,
+                  place: v('Place'), address: v('Addr'), time: v('Time'), host: v('Host'), note: v('Note') };
+  const btn = document.getElementById('wpCreateBtn'); btn.disabled = true; msg.textContent = 'Creating your invite…';
+  try {
+    const r = await fetch(WP_API + '/api/party', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(party) });
+    if (!r.ok) throw new Error('save failed');
+  } catch (e) {
+    btn.disabled = false;
+    msg.textContent = 'Couldn’t reach the invite service. Check your connection and try again.';
+    return;
+  }
+  btn.disabled = false;
+  wpLS.set('wp_last', { Place: party.place, Addr: party.address, Time: party.time, Host: party.host });
+  const mine = wpLS.get('wp_mine', []);
+  mine.unshift({ id: party.id, hostKey: party.hostKey, label: g.label, place: party.place, date: g.date });
+  wpLS.set('wp_mine', mine.slice(0, 30));
+  document.getElementById('wpNote').value = '';
+  msg.textContent = '✅ Invite created!';
+  renderWpList();
+  shareWatchParty(party.id);
+}
+
+function shareWatchParty(id) {
+  const p = wpLS.get('wp_mine', []).find(x => x.id === id); if (!p) return;
+  const url = WP_API + '/p/' + id;
+  const text = '📺 USF Watch Party: ' + p.label + '\n📍 ' + p.place + '\nAre you in? Tap to answer:';
+  if (navigator.share) navigator.share({ title: 'USF Watch Party', text, url }).catch(() => {});
+  else if (navigator.clipboard) navigator.clipboard.writeText(text + '\n' + url).then(() => { document.getElementById('wpMsg').textContent = '📋 Invite copied. Paste it in a text.'; });
+  else prompt('Copy this invite:', text + '\n' + url);
+}
+
+async function renderWpList() {
+  const box = document.getElementById('wpList');
+  const mine = wpLS.get('wp_mine', []).filter(p => new Date(p.date).getTime() + 6 * 3600e3 > Date.now());
+  if (!mine.length) { box.innerHTML = '<div class="wp-empty">None yet. Create one above.</div>'; return; }
+  box.innerHTML = mine.map(p =>
+    '<div class="wp-party" id="wpp-' + p.id + '"><div class="t">' + wpEsc(p.label) + '</div><div class="s">📍 ' + wpEsc(p.place) + '</div>' +
+    '<div class="c">Checking answers…</div><div class="a">' +
+    '<a href="' + WP_API + '/p/' + p.id + '?host=' + p.hostKey + '" target="_blank" rel="noopener">👀 Who’s coming</a>' +
+    '<button onclick="shareWatchParty(\'' + p.id + '\')">📤 Send again</button></div></div>').join('');
+  for (const p of mine) {
+    try {
+      const r = await fetch(WP_API + '/api/party?id=' + p.id, { cache: 'no-store' });
+      const d = await r.json(), el = document.querySelector('#wpp-' + p.id + ' .c');
+      if (el) el.innerHTML = r.ok ? '🙌 <b>' + d.totals.people + '</b> coming · 🤔 ' + d.totals.maybe + ' maybe · 😞 ' + d.totals.out + ' can’t' : 'Not found';
+    } catch (e) { const el = document.querySelector('#wpp-' + p.id + ' .c'); if (el) el.textContent = 'Couldn’t check answers right now.'; }
+  }
+}
+
+// ===== TAILGATE PLANNER (per-game) =====
+let currentTgGame = '';
+function getHomeGames() {
+  const cards = document.querySelectorAll('#football .game-card[data-loc="home"][data-date]');
+  const now = new Date();
+  const games = [];
+  cards.forEach(c => {
+    const d = new Date(c.dataset.date);
+    if (d.getTime() + 4*3600*1000 > now.getTime()) {
+      const opp = c.querySelector('.game-opponent').textContent.replace('\u2b50','').trim();
+      const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
+      const wd = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()];
+      const label = wd + ' ' + mo + ' ' + d.getDate() + ' \u2014 ' + opp;
+      games.push({key:'tg_'+d.toISOString().slice(0,10), label:label, opp:opp, dateStr:mo+' '+d.getDate()});
+    }
+  });
+  return games;
+}
+function populateGameSelect() {
+  const sel = document.getElementById('tgGameSelect');
+  const games = getHomeGames();
+  sel.innerHTML = games.map(g => '<option value="'+g.key+'">'+g.label+'</option>').join('');
+  if (!games.length) { sel.innerHTML = '<option>No upcoming home games</option>'; return; }
+  if (!currentTgGame || !games.find(g=>g.key===currentTgGame)) currentTgGame = games[0].key;
+  sel.value = currentTgGame;
+}
+function switchTgGame() { currentTgGame = document.getElementById('tgGameSelect').value; renderRsvp(); renderTg(); }
+
+const defaultItems = [
+  {text:'Burgers & brats',who:'',done:false},{text:'Buns',who:'',done:false},
+  {text:'Cooler + ice',who:'',done:false},{text:'Drinks (beer/pop/water)',who:'',done:false},
+  {text:'Chips & dip',who:'',done:false},{text:'Chairs',who:'',done:false},
+  {text:'Grill + charcoal/propane',who:'',done:false},{text:'Plates, cups & napkins',who:'',done:false},
+  {text:'Cornhole / games',who:'',done:false}
+];
+
+function getRsvp() {
+  try { return JSON.parse(localStorage.getItem(currentTgGame+'_rsvp')) || [{name:'',count:1}]; }
+  catch(e) { return [{name:'',count:1}]; }
+}
+function saveRsvp(d) { try{localStorage.setItem(currentTgGame+'_rsvp',JSON.stringify(d))}catch(e){} }
+function renderRsvp() {
+  const data = getRsvp();
+  document.getElementById('rsvpList').innerHTML = data.map((p,i) =>
+    '<div class="rsvp-row">' +
+    '<input class="rsvp-name" value="'+(p.name||'').replace(/"/g,'&quot;')+'" placeholder="Name" onchange="editRsvp('+i+',\'name\',this.value)">' +
+    '<input class="rsvp-count" type="number" min="1" max="20" value="'+(p.count||1)+'" onchange="editRsvp('+i+',\'count\',this.value)">' +
+    '<button class="rsvp-del" onclick="delRsvp('+i+')">\u00d7</button></div>'
+  ).join('');
+  const total = data.reduce((s,p) => s+(parseInt(p.count)||1), 0);
+  document.getElementById('headcount').textContent = 'Total: '+total+' people';
+}
+function editRsvp(i,field,val) {
+  const d=getRsvp(); if(field==='count')d[i].count=Math.max(1,parseInt(val)||1); else d[i][field]=val; saveRsvp(d); renderRsvp();
+}
+function addRsvp() {
+  const d=getRsvp(); d.push({name:'',count:1}); saveRsvp(d); renderRsvp();
+  setTimeout(()=>{const inp=document.querySelectorAll('.rsvp-name');inp[inp.length-1].focus()},100);
+}
+function delRsvp(i) { const d=getRsvp(); if(d.length<=1)return; d.splice(i,1); saveRsvp(d); renderRsvp(); }
+
+function getTgData() {
+  try { return JSON.parse(localStorage.getItem(currentTgGame+'_items')) || JSON.parse(JSON.stringify(defaultItems)); }
+  catch(e) { return JSON.parse(JSON.stringify(defaultItems)); }
+}
+function saveTg(d) { try{localStorage.setItem(currentTgGame+'_items',JSON.stringify(d))}catch(e){} }
+function renderTg() {
+  const data = getTgData();
+  document.getElementById('tgList').innerHTML = data.map((item,i) =>
+    '<li><div class="tg-check'+(item.done?' checked':'')+'" onclick="toggleTgItem('+i+')">'+(item.done?'\u2713':'')+'</div>' +
+    '<input class="tg-input" value="'+(item.text||'').replace(/"/g,'&quot;')+'" onchange="editTgItem('+i+',\'text\',this.value)" placeholder="Item..." style="flex:1">' +
+    '<input class="tg-input" value="'+(item.who||'').replace(/"/g,'&quot;')+'" onchange="editTgItem('+i+',\'who\',this.value)" placeholder="Who?" style="width:65px;flex:none;text-align:center;font-size:.78rem"></li>'
+  ).join('');
+}
+function toggleTgItem(i) { const d=getTgData(); d[i].done=!d[i].done; saveTg(d); renderTg(); }
+function editTgItem(i,field,val) { const d=getTgData(); d[i][field]=val; saveTg(d); }
+function addTgItem() {
+  const d=getTgData(); d.push({text:'',who:'',done:false}); saveTg(d); renderTg();
+  setTimeout(()=>{const inp=document.querySelectorAll('#tgList .tg-input');inp[inp.length-2].focus()},100);
+}
+function resetTg() { localStorage.removeItem(currentTgGame+'_items'); localStorage.removeItem(currentTgGame+'_rsvp'); renderTg(); renderRsvp(); }
+function openTailgate() { populateGameSelect(); renderTg(); renderRsvp(); document.getElementById('tailgateModal').classList.add('open'); }
+function shareTg() {
+  const rsvp=getRsvp(), data=getTgData();
+  const total=rsvp.reduce((s,p)=>s+(parseInt(p.count)||1),0);
+  const game=getHomeGames().find(g=>g.key===currentTgGame);
+  const gl=game?game.label:'Game Day';
+  let t='\ud83c\udf54 USF TAILGATE \u2014 '+gl+'\n\n\ud83d\udc65 WHO\'S COMING ('+total+'):\n';
+  t+=rsvp.filter(p=>p.name).map(p=>'  \u2022 '+p.name+(p.count>1?' (+' +(p.count-1)+')':'')).join('\n');
+  if(!rsvp.filter(p=>p.name).length) t+='  (add names above)';
+  t+='\n\n\ud83d\udccb BRINGING:\n';
+  t+=data.filter(x=>x.text).map(x=>(x.done?'\u2705':'\u2b1c')+' '+x.text+(x.who?' \u2014 '+x.who:'')).join('\n');
+  t+='\n\n\ud83d\udcaa Go Bulls!';
+  if(navigator.share){navigator.share({text:t}).catch(()=>{});}
+  else if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>{
+    const b=document.querySelector('#tailgateModal .btn-primary');b.textContent='\u2705 Copied!';
+    setTimeout(()=>b.innerHTML='\ud83d\udce4 Share Plan',1500);
+  });}else{prompt('Copy:',t);}
+}
+</script>
+<script>
+// Installable app: register the service worker when served over http(s).
+// ===== Support this app (Venmo) =====
+// Put your Venmo username here (without the @), e.g. 'Bill-Waldmann'.
+// Leave it empty and the button shows a "not set up yet" note instead.
+const VENMO_USER = 'Sparty-Tracker';
+(function () {
+  const btn = document.getElementById('supportBtn');
+  if (VENMO_USER) {
+    btn.href = 'https://venmo.com/u/' + encodeURIComponent(VENMO_USER);
+    btn.textContent = '💚 Support this app on Venmo';
+  }
+})();
+// ===== Support strip near the top =====
+// Shows on open; × hides it for 14 days, and tapping through to Venmo hides it for 60 days.
+function hideSupportStrip(days) {
+  try { localStorage.setItem('msu_support_hide_until', String(Date.now() + days * 86400000)); } catch (e) {}
+  document.getElementById('supportStrip').hidden = true;
+}
+function supportStripClick(e) {
+  if (!VENMO_USER) { e.preventDefault(); return false; }
+  hideSupportStrip(60);
+  return true;
+}
+(function () {
+  const strip = document.getElementById('supportStrip');
+  if (!strip || !VENMO_USER) return;
+  let until = 0; try { until = +localStorage.getItem('msu_support_hide_until') || 0; } catch (e) {}
+  if (Date.now() < until) return;
+  document.getElementById('supportStripBtn').href = 'https://venmo.com/u/' + encodeURIComponent(VENMO_USER);
+  strip.hidden = false;
+})();
+function supportClick(e) {
+  if (VENMO_USER) return true;            // follow the Venmo link
+  e.preventDefault();
+  document.getElementById('supportNote').hidden = false;
+  return false;
+}
+
+// ===== Warm-up screen, Exit, and resume-where-you-left-off =====
+const STATE_KEY = 'msu_state';
+let exited = false;   // after Exit, don't remember anything until the user comes back in
+function saveState() {
+  if (exited) return;
+  try { localStorage.setItem(STATE_KEY, JSON.stringify({ tab: activeTab, y: Math.round(window.scrollY) })); } catch (e) {}
+}
+function restoreState() {
+  let st = null;
+  try { st = JSON.parse(localStorage.getItem(STATE_KEY) || 'null'); } catch (e) {}
+  if (!st) return;
+  if (st.tab && st.tab !== activeTab) {
+    const t = document.querySelector('.tab[data-tab="' + st.tab + '"]');
+    if (t) switchTab(st.tab, t);
+  }
+  if (st.y) requestAnimationFrame(() => window.scrollTo(0, st.y));
+}
+let splashTimer = null;
+// ===== Game-day intro (synthesized: baritones + tubas play the first line of the "Victory for MSU" chorus) =====
+// Built in code with the Web Audio API, so there is no audio file and no recording rights to worry about.
+// Phones only allow sound after a tap, so it plays when you tap into the app from the splash screen.
+function soundOn() { return false; }  // no intro music for this team (yet)
+function paintSoundBtn() { const b = document.getElementById('soundBtn'); if (b) b.textContent = soundOn() ? '🔊' : '🔇'; }
+function toggleSound() {
+  const on = !soundOn();
+  try { localStorage.setItem('msu_sound', on ? 'on' : 'off'); } catch (e) {}
+  paintSoundBtn();
+  if (on) playIntro(); else stopIntro();
+}
+let introCtx = null;
+function stopIntro() { if (introCtx) { try { introCtx.close(); } catch (e) {} introCtx = null; } }
+function playIntro() {
+  if (!soundOn()) return;
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  stopIntro();
+  const ctx = introCtx = new AC();
+  if (ctx.state === 'suspended') ctx.resume();
+  const master = ctx.createGain(); master.gain.value = 0.32;
+  const comp = ctx.createDynamicsCompressor();
+  const lowShelf = ctx.createBiquadFilter(); lowShelf.type = 'lowshelf'; lowShelf.frequency.value = 220; lowShelf.gain.value = 5;     // more bottom
+  const highShelf = ctx.createBiquadFilter(); highShelf.type = 'highshelf'; highShelf.frequency.value = 2800; highShelf.gain.value = -7; // less tin
+  master.connect(lowShelf); lowShelf.connect(highShelf); highShelf.connect(comp);
+  const out = ctx.createGain(); out.gain.value = 0.85; comp.connect(out); out.connect(ctx.destination);   // headroom so phones don't crackle
+  const t0 = ctx.currentTime + 0.05;
+
+  // white-noise buffer shared by the drums
+  const nb = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+  const nd = nb.getChannelData(0); for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+  function noise(t, dur, vol, type, freq, q) {
+    const src = ctx.createBufferSource(); src.buffer = nb;
+    const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = q || 0.8;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    src.connect(f); f.connect(g); g.connect(master);
+    src.start(t, Math.random()); src.stop(t + dur + 0.05);
+  }
+  // bright: 1 = trumpet edge, lower = darker/warmer (baritone, tuba)
+  function brass(freq, t, dur, vol, bright = 1) {
+    const g = ctx.createGain(), f = ctx.createBiquadFilter(); f.type = 'lowpass'; f.Q.value = 1.2;
+    const peak = Math.min(3200, freq * 8) * bright, body = Math.max(freq * 2.2, freq * 4 * bright);
+    f.frequency.setValueAtTime(freq * 1.5, t);
+    f.frequency.linearRampToValueAtTime(Math.max(peak, freq * 2), t + 0.07);
+    f.frequency.exponentialRampToValueAtTime(body, t + Math.max(0.18, dur * 0.8));
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(vol, t + 0.04);
+    g.gain.setValueAtTime(vol * 0.85, t + dur * 0.7);
+    g.gain.exponentialRampToValueAtTime(0.001, t + dur + 0.1);
+    f.connect(g); g.connect(master);
+    [-5, 0, 5].forEach(cents => {
+      const o = ctx.createOscillator(); o.type = 'sawtooth';
+      o.frequency.value = freq; o.detune.value = cents;
+      o.connect(f); o.start(t); o.stop(t + dur + 0.14);
+    });
+    const warm = ctx.createOscillator(), wg = ctx.createGain();   // round, horn-like body under the buzz
+    warm.type = 'triangle'; warm.frequency.value = freq; wg.gain.value = 0.9;
+    warm.connect(wg); wg.connect(f); warm.start(t); warm.stop(t + dur + 0.14);
+  }
+  const hz = n => 440 * Math.pow(2, (n - 69) / 12);       // MIDI note -> Hz
+  function chord(notes, t, dur, vol) { notes.forEach(n => brass(hz(n), t, dur, vol / Math.sqrt(notes.length), 0.35)); }
+
+  // (snare drum muted at Michael's request - no drum roll, no snare hits)
+  const rollEnd = t0 + 0.05;
+
+  // "Victory for MSU" by F. I. Lankey (1915, public domain) - first line of the chorus:
+  //   "Go right thru for M. S. U.,  Watch the points keep grow-ing"
+  // Melody only, read from the printed sheet music (2/4, concert B-flat). [MIDI note, beats]
+  const tune = [
+    [62, 1], [66, 1],          // Go  right
+    [67, 1], [66, 1],          // thru for
+    [65, 1], [66, 1],          // M.  S.
+    [67, 2],                   // U.
+    [65, 1.5], [65, 0.5],      // Watch the
+    [67, 1], [69, 1],          // points keep
+    [70, 1], [74, 3.2],        // grow - ing (tied, held to the end)
+  ];
+  const beat = 60 / 140;                                          // "Marcia" march tempo
+  let t = rollEnd + 0.05, lastStart = t;
+  tune.forEach(([n, beats], i) => {
+    const final = i === tune.length - 1;
+    const d = beat * beats * (final ? 1 : 0.85);                  // small gap re-articulates each note
+    brass(hz(n - 12), t, d, 0.5, 0.45);                           // baritones carry the tune (warm, an octave down)
+    brass(hz(n - 24), t, d, 0.8, 0.3);                            // tubas, two octaves down (boosted)
+    if (final) {
+      chord([34, 46], t, d, 0.45);                             // low B-flat from the tubas under the held note
+      noise(t, 1.8, 0.25, 'highpass', 5000, 0.5);                 // cymbal crash
+      noise(t, 0.3, 0.6, 'lowpass', 120, 1);
+      lastStart = t;
+    }
+    t += beat * beats;
+  });
+  // bass drum on each downbeat (2/4)
+  for (let bt = rollEnd + 0.05; bt < lastStart; bt += beat * 2) noise(bt, 0.25, 0.5, 'lowpass', 120, 1);
+  const last = lastStart;
+  setTimeout(() => { if (introCtx === ctx) stopIntro(); }, (last - ctx.currentTime + 2.6) * 1000);
+}
+paintSoundBtn();
+function showSplash(autoHide) {
+  const sp = document.getElementById('splash');
+  sp.hidden = false; sp.classList.remove('hide');
+  clearTimeout(splashTimer);
+  if (autoHide) splashTimer = setTimeout(hideSplash, 1800);
+}
+function hideSplash(fromTap) {
+  if (fromTap) playIntro();
+  const sp = document.getElementById('splash');
+  if (exited) { exited = false; window.scrollTo(0, 0); }
+  clearTimeout(splashTimer);
+  sp.classList.add('hide');
+  setTimeout(() => { sp.hidden = true; }, 450);
+}
+function openExit() { document.getElementById('exitSheet').hidden = false; }
+function closeExit() { document.getElementById('exitSheet').hidden = true; }
+function doExit() {
+  closeExit();
+  document.querySelectorAll('.game-card.expanded').forEach(c => c.classList.remove('expanded'));
+  switchTab('football', document.querySelector('.tab[data-tab="football"]'));
+  exited = true;
+  clearTimeout(window._saveT);
+  try { localStorage.removeItem(STATE_KEY); } catch (e) {}
+  requestAnimationFrame(() => window.scrollTo(0, 0));
+  showSplash(false);   // back to the start screen; tap to come back in
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', saveState));
+window.addEventListener('scroll', () => { clearTimeout(window._saveT); window._saveT = setTimeout(saveState, 300); }, { passive: true });
+document.addEventListener('visibilitychange', () => { if (document.hidden) saveState(); });
+restoreState();
+try { if (!sessionStorage.getItem('msu_splashed')) { sessionStorage.setItem('msu_splashed', '1'); showSplash(!soundOn()); } } catch (e) { showSplash(!soundOn()); }
+
+// ===== Visitor counter =====
+// One ping per app open to the Bulls Gameday project on Netlify.
+// Sends only a random ID made for this device (no names, no personal info).
+(function () {
+  try {
+    if (!location.protocol.startsWith('http')) return;               // skip local copies
+    let vid = localStorage.getItem('msu_vid');
+    if (!vid) { vid = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now()).replace(/[^a-z0-9]/gi, '').slice(0, 24); localStorage.setItem('msu_vid', vid); }
+    const url = 'https://usf-gameday.netlify.app/api/hit';
+    if (navigator.sendBeacon) navigator.sendBeacon(url, vid);
+    else fetch(url, { method: 'POST', body: vid, mode: 'no-cors', keepalive: true }).catch(() => {});
+  } catch (e) {}
+})();
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+function copyCalLink(kind, btn) {
+  const url = new URL('usf-' + kind + '.ics', location.href).href;
+  const done = () => { const t = btn.textContent; btn.textContent = 'Copied ✓'; setTimeout(() => btn.textContent = t, 1800); };
+  (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(done, () => prompt('Copy this calendar link:', url));
+}
+function calLinks() {
+  document.querySelectorAll('.cal-card').forEach(card => {
+    const kind = card.dataset.kind;
+    const ics = new URL('usf-' + kind + '.ics', location.href);
+    const webcal = 'webcal://' + ics.host + ics.pathname;
+    card.querySelector('.cal-apple').href = webcal;
+    card.querySelector('.cal-google').href = 'https://calendar.google.com/calendar/render?cid=' + encodeURIComponent(webcal);
+    card.querySelector('.cal-file').href = ics.pathname;
+  });
+}
+calLinks();
+</script>
+</body>
+</html>

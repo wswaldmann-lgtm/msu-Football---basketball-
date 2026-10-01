@@ -1,0 +1,113 @@
+{
+  "_about": "Settings for the UCF version of the app. tools/make_team.py turns the MSU app (index.html) into ucf/index.html using this file. Edit schedules here: time 'TBA' means not announced yet; add a result like 'W 31-17' after a game.",
+
+  "slug": "ucf",
+  "short": "UCF",
+  "school": "UCF",
+  "university": "University of Central Florida",
+  "nick": "Knights",
+  "nickSingular": "Knight",
+  "appName": "Knights Game Tracker",
+  "homeTitle": "Knights",
+  "cheer": "Charge On!",
+  "heart": "💛",
+  "site": "https://ucf-gameday.netlify.app",
+  "netlifyProject": "ucf-gameday",
+  "espnId": 2116,
+  "standings": { "football": 4, "basketball": 8, "label": "Big 12", "tabLabel": "Big 12 Standings" },
+  "season": "2026–27",
+  "monogram": "KT",
+
+  "colors": {
+    "primary": "#1A1A1A",
+    "primaryDark": "#000000",
+    "primaryLight": "#333333",
+    "accent": "#FFC904",
+    "primaryRgb": "26,26,26",
+    "darkText": "#FFD54A",
+    "darkDivider": "#4D4D4D",
+    "darkBadgeRgb": "77,77,77",
+    "splashBg": "#0A0A0A",
+    "manifestBg": "#000000"
+  },
+
+  "links": {
+    "football": [["🏈 UCF Schedule", "https://ucfknights.com/sports/football/schedule"], ["📊 ESPN", "https://www.espn.com/college-football/team/_/id/2116/ucf-knights"]],
+    "basketball": [["🏀 UCF Schedule", "https://ucfknights.com/sports/mens-basketball/schedule"], ["📊 ESPN", "https://www.espn.com/mens-college-basketball/team/_/id/2116/ucf-knights"]]
+  },
+
+  "football": {
+    "record": { "w": 3, "l": 1, "conf": "1–0" },
+    "home": "Acrisure Bounce House",
+    "games": [
+      { "date": "2026-09-03", "time": "7:00 PM", "loc": "home", "opp": "Bethune-Cookman", "tv": "ESPN+", "where": "Acrisure Bounce House", "note": "Thursday night season opener.", "result": "W 73–6" },
+      { "date": "2026-09-12", "time": "3:30 PM", "loc": "away", "opp": "Pittsburgh", "tv": "ESPN2", "where": "Acrisure Stadium, Pittsburgh", "result": "L 7–12" },
+      { "date": "2026-09-19", "time": "7:00 PM", "loc": "home", "opp": "Georgia State", "tv": "ESPN+", "where": "Acrisure Bounce House", "note": "Family Weekend.", "result": "W 44–30" },
+      { "date": "2026-09-26", "time": "3:30 PM", "loc": "home", "opp": "TCU", "tv": "FS1", "where": "Acrisure Bounce House", "note": "Big 12 opener.", "result": "W 21–13" },
+      { "date": "2026-10-03", "time": "12:00 PM", "loc": "away", "opp": "Houston", "star": true, "tv": "ESPN2", "where": "TDECU Stadium, Houston" },
+      { "date": "2026-10-10", "time": "12:00 PM", "loc": "away", "opp": "Oklahoma State", "star": true, "where": "Boone Pickens Stadium, Stillwater" },
+      { "date": "2026-10-24", "time": "TBA", "loc": "home", "opp": "BYU", "star": true, "where": "Acrisure Bounce House", "note": "Homecoming." },
+      { "date": "2026-10-30", "time": "7:30 PM", "loc": "home", "opp": "Baylor", "tv": "ESPN", "where": "Acrisure Bounce House", "note": "Friday night Space Game." },
+      { "date": "2026-11-07", "time": "TBA", "loc": "away", "opp": "Kansas", "where": "David Booth Kansas Memorial Stadium, Lawrence" },
+      { "date": "2026-11-14", "time": "TBA", "loc": "home", "opp": "Arizona State", "where": "Acrisure Bounce House" },
+      { "date": "2026-11-20", "time": "6:00 PM", "loc": "home", "opp": "Iowa State", "tv": "FS1", "where": "Acrisure Bounce House", "note": "Friday night Senior Knight." },
+      { "date": "2026-11-28", "time": "TBA", "loc": "away", "opp": "Colorado", "where": "Folsom Field, Boulder", "note": "Regular-season finale." }
+    ],
+    "postseason": "<strong>Big 12 Championship:</strong> Friday, Dec. 4, 2026 &middot; 8:00 PM &middot; ABC &middot; AT&amp;T Stadium, Arlington, Texas"
+  },
+
+  "basketball": {
+    "record": { "w": 0, "l": 0, "conf": "0–0" },
+    "home": "Addition Financial Arena",
+    "games": [
+      { "date": "2026-10-14", "time": "TBA", "loc": "away", "opp": "LSU (Exh.)", "where": "Baton Rouge, La." },
+      { "date": "2026-10-28", "time": "TBA", "loc": "away", "opp": "Kentucky (Exh.)", "where": "Lexington, Ky." },
+      { "date": "2026-11-02", "time": "TBA", "loc": "home", "opp": "FGCU", "where": "Addition Financial Arena" },
+      { "date": "2026-11-06", "time": "TBA", "loc": "home", "opp": "Yale", "where": "Addition Financial Arena" },
+      { "date": "2026-11-10", "time": "TBA", "loc": "home", "opp": "South Alabama", "where": "Addition Financial Arena" },
+      { "date": "2026-11-13", "time": "TBA", "loc": "home", "opp": "Georgia Southern", "where": "Addition Financial Arena" },
+      { "date": "2026-11-17", "time": "TBA", "loc": "home", "opp": "Mississippi State", "where": "Addition Financial Arena" },
+      { "date": "2026-11-20", "time": "TBA", "loc": "away", "opp": "Vanderbilt", "where": "Nashville, Tenn." },
+      { "date": "2026-11-26", "time": "1:30 PM", "loc": "neutral", "opp": "Boston College", "where": "ESPN Wide World of Sports, Kissimmee", "note": "ESPN Events Invitational (Thanksgiving Day)." },
+      { "date": "2026-11-27", "time": "7:00 PM", "loc": "neutral", "opp": "Georgia", "where": "ESPN Wide World of Sports, Kissimmee", "note": "ESPN Events Invitational." },
+      { "date": "2026-12-01", "time": "TBA", "loc": "home", "opp": "Jacksonville", "where": "Addition Financial Arena" },
+      { "date": "2026-12-06", "time": "TBA", "loc": "home", "opp": "American", "where": "Addition Financial Arena" },
+      { "date": "2026-12-12", "time": "TBA", "loc": "away", "opp": "Indiana", "where": "Bloomington, Ind." },
+      { "date": "2026-12-16", "time": "TBA", "loc": "home", "opp": "FIU", "where": "Addition Financial Arena" },
+      { "date": "2026-12-19", "time": "TBA", "loc": "neutral", "opp": "Virginia Tech", "where": "Rick Case Arena, Fort Lauderdale" },
+      { "date": "2026-12-22", "time": "TBA", "loc": "home", "opp": "Towson", "where": "Addition Financial Arena" },
+      { "date": "2027-01-02", "time": "TBA", "loc": "home", "opp": "Utah", "where": "Addition Financial Arena", "note": "Big 12 opener." },
+      { "date": "2027-01-06", "time": "TBA", "loc": "away", "opp": "Arizona", "star": true, "where": "Tucson, Ariz." },
+      { "date": "2027-01-09", "time": "TBA", "loc": "away", "opp": "Arizona State", "where": "Tempe, Ariz." },
+      { "date": "2027-01-13", "time": "TBA", "loc": "home", "opp": "Baylor", "where": "Addition Financial Arena" },
+      { "date": "2027-01-16", "time": "TBA", "loc": "away", "opp": "Kansas", "star": true, "where": "Lawrence, Kan." },
+      { "date": "2027-01-19", "time": "TBA", "loc": "home", "opp": "Colorado", "where": "Addition Financial Arena" },
+      { "date": "2027-01-23", "time": "TBA", "loc": "home", "opp": "Iowa State", "where": "Addition Financial Arena" },
+      { "date": "2027-01-30", "time": "TBA", "loc": "away", "opp": "Texas Tech", "where": "Lubbock, Texas" },
+      { "date": "2027-02-03", "time": "TBA", "loc": "home", "opp": "West Virginia", "where": "Addition Financial Arena" },
+      { "date": "2027-02-06", "time": "TBA", "loc": "away", "opp": "Baylor", "where": "Waco, Texas" },
+      { "date": "2027-02-10", "time": "TBA", "loc": "home", "opp": "Houston", "star": true, "where": "Addition Financial Arena" },
+      { "date": "2027-02-13", "time": "TBA", "loc": "away", "opp": "Cincinnati", "where": "Cincinnati, Ohio" },
+      { "date": "2027-02-16", "time": "TBA", "loc": "away", "opp": "West Virginia", "where": "Morgantown, W. Va." },
+      { "date": "2027-02-20", "time": "TBA", "loc": "home", "opp": "Texas Tech", "where": "Addition Financial Arena" },
+      { "date": "2027-02-24", "time": "TBA", "loc": "away", "opp": "Oklahoma State", "where": "Stillwater, Okla." },
+      { "date": "2027-02-27", "time": "TBA", "loc": "home", "opp": "BYU", "where": "Addition Financial Arena" },
+      { "date": "2027-03-03", "time": "TBA", "loc": "home", "opp": "Kansas State", "where": "Addition Financial Arena", "note": "Last home game." },
+      { "date": "2027-03-06", "time": "TBA", "loc": "away", "opp": "TCU", "where": "Fort Worth, Texas", "note": "Regular-season finale." }
+    ],
+    "postseason": "<strong>Big 12 Tournament:</strong> March 9–13, 2027 &middot; T-Mobile Center, Kansas City, Mo.<br><br><strong>Selection Sunday:</strong> March 14, 2027<br><br>Most tip times and TV networks have not been announced yet."
+  },
+
+  "trashTalk": [
+    "USF fans: the War on I-4 has one direction, and it's toward Orlando. ⚔️",
+    "Tampa's nice. We hear it's a great place to watch Knights highlights. 📺",
+    "Gators, the Bounce House has a guest section. Bring your own chomp. 🐊",
+    "Miami gets the beach. Orlando gets the Bounce House. We'll take the bounce. 🏰",
+    "Tallahassee is a lovely drive from Orlando. One way. 🚗",
+    "Black and gold looks better than garnet and gold. Sorry, it just does. 💛🖤",
+    "Big 12 road trips: see Stillwater, Lawrence, Boulder… then come home to the Bounce House.",
+    "Space Game night in Orlando. Out of this world. Literally. 🚀",
+    "Somewhere in Texas, a Big 12 team just learned what humidity feels like. 🌴",
+    "Charge On! ⚔️ Knights don't knock. We bounce."
+  ]
+}

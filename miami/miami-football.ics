@@ -1,0 +1,148 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Canes Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Miami Football
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:miami-football-20260904@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20260905T010000Z
+DTEND:20260905T030000Z
+SUMMARY:🏈 Miami at Stanford
+LOCATION:Stanford Stadium\, Stanford
+DESCRIPTION:9:00 PM · ESPN · Stanford Stadium\, Stanford\nhttps://miami-g
+ ameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20260910@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20260911T000000Z
+DTEND:20260911T020000Z
+SUMMARY:🏈 Miami vs Florida A&M
+LOCATION:Hard Rock Stadium
+DESCRIPTION:8:00 PM · ACCN · Hard Rock Stadium\nhttps://miami-gameday.net
+ lify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20260918@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20260918T233000Z
+DTEND:20260919T013000Z
+SUMMARY:🏈 Miami at Wake Forest
+LOCATION:Allegacy Federal Credit Union Stadium\, Winston-Salem
+DESCRIPTION:7:30 PM · ESPN · Allegacy Federal Credit Union Stadium\, Wins
+ ton-Salem\nhttps://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20260926@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20260926T223000Z
+DTEND:20260927T003000Z
+SUMMARY:🏈 Miami vs Central Michigan
+LOCATION:Hard Rock Stadium
+DESCRIPTION:6:30 PM · The CW · Hard Rock Stadium\nhttps://miami-gameday.n
+ etlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20261003@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20261003T233000Z
+DTEND:20261004T013000Z
+SUMMARY:🏈 Miami at Clemson
+LOCATION:Memorial Stadium\, Clemson
+DESCRIPTION:7:30 PM · ABC · Memorial Stadium\, Clemson\nhttps://miami-gam
+ eday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20261017@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:🏈 Miami vs Florida State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Hard Rock Stadium
+DESCRIPTION:Time TBA · Hard Rock Stadium\nhttps://miami-gameday.netlify.ap
+ p/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20261024@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏈 Miami vs Pittsburgh (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Hard Rock Stadium
+DESCRIPTION:Time TBA · Hard Rock Stadium\nhttps://miami-gameday.netlify.ap
+ p/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20261031@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:🏈 Miami at North Carolina (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Kenan Stadium\, Chapel Hill
+DESCRIPTION:Time TBA · Kenan Stadium\, Chapel Hill\nhttps://miami-gameday.
+ netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20261107@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART:20261108T003000Z
+DTEND:20261108T023000Z
+SUMMARY:🏈 Miami at Notre Dame
+LOCATION:Notre Dame Stadium\, Notre Dame\, Ind.
+DESCRIPTION:7:30 PM · NBC · Notre Dame Stadium\, Notre Dame\, Ind.\nhttps
+ ://miami-gameday.netlify.app/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20261114@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:🏈 Miami vs Duke (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Hard Rock Stadium
+DESCRIPTION:Time TBA · Hard Rock Stadium\nhttps://miami-gameday.netlify.ap
+ p/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20261121@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🏈 Miami vs Virginia Tech (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Hard Rock Stadium
+DESCRIPTION:Time TBA · Hard Rock Stadium\nhttps://miami-gameday.netlify.ap
+ p/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:miami-football-20261128@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173918Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:🏈 Miami vs Boston College (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Hard Rock Stadium
+DESCRIPTION:Time TBA · Hard Rock Stadium\nhttps://miami-gameday.netlify.ap
+ p/
+URL:https://miami-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,147 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Gators Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:UF Football
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:uf-football-20260905@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20260905T234500Z
+DTEND:20260906T014500Z
+SUMMARY:🏈 UF vs Florida Atlantic
+LOCATION:Ben Hill Griffin Stadium
+DESCRIPTION:7:45 PM · SECN · Ben Hill Griffin Stadium\nhttps://uf-gameday
+ .netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20260912@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20260912T213000Z
+DTEND:20260912T233000Z
+SUMMARY:🏈 UF vs Campbell
+LOCATION:Ben Hill Griffin Stadium
+DESCRIPTION:5:30 PM · SECN+ · Ben Hill Griffin Stadium\nhttps://uf-gameda
+ y.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20260919@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20260919T230000Z
+DTEND:20260920T010000Z
+SUMMARY:🏈 UF at Auburn
+LOCATION:Jordan-Hare Stadium\, Auburn
+DESCRIPTION:7:00 PM · ESPN · Jordan-Hare Stadium\, Auburn\nhttps://uf-gam
+ eday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20260926@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20260926T193000Z
+DTEND:20260926T213000Z
+SUMMARY:🏈 UF vs Ole Miss
+LOCATION:Ben Hill Griffin Stadium
+DESCRIPTION:3:30 PM · ABC · Ben Hill Griffin Stadium\nhttps://uf-gameday.
+ netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20261003@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261003T193000Z
+DTEND:20261003T213000Z
+SUMMARY:🏈 UF at Missouri
+LOCATION:Faurot Field at Memorial Stadium\, Columbia
+DESCRIPTION:3:30 PM · ABC · Faurot Field at Memorial Stadium\, Columbia\n
+ https://uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20261010@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+SUMMARY:🏈 UF vs South Carolina (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ben Hill Griffin Stadium
+DESCRIPTION:Time TBA · Ben Hill Griffin Stadium\nhttps://uf-gameday.netlif
+ y.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20261017@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:🏈 UF at Texas (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:DKR-Texas Memorial Stadium\, Austin
+DESCRIPTION:Time TBA · DKR-Texas Memorial Stadium\, Austin\nhttps://uf-gam
+ eday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20261031@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261031T193000Z
+DTEND:20261031T213000Z
+SUMMARY:🏈 UF vs Georgia
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+DESCRIPTION:3:30 PM · ABC · Mercedes-Benz Stadium\, Atlanta\nhttps://uf-g
+ ameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20261107@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:🏈 UF vs Oklahoma (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ben Hill Griffin Stadium
+DESCRIPTION:Time TBA · Ben Hill Griffin Stadium\nhttps://uf-gameday.netlif
+ y.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20261114@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:🏈 UF at Kentucky (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Kroger Field\, Lexington
+DESCRIPTION:Time TBA · Kroger Field\, Lexington\nhttps://uf-gameday.netlif
+ y.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20261121@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🏈 UF vs Vanderbilt (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ben Hill Griffin Stadium
+DESCRIPTION:Time TBA · Ben Hill Griffin Stadium\nhttps://uf-gameday.netlif
+ y.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:uf-football-20261127@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173911Z
+DTSTART:20261127T203000Z
+DTEND:20261127T223000Z
+SUMMARY:🏈 UF at Florida State
+LOCATION:Doak Campbell Stadium\, Tallahassee
+DESCRIPTION:3:30 PM · ABC · Doak Campbell Stadium\, Tallahassee\nhttps://
+ uf-gameday.netlify.app/
+URL:https://uf-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

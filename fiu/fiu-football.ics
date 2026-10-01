@@ -1,0 +1,142 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Panthers Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FIU Football
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:fiu-football-20260905@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20260905T230000Z
+DTEND:20260906T010000Z
+SUMMARY:🏈 FIU at South Florida
+LOCATION:Raymond James Stadium\, Tampa
+DESCRIPTION:7:00 PM · ESPN+ · Raymond James Stadium\, Tampa\nhttps://fiu-
+ gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20260912@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20260912T220000Z
+DTEND:20260913T000000Z
+SUMMARY:🏈 FIU vs Buffalo
+LOCATION:Pitbull Stadium
+DESCRIPTION:6:00 PM · ESPN+ · Pitbull Stadium\nhttps://fiu-gameday.netlif
+ y.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20260919@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20260919T220000Z
+DTEND:20260920T000000Z
+SUMMARY:🏈 FIU at Florida Atlantic
+LOCATION:Flagler Credit Union Stadium\, Boca Raton
+DESCRIPTION:6:00 PM · ESPN+ · Flagler Credit Union Stadium\, Boca Raton\n
+ https://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20260926@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20260926T220000Z
+DTEND:20260927T000000Z
+SUMMARY:🏈 FIU vs LIU
+LOCATION:Pitbull Stadium
+DESCRIPTION:6:00 PM · ESPN+ · Pitbull Stadium\nhttps://fiu-gameday.netlif
+ y.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20261007@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261007T233000Z
+DTEND:20261008T013000Z
+SUMMARY:🏈 FIU vs New Mexico State
+LOCATION:Pitbull Stadium
+DESCRIPTION:7:30 PM · ESPN2 · Pitbull Stadium\nhttps://fiu-gameday.netlif
+ y.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20261013@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261014T000000Z
+DTEND:20261014T020000Z
+SUMMARY:🏈 FIU at Jacksonville State
+LOCATION:AmFirst Stadium\, Jacksonville\, Ala.
+DESCRIPTION:8:00 PM · ESPNU · AmFirst Stadium\, Jacksonville\, Ala.\nhttp
+ s://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20261020@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261020T230000Z
+DTEND:20261021T010000Z
+SUMMARY:🏈 FIU vs Middle Tennessee
+LOCATION:Pitbull Stadium
+DESCRIPTION:7:00 PM · CBSSN · Pitbull Stadium\nhttps://fiu-gameday.netlif
+ y.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20261031@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261031T193000Z
+DTEND:20261031T213000Z
+SUMMARY:🏈 FIU at Liberty
+LOCATION:Williams Stadium\, Lynchburg\, Va.
+DESCRIPTION:3:30 PM · CBSSN · Williams Stadium\, Lynchburg\, Va.\nhttps:/
+ /fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20261107@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261107T210000Z
+DTEND:20261107T230000Z
+SUMMARY:🏈 FIU vs Missouri State
+LOCATION:Pitbull Stadium
+DESCRIPTION:4:00 PM · ESPN+ · Pitbull Stadium\nhttps://fiu-gameday.netlif
+ y.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20261114@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261114T200000Z
+DTEND:20261114T220000Z
+SUMMARY:🏈 FIU at Delaware
+LOCATION:Delaware Stadium\, Newark\, Del.
+DESCRIPTION:3:00 PM · ESPN+ · Delaware Stadium\, Newark\, Del.\nhttps://f
+ iu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20261121@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261121T200000Z
+DTEND:20261121T220000Z
+SUMMARY:🏈 FIU at Kennesaw State
+LOCATION:Fifth Third Stadium\, Kennesaw\, Ga.
+DESCRIPTION:3:00 PM · ESPN+ · Fifth Third Stadium\, Kennesaw\, Ga.\nhttps
+ ://fiu-gameday.netlify.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:fiu-football-20261128@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173942Z
+DTSTART:20261128T190000Z
+DTEND:20261128T210000Z
+SUMMARY:🏈 FIU vs Sam Houston
+LOCATION:Pitbull Stadium
+DESCRIPTION:2:00 PM · ESPN+ · Pitbull Stadium\nhttps://fiu-gameday.netlif
+ y.app/
+URL:https://fiu-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR

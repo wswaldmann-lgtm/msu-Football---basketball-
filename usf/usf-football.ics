@@ -1,0 +1,146 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Bulls Game Tracker (unofficial fan app)//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:USF Football
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:usf-football-20260905@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART:20260905T230000Z
+DTEND:20260906T010000Z
+SUMMARY:🏈 USF vs FIU
+LOCATION:Raymond James Stadium
+DESCRIPTION:7:00 PM · ESPN+ · Raymond James Stadium\nhttps://usf-gameday.
+ netlify.app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20260912@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART:20260912T160000Z
+DTEND:20260912T180000Z
+SUMMARY:🏈 USF at Army
+LOCATION:Michie Stadium\, West Point
+DESCRIPTION:12:00 PM · CBSSN · Michie Stadium\, West Point\nhttps://usf-g
+ ameday.netlify.app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20260919@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART:20260919T230000Z
+DTEND:20260920T010000Z
+SUMMARY:🏈 USF vs Delaware State
+LOCATION:Raymond James Stadium
+DESCRIPTION:7:00 PM · ESPN+ · Raymond James Stadium\nhttps://usf-gameday.
+ netlify.app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20260926@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART:20260926T210000Z
+DTEND:20260926T230000Z
+SUMMARY:🏈 USF at Bowling Green
+LOCATION:Doyt L. Perry Stadium\, Bowling Green
+DESCRIPTION:5:00 PM · ESPN+ · Doyt L. Perry Stadium\, Bowling Green\nhttp
+ s://usf-gameday.netlify.app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20261003@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART:20261003T233000Z
+DTEND:20261004T013000Z
+SUMMARY:🏈 USF vs Temple
+LOCATION:Raymond James Stadium
+DESCRIPTION:7:30 PM · ESPNU · Raymond James Stadium\nhttps://usf-gameday.
+ netlify.app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20261008@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART:20261008T233000Z
+DTEND:20261009T013000Z
+SUMMARY:🏈 USF at UTSA
+LOCATION:Alamodome\, San Antonio
+DESCRIPTION:7:30 PM · ESPN · Alamodome\, San Antonio\nhttps://usf-gameday
+ .netlify.app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20261017@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:🏈 USF vs Kent State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Raymond James Stadium
+DESCRIPTION:Time TBA · Raymond James Stadium\nhttps://usf-gameday.netlify.
+ app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20261031@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:🏈 USF vs UAB (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Raymond James Stadium
+DESCRIPTION:Time TBA · Raymond James Stadium\nhttps://usf-gameday.netlify.
+ app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20261106@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART:20261107T003000Z
+DTEND:20261107T023000Z
+SUMMARY:🏈 USF at East Carolina
+LOCATION:Dowdy-Ficklen Stadium\, Greenville
+DESCRIPTION:7:30 PM · ESPN2 · Dowdy-Ficklen Stadium\, Greenville\nhttps:/
+ /usf-gameday.netlify.app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20261112@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART:20261113T010000Z
+DTEND:20261113T030000Z
+SUMMARY:🏈 USF vs Memphis
+LOCATION:Raymond James Stadium
+DESCRIPTION:8:00 PM · ESPN or ESPN2 · Raymond James Stadium\nhttps://usf-
+ gameday.netlify.app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20261121@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🏈 USF at Florida Atlantic (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Flagler Credit Union Stadium\, Boca Raton
+DESCRIPTION:Time TBA · Flagler Credit Union Stadium\, Boca Raton\nhttps://
+ usf-gameday.netlify.app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+BEGIN:VEVENT
+UID:usf-football-20261127@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T173926Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261128
+SUMMARY:🏈 USF vs Tulane (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Raymond James Stadium
+DESCRIPTION:Time TBA · Raymond James Stadium\nhttps://usf-gameday.netlify.
+ app/
+URL:https://usf-gameday.netlify.app/
+END:VEVENT
+END:VCALENDAR
