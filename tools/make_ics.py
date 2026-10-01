@@ -46,7 +46,7 @@ def build(page, name, label, emoji):
     lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//MSU Spartans Game Tracker//EN",
+        "PRODID:-//Spartans Game Tracker (unofficial fan app)//EN",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
         f"X-WR-CALNAME:MSU {label}",

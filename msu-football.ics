@@ -1,6 +1,6 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//MSU Spartans Game Tracker//EN
+PRODID:-//Spartans Game Tracker (unofficial fan app)//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:MSU Football
@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:msu-football-20260904@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART:20260904T230000Z
 DTEND:20260905T010000Z
 SUMMARY:🏈 MSU vs Toledo
@@ -20,7 +20,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20260912@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART:20260912T193000Z
 DTEND:20260912T213000Z
 SUMMARY:🏈 MSU vs Eastern Michigan
@@ -31,7 +31,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20260919@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART:20260919T233000Z
 DTEND:20260920T013000Z
 SUMMARY:🏈 MSU at Notre Dame
@@ -42,7 +42,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20260926@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:🏈 MSU vs Nebraska (time TBA)
@@ -54,7 +54,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20261003@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART:20261003T163000Z
 DTEND:20261003T183000Z
 SUMMARY:🏈 MSU at Wisconsin
@@ -65,7 +65,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20261010@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART:20261010T193000Z
 DTEND:20261010T213000Z
 SUMMARY:🏈 MSU vs Illinois
@@ -76,7 +76,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20261017@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:🏈 MSU vs Northwestern (time TBA)
@@ -88,7 +88,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20261024@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:🏈 MSU at UCLA (time TBA)
@@ -100,7 +100,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20261107@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:🏈 MSU at Michigan (time TBA)
@@ -112,7 +112,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20261114@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:🏈 MSU vs Washington (time TBA)
@@ -124,7 +124,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20261121@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:🏈 MSU vs Oregon (time TBA)
@@ -136,7 +136,7 @@ URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
 END:VEVENT
 BEGIN:VEVENT
 UID:msu-football-20261128@wswaldmann-lgtm.github.io
-DTSTAMP:20261001T033555Z
+DTSTAMP:20261001T044359Z
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:🏈 MSU at Rutgers (time TBA)
