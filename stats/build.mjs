@@ -56,6 +56,11 @@ function hexRgb(h) { h = h.replace("#", ""); return [0, 2, 4].map(i => parseInt(
 writeFileSync(path.join(OUT, "stats", "index.html"), themed("public/index.html"));   // visitor stats
 writeFileSync(path.join(OUT, "party.html"), themed("public/party.html"));            // watch-party invites
 
+// Help search engines find the app (the stats page and invites stay out of search results)
+const SITE = team ? team.site : "https://spartans-gameday.netlify.app";
+writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /stats\nDisallow: /p/\nDisallow: /api/\nSitemap: ${SITE}/sitemap.xml\n`);
+writeFileSync(path.join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${SITE}/</loc><lastmod>${new Date().toISOString().slice(0, 10)}</lastmod><changefreq>daily</changefreq></url>\n</urlset>\n`);
+
 for (const must of ["index.html", "stats/index.html", "party.html", "icons/icon-192.png", `${prefix}-football.ics`])
   if (!existsSync(path.join(OUT, must))) throw new Error("Build is missing " + must);
 console.log(`Built the ${TEAM.toUpperCase()} app + stats + invites into dist/`);

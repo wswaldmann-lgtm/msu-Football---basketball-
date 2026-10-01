@@ -137,6 +137,15 @@ def build(slug):
         end = page.index(f"</div><!-- end {sport} -->")
         page = page[:start] + "\n" + section(sport, team, page[start:end]) + page[end:]
 
+    # --- search-engine title and description for this team
+    page, n = re.subn(r"<title>.*?</title>\n<meta name=\"description\" content=\"[^\"]*\">",
+        f"<title>{team['appName']} – {team['short']} Football &amp; Basketball Schedule, TV &amp; Scores {team['season']}</title>\n"
+        f"<meta name=\"description\" content=\"{team['school']} {team['nick']} 2026 football and {team['season']} basketball schedule "
+        f"with game times, TV channels, live scores, rankings, tailgate planner and watch-party invites. Free unofficial fan app.\">",
+        page, count=1, flags=re.S)
+    if not n:
+        problems.append("page title/description not found")
+
     # --- old-address redirect and banner are MSU-only
     page = re.sub(r"<script>\n// The app's home is now spartans-gameday.*?</script>\n", "", page, count=1, flags=re.S)
     page = re.sub(r'<div id="movedBanner".*?</div>\n<script>if \(window.__movedBanner\).*?</script>\n', "", page, count=1, flags=re.S)

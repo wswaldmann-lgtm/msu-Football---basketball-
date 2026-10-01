@@ -10,7 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
-<title>Broncos Game Tracker</title>
+<title>Broncos Game Tracker – WMU Football &amp; Basketball Schedule, TV &amp; Scores 2026–27</title>
+<meta name="description" content="Western Michigan Broncos 2026 football and 2026–27 basketball schedule with game times, TV channels, live scores, rankings, tailgate planner and watch-party invites. Free unofficial fan app.">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -1984,7 +1985,7 @@ async function loadScore(sport) {
     const isLive = st.state === 'in';
     const teams = comp.competitors || [];
     const rows = teams.map(t => {
-      const isMSU = (t.team?.abbreviation === 'WMU' || /Western Michigan/i.test(t.team?.displayName||''));
+      const isMSU = (t.team?.abbreviation === 'WMU' || /Western\ Michigan/i.test(t.team?.displayName||''));
       const score = (t.score && (t.score.displayValue ?? t.score.value ?? t.score)) ?? '–';
       const rank = t.curatedRank?.current && t.curatedRank.current <= 25 ? '#' + t.curatedRank.current + ' ' : '';
       return '<div class="score-team' + (isMSU ? ' msu' : '') + '">' +
@@ -2027,7 +2028,7 @@ async function showRankTab(sport, which, el) {
       const ranks = ap.ranks || [];
       let msuRank = null;
       let out = ranks.slice(0, 10).map(t => rankRow(t)).join('');
-      const msu = ranks.find(t => /Western Michigan/i.test(t.team?.location || t.team?.displayName || ''));
+      const msu = ranks.find(t => /Western\ Michigan/i.test(t.team?.location || t.team?.displayName || ''));
       if (msu && msu.current > 10) out += '<div class="live-msg">⋯</div>' + rankRow(msu);
       else if (!msu) out += '<div class="live-msg">WMU not currently ranked in the ' + (ap.shortName || 'AP Top 25') + '</div>';
       box.innerHTML = '<div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;font-family:Oswald">' + (ap.name || 'AP Top 25') + '</div>' + out;
@@ -2042,7 +2043,7 @@ async function showRankTab(sport, which, el) {
         const conf = stats.find(s => s.type==='vsconf' || /conf/i.test(s.name||''));
         const ovr = stats.find(s => s.type==='total' || /overall/i.test(s.name||''));
         return {name: t.shortDisplayName || t.displayName, conf: conf?.displayValue || '', ovr: ovr?.displayValue || '',
-                msu: /Western Michigan/i.test(t.displayName || '')};
+                msu: /Western\ Michigan/i.test(t.displayName || '')};
       });
       box.innerHTML = '<div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;font-family:Oswald">MAC &middot; Conf / Overall</div>' +
         rows.map((t,i) => '<div class="rank-row' + (t.msu ? ' msu-row' : '') + '"><div class="rnum">' + (i+1) + '</div><div class="rteam">' + t.name + '</div><div class="rrec">' + t.conf + ' &middot; ' + t.ovr + '</div></div>').join('');
@@ -2052,7 +2053,7 @@ async function showRankTab(sport, which, el) {
   }
 }
 function rankRow(t) {
-  const isMSU = /Western Michigan/i.test(t.team?.location || t.team?.displayName || '');
+  const isMSU = /Western\ Michigan/i.test(t.team?.location || t.team?.displayName || '');
   return '<div class="rank-row' + (isMSU ? ' msu-row' : '') + '"><div class="rnum">' + t.current + '</div>' +
     '<div class="rteam">' + (t.team?.location || t.team?.displayName || '?') + '</div>' +
     '<div class="rrec">' + (t.recordSummary || '') + '</div></div>';
