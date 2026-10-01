@@ -549,6 +549,24 @@ body.dark .wp-label{color:#5BBF97}
 .wp-party .a{display:flex;gap:.4rem;margin-top:.5rem}
 .wp-party .a button,.wp-party .a a{flex:1;text-align:center;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:.5rem;border-radius:8px;border:1px solid var(--border);background:var(--chip-bg);color:var(--text-primary);cursor:pointer}
 .wp-empty{font-size:.85rem;color:var(--text-muted);padding:.4rem 0}
+
+/* ===== How It Works guide ===== */
+.help-box{max-height:88vh;overflow-y:auto}
+.help-quick{background:linear-gradient(135deg,var(--spartan-green-dark),var(--spartan-green));color:#fff;border-radius:12px;padding:.9rem 1rem .8rem;margin-bottom:.8rem}
+.help-quick .hq-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-accent);margin-bottom:.4rem}
+.help-quick ol{padding-left:1.15rem;display:grid;gap:.45rem;font-size:.9rem;line-height:1.45}
+.hk{display:inline-block;padding:0 .3rem;border-radius:4px;background:rgba(255,255,255,.18)}
+.help-sec{border:1px solid var(--border);border-radius:10px;margin-top:.5rem;background:var(--card-bg)}
+.help-sec summary{cursor:pointer;list-style:none;padding:.75rem .9rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:.92rem;letter-spacing:.03em;color:var(--text-primary);display:flex;justify-content:space-between;align-items:center}
+.help-sec summary::-webkit-details-marker{display:none}
+.help-sec summary::after{content:'▾';color:var(--text-muted);transition:transform .2s}
+.help-sec[open] summary::after{transform:rotate(180deg)}
+.help-sec > :not(summary){padding:0 .95rem;font-size:.88rem;line-height:1.5;color:var(--text-secondary)}
+.help-sec p{margin-bottom:.55rem}
+.help-sec ul,.help-sec ol{padding-left:2.1rem;margin-bottom:.6rem;display:grid;gap:.3rem}
+.help-sec b{color:var(--text-primary)}
+.help-note{font-style:italic}
+.help-foot{text-align:center;font-size:.75rem;color:var(--text-muted);margin-top:.9rem}
 </style>
 </head>
 <body>
@@ -580,6 +598,7 @@ body.dark .wp-label{color:#5BBF97}
       <h1>Spartans Game Tracker</h1>
       <div class="sub">Unofficial fan app &middot; 2026–27 &middot; Go Green! 💚</div>
     </div>
+    <button class="mode-toggle" onclick="openHelp()" aria-label="How it works" title="How it works" style="margin-right:.4rem;font-weight:700">?</button>
     <button class="mode-toggle" onclick="toggleSound()" aria-label="Game-day intro sound" title="Game-day intro sound" id="soundBtn" style="margin-right:.4rem">🔊</button>
     <button class="mode-toggle" onclick="toggleDark()" aria-label="Toggle dark mode" id="modeBtn">🌙</button>
     <button class="mode-toggle" onclick="openExit()" aria-label="Exit" title="Exit" style="margin-left:.4rem;font-size:1rem;font-weight:700">✕</button>
@@ -2152,6 +2171,84 @@ loadScore('football');
   </div>
 </div>
 
+<!-- How It Works guide -->
+<div class="tailgate-modal" id="helpModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box help-box">
+    <button class="modal-close" onclick="document.getElementById('helpModal').classList.remove('open')">&times;</button>
+    <h3>❓ How It Works</h3>
+
+    <div class="help-quick">
+      <div class="hq-title">The basics</div>
+      <ol>
+        <li><b>Put it on your home screen.</b> iPhone: open in Safari, tap Share <span class="hk">⬆︎</span>, then <i>Add to Home Screen</i>. Android: in Chrome, tap <span class="hk">⋮</span>, then <i>Add to Home screen</i> or <i>Install</i>.</li>
+        <li><b>Tap in</b> from the start screen. The fight song plays (🔊 in the top bar mutes it).</li>
+        <li><b>Use the bar at the bottom:</b> 🏈 Football or 🏀 Basketball schedule, ⚡ jump to the next game, 🍔 Tailgate (football) or 📺 Watch Party (basketball), and 🔥 Trash Talk.</li>
+        <li><b>Tap any game</b> to open its preview and details.</li>
+      </ol>
+    </div>
+
+    <details class="help-sec"><summary>📅 Schedule &amp; games</summary>
+      <p>The countdown at the top always shows the next game. Each game card shows date, time, TV network and where to stream it. Tap a card to see the preview and prediction.</p>
+      <p>Use the chips to show <b>All Games</b>, <b>Home</b>, <b>Away</b>, or <b>Marquee</b> matchups. The progress bar tracks how far into the season we are, and the record box keeps the W–L tally.</p>
+    </details>
+
+    <details class="help-sec"><summary>🔴 Live scores &amp; rankings</summary>
+      <p>The <b>Scoreboard</b> card loads the latest MSU score. Tap <b>↻</b> to refresh during a game; it turns red while a game is live.</p>
+      <p>Tap <b>Rankings &amp; Standings</b> to open the AP Top 25 or the Big Ten standings. MSU's row is highlighted.</p>
+    </details>
+
+    <details class="help-sec"><summary>📆 Add games to your calendar</summary>
+      <p>Find the <b>Add games to your calendar</b> card on each sport's schedule. Subscribe once (iPhone/Mac Calendar or Google Calendar) and new kickoff and tip-off times show up on their own as they're announced.</p>
+    </details>
+
+    <details class="help-sec"><summary>🍔 Tailgate planner (football)</summary>
+      <p>On the football tab, tap <b>Tailgate</b> and pick a home game.</p>
+      <ul>
+        <li><b>Who's Coming?</b> Add names and how many each person brings. The headcount totals at the bottom.</li>
+        <li><b>Who's Bringing What?</b> A starter list (burgers, buns, cooler, grill, chairs, cornhole…). Check items off, edit them, add your own, and put a name next to each.</li>
+        <li><b>Share Plan</b> turns it all into one text you can send the crew.</li>
+      </ul>
+      <p class="help-note">The tailgate plan is saved on your phone only. Share it to keep everyone in the loop.</p>
+    </details>
+
+    <details class="help-sec"><summary>📺 Watch Party (basketball)</summary>
+      <p>For hoops, there's no tailgate, so throw a watch party at a bar or someone's house.</p>
+      <ol>
+        <li>On the basketball tab, tap <b>Watch Party</b>.</li>
+        <li>Pick the game and fill in <b>where</b>, the <b>address</b>, what time to <b>meet</b>, your name and an optional note (like "wings half off").</li>
+        <li>Tap <b>Create &amp; Send Invite</b> and text the link to your friends.</li>
+      </ol>
+      <p><b>Your friends</b> tap the link (no app needed) and answer 🙌 <b>Meet you there</b> (with how many are coming), 🤔 <b>Maybe</b>, or 😞 <b>Can't make it</b>. They can change their answer any time and get a map button to the spot.</p>
+      <p><b>Forwarding:</b> anyone can tap <b>Invite a friend</b> to pass it on. People who answer from a forwarded link show as "Sue <i>via Dave</i>," so you can see how word spread.</p>
+      <p><b>As the host,</b> your parties are listed at the bottom of the Watch Party screen with live counts. Tap <b>Who's coming</b> to see everyone's answers. You can remove an answer with ×.</p>
+    </details>
+
+    <details class="help-sec"><summary>📣 Share Hype &amp; 🔥 Trash Talk</summary>
+      <p><b>Share Hype</b> writes a countdown message ("6 days until MSU vs…") and opens your phone's share menu.</p>
+      <p><b>Trash Talk</b> serves up a one-liner for the group chat. Tap 🎲 for another, 📋 to copy it.</p>
+    </details>
+
+    <details class="help-sec"><summary>⚙️ Settings &amp; buttons</summary>
+      <ul>
+        <li><b>🔊 / 🔇</b> turns the fight-song intro on or off.</li>
+        <li><b>🌙 / ☀️</b> switches dark mode.</li>
+        <li><b>✕</b> goes back to the start screen.</li>
+        <li><b>?</b> opens this guide.</li>
+      </ul>
+    </details>
+
+    <details class="help-sec"><summary>🔒 Privacy</summary>
+      <p>No accounts or sign-ups. The app counts how many phones open it, using a random ID (no names or personal info). Your tailgate lists stay on your phone. Watch party invites and answers are saved on the invite service so the host and friends can see them.</p>
+    </details>
+
+    <details class="help-sec"><summary>💚 Support</summary>
+      <p>The tracker is free, ad-free and made by a Spartan fan. If you like it, the <b>Support this app</b> button at the bottom of the schedule goes to Venmo.</p>
+    </details>
+
+    <p class="help-foot">Unofficial fan app. Not affiliated with Michigan State University. Go Green! 💚</p>
+  </div>
+</div>
+
 <!-- Watch Party Modal (basketball) -->
 <div class="tailgate-modal" id="wpModal" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="modal-box" style="max-height:88vh;overflow-y:auto">
@@ -2277,6 +2374,9 @@ function copyTrash() {
     prompt('Copy:', text);
   }
 }
+
+// ===== How It Works guide =====
+function openHelp() { document.getElementById('helpModal').classList.add('open'); }
 
 // ===== WATCH PARTY (basketball) =====
 // Invites live on the Spartans Gameday project on Netlify, so friends' answers come back to you.
