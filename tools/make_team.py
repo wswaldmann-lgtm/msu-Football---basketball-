@@ -72,6 +72,22 @@ def card(g, sport, team):
         f'        <a class="mini-link" href="{u}" target="_blank" rel="noopener" onclick="event.stopPropagation()">{html.escape(label)}</a>'
         for label, u in team["links"][sport])
     default_time = "3:30 PM" if sport == "football" else "7:00 PM"
+    story = ""
+    if g.get("preview"):  # optional recap/preview paragraph, like the MSU app's game previews
+        pv = g["preview"]
+        story += f'''
+      <div class="detail-section">
+        <div class="detail-label">{html.escape(pv.get("label", "📰 Preview"))}</div>
+        <div class="detail-text">{html.escape(pv["text"])}</div>
+      </div>'''
+    if g.get("pick"):  # optional betting line / pick box
+        pk = g["pick"]
+        story += f'''
+      <div class="prediction-box">
+        <div class="pred-label">{html.escape(pk.get("label", "🏆 Predicted Winner"))}</div>
+        <div class="pred-winner">{html.escape(pk["winner"])}</div>
+        <div class="pred-score">{html.escape(pk.get("detail", ""))}</div>
+      </div>'''
     return f'''
   <div class="game-card" data-loc="{loc}"{star} data-date="{iso(g, default_time)}" onclick="toggleCard(this)">
     <div class="game-main">
@@ -84,7 +100,7 @@ def card(g, sport, team):
       <div class="game-badge badge-{loc}">{badge}</div>
       <div class="game-chevron">▼</div>
     </div>
-    <div class="game-detail"><div class="detail-inner">
+    <div class="game-detail"><div class="detail-inner">{story}
       <div class="detail-section">
         <div class="detail-label">📋 Game Info</div>
         <div class="detail-text">{" ".join(info)}</div>
@@ -113,6 +129,21 @@ def section(sport, team, msu_section):
     </div>
   </div>
 '''
+    outlook = ""
+    if s.get("outlook"):  # optional season-outlook card, like the MSU app's
+        o = s["outlook"]
+        stats = "".join(f'\n      <div class="outlook-stat"><div class="val">{html.escape(v)}</div><div class="lbl">{html.escape(l)}</div></div>'
+                        for v, l in o.get("stats", []))
+        outlook = f'''
+  <div class="season-outlook">
+    <h3>{html.escape(o.get("title", "Season Outlook"))}</h3>
+    <div class="outlook-grid">{stats}
+    </div>
+    <div class="outlook-text">
+      {html.escape(o["text"])}
+    </div>
+  </div>
+'''
     games = "".join(card(g, sport, team) for g in s["games"])
     post = f'''
   <div class="season-outlook" style="margin-top:.5rem">
@@ -120,7 +151,7 @@ def section(sport, team, msu_section):
     <div class="outlook-text">{s["postseason"]}</div>
   </div>
 '''
-    return head + record + cal + f"\n  <!-- {sport.upper()} -->" + games + post + "\n"
+    return head + record + outlook + cal + f"\n  <!-- {sport.upper()} -->" + games + post + "\n"
 
 
 def build(slug):
