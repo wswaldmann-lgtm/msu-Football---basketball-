@@ -2362,7 +2362,7 @@ function restoreState() {
   if (st.y) requestAnimationFrame(() => window.scrollTo(0, st.y));
 }
 let splashTimer = null;
-// ===== Game-day intro (synthesized: drum roll + opening line of "Victory for MSU") =====
+// ===== Game-day intro (synthesized: drum roll + first line of the "Victory for MSU" chorus) =====
 // Built in code with the Web Audio API, so there is no audio file and no recording rights to worry about.
 // Phones only allow sound after a tap, so it plays when you tap into the app from the splash screen.
 function soundOn() { try { return localStorage.getItem('msu_sound') !== 'off'; } catch (e) { return true; } }
@@ -2420,31 +2420,38 @@ function playIntro() {
   const rollEnd = t0 + 0.7;
   for (let t = t0, i = 0; t < rollEnd; t += 0.045, i++) noise(t, 0.06, 0.08 + 0.32 * (i * 0.045 / 0.7), 'bandpass', 1900, 0.7);
 
-  // "Victory for MSU" (1915, public domain) - opening line:
-  //   "Go right through for M-S-U, Watch the points keep grow-ing"
-  // From the B-flat trumpet part. Trumpet music is written a whole step above
-  // how it sounds, so each written note is moved down 2 semitones (concert B-flat major).
-  const WRITTEN = { C: 72, D: 74, E: 76, F: 77, G: 79, A: 81 };   // written pitch, trumpet staff
-  const tune = 'D | D D D D | D C D E | F F F F | F E F G'.split(/\s+/).filter(n => n !== '|');
-  const beat = 60 / 150;                                          // brisk march tempo
-  let t = rollEnd + 0.05;
-  tune.forEach((n, i) => {
-    const last = i === tune.length - 1;
-    const d = last ? beat * 2.5 : beat * 0.82;                    // short gap re-articulates repeated notes
-    const concert = WRITTEN[n] - 2;
-    brass(hz(concert), t, d, 0.42);                               // trumpets
-    brass(hz(concert - 12), t, d, 0.34);                          // baritones, an octave below
-    if (i === 0 || (i - 1) % 4 === 0) noise(t, 0.25, 0.5, 'lowpass', 120, 1);   // bass drum on beat 1
-    noise(t, 0.08, 0.16, 'bandpass', 1900, 0.7);                  // light snare on every beat
-    if (last) {
-      chord([41, 53, 65], t, d, 0.5);                        // full band on the held note
+  // "Victory for MSU" by F. I. Lankey (1915, public domain) - first line of the chorus:
+  //   "Go right thru for M. S. U.,  Watch the points keep grow-ing"
+  // Melody only, read from the printed sheet music (2/4, concert B-flat). [MIDI note, beats]
+  const tune = [
+    [62, 1], [66, 1],          // Go  right
+    [67, 1], [66, 1],          // thru for
+    [65, 1], [66, 1],          // M.  S.
+    [67, 2],                   // U.
+    [65, 1.5], [65, 0.5],      // Watch the
+    [67, 1], [69, 1],          // points keep
+    [70, 1], [74, 3.2],        // grow - ing (tied, held to the end)
+  ];
+  const beat = 60 / 140;                                          // "Marcia" march tempo
+  let t = rollEnd + 0.05, lastStart = t;
+  tune.forEach(([n, beats], i) => {
+    const final = i === tune.length - 1;
+    const d = beat * beats * (final ? 1 : 0.85);                  // small gap re-articulates each note
+    brass(hz(n), t, d, 0.42);                                     // trumpets
+    brass(hz(n - 12), t, d, 0.34);                                // baritones, an octave below
+    noise(t, 0.08, 0.16, 'bandpass', 1900, 0.7);                  // light snare on each note
+    if (final) {
+      chord([34, 46, 58], t, d, 0.5);                             // low B-flat from the tubas under the held note
       noise(t, 1.8, 0.25, 'highpass', 5000, 0.5);                 // cymbal crash
       noise(t, 0.3, 0.6, 'lowpass', 120, 1);
+      lastStart = t;
     }
-    t += beat;
+    t += beat * beats;
   });
-  const last = t - beat;
-  setTimeout(() => { if (introCtx === ctx) stopIntro(); }, (last - ctx.currentTime + 3.2) * 1000);
+  // bass drum on each downbeat (2/4)
+  for (let bt = rollEnd + 0.05; bt < lastStart; bt += beat * 2) noise(bt, 0.25, 0.5, 'lowpass', 120, 1);
+  const last = lastStart;
+  setTimeout(() => { if (introCtx === ctx) stopIntro(); }, (last - ctx.currentTime + 2.6) * 1000);
 }
 paintSoundBtn();
 function showSplash(autoHide) {
