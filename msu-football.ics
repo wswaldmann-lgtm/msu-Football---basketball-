@@ -1,0 +1,149 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MSU Spartans Game Tracker//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:MSU Football
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:msu-football-20260904@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART:20260904T230000Z
+DTEND:20260905T010000Z
+SUMMARY:🏈 MSU vs Toledo
+LOCATION:Spartan Stadium ESPN+
+DESCRIPTION:Friday Night · Spartan Stadium ESPN+\nhttps://wswaldmann-lgtm.
+ github.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20260912@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART:20260912T193000Z
+DTEND:20260912T213000Z
+SUMMARY:🏈 MSU vs Eastern Michigan
+LOCATION:Spartan Stadium
+DESCRIPTION:3:30 PM · BTN Peacock · Spartan Stadium\nhttps://wswaldmann-l
+ gtm.github.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20260919@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART:20260919T233000Z
+DTEND:20260920T013000Z
+SUMMARY:🏈 MSU at Notre Dame
+LOCATION:South Bend
+DESCRIPTION:7:30 PM · NBC Peacock · South Bend\nhttps://wswaldmann-lgtm.g
+ ithub.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20260926@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:🏈 MSU vs Nebraska (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Big Ten Opener
+DESCRIPTION:Time TBD · Big Ten Opener\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20261003@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART:20261003T163000Z
+DTEND:20261003T183000Z
+SUMMARY:🏈 MSU at Wisconsin
+LOCATION:Camp Randall
+DESCRIPTION:12:30 PM · BTN FOX One · Camp Randall\nhttps://wswaldmann-lgt
+ m.github.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20261010@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART:20261010T193000Z
+DTEND:20261010T213000Z
+SUMMARY:🏈 MSU vs Illinois
+LOCATION:Homecoming
+DESCRIPTION:3:30 PM · FS1 · Homecoming\nhttps://wswaldmann-lgtm.github.io
+ /msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20261017@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:🏈 MSU vs Northwestern (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Fitzgerald's old team
+DESCRIPTION:Time TBD · Fitzgerald's old team\nhttps://wswaldmann-lgtm.gith
+ ub.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20261024@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:🏈 MSU at UCLA (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Rose Bowl\, Pasadena
+DESCRIPTION:Time TBD · Rose Bowl\, Pasadena\nhttps://wswaldmann-lgtm.githu
+ b.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20261107@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:🏈 MSU at Michigan (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Paul Bunyan Trophy
+DESCRIPTION:Time TBD · The Big House · Paul Bunyan Trophy\nhttps://wswald
+ mann-lgtm.github.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20261114@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:🏈 MSU vs Washington (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Spartan Stadium
+DESCRIPTION:Time TBD · Spartan Stadium\nhttps://wswaldmann-lgtm.github.io/
+ msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20261121@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🏈 MSU vs Oregon (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Senior Day territory
+DESCRIPTION:Time TBD · Senior Day territory\nhttps://wswaldmann-lgtm.githu
+ b.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-football-20261128@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:🏈 MSU at Rutgers (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Season Finale
+DESCRIPTION:Time TBD · Season Finale\nhttps://wswaldmann-lgtm.github.io/ms
+ u-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+END:VCALENDAR

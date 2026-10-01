@@ -1,0 +1,426 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MSU Spartans Game Tracker//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:MSU Basketball
+X-WR-TIMEZONE:America/Detroit
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:msu-basketball-20261002@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART:20261002T230000Z
+DTEND:20261003T010000Z
+SUMMARY:🏀 MSU vs Incarnate Word (Exh.)
+LOCATION:Breslin Center
+DESCRIPTION:7:00 PM · Breslin Center\nhttps://wswaldmann-lgtm.github.io/ms
+ u-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261020@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART:20261020T230000Z
+DTEND:20261021T010000Z
+SUMMARY:🏀 MSU vs UConn (Exh.)
+LOCATION:Breslin Center
+DESCRIPTION:7:00 PM · Breslin Center\nhttps://wswaldmann-lgtm.github.io/ms
+ u-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261025@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:🏀 MSU at Marquette (Exh.) (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Milwaukee
+DESCRIPTION:Time TBA · Milwaukee\nhttps://wswaldmann-lgtm.github.io/msu-Fo
+ otball---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:🏀 MSU vs Quinnipiac (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261105@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:🏀 MSU vs Toledo (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261110@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART:20261111T000000Z
+DTEND:20261111T020000Z
+SUMMARY:🏀 MSU vs Duke
+LOCATION:United Center\, Chicago
+DESCRIPTION:7:00 PM · ESPN Champions Classic · United Center\, Chicago\nh
+ ttps://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261113@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:🏀 MSU vs Northern Iowa (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261117@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+SUMMARY:🏀 MSU at Tennessee (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Knoxville
+DESCRIPTION:Time TBA · Knoxville\nhttps://wswaldmann-lgtm.github.io/msu-Fo
+ otball---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261121@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:🏀 MSU vs Detroit Mercy (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261126@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART:20261126T213000Z
+DTEND:20261126T233000Z
+SUMMARY:🏀 MSU vs Arkansas
+LOCATION:Little Caesars Arena\, Detroit
+DESCRIPTION:4:30 PM · CBS Thanksgiving · Little Caesars Arena\, Detroit\n
+ https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261202@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:🏀 MSU vs Minnesota (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Big Ten opener
+DESCRIPTION:Time TBA · Breslin Center · Big Ten opener\nhttps://wswaldman
+ n-lgtm.github.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261205@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:🏀 MSU vs Drake (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261209@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261209
+DTEND;VALUE=DATE:20261210
+SUMMARY:🏀 MSU at Maryland (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:College Park
+DESCRIPTION:Time TBA · College Park\nhttps://wswaldmann-lgtm.github.io/msu
+ -Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261212@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:🏀 MSU vs Merrimack (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261219@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:🏀 MSU vs Gonzaga (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Acrisure Arena\, Coachella Valley\, CA
+DESCRIPTION:Time TBA · Acrisure Series · Acrisure Arena\, Coachella Valle
+ y\, CA\nhttps://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261222@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261222
+DTEND;VALUE=DATE:20261223
+SUMMARY:🏀 MSU vs Oakland (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20261229@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20261229
+DTEND;VALUE=DATE:20261230
+SUMMARY:🏀 MSU vs Penn (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270102@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270102
+DTEND;VALUE=DATE:20270103
+SUMMARY:🏀 MSU at Nebraska (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Lincoln
+DESCRIPTION:Time TBA · Lincoln\nhttps://wswaldmann-lgtm.github.io/msu-Foot
+ ball---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270105@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270105
+DTEND;VALUE=DATE:20270106
+SUMMARY:🏀 MSU vs Washington (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270109@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270109
+DTEND;VALUE=DATE:20270110
+SUMMARY:🏀 MSU at UCLA (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Los Angeles
+DESCRIPTION:Time TBA · Los Angeles\nhttps://wswaldmann-lgtm.github.io/msu-
+ Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270112@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+SUMMARY:🏀 MSU at USC (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Los Angeles
+DESCRIPTION:Time TBA · Los Angeles\nhttps://wswaldmann-lgtm.github.io/msu-
+ Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270116@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:🏀 MSU vs Oregon (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270123@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:🏀 MSU at Ohio State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Columbus
+DESCRIPTION:Time TBA · Columbus\nhttps://wswaldmann-lgtm.github.io/msu-Foo
+ tball---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270126@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270126
+DTEND;VALUE=DATE:20270127
+SUMMARY:🏀 MSU vs Penn State (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270130@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:🏀 MSU vs Purdue (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270202@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270202
+DTEND;VALUE=DATE:20270203
+SUMMARY:🏀 MSU vs Maryland (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270205@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270205
+DTEND;VALUE=DATE:20270206
+SUMMARY:🏀 MSU at Illinois (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Champaign
+DESCRIPTION:Time TBA · Champaign\nhttps://wswaldmann-lgtm.github.io/msu-Fo
+ otball---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270210@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+SUMMARY:🏀 MSU vs Rutgers (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270213@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270213
+DTEND;VALUE=DATE:20270214
+SUMMARY:🏀 MSU at Michigan (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Ann Arbor
+DESCRIPTION:Time TBA · Ann Arbor\nhttps://wswaldmann-lgtm.github.io/msu-Fo
+ otball---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270216@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270216
+DTEND;VALUE=DATE:20270217
+SUMMARY:🏀 MSU at Iowa (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Iowa City
+DESCRIPTION:Time TBA · Iowa City\nhttps://wswaldmann-lgtm.github.io/msu-Fo
+ otball---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270220@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270220
+DTEND;VALUE=DATE:20270221
+SUMMARY:🏀 MSU vs Nebraska (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270223@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270223
+DTEND;VALUE=DATE:20270224
+SUMMARY:🏀 MSU at Indiana (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Bloomington
+DESCRIPTION:Time TBA · Bloomington\nhttps://wswaldmann-lgtm.github.io/msu-
+ Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270226@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270226
+DTEND;VALUE=DATE:20270227
+SUMMARY:🏀 MSU vs Michigan (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Breslin Center
+DESCRIPTION:Time TBA · Breslin Center\nhttps://wswaldmann-lgtm.github.io/m
+ su-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270302@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270302
+DTEND;VALUE=DATE:20270303
+SUMMARY:🏀 MSU at Northwestern (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Evanston
+DESCRIPTION:Time TBA · Evanston\nhttps://wswaldmann-lgtm.github.io/msu-Foo
+ tball---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+BEGIN:VEVENT
+UID:msu-basketball-20270306@wswaldmann-lgtm.github.io
+DTSTAMP:20261001T033555Z
+DTSTART;VALUE=DATE:20270306
+DTEND;VALUE=DATE:20270307
+SUMMARY:🏀 MSU vs Wisconsin (time TBA)
+TRANSP:TRANSPARENT
+LOCATION:Regular-season finale
+DESCRIPTION:Time TBA · Breslin Center · Regular-season finale\nhttps://ws
+ waldmann-lgtm.github.io/msu-Football---basketball-/
+URL:https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+END:VEVENT
+END:VCALENDAR
