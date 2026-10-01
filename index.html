@@ -532,6 +532,23 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 @media(min-width:500px){
   .bottom-bar{max-width:480px;margin:0 auto}
 }
+
+/* ===== Watch Party ===== */
+.wp-intro{font-size:.85rem;color:var(--text-secondary);margin:-.2rem 0 .8rem;line-height:1.45}
+.wp-gamebox{background:linear-gradient(135deg,var(--spartan-green-dark),var(--spartan-green));border-radius:10px;padding:.8rem;margin-bottom:.7rem}
+.wp-select{width:100%;padding:.5rem;border-radius:8px;border:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:.95rem;color:#1A1A1A;background:#fff}
+.wp-label{display:block;font-family:'Oswald',sans-serif;font-weight:600;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--spartan-green);margin:.55rem 0 .25rem}
+body.dark .wp-label{color:#5BBF97}
+.wp-in{width:100%;padding:.6rem .7rem;border-radius:8px;border:1px solid var(--border);background:var(--chip-bg);color:var(--text-primary);font-family:'Source Sans 3',sans-serif;font-size:.95rem}
+.wp-two{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.wp-msg{text-align:center;font-size:.85rem;color:var(--text-secondary);min-height:1.1em;margin-top:.5rem}
+.wp-party{border:1px solid var(--border);border-radius:10px;padding:.7rem .8rem;margin-top:.5rem;background:var(--card-bg)}
+.wp-party .t{font-family:'Oswald',sans-serif;font-weight:600;font-size:.95rem;color:var(--text-primary)}
+.wp-party .s{font-size:.82rem;color:var(--text-secondary);margin-top:.1rem}
+.wp-party .c{font-size:.85rem;margin-top:.35rem;color:var(--text-primary)}
+.wp-party .a{display:flex;gap:.4rem;margin-top:.5rem}
+.wp-party .a button,.wp-party .a a{flex:1;text-align:center;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:.5rem;border-radius:8px;border:1px solid var(--border);background:var(--chip-bg);color:var(--text-primary);cursor:pointer}
+.wp-empty{font-size:.85rem;color:var(--text-muted);padding:.4rem 0}
 </style>
 </head>
 <body>
@@ -594,7 +611,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
 <div class="hype-bar">
   <button class="hype-btn" onclick="shareHype()">📣 Share Hype</button>
   <button class="talk-btn" onclick="openTrashTalk()">🔥 Trash Talk</button>
-  <button class="tailgate-btn" onclick="openTailgate()">🍔 Tailgate</button>
+  <button class="tailgate-btn gd-label" onclick="openGameDay()">🍔 Tailgate</button>
 </div>
 
 <div id="football" class="section active">
@@ -1846,7 +1863,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
   <button class="bb-item active" data-bb="football" onclick="bbSport('football')"><span class="bb-ic">🏈</span>Football</button>
   <button class="bb-item" data-bb="basketball" onclick="bbSport('basketball')"><span class="bb-ic">🏀</span>Basketball</button>
   <button class="bb-item" onclick="jumpToNext()"><span class="bb-ic">⚡</span>Next Game</button>
-  <button class="bb-item" onclick="openTailgate()"><span class="bb-ic">🍔</span>Tailgate</button>
+  <button class="bb-item" onclick="openGameDay()" id="bbGameDay"><span class="bb-ic">🍔</span><span class="bb-tx">Tailgate</span></button>
   <button class="bb-item" onclick="openTrashTalk()"><span class="bb-ic">🔥</span>Trash Talk</button>
 </nav>
 
@@ -1882,7 +1899,13 @@ function bbSport(tab) {
 }
 function syncBottomBar() {
   document.querySelectorAll('.bb-item[data-bb]').forEach(b => b.classList.toggle('active', b.dataset.bb === activeTab));
+  const hoops = activeTab === 'basketball';
+  const gd = document.getElementById('bbGameDay');
+  if (gd) { gd.querySelector('.bb-ic').textContent = hoops ? '📺' : '🍔'; gd.querySelector('.bb-tx').textContent = hoops ? 'Watch Party' : 'Tailgate'; }
+  document.querySelectorAll('.gd-label').forEach(b => b.textContent = hoops ? '📺 Watch Party' : '🍔 Tailgate');
 }
+// Football -> tailgate planner; basketball -> watch party invites
+function openGameDay() { if (activeTab === 'basketball') openWatchParty(); else openTailgate(); }
 const _switchTab = switchTab;
 switchTab = function(tab, el) { _switchTab(tab, el); syncBottomBar(); };
 
@@ -2129,6 +2152,37 @@ loadScore('football');
   </div>
 </div>
 
+<!-- Watch Party Modal (basketball) -->
+<div class="tailgate-modal" id="wpModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box" style="max-height:88vh;overflow-y:auto">
+    <button class="modal-close" onclick="document.getElementById('wpModal').classList.remove('open')">&times;</button>
+    <h3>📺 Watch Party</h3>
+    <p class="wp-intro">Pick a spot (a bar or someone's house), send the invite, and see who's meeting you there. Friends can forward it, and you'll see who brought who.</p>
+
+    <div class="wp-gamebox">
+      <div class="wp-label" style="color:#fff;opacity:.75">🏀 Game</div>
+      <select id="wpGame" class="wp-select"></select>
+    </div>
+    <label class="wp-label" for="wpPlace">Where</label>
+    <input id="wpPlace" class="wp-in" maxlength="80" placeholder="Bar name, or &quot;Mike's house&quot;">
+    <label class="wp-label" for="wpAddr">Address</label>
+    <input id="wpAddr" class="wp-in" maxlength="160" placeholder="Street, city (so the map works)">
+    <div class="wp-two">
+      <div><label class="wp-label" for="wpTime">Meet at</label><input id="wpTime" class="wp-in" maxlength="40" placeholder="6:30 PM"></div>
+      <div><label class="wp-label" for="wpHost">Your name</label><input id="wpHost" class="wp-in" maxlength="40" placeholder="Host"></div>
+    </div>
+    <label class="wp-label" for="wpNote">Note (optional)</label>
+    <input id="wpNote" class="wp-in" maxlength="300" placeholder="Wings are half off · bring a chair">
+    <div class="modal-actions" style="margin-top:.9rem">
+      <button class="btn-primary" style="flex:1" id="wpCreateBtn" onclick="createWatchParty()">📤 Create &amp; Send Invite</button>
+    </div>
+    <div class="wp-msg" id="wpMsg"></div>
+
+    <div class="wp-label" style="margin-top:1.1rem">Your watch parties</div>
+    <div id="wpList"></div>
+  </div>
+</div>
+
 <!-- Tailgate Modal -->
 <div class="tailgate-modal" id="tailgateModal" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="modal-box" style="max-height:85vh;overflow-y:auto">
@@ -2221,6 +2275,88 @@ function copyTrash() {
     });
   } else {
     prompt('Copy:', text);
+  }
+}
+
+// ===== WATCH PARTY (basketball) =====
+// Invites live on the Spartans Gameday project on Netlify, so friends' answers come back to you.
+const WP_API = 'https://spartans-gameday.netlify.app';
+function wpGames() {
+  const now = Date.now(), mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], wd = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  return [...document.querySelectorAll('#basketball .game-card[data-date]')].map(c => {
+    const d = new Date(c.dataset.date); if (isNaN(d) || d.getTime() + 3 * 3600e3 < now) return null;
+    const opp = (c.querySelector('.game-opponent')?.textContent || 'Spartans').replace('⭐', '').trim().replace(/^(at|vs\.?)\s+/i, '');
+    const where = c.dataset.loc === 'home' ? 'vs' : (c.dataset.loc === 'away' ? '@' : 'vs');
+    return { date: c.dataset.date, label: wd[d.getDay()] + ' ' + mo[d.getMonth()] + ' ' + d.getDate() + ' — ' + where + ' ' + opp, game: 'MSU ' + where + ' ' + opp };
+  }).filter(Boolean);
+}
+const wpLS = { get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+               set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+function wpId() { return ((crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now()).replace(/[^a-z0-9]/gi, '') + Math.random().toString(36).slice(2)).slice(0, 12).toLowerCase(); }
+function wpEsc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+function openWatchParty() {
+  const games = wpGames(), sel = document.getElementById('wpGame');
+  sel.innerHTML = games.length ? games.map((g, i) => '<option value="' + i + '">' + wpEsc(g.label) + '</option>').join('') : '<option>No upcoming games</option>';
+  const last = wpLS.get('wp_last', {});
+  ['Place', 'Addr', 'Time', 'Host'].forEach(f => { const el = document.getElementById('wp' + f); if (!el.value && last[f]) el.value = last[f]; });
+  document.getElementById('wpMsg').textContent = '';
+  document.getElementById('wpModal').classList.add('open');
+  renderWpList();
+}
+
+async function createWatchParty() {
+  const games = wpGames(), g = games[+document.getElementById('wpGame').value];
+  const v = f => document.getElementById('wp' + f).value.trim();
+  const msg = document.getElementById('wpMsg');
+  if (!g) { msg.textContent = 'No upcoming game to pick.'; return; }
+  if (!v('Place')) { msg.textContent = 'Add where you’re watching.'; document.getElementById('wpPlace').focus(); return; }
+  const party = { id: wpId(), hostKey: wpId() + wpId(), sport: 'basketball', game: g.game, gameDate: g.date,
+                  place: v('Place'), address: v('Addr'), time: v('Time'), host: v('Host'), note: v('Note') };
+  const btn = document.getElementById('wpCreateBtn'); btn.disabled = true; msg.textContent = 'Creating your invite…';
+  try {
+    const r = await fetch(WP_API + '/api/party', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(party) });
+    if (!r.ok) throw new Error('save failed');
+  } catch (e) {
+    btn.disabled = false;
+    msg.textContent = 'Couldn’t reach the invite service. Check your connection and try again.';
+    return;
+  }
+  btn.disabled = false;
+  wpLS.set('wp_last', { Place: party.place, Addr: party.address, Time: party.time, Host: party.host });
+  const mine = wpLS.get('wp_mine', []);
+  mine.unshift({ id: party.id, hostKey: party.hostKey, label: g.label, place: party.place, date: g.date });
+  wpLS.set('wp_mine', mine.slice(0, 30));
+  document.getElementById('wpNote').value = '';
+  msg.textContent = '✅ Invite created!';
+  renderWpList();
+  shareWatchParty(party.id);
+}
+
+function shareWatchParty(id) {
+  const p = wpLS.get('wp_mine', []).find(x => x.id === id); if (!p) return;
+  const url = WP_API + '/p/' + id;
+  const text = '📺 MSU Watch Party: ' + p.label + '\n📍 ' + p.place + '\nAre you in? Tap to answer:';
+  if (navigator.share) navigator.share({ title: 'MSU Watch Party', text, url }).catch(() => {});
+  else if (navigator.clipboard) navigator.clipboard.writeText(text + '\n' + url).then(() => { document.getElementById('wpMsg').textContent = '📋 Invite copied. Paste it in a text.'; });
+  else prompt('Copy this invite:', text + '\n' + url);
+}
+
+async function renderWpList() {
+  const box = document.getElementById('wpList');
+  const mine = wpLS.get('wp_mine', []).filter(p => new Date(p.date).getTime() + 6 * 3600e3 > Date.now());
+  if (!mine.length) { box.innerHTML = '<div class="wp-empty">None yet. Create one above.</div>'; return; }
+  box.innerHTML = mine.map(p =>
+    '<div class="wp-party" id="wpp-' + p.id + '"><div class="t">' + wpEsc(p.label) + '</div><div class="s">📍 ' + wpEsc(p.place) + '</div>' +
+    '<div class="c">Checking answers…</div><div class="a">' +
+    '<a href="' + WP_API + '/p/' + p.id + '?host=' + p.hostKey + '" target="_blank" rel="noopener">👀 Who’s coming</a>' +
+    '<button onclick="shareWatchParty(\'' + p.id + '\')">📤 Send again</button></div></div>').join('');
+  for (const p of mine) {
+    try {
+      const r = await fetch(WP_API + '/api/party?id=' + p.id, { cache: 'no-store' });
+      const d = await r.json(), el = document.querySelector('#wpp-' + p.id + ' .c');
+      if (el) el.innerHTML = r.ok ? '🙌 <b>' + d.totals.people + '</b> coming · 🤔 ' + d.totals.maybe + ' maybe · 😞 ' + d.totals.out + ' can’t' : 'Not found';
+    } catch (e) { const el = document.querySelector('#wpp-' + p.id + ' .c'); if (el) el.textContent = 'Couldn’t check answers right now.'; }
   }
 }
 
@@ -2494,14 +2630,14 @@ restoreState();
 try { if (!sessionStorage.getItem('msu_splashed')) { sessionStorage.setItem('msu_splashed', '1'); showSplash(!soundOn()); } } catch (e) { showSplash(!soundOn()); }
 
 // ===== Visitor counter =====
-// One ping per app open to the Spartans Tracker Stats project on Netlify.
+// One ping per app open to the Spartans Gameday project on Netlify.
 // Sends only a random ID made for this device (no names, no personal info).
 (function () {
   try {
     if (!location.protocol.startsWith('http')) return;               // skip local copies
     let vid = localStorage.getItem('msu_vid');
     if (!vid) { vid = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now()).replace(/[^a-z0-9]/gi, '').slice(0, 24); localStorage.setItem('msu_vid', vid); }
-    const url = 'https://spartans-tracker-stats.netlify.app/api/hit';
+    const url = 'https://spartans-gameday.netlify.app/api/hit';
     if (navigator.sendBeacon) navigator.sendBeacon(url, vid);
     else fetch(url, { method: 'POST', body: vid, mode: 'no-cors', keepalive: true }).catch(() => {});
   } catch (e) {}

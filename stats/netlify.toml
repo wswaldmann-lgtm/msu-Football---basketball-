@@ -3,3 +3,9 @@
 
 [functions]
   directory = "netlify/functions"
+
+# Invite links: /p/<party id> opens the watch-party page
+[[redirects]]
+  from = "/p/*"
+  to = "/party.html"
+  status = 200

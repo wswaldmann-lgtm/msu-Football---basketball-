@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#18453B">
+<title>MSU Watch Party</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#18453B;--green-dark:#0F2B24;--green-light:#1E5A4C;--gold:#C5A551;--bg:#F2F0EB;--card:#FAFAF8;--text:#1A1A1A;--muted:#6E6C66;--border:#E3E0D9;--in:#27AE60;--maybe:#C5A551;--out:#C0392B;--field:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#121917;--card:#1C2422;--text:#EDEBE6;--muted:#9C9992;--border:#2C3532;--field:#121917}}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',system-ui,sans-serif;max-width:560px;margin:0 auto;padding-bottom:2.5rem}
+header{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;padding:1.5rem 16px 1.3rem;border-bottom:3px solid var(--gold)}
+.kicker{font-family:'Oswald',sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:.75rem;color:var(--gold)}
+h1{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:1.65rem;line-height:1.15;margin-top:.25rem}
+.when{opacity:.85;margin-top:.3rem}
+main{padding:16px;display:grid;gap:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem 1.05rem}
+.card h2{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.07em;font-size:.85rem;color:var(--green);margin-bottom:.6rem}
+@media (prefers-color-scheme:dark){.card h2{color:#5BBF97}}
+.place{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.25rem}
+.addr{color:var(--muted);margin-top:.15rem}
+.meta{display:grid;gap:.35rem;margin-top:.7rem;font-size:.95rem}
+.note{margin-top:.7rem;padding:.6rem .75rem;border-radius:10px;background:rgba(197,165,81,.14);font-size:.93rem;white-space:pre-wrap}
+a.map{display:inline-block;margin-top:.55rem;color:var(--green);font-weight:700;text-decoration:none}
+@media (prefers-color-scheme:dark){a.map{color:#5BBF97}}
+.totals{display:flex;gap:.6rem;flex-wrap:wrap}
+.pill{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.04em;border-radius:999px;padding:.35rem .8rem;font-size:.85rem;background:rgba(128,128,128,.1)}
+.pill b{font-size:1.05rem;margin-right:.2rem}
+input{font:inherit;width:100%;padding:.7rem .8rem;border-radius:10px;border:1px solid var(--border);background:var(--field);color:var(--text)}
+.answers{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:.7rem}
+.ans{font-family:'Oswald',sans-serif;font-weight:600;font-size:.88rem;letter-spacing:.04em;text-transform:uppercase;border:2px solid var(--border);background:transparent;color:var(--text);border-radius:12px;padding:.75rem .3rem;cursor:pointer}
+.ans .ic{display:block;font-size:1.3rem;margin-bottom:.15rem}
+.ans.on[data-s="in"]{border-color:var(--in);background:rgba(39,174,96,.12)}
+.ans.on[data-s="maybe"]{border-color:var(--maybe);background:rgba(197,165,81,.15)}
+.ans.on[data-s="out"]{border-color:var(--out);background:rgba(192,57,43,.1)}
+.count{display:none;align-items:center;justify-content:space-between;margin-top:.7rem;padding:.5rem .7rem;border-radius:10px;background:rgba(39,174,96,.08)}
+.count.show{display:flex}
+.step{display:flex;align-items:center;gap:.7rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:1.15rem}
+.step button{width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:1.2rem;cursor:pointer}
+.btn{display:block;width:100%;margin-top:.8rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:.95rem;border:none;border-radius:12px;padding:.85rem;cursor:pointer;background:var(--green);color:#fff}
+.btn.gold{background:var(--gold);color:#1A1A1A}
+.btn:disabled{opacity:.55}
+.msg{text-align:center;font-size:.9rem;margin-top:.55rem;color:var(--muted);min-height:1.2em}
+.group{margin-top:.4rem}
+.group h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:.7rem 0 .3rem}
+.who{display:flex;align-items:center;gap:.5rem;padding:.42rem 0;border-bottom:1px solid var(--border);font-size:.97rem}
+.who:last-child{border-bottom:none}
+.who .nm{font-weight:700}
+.who .via{color:var(--muted);font-size:.83rem}
+.who .x{margin-left:auto;border:none;background:none;color:var(--muted);font-size:1.1rem;cursor:pointer;padding:0 .3rem}
+.empty{color:var(--muted);font-size:.92rem}
+.hostbar{background:rgba(197,165,81,.16);border:1px solid rgba(197,165,81,.5);border-radius:12px;padding:.7rem .9rem;font-size:.9rem}
+.center{text-align:center;padding:3rem 1rem;color:var(--muted)}
+.foot{text-align:center;color:var(--muted);font-size:.8rem}
+.foot a{color:inherit}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">📺 MSU Watch Party</div>
+  <h1 id="game">Loading…</h1>
+  <div class="when" id="when"></div>
+</header>
+<main id="main">
+  <div class="center" id="loading">Loading the party…</div>
+</main>
+<script>
+const API = '/api';
+const id = (location.pathname.split('/p/')[1] || '').split(/[/?#]/)[0].toLowerCase();
+const params = new URLSearchParams(location.search);
+const via = (params.get('via') || '').slice(0, 40);
+const LS = { get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+             set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+
+// The host's private link carries ?host=KEY. Remember it on this phone, then strip it from the
+// address bar so it never gets forwarded by accident.
+if (params.get('host')) {
+  const keys = LS.get('wp_hostkeys', {}); keys[id] = params.get('host'); LS.set('wp_hostkeys', keys);
+  params.delete('host'); history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : ''));
+}
+const hostKey = (LS.get('wp_hostkeys', {}))[id] || '';
+function rid() {
+  const all = LS.get('wp_rids', {});
+  if (!all[id]) { all[id] = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now()).replace(/[^a-z0-9]/gi, '').slice(0, 20).toLowerCase(); LS.set('wp_rids', all); }
+  return all[id];
+}
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+let data = null, choice = null, count = 1;
+
+function fmtGameDate(s) {
+  const d = new Date(s); if (isNaN(d)) return '';
+  return d.toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' tip-off';
+}
+
+async function load() {
+  if (!/^[a-z0-9]{8,24}$/.test(id)) return notFound();
+  try {
+    const r = await fetch(API + '/party?id=' + id, { cache: 'no-store', headers: hostKey ? { 'x-host-key': hostKey } : {} });
+    if (r.status === 404) return notFound();
+    data = await r.json();
+    render();
+  } catch (e) { document.getElementById('main').innerHTML = '<div class="center">Couldn\'t load the party. Check your connection and refresh.</div>'; }
+}
+function notFound() {
+  document.getElementById('game').textContent = 'Party not found';
+  document.getElementById('main').innerHTML = '<div class="center">This invite link doesn\'t match a watch party. Ask whoever sent it for a fresh link.</div>';
+}
+
+function render() {
+  const p = data.party, t = data.totals;
+  document.title = 'MSU Watch Party — ' + (p.game || p.place);
+  document.getElementById('game').textContent = p.game || 'Spartans game';
+  document.getElementById('when').textContent = fmtGameDate(p.gameDate);
+  const me = LS.get('wp_name', '');
+  const myAns = (LS.get('wp_answers', {}))[id];
+  if (choice === null && myAns) { choice = myAns.status; count = myAns.count || 1; }
+
+  const list = s => data.rsvps.filter(r => r.status === s);
+  const row = r => `<div class="who"><span class="nm">${esc(r.name)}</span>${r.status === 'in' && r.count > 1 ? `<span>+${r.count - 1}</span>` : ''}${r.via ? `<span class="via">via ${esc(r.via)}</span>` : ''}${data.isHost && r.rid ? `<button class="x" title="Remove" onclick="removeAns('${esc(r.rid)}','${esc(r.name)}')">×</button>` : ''}</div>`;
+  const group = (s, title) => list(s).length ? `<div class="group"><h3>${title} (${list(s).length})</h3>${list(s).map(row).join('')}</div>` : '';
+
+  const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent([p.place, p.address].filter(Boolean).join(', '));
+  document.getElementById('main').innerHTML = `
+    ${data.isHost ? `<div class="hostbar">⭐ <b>You're hosting.</b> Everyone's answers show up below. You can remove an answer with ×.</div>` : ''}
+    <div class="card">
+      <h2>Where</h2>
+      <div class="place">${esc(p.place)}</div>
+      ${p.address ? `<div class="addr">${esc(p.address)}</div>` : ''}
+      <a class="map" href="${mapUrl}" target="_blank" rel="noopener">📍 Open in Maps</a>
+      <div class="meta">
+        ${p.time ? `<div>🕖 <b>Meet at:</b> ${esc(p.time)}</div>` : ''}
+        ${p.host ? `<div>🙋 <b>Hosted by:</b> ${esc(p.host)}</div>` : ''}
+      </div>
+      ${p.note ? `<div class="note">${esc(p.note)}</div>` : ''}
+    </div>
+
+    <div class="card">
+      <h2>Are you in?</h2>
+      <input id="name" placeholder="Your name" maxlength="40" value="${esc(me)}">
+      <div class="answers">
+        <button class="ans ${choice === 'in' ? 'on' : ''}" data-s="in" onclick="pick('in')"><span class="ic">🙌</span>Meet you there</button>
+        <button class="ans ${choice === 'maybe' ? 'on' : ''}" data-s="maybe" onclick="pick('maybe')"><span class="ic">🤔</span>Maybe</button>
+        <button class="ans ${choice === 'out' ? 'on' : ''}" data-s="out" onclick="pick('out')"><span class="ic">😞</span>Can't make it</button>
+      </div>
+      <div class="count ${choice === 'in' ? 'show' : ''}" id="countRow">
+        <span>How many in your group?</span>
+        <div class="step"><button onclick="step(-1)">−</button><span id="countVal">${count}</span><button onclick="step(1)">+</button></div>
+      </div>
+      <button class="btn" id="sendBtn" onclick="send()">${myAns ? 'Update my answer' : 'Send my answer'}</button>
+      <div class="msg" id="msg"></div>
+    </div>
+
+    <div class="card">
+      <h2>Who's coming</h2>
+      <div class="totals">
+        <span class="pill">🙌 <b>${t.people}</b> coming</span>
+        <span class="pill">🤔 <b>${t.maybe}</b> maybe</span>
+        <span class="pill">😞 <b>${t.out}</b> can't</span>
+      </div>
+      ${data.rsvps.length ? group('in', 'Meet you there') + group('maybe', 'Maybe') + group('out', "Can't make it") : '<p class="empty" style="margin-top:.7rem">No answers yet. Be the first!</p>'}
+    </div>
+
+    <button class="btn gold" onclick="forward()">📤 Invite a friend</button>
+    <div class="foot">Made with the <a href="https://wswaldmann-lgtm.github.io/msu-Football---basketball-/">Spartans Game Tracker</a> · Go Green! 💚</div>`;
+}
+
+function pick(s) { choice = s; document.querySelectorAll('.ans').forEach(b => b.classList.toggle('on', b.dataset.s === s)); document.getElementById('countRow').classList.toggle('show', s === 'in'); }
+function step(d) { count = Math.min(20, Math.max(1, count + d)); document.getElementById('countVal').textContent = count; }
+
+async function send() {
+  const name = document.getElementById('name').value.trim(), msg = document.getElementById('msg');
+  if (!name) { msg.textContent = 'Add your name so the host knows who you are.'; document.getElementById('name').focus(); return; }
+  if (!choice) { msg.textContent = 'Pick an answer above.'; return; }
+  const btn = document.getElementById('sendBtn'); btn.disabled = true; msg.textContent = 'Sending…';
+  try {
+    const myVia = (LS.get('wp_via', {}))[id] || via;
+    const r = await fetch(API + '/rsvp', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, rid: rid(), name, status: choice, count, via: myVia && myVia !== name ? myVia : '' }) });
+    if (!r.ok) throw new Error((await r.json()).error || 'failed');
+    LS.set('wp_name', name);
+    const a = LS.get('wp_answers', {}); a[id] = { status: choice, count }; LS.set('wp_answers', a);
+    await load();
+    document.getElementById('msg').textContent = choice === 'in' ? '✅ You\'re on the list. See you there!' : '✅ Got it, thanks for letting them know.';
+  } catch (e) { btn.disabled = false; msg.textContent = 'Couldn\'t send. Try again.'; }
+}
+
+async function removeAns(r, name) {
+  if (!confirm('Remove ' + name + '\'s answer?')) return;
+  await fetch(API + '/rsvp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, rid: r, remove: true, hostKey }) });
+  load();
+}
+
+function forward() {
+  const me = document.getElementById('name')?.value.trim() || LS.get('wp_name', '');
+  const url = location.origin + '/p/' + id + (me ? '?via=' + encodeURIComponent(me) : '');
+  const p = data.party;
+  const text = `📺 MSU Watch Party: ${p.game || 'Spartans game'}\n📍 ${p.place}${p.time ? '\n🕖 ' + p.time : ''}\nAre you in? Tap to answer:`;
+  if (navigator.share) navigator.share({ title: 'MSU Watch Party', text, url }).catch(() => {});
+  else if (navigator.clipboard) navigator.clipboard.writeText(text + '\n' + url).then(() => { const m = document.getElementById('msg'); if (m) m.textContent = '📋 Invite copied. Paste it in a text.'; });
+  else prompt('Copy this invite:', text + '\n' + url);
+}
+
+// Remember who forwarded this link to me, so my answer shows "via ___"
+if (via) { const v = LS.get('wp_via', {}); if (!v[id]) { v[id] = via; LS.set('wp_via', v); } }
+load();
+setInterval(() => { if (document.visibilityState === 'visible' && !document.activeElement?.matches('input')) load(); }, 30000);
+</script>
+</body>
+</html>
