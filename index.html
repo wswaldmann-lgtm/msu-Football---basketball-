@@ -479,9 +479,36 @@ body.dark .btn-primary{background:var(--gold-accent);color:#1A1A1A}
 body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gold-accent);color:#1A1A1A}
 .tg-input{flex:1;background:none;border:none;font-size:.85rem;color:var(--text-primary);font-family:'Source Sans 3',system-ui,sans-serif;outline:none}
 .tg-add{background:none;border:1px dashed var(--border);border-radius:8px;padding:.5rem;text-align:center;color:var(--text-muted);font-size:.8rem;cursor:pointer;width:100%;margin-top:.5rem}
+/* ===== Warm-up (launch) screen + Exit sheet ===== */
+#splash{position:fixed;inset:0;z-index:1000;background:#06120e url(icons/splash.jpg) center/cover no-repeat;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 16px calc(env(safe-area-inset-bottom,0px) + 9vh);cursor:pointer;transition:opacity .45s ease}
+#splash.hide{opacity:0;pointer-events:none}
+#splash .s-title{font-family:'Oswald',sans-serif;font-weight:700;color:#fff;font-size:clamp(1.6rem,7vw,2.4rem);letter-spacing:.06em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.6);text-align:center}
+#splash .s-sub{font-family:'Oswald',sans-serif;color:#d8f0e2;letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;margin-top:.35rem;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+#splash .s-tap{margin-top:1.4rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:.55rem 1.3rem;background:rgba(0,0,0,.25)}
+#exitSheet{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;justify-content:center;padding:0 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
+#exitSheet .box{background:var(--card-bg);color:var(--text-primary);border-radius:16px;padding:1.2rem;width:100%;max-width:420px;display:grid;gap:.6rem}
+#exitSheet h3{font-family:'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem}
+#exitSheet p{font-size:.88rem;color:var(--text-muted)}
+#exitSheet button{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.05em;font-size:.95rem;padding:.75rem;border-radius:10px;border:1px solid var(--border);background:transparent;color:inherit;cursor:pointer}
+#exitSheet button.go{background:var(--spartan-green);border-color:var(--spartan-green);color:#fff}
+@media (prefers-reduced-motion:reduce){#splash{transition:none}}
+#splash[hidden],#exitSheet[hidden]{display:none!important}
 </style>
 </head>
 <body>
+<div id="splash" role="button" aria-label="Enter the game tracker" onclick="hideSplash()" hidden>
+  <div class="s-title">MSU Spartans</div>
+  <div class="s-sub">Game Tracker &middot; Go Green</div>
+  <div class="s-tap">Tap to enter</div>
+</div>
+<div id="exitSheet" hidden onclick="if(event.target===this)closeExit()">
+  <div class="box" role="dialog" aria-labelledby="exitTitle">
+    <h3 id="exitTitle">Leave the game tracker?</h3>
+    <p>Exit takes you back to the start screen and clears where you left off. To close the app completely, swipe it away like any other app.</p>
+    <button class="go" onclick="doExit()">Exit</button>
+    <button onclick="closeExit()">Stay</button>
+  </div>
+</div>
 
 
 <div id="installBanner" style="background:var(--gold-accent);color:#1A1A1A;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.03em;">
@@ -492,12 +519,13 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
 <script>if(localStorage.getItem('msu_installed'))document.getElementById('installBanner').style.display='none';</script>
 <div class="header">
   <div class="header-top">
-    <div class="spartan-logo">S</div>
+    <img class="spartan-logo" src="icons/icon-192.png" alt="" width="44" height="44" style="padding:0;object-fit:cover">
     <div>
       <h1>MSU Spartans</h1>
       <div class="sub">Game Tracker &middot; 2026–27 &middot; Pass it on, Go Green! 💚</div>
     </div>
     <button class="mode-toggle" onclick="toggleDark()" aria-label="Toggle dark mode" id="modeBtn">🌙</button>
+    <button class="mode-toggle" onclick="openExit()" aria-label="Exit" title="Exit" style="margin-left:.4rem;font-size:1rem;font-weight:700">✕</button>
   </div>
   <div class="countdown-strip" id="countdownStrip">
     <div class="vs" id="nextGameLabel">Next up<strong>Loading…</strong></div>
@@ -2229,6 +2257,55 @@ function shareTg() {
 </script>
 <script>
 // Installable app: register the service worker when served over http(s).
+// ===== Warm-up screen, Exit, and resume-where-you-left-off =====
+const STATE_KEY = 'msu_state';
+let exited = false;   // after Exit, don't remember anything until the user comes back in
+function saveState() {
+  if (exited) return;
+  try { localStorage.setItem(STATE_KEY, JSON.stringify({ tab: activeTab, y: Math.round(window.scrollY) })); } catch (e) {}
+}
+function restoreState() {
+  let st = null;
+  try { st = JSON.parse(localStorage.getItem(STATE_KEY) || 'null'); } catch (e) {}
+  if (!st) return;
+  if (st.tab && st.tab !== activeTab) {
+    const t = document.querySelector('.tab[data-tab="' + st.tab + '"]');
+    if (t) switchTab(st.tab, t);
+  }
+  if (st.y) requestAnimationFrame(() => window.scrollTo(0, st.y));
+}
+let splashTimer = null;
+function showSplash(autoHide) {
+  const sp = document.getElementById('splash');
+  sp.hidden = false; sp.classList.remove('hide');
+  clearTimeout(splashTimer);
+  if (autoHide) splashTimer = setTimeout(hideSplash, 1800);
+}
+function hideSplash() {
+  const sp = document.getElementById('splash');
+  if (exited) { exited = false; window.scrollTo(0, 0); }
+  clearTimeout(splashTimer);
+  sp.classList.add('hide');
+  setTimeout(() => { sp.hidden = true; }, 450);
+}
+function openExit() { document.getElementById('exitSheet').hidden = false; }
+function closeExit() { document.getElementById('exitSheet').hidden = true; }
+function doExit() {
+  closeExit();
+  document.querySelectorAll('.game-card.expanded').forEach(c => c.classList.remove('expanded'));
+  switchTab('football', document.querySelector('.tab[data-tab="football"]'));
+  exited = true;
+  clearTimeout(window._saveT);
+  try { localStorage.removeItem(STATE_KEY); } catch (e) {}
+  requestAnimationFrame(() => window.scrollTo(0, 0));
+  showSplash(false);   // back to the start screen; tap to come back in
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', saveState));
+window.addEventListener('scroll', () => { clearTimeout(window._saveT); window._saveT = setTimeout(saveState, 300); }, { passive: true });
+document.addEventListener('visibilitychange', () => { if (document.hidden) saveState(); });
+restoreState();
+try { if (!sessionStorage.getItem('msu_splashed')) { sessionStorage.setItem('msu_splashed', '1'); showSplash(true); } } catch (e) { showSplash(true); }
+
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 }
