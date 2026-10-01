@@ -213,6 +213,9 @@ body.dark .game-divider.home{background:#2E7D5F}
   letter-spacing:.01em;line-height:1.2;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
+.game-result{display:inline-block;font-weight:700;font-size:.78rem;padding:.1rem .45rem;border-radius:4px;margin-top:.2rem;letter-spacing:.02em}
+.game-result.win{background:#1f6f43;color:#fff}
+.game-result.loss{background:#9b2c2c;color:#fff}
 .game-meta{
   font-size:.78rem;color:var(--text-secondary);margin-top:2px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -541,11 +544,11 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
   </div>
 
   <div class="record-tracker">
-    <div class="record-item"><div class="num w">7</div><div class="lbl">Proj. Wins</div></div>
+    <div class="record-item"><div class="num w">2</div><div class="lbl">Wins</div></div>
     <div class="record-sep">–</div>
-    <div class="record-item"><div class="num l">5</div><div class="lbl">Proj. Losses</div></div>
+    <div class="record-item"><div class="num l">2</div><div class="lbl">Losses</div></div>
     <div class="record-item" style="margin-left:.75rem;padding-left:1.25rem;border-left:1px solid var(--border)">
-      <div class="num" style="color:var(--gold-accent)">3</div><div class="lbl">Media Favored</div>
+      <div class="num" style="color:var(--gold-accent)">0–1</div><div class="lbl">Big Ten</div>
     </div>
   </div>
 
@@ -570,6 +573,7 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
       <div class="game-info">
         <div class="game-opponent">Toledo</div>
         <div class="game-meta">Friday Night &middot; Spartan Stadium <span class="watch-tag">ESPN+</span></div>
+        <div class="game-result win">Final: W 30–20</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -598,6 +602,7 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
       <div class="game-info">
         <div class="game-opponent">Eastern Michigan</div>
         <div class="game-meta">3:30 PM &middot; <span class="tv-tag">BTN</span> <span class="watch-tag">Peacock</span> &middot; Spartan Stadium</div>
+        <div class="game-result win">Final: W 35–7</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -626,6 +631,7 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
       <div class="game-info">
         <div class="game-opponent">at Notre Dame ⭐</div>
         <div class="game-meta">7:30 PM &middot; <span class="tv-tag">NBC</span> <span class="watch-tag">Peacock</span> &middot; South Bend</div>
+        <div class="game-result loss">Final: L 10–27</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -654,6 +660,7 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
       <div class="game-info">
         <div class="game-opponent">Nebraska</div>
         <div class="game-meta">Time TBD &middot; Big Ten Opener</div>
+        <div class="game-result loss">Final: L 13–31</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -671,13 +678,13 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-date="2026-10-03T12:00:00-04:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2026-10-03T12:30:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Oct</div><div class="day">3</div><div class="weekday">Sat</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
         <div class="game-opponent">at Wisconsin</div>
-        <div class="game-meta">Time TBD &middot; Camp Randall</div>
+        <div class="game-meta">12:30 PM &middot; <span class="tv-tag">BTN</span> <span class="watch-tag">FOX One</span> &middot; Camp Randall</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -691,13 +698,13 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="home" data-date="2026-10-10T12:00:00-04:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-date="2026-10-10T15:30:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Oct</div><div class="day">10</div><div class="weekday">Sat</div></div>
       <div class="game-divider home"></div>
       <div class="game-info">
         <div class="game-opponent">Illinois</div>
-        <div class="game-meta">Time TBD &middot; Homecoming</div>
+        <div class="game-meta">3:30 PM &middot; <span class="tv-tag">FS1</span> &middot; Homecoming</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -907,23 +914,22 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
     </div>
   </div>
 
-  <div class="game-card" data-loc="neutral" data-star="1" data-date="2026-11-10T19:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-date="2026-10-02T19:00:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">10</div><div class="weekday">Tue</div></div>
-      <div class="game-divider neutral"></div>
+      <div class="game-date"><div class="month">Oct</div><div class="day">2</div><div class="weekday">Fri</div></div>
+      <div class="game-divider home"></div>
       <div class="game-info">
-        <div class="game-opponent">vs Duke ⭐</div>
-        <div class="game-meta">Champions Classic &middot; <span class="tv-tag">ESPN</span> <span class="watch-tag">ESPN App</span> &middot; Chicago</div>
+        <div class="game-opponent">Incarnate Word (Exh.)</div>
+        <div class="game-meta">7:00 PM &middot; Breslin Center</div>
       </div>
-      <div class="game-badge badge-neutral">Neutral</div>
+      <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 Preview</div>
-        <div class="detail-text">Season opener at the Champions Classic in Chicago. Blue-blood showdown to tip off Izzo's 32nd season with a potential No. 1-ranked roster.</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Izzone Campout exhibition. Season-ticket holders and Izzone members only. Tip times and TV for most games are announced closer to the season.</div>
       </div>
-      <div class="no-preview">Full LSJ preview drops 2 weeks before tip-off — ask Claude to refresh.</div>
       <div class="link-row">
         <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
         <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
@@ -931,23 +937,298 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="neutral" data-date="2026-11-26T14:00:00-05:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="home" data-star="1" data-date="2026-10-20T19:00:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
-      <div class="game-date"><div class="month">Nov</div><div class="day">26</div><div class="weekday">Thu</div></div>
+      <div class="game-date"><div class="month">Oct</div><div class="day">20</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">UConn (Exhibition) ⭐</div>
+        <div class="game-meta">7:00 PM &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Exhibition. Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-10-25T19:00:00-04:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Oct</div><div class="day">25</div><div class="weekday">Sun</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Marquette (Exh.)</div>
+        <div class="game-meta">Time TBA &middot; Milwaukee</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Exhibition. Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-02T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">2</div><div class="weekday">Mon</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Quinnipiac</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Season opener. Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-05T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">5</div><div class="weekday">Thu</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Toledo</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="neutral" data-star="1" data-date="2026-11-10T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">10</div><div class="weekday">Tue</div></div>
       <div class="game-divider neutral"></div>
       <div class="game-info">
-        <div class="game-opponent">vs Arkansas</div>
-        <div class="game-meta">Thanksgiving &middot; Little Caesars Arena</div>
+        <div class="game-opponent">vs Duke ⭐</div>
+        <div class="game-meta">7:00 PM &middot; <span class="tv-tag">ESPN</span> Champions Classic · United Center, Chicago</div>
       </div>
       <div class="game-badge badge-neutral">Neutral</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 Preview</div>
-        <div class="detail-text">Izzo vs. Calipari on Thanksgiving Day in Detroit. Two Hall of Fame-caliber coaches in a holiday showcase at Little Caesars Arena.</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">State Farm Champions Classic, 6 PM CT. Tip times and TV for most games are announced closer to the season.</div>
       </div>
-      <div class="no-preview">Full LSJ preview drops 2 weeks before tip-off — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-13T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">13</div><div class="weekday">Fri</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Northern Iowa</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-star="1" data-date="2026-11-17T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">17</div><div class="weekday">Tue</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Tennessee ⭐</div>
+        <div class="game-meta">Time TBA &middot; Knoxville</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-11-21T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">21</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Detroit Mercy</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="neutral" data-star="1" data-date="2026-11-26T16:30:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Nov</div><div class="day">26</div><div class="weekday">Thu</div></div>
+      <div class="game-divider neutral"></div>
+      <div class="game-info">
+        <div class="game-opponent">vs Arkansas ⭐</div>
+        <div class="game-meta">4:30 PM &middot; <span class="tv-tag">CBS</span> Thanksgiving · Little Caesars Arena, Detroit</div>
+      </div>
+      <div class="game-badge badge-neutral">Neutral</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">CBS Sports Thanksgiving Classic. Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-12-02T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">2</div><div class="weekday">Wed</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Minnesota</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center · Big Ten opener</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-12-05T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">5</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Drake</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2026-12-09T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">9</div><div class="weekday">Wed</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Maryland</div>
+        <div class="game-meta">Time TBA &middot; College Park</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-12-12T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">12</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Merrimack</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
       <div class="link-row">
         <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
         <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
@@ -961,17 +1242,476 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
       <div class="game-divider neutral"></div>
       <div class="game-info">
         <div class="game-opponent">vs Gonzaga ⭐</div>
-        <div class="game-meta">Acrisure Series &middot; Palm Desert, CA</div>
+        <div class="game-meta">Time TBA &middot; Acrisure Series · Acrisure Arena, Coachella Valley, CA</div>
       </div>
       <div class="game-badge badge-neutral">Neutral</div>
       <div class="game-chevron">▼</div>
     </div>
     <div class="game-detail"><div class="detail-inner">
       <div class="detail-section">
-        <div class="detail-label">📰 Preview</div>
-        <div class="detail-text">Acrisure Series clash in the California desert. Two programs with deep March pedigrees in a marquee December test.</div>
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Men's and women's doubleheader vs Gonzaga; first game 11 AM PT, order and TV TBA. Tip times and TV for most games are announced closer to the season.</div>
       </div>
-      <div class="no-preview">Full LSJ preview drops 2 weeks before tip-off — ask Claude to refresh.</div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-12-22T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">22</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Oakland</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2026-12-29T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Dec</div><div class="day">29</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Penn</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-01-02T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">2</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Nebraska</div>
+        <div class="game-meta">Time TBA &middot; Lincoln</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-01-05T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">5</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Washington</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-01-09T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">9</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at UCLA</div>
+        <div class="game-meta">Time TBA &middot; Los Angeles</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-01-12T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">12</div><div class="weekday">Tue</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at USC</div>
+        <div class="game-meta">Time TBA &middot; Los Angeles</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-01-16T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">16</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Oregon</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-01-23T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">23</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Ohio State</div>
+        <div class="game-meta">Time TBA &middot; Columbus</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-01-26T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">26</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Penn State</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-star="1" data-date="2027-01-30T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Jan</div><div class="day">30</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Purdue ⭐</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-02-02T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">2</div><div class="weekday">Tue</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Maryland</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-star="1" data-date="2027-02-05T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">5</div><div class="weekday">Fri</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Illinois ⭐</div>
+        <div class="game-meta">Time TBA &middot; Champaign</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-02-10T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">10</div><div class="weekday">Wed</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Rutgers</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-star="1" data-date="2027-02-13T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">13</div><div class="weekday">Sat</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Michigan ⭐</div>
+        <div class="game-meta">Time TBA &middot; Ann Arbor</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-02-16T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">16</div><div class="weekday">Tue</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Iowa</div>
+        <div class="game-meta">Time TBA &middot; Iowa City</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-02-20T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">20</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Nebraska</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-02-23T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">23</div><div class="weekday">Tue</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Indiana</div>
+        <div class="game-meta">Time TBA &middot; Bloomington</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-star="1" data-date="2027-02-26T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Feb</div><div class="day">26</div><div class="weekday">Fri</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Michigan ⭐</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="away" data-date="2027-03-02T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Mar</div><div class="day">2</div><div class="weekday">Tue</div></div>
+      <div class="game-divider away"></div>
+      <div class="game-info">
+        <div class="game-opponent">at Northwestern</div>
+        <div class="game-meta">Time TBA &middot; Evanston</div>
+      </div>
+      <div class="game-badge badge-away">Away</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
+      <div class="link-row">
+        <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
+        <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="game-card" data-loc="home" data-date="2027-03-06T19:00:00-05:00" onclick="toggleCard(this)">
+    <div class="game-main">
+      <div class="game-date"><div class="month">Mar</div><div class="day">6</div><div class="weekday">Sat</div></div>
+      <div class="game-divider home"></div>
+      <div class="game-info">
+        <div class="game-opponent">Wisconsin</div>
+        <div class="game-meta">Time TBA &middot; Breslin Center · Regular-season finale</div>
+      </div>
+      <div class="game-badge badge-home">Home</div>
+      <div class="game-chevron">▼</div>
+    </div>
+    <div class="game-detail"><div class="detail-inner">
+      <div class="detail-section">
+        <div class="detail-label">📋 Game Info</div>
+        <div class="detail-text">Tip times and TV for most games are announced closer to the season.</div>
+      </div>
       <div class="link-row">
         <a class="mini-link" href="https://www.lansingstatejournal.com/sports/college/msu/" target="_blank" onclick="event.stopPropagation()">📰 LSJ Coverage</a>
         <a class="mini-link" href="https://msuspartans.com/sports/mens-basketball/schedule" target="_blank" onclick="event.stopPropagation()">🏀 MSU Site</a>
@@ -980,11 +1720,12 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
   </div>
 
   <div class="season-outlook" style="margin-top:.5rem">
-    <h3>Big Ten Opponents (Dates TBA)</h3>
+    <h3>Postseason Dates</h3>
     <div class="outlook-text">
-      <strong>Home:</strong> Michigan, Maryland, Nebraska, Minnesota, Oregon, Penn State, Purdue, Rutgers, Washington, Wisconsin<br><br>
-      <strong>Away:</strong> Michigan, Maryland, Nebraska, Illinois, Indiana, Iowa, Northwestern, Ohio State, UCLA, USC<br><br>
-      <strong>Also coming:</strong> at Tennessee, Baylor, Bahamas holiday tournament &mdash; ask Claude to refresh this app when dates drop.
+      <strong>Big Ten Tournament:</strong> March 9–14, 2027 &middot; Gainbridge Fieldhouse, Indianapolis (final Sun., March 14)<br><br>
+      <strong>Selection Sunday:</strong> March 14, 2027 &middot; first 76-team NCAA bracket<br><br>
+      <strong>NCAA Tournament:</strong> Sweet 16 March 25–26 &middot; Elite Eight March 27–28<br><br>
+      <strong>Final Four:</strong> April 3 &amp; 5, 2027 &middot; Ford Field, Detroit
     </div>
   </div>
 
