@@ -1,5 +1,11 @@
+# spartans-gameday.netlify.app
+#   /          the Spartans Game Tracker app
+#   /stats     visitor stats
+#   /p/<id>    watch-party invites
+#   /api/*     counter, parties, answers (netlify/functions)
 [build]
-  publish = "public"
+  command = "node build.mjs"
+  publish = "dist"
 
 [functions]
   directory = "netlify/functions"
@@ -9,3 +15,13 @@
   from = "/p/*"
   to = "/party.html"
   status = 200
+
+# Always check for a fresh copy of the app page and service worker
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"

@@ -2,7 +2,7 @@
 
 A free, unofficial fan app for Michigan State football and basketball: schedules, countdowns, live scores, rankings, tailgate plans and watch-party invites, all in one place on your phone.
 
-**Open it:** https://wswaldmann-lgtm.github.io/msu-Football---basketball-/
+**Open it:** https://spartans-gameday.netlify.app
 
 ---
 
@@ -88,14 +88,19 @@ Free, ad-free, made by a Spartan fan. The **Support this app** button at the bot
 
 ## For the app owner: how it's run
 
-**The app** is one file, `index.html`. Every push to `main` publishes it to GitHub Pages via `.github/workflows/pages.yml`. The old link (`msu-spartans-share.html`) redirects to the new address. One-time setup: repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+**Main address: https://spartans-gameday.netlify.app** (Netlify project `spartans-gameday`, linked to this repo, base directory `stats`). Every push to `main` rebuilds it. [`stats/build.mjs`](stats/build.mjs) assembles the site:
 
-**Calendars:** `msu-football.ics` and `msu-basketball.ics` are the subscription feeds. Keep them at this address; subscribers' calendars point here.
+| Address | What it is |
+|---|---|
+| `/` | The app (`index.html` from the repo root) |
+| `/stats` | Visitor stats: opens per day, unique phones, top states |
+| `/p/<party id>` | Watch-party invite pages |
+| `/api/*` | Counter, watch parties and answers ([`stats/netlify/functions`](stats/netlify/functions)) |
+| `/msu-football.ics`, `/msu-basketball.ics` | Calendar feeds, rebuilt from the schedule on every deploy |
 
-**Spartans Gameday (Netlify project `spartans-gameday`)** runs the parts that need a server. Its code is in [`stats/`](stats/):
-- **Visitor stats page:** https://spartans-gameday.netlify.app (opens per day, unique phones, top states)
-- **Watch-party invites and answers:** `/p/<party id>`
-
-One-time setup: in Netlify, open **spartans-gameday → Link repository**, choose this repo, and set the base directory to `stats`. After that it redeploys on its own whenever this repo changes.
+**Old GitHub Pages address** (https://wswaldmann-lgtm.github.io/msu-Football---basketball-/) stays up, published by `.github/workflows/pages.yml`:
+- Browser visits jump straight to the Netlify address.
+- Phones that installed the old address see a banner asking them to re-add the app from the new one.
+- Calendar subscriptions made at the old address keep working, since the `.ics` feeds are still published there.
 
 **Fight-song intro:** synthesized in code (baritones and tubas) from the public-domain melody of "Victory for MSU" (F. I. Lankey, 1915). No audio file.

@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+// The app's home is now spartans-gameday.netlify.app. Browser visits to the old GitHub address
+// go straight there. Home-screen installs of the old address get a "we moved" banner instead,
+// because jumping to another site from an installed app opens an awkward in-app browser on iPhone.
+(function () {
+  if (location.hostname !== 'wswaldmann-lgtm.github.io') return;
+  var installed = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone;
+  if (!installed) location.replace('https://spartans-gameday.netlify.app/' + location.search + location.hash);
+  else window.__movedBanner = true;
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -585,12 +596,17 @@ body.dark .wp-label{color:#5BBF97}
 </div>
 
 
+<div id="movedBanner" hidden style="background:#C5A551;color:#1A1A1A;padding:.75rem 1rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.02em;font-size:.88rem;line-height:1.35;text-align:center">
+  📲 The Spartans Game Tracker has a new home!<br>
+  <a href="https://spartans-gameday.netlify.app/" target="_blank" rel="noopener" style="color:#0F2B24;text-decoration:underline">Open spartans-gameday.netlify.app</a>, then <b>Add to Home Screen</b> again and delete this old icon.
+</div>
+<script>if (window.__movedBanner) document.getElementById('movedBanner').hidden = false;</script>
 <div id="installBanner" style="background:var(--gold-accent);color:#1A1A1A;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.03em;">
   <span style="font-size:1.2rem">📲</span>
   <span style="flex:1">Add to Home Screen to use like an app!</span>
   <button onclick="document.getElementById('installBanner').style.display='none';localStorage.setItem('msu_installed','1')" style="background:rgba(0,0,0,.15);border:none;color:#1A1A1A;padding:.3rem .6rem;border-radius:6px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;cursor:pointer">GOT IT</button>
 </div>
-<script>if(localStorage.getItem('msu_installed'))document.getElementById('installBanner').style.display='none';</script>
+<script>if(localStorage.getItem('msu_installed')||window.__movedBanner)document.getElementById('installBanner').style.display='none';</script>
 <div class="header">
   <div class="header-top">
     <img class="spartan-logo" src="icons/icon-192.png" alt="" width="44" height="44" style="padding:0;object-fit:cover">
