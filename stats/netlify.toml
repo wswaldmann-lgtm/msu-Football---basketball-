@@ -6,9 +6,10 @@
 [build]
   command = "node build.mjs"
   publish = "dist"
-  # The app lives outside this folder, so always rebuild on every push
-  # (Netlify would otherwise skip builds when nothing in stats/ changed).
-  ignore = "exit 1"
+  # Every production build costs Netlify credits, so each site only rebuilds when
+  # files it uses changed (see ignore.mjs). Netlify's default check only looks
+  # inside stats/, which would miss app changes.
+  ignore = "node ignore.mjs"
 
 [functions]
   directory = "netlify/functions"

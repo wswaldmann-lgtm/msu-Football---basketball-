@@ -134,3 +134,12 @@ The MSU app is the master copy. Other schools get their own app made from it, so
 | FIU Panthers | https://fiu-gameday.netlify.app | [`teams/fiu.json`](teams/fiu.json) |
 
 Optional settings: `schoolRegex` (exact pattern for the team's row when the plain name would match other schools, e.g. Miami vs. Miami (OH)), `colors.iconFg` (icon letter color when the accent is too dark), `monogram` (two letters on the icon).
+
+### Netlify credits (free plan: 300 a month for the whole account)
+
+Every production build costs **15 credits**, and if the account runs out, **every site goes offline until the month resets** (including non-tracker sites in the same account). Visitors cost very little (about 3 credits per 10,000 page loads, plus about 10 per GB of traffic).
+
+- [`stats/ignore.mjs`](stats/ignore.mjs) makes each site rebuild only when files *it* uses changed: the MSU site for the root app, a team's site for its own folder or settings file. Changes to the shared server code or pages in `stats/` rebuild every linked site (9 × 15 = 135 credits), so batch those.
+- Group several edits into one push instead of many small pushes.
+- Check usage in Netlify under **Team settings → Usage & billing**.
+
