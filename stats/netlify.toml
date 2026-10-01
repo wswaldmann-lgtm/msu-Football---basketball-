@@ -6,6 +6,9 @@
 [build]
   command = "node build.mjs"
   publish = "dist"
+  # The app lives outside this folder, so always rebuild on every push
+  # (Netlify would otherwise skip builds when nothing in stats/ changed).
+  ignore = "exit 1"
 
 [functions]
   directory = "netlify/functions"
