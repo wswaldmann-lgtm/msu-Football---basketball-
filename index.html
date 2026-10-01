@@ -499,6 +499,39 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
 #exitSheet button.go{background:var(--spartan-green);border-color:var(--spartan-green);color:#fff}
 @media (prefers-reduced-motion:reduce){#splash{transition:none}}
 #splash[hidden],#exitSheet[hidden]{display:none!important}
+
+/* ===== Bottom tab bar ===== */
+.tabs{display:none}
+.jump-btn{display:none}
+body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+.bottom-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:150;
+  display:flex;justify-content:space-around;align-items:stretch;
+  background:var(--spartan-green-dark);
+  border-top:2px solid var(--gold-accent);
+  padding:0 4px env(safe-area-inset-bottom,0px);
+  box-shadow:0 -4px 16px rgba(0,0,0,.25);
+}
+.bb-item{
+  flex:1;min-width:0;height:62px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.62);
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.64rem;
+  letter-spacing:.03em;white-space:nowrap;text-transform:uppercase;
+  position:relative;
+}
+.bb-item .bb-ic{font-size:1.35rem;line-height:1;filter:grayscale(.35);transition:transform .15s}
+.bb-item.active{color:var(--gold-accent)}
+.bb-item.active .bb-ic{filter:none;transform:translateY(-1px) scale(1.08)}
+.bb-item.active::before{
+  content:'';position:absolute;top:0;left:22%;right:22%;height:3px;
+  background:var(--gold-accent);border-radius:0 0 3px 3px;
+}
+.bb-item:active .bb-ic{transform:scale(.9)}
+@media(min-width:500px){
+  .bottom-bar{max-width:480px;margin:0 auto}
+}
 </style>
 </head>
 <body>
@@ -1808,6 +1841,14 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
 
 <button class="jump-btn" onclick="jumpToNext()">⚡ Next Game</button>
 
+<nav class="bottom-bar" aria-label="Main">
+  <button class="bb-item active" data-bb="football" onclick="bbSport('football')"><span class="bb-ic">🏈</span>Football</button>
+  <button class="bb-item" data-bb="basketball" onclick="bbSport('basketball')"><span class="bb-ic">🏀</span>Basketball</button>
+  <button class="bb-item" onclick="jumpToNext()"><span class="bb-ic">⚡</span>Next Game</button>
+  <button class="bb-item" onclick="openTailgate()"><span class="bb-ic">🍔</span>Tailgate</button>
+  <button class="bb-item" onclick="openTrashTalk()"><span class="bb-ic">🔥</span>Trash Talk</button>
+</nav>
+
 <script>
 // ===== Dark mode =====
 function toggleDark() {
@@ -1831,6 +1872,18 @@ function switchTab(tab, el) {
   markNextGame();
   updateProgress();
 }
+
+// ===== Bottom tab bar =====
+function bbSport(tab) {
+  const top = document.querySelector('.tab[data-tab="' + tab + '"]');
+  if (top) switchTab(tab, top);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function syncBottomBar() {
+  document.querySelectorAll('.bb-item[data-bb]').forEach(b => b.classList.toggle('active', b.dataset.bb === activeTab));
+}
+const _switchTab = switchTab;
+switchTab = function(tab, el) { _switchTab(tab, el); syncBottomBar(); };
 
 // ===== Filters =====
 function setFilter(f, el) {
