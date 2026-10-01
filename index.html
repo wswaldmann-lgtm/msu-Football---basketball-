@@ -6,6 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#18453B">
+<meta name="apple-mobile-web-app-title" content="Spartans">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
 <title>MSU Spartans Game Tracker</title>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -213,6 +217,12 @@ body.dark .game-divider.home{background:#2E7D5F}
   letter-spacing:.01em;line-height:1.2;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
+.cal-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem;margin:0 0 1rem}
+.cal-card h3{font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.35rem}
+.cal-card p{font-size:.85rem;opacity:.8;margin-bottom:.7rem}
+.cal-btns{display:flex;flex-wrap:wrap;gap:.5rem}
+.cal-btns a,.cal-btns button{font-family:'Oswald',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:.03em;padding:.5rem .8rem;border-radius:8px;border:1px solid var(--border);background:transparent;color:inherit;text-decoration:none;cursor:pointer}
+.cal-btns a.primary{background:var(--spartan-green);border-color:var(--spartan-green);color:#fff}
 .game-result{display:inline-block;font-weight:700;font-size:.78rem;padding:.1rem .45rem;border-radius:4px;margin-top:.2rem;letter-spacing:.02em}
 .game-result.win{background:#1f6f43;color:#fff}
 .game-result.loss{background:#9b2c2c;color:#fff}
@@ -565,6 +575,17 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
     </div>
   </div>
 
+  <div class="cal-card" data-kind="football">
+    <h3>📅 Add football games to your calendar</h3>
+    <p>Subscribe once and new tip/kick times show up automatically as they're announced.</p>
+    <div class="cal-btns">
+      <a class="primary cal-apple" href="#">iPhone / Mac Calendar</a>
+      <a class="cal-google" href="#" target="_blank" rel="noopener">Google Calendar</a>
+      <a class="cal-file" href="#" download>Download .ics</a>
+      <button type="button" onclick="copyCalLink('football', this)">Copy link</button>
+    </div>
+  </div>
+
   <!-- FOOTBALL -->
   <div class="game-card" data-loc="home" data-date="2026-09-04T19:00:00-04:00" id="fb-toledo" onclick="toggleCard(this)">
     <div class="game-main">
@@ -911,6 +932,17 @@ body.dark .tg-check.checked{background:var(--gold-accent);border-color:var(--gol
     </div>
     <div class="outlook-text">
       Consensus preseason top-10. All-American Jeremy Fears Jr. withdrew from the NBA Draft and returns. MSU adds 7'2" Charlotte transfer Anton Bonke plus a loaded freshman class led by five-star center Ethan Taylor. USA Today has the Spartans at No. 1.
+    </div>
+  </div>
+
+  <div class="cal-card" data-kind="basketball">
+    <h3>📅 Add basketball games to your calendar</h3>
+    <p>Subscribe once and new tip/kick times show up automatically as they're announced.</p>
+    <div class="cal-btns">
+      <a class="primary cal-apple" href="#">iPhone / Mac Calendar</a>
+      <a class="cal-google" href="#" target="_blank" rel="noopener">Google Calendar</a>
+      <a class="cal-file" href="#" download>Download .ics</a>
+      <button type="button" onclick="copyCalLink('basketball', this)">Copy link</button>
     </div>
   </div>
 
@@ -2194,6 +2226,28 @@ function shareTg() {
     setTimeout(()=>b.innerHTML='\ud83d\udce4 Share Plan',1500);
   });}else{prompt('Copy:',t);}
 }
+</script>
+<script>
+// Installable app: register the service worker when served over http(s).
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+function copyCalLink(kind, btn) {
+  const url = new URL('msu-' + kind + '.ics', location.href).href;
+  const done = () => { const t = btn.textContent; btn.textContent = 'Copied ✓'; setTimeout(() => btn.textContent = t, 1800); };
+  (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(done, () => prompt('Copy this calendar link:', url));
+}
+function calLinks() {
+  document.querySelectorAll('.cal-card').forEach(card => {
+    const kind = card.dataset.kind;
+    const ics = new URL('msu-' + kind + '.ics', location.href);
+    const webcal = 'webcal://' + ics.host + ics.pathname;
+    card.querySelector('.cal-apple').href = webcal;
+    card.querySelector('.cal-google').href = 'https://calendar.google.com/calendar/render?cid=' + encodeURIComponent(webcal);
+    card.querySelector('.cal-file').href = ics.pathname;
+  });
+}
+calLinks();
 </script>
 </body>
 </html>
