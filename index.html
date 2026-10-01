@@ -2445,9 +2445,8 @@ function playIntro() {
   tune.forEach(([n, beats], i) => {
     const final = i === tune.length - 1;
     const d = beat * beats * (final ? 1 : 0.85);                  // small gap re-articulates each note
-    brass(hz(n - 12), t, d, 0.5, 0.45);                          // baritones carry the tune (warm, an octave down)
-    brass(hz(n), t, d, 0.14, 0.55);                               // trumpets, soft on top
-    brass(hz(n - 24), t, d, 0.3, 0.3);                            // tubas, two octaves down
+    brass(hz(n - 12), t, d, 0.5, 0.45);                           // baritones carry the tune (warm, an octave down)
+    brass(hz(n - 24), t, d, 0.5, 0.3);                            // tubas, two octaves down
     noise(t, 0.08, 0.16, 'bandpass', 1900, 0.7);                  // light snare on each note
     if (final) {
       chord([34, 46], t, d, 0.45);                             // low B-flat from the tubas under the held note
