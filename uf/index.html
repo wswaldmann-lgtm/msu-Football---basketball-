@@ -2101,6 +2101,22 @@ const ESPN = {
   }
 };
 let liveTimers = {};
+const NCAA_SLUG = 'florida';
+async function ncaaLive(sport) {
+  try {
+    const path = sport === 'football' ? 'football/fbs' : 'basketball-men/d1';
+    const r = await fetch('https://ncaa-api.henrygd.me/scoreboard/' + path + '?_=' + Date.now(), {cache:'no-store'});
+    const d = await r.json();
+    const g = (d.games || []).map(x => x.game).find(x => x && (x.home?.names?.seo === NCAA_SLUG || x.away?.names?.seo === NCAA_SLUG));
+    if (!g || g.gameState === 'pre') return null;
+    const team = t => ({ score: t.score, team: { shortDisplayName: t.names?.short, displayName: t.names?.short,
+      abbreviation: t.names?.seo === NCAA_SLUG && NCAA_SLUG === 'michigan-st' ? 'MSU' : '' } });
+    const fin = g.gameState === 'final';
+    return { competitors: [team(g.home), team(g.away)],
+      status: { type: { state: fin ? 'post' : 'in',
+        shortDetail: fin ? 'Final' : ((g.contestClock || '') + ' ' + (g.currentPeriod || '')).trim() } } };
+  } catch (e) { return null; }
+}
 const ESPN_SUMMARY = {
   football:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=',
   basketball:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/summary?event='
@@ -2156,6 +2172,11 @@ async function loadScore(sport) {
         const sd = await sr.json();
         if (sd?.header?.competitions?.[0]) comp = sd.header.competitions[0];
       } catch (e) {}
+    }
+    // Still nothing live from ESPN? Use the NCAA live scoreboard as a backup
+    if (comp?.status?.type?.state === 'pre' && ageH > -0.25 && ageH < 5) {
+      const n = await ncaaLive(sport);
+      if (n) comp = n;
     }
     const st = comp.status?.type || {};
     const isLive = st.state === 'in';
