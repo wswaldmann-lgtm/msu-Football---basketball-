@@ -15,6 +15,7 @@
   "site": "https://uf-gameday.netlify.app",
   "netlifyProject": "uf-gameday",
   "espnId": 57,
+  "ncaaSlug": "florida",
   "standings": {
     "football": 8,
     "basketball": 23,

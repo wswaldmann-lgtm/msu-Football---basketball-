@@ -233,6 +233,8 @@ def build(slug):
     page = swap(page, "college-football/standings?group=5'", f"college-football/standings?group={team['standings']['football']}'")
     page = swap(page, "mens-college-basketball/standings?group=7'", f"mens-college-basketball/standings?group={team['standings']['basketball']}'")
     page = swap(page, "t.team?.abbreviation === 'MSU'", f"t.team?.abbreviation === '{short}'")
+    page = swap(page, "const TEAM_ESPN_ID = '127';", f"const TEAM_ESPN_ID = '{team['espnId']}';", count=1)
+    page = swap(page, "const NCAA_SLUG = 'michigan-st';", f"const NCAA_SLUG = '{team['ncaaSlug']}';", count=1)
     # pattern that picks out this team's row in scores, rankings and standings
     # (teams.json can give an exact "schoolRegex" when the plain name would match other schools)
     page = page.replace("/Michigan State/i", f"/{team.get('schoolRegex', re.escape(team['school']))}/i")

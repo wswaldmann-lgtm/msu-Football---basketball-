@@ -15,6 +15,7 @@
   "site": "https://fsu-gameday.netlify.app",
   "netlifyProject": "fsu-gameday",
   "espnId": 52,
+  "ncaaSlug": "florida-st",
   "standings": { "football": 1, "basketball": 2, "label": "ACC", "tabLabel": "ACC Standings" },
   "season": "2026–27",
 

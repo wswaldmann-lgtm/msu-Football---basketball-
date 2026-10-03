@@ -2132,7 +2132,26 @@ const ESPN = {
   }
 };
 let liveTimers = {};
+// This team's ids in the ESPN and NCAA feeds (tools/make_team.py swaps them for other schools)
+const TEAM_ESPN_ID = '2711';
 const NCAA_SLUG = 'western-mich';
+const ESPN_SUMMARY = {
+  football:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=',
+  basketball:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/summary?event='
+};
+// 1st choice: the app's own /api/score (Netlify) checks ESPN and the NCAA server-side,
+// so the phone never runs into blocked or stale feeds.
+async function apiScore(sport) {
+  try {
+    const r = await fetch('/api/score?sport=' + sport + '&espn=' + TEAM_ESPN_ID + '&ncaa=' + NCAA_SLUG + '&_=' + Date.now(), {cache:'no-store'});
+    if (!r.ok) return null;
+    const d = await r.json();
+    if (!d.ok || !d.teams || d.teams.length < 2) return null;
+    return { status: { type: { state: d.state, shortDetail: d.detail } },
+      competitors: d.teams.map(t => ({ mine: t.mine, score: t.score, team: { shortDisplayName: t.name } })) };
+  } catch (e) { return null; }
+}
+// Backup straight from the phone: NCAA live scoreboard
 async function ncaaLive(sport) {
   try {
     const path = sport === 'football' ? 'football/fbs' : 'basketball-men/d1';
@@ -2140,31 +2159,11 @@ async function ncaaLive(sport) {
     const d = await r.json();
     const g = (d.games || []).map(x => x.game).find(x => x && (x.home?.names?.seo === NCAA_SLUG || x.away?.names?.seo === NCAA_SLUG));
     if (!g || g.gameState === 'pre') return null;
-    const team = t => ({ score: t.score, team: { shortDisplayName: t.names?.short, displayName: t.names?.short,
-      abbreviation: t.names?.seo === NCAA_SLUG && NCAA_SLUG === 'michigan-st' ? 'MSU' : '' } });
+    const team = t => ({ mine: t.names?.seo === NCAA_SLUG, score: t.score, team: { shortDisplayName: t.names?.short } });
     const fin = g.gameState === 'final';
     return { competitors: [team(g.home), team(g.away)],
       status: { type: { state: fin ? 'post' : 'in',
         shortDetail: fin ? 'Final' : ((g.contestClock || '') + ' ' + (g.currentPeriod || '')).trim() } } };
-  } catch (e) { return null; }
-}
-const ESPN_SUMMARY = {
-  football:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=',
-  basketball:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/summary?event='
-};
-const ESPN_BOARD = {
-  football:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&limit=300',
-  basketball:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?groups=50&limit=400'
-};
-// The team-schedule feed lags during games; the daily scoreboard has the real live score.
-async function findLiveGame(sport) {
-  try {
-    const t = new Date();
-    const ymd = t.getFullYear() + String(t.getMonth()+1).padStart(2,'0') + String(t.getDate()).padStart(2,'0');
-    const r = await fetch(ESPN_BOARD[sport] + '&dates=' + ymd + '&_=' + Date.now(), {cache:'no-store'});
-    const d = await r.json();
-    return (d.events || []).find(e => (e.competitions?.[0]?.competitors || [])
-      .some(t => String(t.team?.id) === '2711')) || null;
   } catch (e) { return null; }
 }
 // Tapping the Live / countdown strip jumps to the scoreboard and refreshes it
@@ -2181,40 +2180,41 @@ async function loadScore(sport) {
   const title = document.getElementById(sport + '-live-title');
   body.innerHTML = '<div class="live-msg">Loading…</div>';
   try {
-    const r = await fetch(ESPN[sport].sched + '?_=' + Date.now(), {cache:'no-store'});
-    const data = await r.json();
-    const events = (data.events || []).slice();
-    if (!events.length) throw new Error('no events');
     const now = new Date();
-    // Prefer a live game; else the closest game to now
-    let ev = await findLiveGame(sport);
-    if (ev && ev.competitions?.[0]?.status?.type?.state === 'pre') ev = null;
-    if (!ev) ev = events.find(e => e.competitions?.[0]?.status?.type?.state === 'in');
-    if (!ev) {
-      events.sort((a,b) => Math.abs(new Date(a.date)-now) - Math.abs(new Date(b.date)-now));
-      ev = events[0];
-    }
-    let comp = ev.competitions[0];
-    // If the game is underway but the feed still says "scheduled", ask ESPN's live game feed directly
-    const ageH = (now - new Date(ev.date)) / 3600000;
-    if (comp?.status?.type?.state === 'pre' && ageH > -0.25 && ageH < 5) {
-      try {
-        const sr = await fetch(ESPN_SUMMARY[sport] + ev.id + '&_=' + Date.now(), {cache:'no-store'});
-        const sd = await sr.json();
-        if (sd?.header?.competitions?.[0]) comp = sd.header.competitions[0];
-      } catch (e) {}
-    }
-    // Still nothing live from ESPN? Use the NCAA live scoreboard as a backup
-    if (comp?.status?.type?.state === 'pre' && ageH > -0.25 && ageH < 5) {
-      const n = await ncaaLive(sport);
-      if (n) comp = n;
+    let comp = await apiScore(sport);
+    if (!comp || comp.status.type.state === 'pre') {
+      // Fall back to ESPN's team schedule from the phone
+      const r = await fetch(ESPN[sport].sched + '?_=' + Date.now(), {cache:'no-store'});
+      const data = await r.json();
+      const events = (data.events || []).slice();
+      if (!events.length && !comp) throw new Error('no games found');
+      let ev = events.find(e => e.competitions?.[0]?.status?.type?.state === 'in');
+      if (!ev && events.length) {
+        events.sort((a,b) => Math.abs(new Date(a.date)-now) - Math.abs(new Date(b.date)-now));
+        ev = events[0];
+      }
+      if (ev) {
+        let c = ev.competitions[0];
+        const ageH = (now - new Date(ev.date)) / 3600000;
+        const shouldBeLive = ageH > -0.25 && ageH < 5;
+        if (c?.status?.type?.state === 'pre' && shouldBeLive) {
+          try {
+            const sr = await fetch(ESPN_SUMMARY[sport] + ev.id + '&_=' + Date.now(), {cache:'no-store'});
+            const sd = await sr.json();
+            if (sd?.header?.competitions?.[0]?.status?.type?.state !== 'pre') c = sd.header.competitions[0];
+          } catch (e) {}
+        }
+        if (c?.status?.type?.state === 'pre' && shouldBeLive) c = (await ncaaLive(sport)) || c;
+        if (!comp || c?.status?.type?.state !== 'pre') comp = c;
+      }
     }
     const st = comp.status?.type || {};
     const isLive = st.state === 'in';
     const teams = comp.competitors || [];
     const rows = teams.map(t => {
-      const isMSU = (t.team?.abbreviation === 'WMU' || /Western\ Michigan/i.test(t.team?.displayName||''));
-      const score = (t.score && (t.score.displayValue ?? t.score.value ?? t.score)) ?? '–';
+      const isMSU = (t.mine || String(t.team?.id) === TEAM_ESPN_ID || t.team?.abbreviation === 'WMU' || /Western\ Michigan/i.test(t.team?.displayName||''));
+      let score = t.score && typeof t.score === 'object' ? (t.score.displayValue ?? t.score.value) : t.score;
+      if (score === undefined || score === null || score === '') score = st.state === 'pre' ? '–' : '0';
       const rank = t.curatedRank?.current && t.curatedRank.current <= 25 ? '#' + t.curatedRank.current + ' ' : '';
       return '<div class="score-team' + (isMSU ? ' msu' : '') + '">' +
         '<div class="tscore">' + score + '</div>' +

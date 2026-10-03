@@ -14,6 +14,7 @@
   "site": "https://ucf-gameday.netlify.app",
   "netlifyProject": "ucf-gameday",
   "espnId": 2116,
+  "ncaaSlug": "ucf",
   "standings": { "football": 4, "basketball": 8, "label": "Big 12", "tabLabel": "Big 12 Standings" },
   "season": "2026–27",
   "monogram": "KT",

@@ -13,6 +13,7 @@
   "site": "https://wmu-gameday.netlify.app",
   "netlifyProject": "wmu-gameday",
   "espnId": 2711,
+  "ncaaSlug": "western-mich",
   "standings": {
     "football": 15,
     "basketball": 14,

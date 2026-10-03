@@ -15,6 +15,7 @@
   "site": "https://usf-gameday.netlify.app",
   "netlifyProject": "usf-gameday",
   "espnId": 58,
+  "ncaaSlug": "south-fla",
   "standings": { "football": 151, "basketball": 62, "label": "American", "tabLabel": "American Standings" },
   "season": "2026–27",
 

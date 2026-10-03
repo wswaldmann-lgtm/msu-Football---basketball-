@@ -15,6 +15,7 @@
   "site": "https://miami-gameday.netlify.app",
   "netlifyProject": "miami-gameday",
   "espnId": 2390,
+  "ncaaSlug": "miami-fl",
   "standings": {
     "football": 1,
     "basketball": 2,

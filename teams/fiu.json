@@ -15,6 +15,7 @@
   "site": "https://fiu-gameday.netlify.app",
   "netlifyProject": "fiu-gameday",
   "espnId": 2229,
+  "ncaaSlug": "fiu",
   "standings": { "football": 12, "basketball": 11, "label": "C-USA", "tabLabel": "C-USA Standings" },
   "season": "2026–27",
 
