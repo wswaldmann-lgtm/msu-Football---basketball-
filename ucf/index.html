@@ -2124,6 +2124,10 @@ const ESPN = {
   }
 };
 let liveTimers = {};
+const ESPN_SUMMARY = {
+  football:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=',
+  basketball:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/summary?event='
+};
 const ESPN_BOARD = {
   football:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&limit=300',
   basketball:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?groups=50&limit=400'
@@ -2131,7 +2135,9 @@ const ESPN_BOARD = {
 // The team-schedule feed lags during games; the daily scoreboard has the real live score.
 async function findLiveGame(sport) {
   try {
-    const r = await fetch(ESPN_BOARD[sport]);
+    const t = new Date();
+    const ymd = t.getFullYear() + String(t.getMonth()+1).padStart(2,'0') + String(t.getDate()).padStart(2,'0');
+    const r = await fetch(ESPN_BOARD[sport] + '&dates=' + ymd + '&_=' + Date.now(), {cache:'no-store'});
     const d = await r.json();
     return (d.events || []).find(e => (e.competitions?.[0]?.competitors || [])
       .some(t => String(t.team?.id) === '2116')) || null;
@@ -2151,7 +2157,7 @@ async function loadScore(sport) {
   const title = document.getElementById(sport + '-live-title');
   body.innerHTML = '<div class="live-msg">Loading…</div>';
   try {
-    const r = await fetch(ESPN[sport].sched);
+    const r = await fetch(ESPN[sport].sched + '?_=' + Date.now(), {cache:'no-store'});
     const data = await r.json();
     const events = (data.events || []).slice();
     if (!events.length) throw new Error('no events');
@@ -2164,7 +2170,16 @@ async function loadScore(sport) {
       events.sort((a,b) => Math.abs(new Date(a.date)-now) - Math.abs(new Date(b.date)-now));
       ev = events[0];
     }
-    const comp = ev.competitions[0];
+    let comp = ev.competitions[0];
+    // If the game is underway but the feed still says "scheduled", ask ESPN's live game feed directly
+    const ageH = (now - new Date(ev.date)) / 3600000;
+    if (comp?.status?.type?.state === 'pre' && ageH > -0.25 && ageH < 5) {
+      try {
+        const sr = await fetch(ESPN_SUMMARY[sport] + ev.id + '&_=' + Date.now(), {cache:'no-store'});
+        const sd = await sr.json();
+        if (sd?.header?.competitions?.[0]) comp = sd.header.competitions[0];
+      } catch (e) {}
+    }
     const st = comp.status?.type || {};
     const isLive = st.state === 'in';
     const teams = comp.competitors || [];
@@ -2187,7 +2202,7 @@ async function loadScore(sport) {
     clearInterval(liveTimers[sport]);
     if (isLive) liveTimers[sport] = setInterval(() => loadScore(sport), 45000);
   } catch (e) {
-    body.innerHTML = '<div class="live-msg">Couldn\'t load the score — check your connection and tap ↻ to retry.</div>';
+    body.innerHTML = '<div class="live-msg">Couldn\'t load the score (' + (e && e.message || 'error') + ') — tap ↻ to retry.</div>';
   }
 }
 
