@@ -551,6 +551,18 @@ body.dark .wp-label{color:#D9AE55}
 .wp-party .a button,.wp-party .a a{flex:1;text-align:center;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:.5rem;border-radius:8px;border:1px solid var(--border);background:var(--chip-bg);color:var(--text-primary);cursor:pointer}
 .wp-empty{font-size:.85rem;color:var(--text-muted);padding:.4rem 0}
 .wp-hide{display:none!important}
+.welcome-bar{background:var(--gold-accent);color:#1A1A1A;padding:.55rem .8rem;display:flex;align-items:center;gap:.45rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.02em}
+.welcome-bar .wb-hi{flex:1;white-space:nowrap}
+.welcome-bar .wb-btn{background:#1A1A1A;color:#fff;border:none;border-radius:99px;padding:.42rem .75rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:.8rem;cursor:pointer;white-space:nowrap}
+.welcome-bar .wb-add{background:rgba(0,0,0,.14);color:#1A1A1A}
+.welcome-bar .wb-x{background:none;border:none;color:#1A1A1A;font-size:1.3rem;line-height:1;padding:0 .2rem;cursor:pointer;opacity:.7}
+.inst-steps{list-style:none;display:grid;gap:.6rem;margin:.6rem 0 .2rem;padding:0}
+.inst-steps li{display:flex;gap:.65rem;align-items:flex-start;font-size:.92rem;line-height:1.45;color:var(--text-secondary)}
+.inst-steps li .n{flex:none;display:grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--spartan-green);color:#fff;font-family:'Oswald',sans-serif;font-size:.85rem}
+.inst-steps b{color:var(--text-primary)}
+.inst-ic{display:inline-grid;place-items:center;min-width:1.6rem;height:1.6rem;padding:0 .3rem;border-radius:6px;border:1px solid var(--border);background:var(--chip-bg);font-size:.9rem;vertical-align:middle;color:var(--text-primary)}
+.inst-why{font-size:.85rem;color:var(--text-muted);margin-top:.7rem;line-height:1.4}
+.inst-warn{background:rgba(197,165,81,.15);border-radius:10px;padding:.6rem .7rem;font-size:.88rem;color:var(--text-primary);margin-top:.5rem}
 .tour{position:fixed;inset:0;z-index:9000}
 .tour[hidden]{display:none}
 .tour-shade{position:absolute;inset:0}
@@ -698,10 +710,11 @@ body.dark .wp-find{border-color:#D9AE55;color:#D9AE55}
 </div>
 
 
-<div id="installBanner" style="background:var(--gold-accent);color:#1A1A1A;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.82rem;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.03em;">
-  <span style="font-size:1.2rem">📲</span>
-  <span style="flex:1">Add to Home Screen to use like an app!</span>
-  <button onclick="document.getElementById('installBanner').style.display='none';localStorage.setItem('msu_installed','1')" style="background:rgba(0,0,0,.15);border:none;color:#1A1A1A;padding:.3rem .6rem;border-radius:6px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.7rem;cursor:pointer">GOT IT</button>
+<div id="installBanner" class="welcome-bar">
+  <span class="wb-hi">👋 New here?</span>
+  <button class="wb-btn" onclick="startTour()">▶ Quick tour</button>
+  <button class="wb-btn wb-add" id="wbAdd" onclick="openInstall()">📲 Add to phone</button>
+  <button class="wb-x" aria-label="Hide" onclick="document.getElementById('installBanner').style.display='none';localStorage.setItem('msu_installed','1')">×</button>
 </div>
 <script>if(localStorage.getItem('msu_installed'))document.getElementById('installBanner').style.display='none';</script>
 <div class="header">
@@ -2186,6 +2199,7 @@ loadScore('football');
     <button class="modal-close" onclick="document.getElementById('helpModal').classList.remove('open')">&times;</button>
     <h3>❓ How It Works</h3>
     <button class="wp-demo-btn" onclick="startTour()">▶ Take the quick tour <span>(shows you which buttons to tap)</span></button>
+    <button class="wp-demo-btn" onclick="document.getElementById('helpModal').classList.remove('open');openInstall()">📲 Add this app to your phone <span>(step by step)</span></button>
 
     <div class="help-quick">
       <div class="hq-title">The basics</div>
@@ -2247,6 +2261,16 @@ loadScore('football');
     </details>
 
     <p class="help-foot">Unofficial fan app. Not affiliated with Florida International University. Go Panthers! 💙</p>
+  </div>
+</div>
+
+<!-- Add to phone: one tap on Android/Chrome, step-by-step on iPhone -->
+<div class="tailgate-modal" id="installModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box" style="max-height:88vh;overflow-y:auto">
+    <button class="modal-close" onclick="document.getElementById('installModal').classList.remove('open')">&times;</button>
+    <h3>📲 Add this app to your phone</h3>
+    <div id="installBody"></div>
+    <p class="inst-why">It gets its own icon on your home screen and opens full-screen like a regular app. Free, nothing to download from an app store, no sign-up.</p>
   </div>
 </div>
 
@@ -2441,6 +2465,35 @@ function copyTrash() {
 function openHelp() { document.getElementById('helpModal').classList.add('open'); }
 
 
+// ===== ADD TO PHONE =====
+let installEvt = null;
+const isInstalled = () => (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; });
+window.addEventListener('appinstalled', () => { installEvt = null; try { localStorage.setItem('msu_installed', '1'); } catch (e) {} document.getElementById('installBanner').style.display = 'none'; });
+function openInstall() {
+  const ua = navigator.userAgent, ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const iosOther = ios && /CriOS|FxiOS|EdgiOS|GSA|FBAN|FBAV|Instagram/.test(ua);
+  let h;
+  if (isInstalled()) h = '<div class="inst-warn">✅ You\'re already using it as an app. Nice.</div>';
+  else if (installEvt) h = '<p style="font-size:.92rem;color:var(--text-secondary);margin:.4rem 0 .2rem">One tap and it\'s on your home screen.</p><div class="modal-actions"><button class="btn-primary" style="flex:1" onclick="doInstall()">📲 Add to my home screen</button></div>';
+  else if (ios) h = (iosOther ? '<div class="inst-warn">On iPhone this only works in <b>Safari</b>. Copy the link, open Safari, and paste it there first. <button class="wb-btn" style="margin-top:.4rem" onclick="navigator.clipboard&&navigator.clipboard.writeText(location.origin+\'/\').then(()=>this.textContent=\'✓ Link copied\')">📋 Copy link</button></div>' : '') +
+    '<ol class="inst-steps"><li><span class="n">1</span><span>Tap the <b>Share</b> button <span class="inst-ic">⬆︎</span> at the bottom of Safari (on iPad it\'s at the top).</span></li>' +
+    '<li><span class="n">2</span><span>Scroll down and tap <b>Add to Home Screen</b> <span class="inst-ic">⊞</span>.</span></li>' +
+    '<li><span class="n">3</span><span>Tap <b>Add</b> in the top corner. Look for the new icon on your home screen.</span></li></ol>';
+  else h = '<ol class="inst-steps"><li><span class="n">1</span><span>Tap the <b>menu</b> <span class="inst-ic">⋮</span> at the top right of Chrome.</span></li>' +
+    '<li><span class="n">2</span><span>Tap <b>Add to Home screen</b> or <b>Install app</b>.</span></li>' +
+    '<li><span class="n">3</span><span>Tap <b>Install</b> (or <b>Add</b>). Look for the new icon on your home screen.</span></li></ol>';
+  document.getElementById('installBody').innerHTML = h;
+  document.getElementById('installModal').classList.add('open');
+}
+async function doInstall() {
+  if (!installEvt) return openInstall();
+  installEvt.prompt(); const r = await installEvt.userChoice.catch(() => ({}));
+  installEvt = null; document.getElementById('installModal').classList.remove('open');
+  if (r && r.outcome === 'accepted') { try { localStorage.setItem('msu_installed', '1'); } catch (e) {} document.getElementById('installBanner').style.display = 'none'; }
+}
+if (isInstalled()) { const b = document.getElementById('wbAdd'); if (b) b.style.display = 'none'; }
+
 // ===== QUICK TOUR: points at the real buttons, once on first launch =====
 const tourSteps = [
   { sel: '#countdownStrip', h: 'Countdown to the next game', p: 'This always counts down to the next game, football or basketball.' },
@@ -2449,7 +2502,7 @@ const tourSteps = [
   { sel: '.bottom-bar .bb-item:nth-child(3)', h: '⚡ Next Game', p: 'Jumps straight to the next game and opens it.' },
   { sel: '#bbGameDay', h: 'Throw a tailgate or watch party', p: 'Pick the game and the spot (your house, a friend\'s, a bar near you), then text the invite. Friends tap the link and answer, no app needed.', extra: ['▶ Show me the 30-second party demo', () => { tourEnd(); openPartyDemo(); }] },
   { sel: '.bottom-bar .bb-item:last-child', h: '🔥 Trash Talk', p: 'A one-liner for the group chat. 🎲 for another, 📋 to copy.' },
-  { sel: '.header .mode-toggle', h: 'Lost? Tap ?', p: 'The full guide is here any time, and so is this tour. Tip: add the app to your home screen so it opens like a real app.' },
+  { sel: '.header .mode-toggle', h: 'Lost? Tap ?', p: 'The full guide is here any time, and so is this tour. Last thing: put the app on your home screen so it opens like a real app.', extra: ['📲 Add it to my phone', () => { tourEnd(); openInstall(); }], skipIfInstalled: true },
 ];
 let tourI = 0;
 function tourKey() { return 'msu_tour_done'; }
@@ -2486,6 +2539,7 @@ function tourText(s) {
   document.getElementById('tourK').textContent = 'Quick tour · ' + (tourI + 1) + ' of ' + tourSteps.length;
   document.getElementById('tourH').textContent = s.h; document.getElementById('tourP').textContent = s.p;
   const ex = document.getElementById('tourExtra');
+  if (s.skipIfInstalled && isInstalled()) { ex.classList.add('wp-hide'); } else
   ex.classList.toggle('wp-hide', !s.extra); if (s.extra) { ex.textContent = s.extra[0]; ex.onclick = s.extra[1]; }
   document.getElementById('tourDots').innerHTML = tourSteps.map((_, i) => '<i class="' + (i === tourI ? 'on' : '') + '"></i>').join('');
   document.getElementById('tourBack').style.visibility = tourI ? 'visible' : 'hidden';

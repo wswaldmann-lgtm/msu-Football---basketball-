@@ -66,6 +66,11 @@ input{font:inherit;width:100%;padding:.7rem .8rem;border-radius:10px;border:1px 
 .nextrow .wide{grid-column:1/-1;background:var(--gold);border-color:var(--gold);color:#1A1A1A;font-size:.92rem}
 .who .br{color:var(--muted);font-size:.85rem}
 .nomap{display:block;margin-top:.55rem;color:var(--muted);font-size:.9rem}
+.getapp{display:flex;gap:.8rem;align-items:center;background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;border-radius:14px;padding:.95rem 1rem;text-decoration:none}
+.getapp .ic{flex:none;width:3rem;height:3rem;border-radius:12px;background:#fff center/cover no-repeat;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.getapp b{font-family:'Oswald',sans-serif;font-size:1.05rem;letter-spacing:.02em;display:block}
+.getapp span{font-size:.86rem;opacity:.85;line-height:1.35}
+.getapp .go{margin-left:auto;flex:none;background:var(--gold);color:#1A1A1A;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:.78rem;border-radius:99px;padding:.5rem .8rem}
 .foot a{color:inherit}
 </style>
 </head>
@@ -232,7 +237,8 @@ function render() {
     </div>
 
     ${myAns ? '' : `<button class="btn gold" onclick="forward()">📤 Invite a friend</button>`}
-    <div class="foot">Want to host your own? Get the free <a href="/">Spartans Game Tracker</a> · Go Green! 💚</div>`;
+    ${myAns || data.isHost ? `<a class="getapp" href="/?from=invite"><span class="ic" style="background-image:url(/icons/icon-192.png)"></span><span><b>Get the free app</b><span>Schedule, TV channels, live scores, and throw your own parties.</span></span><span class="go">Open</span></a>` : ''}
+    <div class="foot">Made with the free <a href="/?from=invite">Spartans Game Tracker</a> · Go Green! 💚</div>`;
 }
 
 function pick(s) { choice = s; document.querySelectorAll('.ans').forEach(b => b.classList.toggle('on', b.dataset.s === s)); document.getElementById('countRow').classList.toggle('show', s === 'in'); const br = document.getElementById('bringRow'); if (br) br.style.display = s === 'out' ? 'none' : ''; }

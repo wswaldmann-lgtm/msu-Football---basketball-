@@ -25,6 +25,8 @@ A free, unofficial fan app for Michigan State football and basketball: schedules
 4. **Tap any game** to open its preview and details.
 5. Tap **?** at the top of the app any time for the built-in guide.
 
+A gold **👋 New here?** bar at the top has **▶ Quick tour** and **📲 Add to phone** buttons (× hides it for good). **Add to phone** installs in one tap on Android/Chrome and shows illustrated steps on iPhone (and tells people to switch to Safari if they opened the link in another app).
+
 The first time someone opens the app, a **quick tour** dims the screen and spotlights the real buttons one at a time (countdown, game cards, the bottom bar, **?**), with a shortcut to the party demo. It shows once per phone; **▶ Take the quick tour** at the top of the **?** guide replays it.
 
 ---
@@ -63,6 +65,7 @@ New to it? Tap **▶ See how it works** at the top of the party screen (or in th
 **What your friends see**
 - A link (no app or sign-up). A three-step strip at the top tells them how to answer: type a name, tap 🙌 **I'm in** (with how many), 🤔 **Maybe** or 😞 **Can't**, hit Send.
 - Tailgate guests can say what they're bringing ("brats and a cooler"); it shows next to their name.
+- Invites send a link to a small invite page, not the app itself; it opens in any phone browser with nothing to install. After answering, guests see a **Get the free app** card that opens the full app (where the quick tour and Add to phone take over).
 - After answering: **📅 Google Calendar** or **📅 iPhone / Outlook** to save it, and **📤 Invite a friend** to pass it on. Answers from a forwarded link show as "Sue *via Dave*."
 - **Open in Maps** uses the map pin or address. With neither, it says to ask the host instead of guessing a city.
 
