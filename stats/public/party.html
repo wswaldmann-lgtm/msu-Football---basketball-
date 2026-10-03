@@ -237,10 +237,16 @@ function render() {
     </div>
 
     ${myAns ? '' : `<button class="btn gold" onclick="forward()">📤 Invite a friend</button>`}
-    ${myAns || data.isHost ? `<a class="getapp" href="/?from=invite"><span class="ic" style="background-image:url(/icons/icon-192.png)"></span><span><b>Get the free app</b><span>Schedule, TV channels, live scores, and throw your own parties.</span></span><span class="go">Open</span></a>` : ''}
+    ${myAns || data.isHost ? `<a class="getapp" href="/?from=invite${data.isHost ? '' : '&add=1'}"><span class="ic" style="background-image:url(/icons/icon-192.png)"></span><span><b>${data.isHost ? 'Your app' : 'Get the app ' + esc(sender()) + ' used'}</b><span>${data.isHost ? 'Back to the schedule and your parties.' : 'Free. Schedule, TV, live scores and your own parties.'}</span></span><span class="go">${data.isHost ? 'Open' : 'Get it'}</span></a>` : ''}
     <div class="foot">Made with the free <a href="/?from=invite">Spartans Game Tracker</a> · Go Green! 💚</div>`;
 }
 
+// Whoever sent this person the link: the friend who forwarded it, else the host
+function sender() {
+  const me = (LS.get('wp_name', '') || '').toLowerCase(), fwd = (LS.get('wp_via', {}))[id] || via;
+  if (fwd && fwd.toLowerCase() !== me) return fwd;
+  return data.party.host && data.party.host.toLowerCase() !== me ? data.party.host : 'your friend';
+}
 function pick(s) { choice = s; document.querySelectorAll('.ans').forEach(b => b.classList.toggle('on', b.dataset.s === s)); document.getElementById('countRow').classList.toggle('show', s === 'in'); const br = document.getElementById('bringRow'); if (br) br.style.display = s === 'out' ? 'none' : ''; }
 function step(d) { count = Math.min(20, Math.max(1, count + d)); document.getElementById('countVal').textContent = count; }
 

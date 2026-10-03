@@ -65,7 +65,7 @@ New to it? Tap **▶ See how it works** at the top of the party screen (or in th
 **What your friends see**
 - A link (no app or sign-up). A three-step strip at the top tells them how to answer: type a name, tap 🙌 **I'm in** (with how many), 🤔 **Maybe** or 😞 **Can't**, hit Send.
 - Tailgate guests can say what they're bringing ("brats and a cooler"); it shows next to their name.
-- Invites send a link to a small invite page, not the app itself; it opens in any phone browser with nothing to install. After answering, guests see a **Get the free app** card that opens the full app (where the quick tour and Add to phone take over).
+- Invites send a link to a small invite page, not the app itself; it opens in any phone browser with nothing to install. After answering, guests see a short card, **Get the app Dave used** (named for whoever sent them the link: the friend who forwarded it, otherwise the host). Tapping it opens the app, runs the quick tour, then offers **Add to phone**.
 - After answering: **📅 Google Calendar** or **📅 iPhone / Outlook** to save it, and **📤 Invite a friend** to pass it on. Answers from a forwarded link show as "Sue *via Dave*."
 - **Open in Maps** uses the map pin or address. With neither, it says to ask the host instead of guessing a city.
 

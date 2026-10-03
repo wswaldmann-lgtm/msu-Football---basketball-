@@ -2556,7 +2556,10 @@ function startTour() {
   tourI = 0; document.getElementById('helpModal')?.classList.remove('open');
   document.getElementById('tour').hidden = false; tourShow();
 }
-function tourEnd() { document.getElementById('tour').hidden = true; try { localStorage.setItem(tourKey(), '1'); } catch (e) {} }
+function tourEnd() { document.getElementById('tour').hidden = true; try { localStorage.setItem(tourKey(), '1'); } catch (e) {} wantAdd(); }
+// Came from a friend's invite ("Get the app"): after the tour, offer to add it to the phone
+const fromInviteAdd = /[?&]add=1/.test(location.search);
+function wantAdd() { if (fromInviteAdd && !isInstalled() && !window._addShown) { window._addShown = true; setTimeout(openInstall, 400); } }
 function tourGo(d) { tourI += d; if (tourI >= tourSteps.length) return tourEnd(); if (tourI < 0) tourI = 0; tourShow(); }
 function tourEl(s) { return typeof s === 'function' ? s() : document.querySelector(s); }
 function tourShow() {
@@ -2595,6 +2598,7 @@ function tourText(s) {
 function maybeStartTour() {
   let done = false; try { done = !!localStorage.getItem(tourKey()); } catch (e) { done = true; }
   if (!done && document.getElementById('tour').hidden && !document.querySelector('.tailgate-modal.open')) setTimeout(startTour, 700);
+  else if (done) wantAdd();
 }
 window.addEventListener('resize', () => { if (!document.getElementById('tour').hidden) tourShow(); });
 window.addEventListener('scroll', () => { if (!document.getElementById('tour').hidden && window._tourEls) tourPlace(...window._tourEls); }, { passive: true });
