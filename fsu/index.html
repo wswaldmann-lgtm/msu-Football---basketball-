@@ -728,7 +728,7 @@ body.dark .wp-find{border-color:#D9C79E;color:#D9C79E}
     <button class="mode-toggle" onclick="toggleDark()" aria-label="Toggle dark mode" id="modeBtn">🌙</button>
     <button class="mode-toggle" onclick="openExit()" aria-label="Exit" title="Exit" style="margin-left:.4rem;font-size:1rem;font-weight:700">✕</button>
   </div>
-  <div class="countdown-strip" id="countdownStrip">
+  <div class="countdown-strip" id="countdownStrip" onclick="goLive()" role="button" tabindex="0" style="cursor:pointer" title="Tap for the live score">
     <div class="vs" id="nextGameLabel">Next up<strong>Loading…</strong></div>
     <div class="timer" id="liveTimer"></div>
   </div>
@@ -2147,6 +2147,26 @@ const ESPN = {
   }
 };
 let liveTimers = {};
+const ESPN_BOARD = {
+  football:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&limit=300',
+  basketball:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?groups=50&limit=400'
+};
+// The team-schedule feed lags during games; the daily scoreboard has the real live score.
+async function findLiveGame(sport) {
+  try {
+    const r = await fetch(ESPN_BOARD[sport]);
+    const d = await r.json();
+    return (d.events || []).find(e => (e.competitions?.[0]?.competitors || [])
+      .some(t => String(t.team?.id) === '52')) || null;
+  } catch (e) { return null; }
+}
+// Tapping the Live / countdown strip jumps to the scoreboard and refreshes it
+function goLive() {
+  const sport = activeTab;
+  const card = document.getElementById(sport + '-live');
+  if (card) card.scrollIntoView({behavior:'smooth', block:'start'});
+  loadScore(sport);
+}
 
 async function loadScore(sport) {
   const body = document.getElementById(sport + '-live-body');
@@ -2160,7 +2180,9 @@ async function loadScore(sport) {
     if (!events.length) throw new Error('no events');
     const now = new Date();
     // Prefer a live game; else the closest game to now
-    let ev = events.find(e => e.competitions?.[0]?.status?.type?.state === 'in');
+    let ev = await findLiveGame(sport);
+    if (ev && ev.competitions?.[0]?.status?.type?.state === 'pre') ev = null;
+    if (!ev) ev = events.find(e => e.competitions?.[0]?.status?.type?.state === 'in');
     if (!ev) {
       events.sort((a,b) => Math.abs(new Date(a.date)-now) - Math.abs(new Date(b.date)-now));
       ev = events[0];
