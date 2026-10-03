@@ -45,7 +45,7 @@ function themed(src) {
   const swaps = [
     ["#18453B", c.primary], ["#0F2B24", c.primaryDark], ["#1E5A4C", c.primaryLight], ["#C5A551", c.accent],
     ["#5BBF97", c.darkText], ["rgba(197,165,81,", `rgba(${hexRgb(c.accent)},`],
-    ["MSU Watch Party", `${team.short} Watch Party`], ["Spartans game", `${team.nick} game`],
+    ["MSU Watch Party", `${team.short} Watch Party`], ["MSU Tailgate", `${team.short} Tailgate`], ["Spartans game", `${team.nick} game`],
     ["Spartans Game Tracker", team.appName], ["Spartans Tracker Stats", `${team.nick} Tracker Stats`],
     ["Go Green! 💚", `${team.cheer} ${team.heart}`],
   ];

@@ -39,22 +39,31 @@ export default async (req: Request) => {
       id: b.id,
       hostKeyHash: keyHash,
       sport: clean(b.sport, 20) || "basketball",
+      kind: b.kind === "tailgate" ? "tailgate" : "watch",   // watch party or tailgate
       game: clean(b.game, 80),
       gameDate: clean(b.gameDate, 40),
       tba: !!b.tba,                      // start time not announced yet
       place: clean(b.place, 80),
       address: clean(b.address, 160),
+      lat: coord(b.lat, 90),             // map pin, so the map never has to guess
+      lng: coord(b.lng, 180),
       time: clean(b.time, 40),
       host: clean(b.host, 40),
       note: clean(b.note, 300),
       created: existing?.created || new Date().toISOString(),
       updated: new Date().toISOString(),
     };
+    if (party.lat === null || party.lng === null) party.lat = party.lng = null;
     if (!party.place) return Response.json({ error: "place required" }, { status: 400, headers: h });
     await parties.setJSON(b.id, party);
     return Response.json({ ok: true, id: b.id }, { headers: h });
   }
   return new Response("Method not allowed", { status: 405, headers: h });
 };
+
+function coord(v: unknown, max: number) {
+  const n = typeof v === "number" ? v : parseFloat(String(v ?? ""));
+  return Number.isFinite(n) && Math.abs(n) <= max ? Math.round(n * 1e5) / 1e5 : null;
+}
 
 export const config: Config = { path: "/api/party" };

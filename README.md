@@ -19,7 +19,7 @@ A free, unofficial fan app for Michigan State football and basketball: schedules
    | 🏈 Football | Football schedule |
    | 🏀 Basketball | Basketball schedule |
    | ⚡ Next Game | Jumps to the next game and opens it |
-   | 🍔 Tailgate / 📺 Watch Party | Tailgate planner on the football tab, watch-party invites on the basketball tab |
+   | 🍔 Tailgate / 📺 Watch Party | Plan a tailgate or watch party and send invites (either sport) |
    | 🔥 Trash Talk | A one-liner for the group chat |
 
 4. **Tap any game** to open its preview and details.
@@ -41,33 +41,34 @@ A free, unofficial fan app for Michigan State football and basketball: schedules
 ### 📆 Add games to your calendar
 Each sport has an **Add games to your calendar** card. Subscribe once (iPhone/Mac Calendar or Google Calendar) and new kickoff and tip-off times appear on their own as they're announced.
 
-### 🍔 Tailgate planner (football)
-1. On the football tab, tap **Tailgate** and pick a home game.
-2. **Who's Coming?** Add names and how many each person brings. The headcount adds up at the bottom.
-3. **Who's Bringing What?** Starts with the basics (burgers, buns, cooler, grill, chairs, cornhole). Check items off, edit them, add your own, and put a name next to each.
-4. **Share Plan** turns the whole thing into one text for the crew.
-
-The tailgate plan is saved on your phone only, so share it to keep everyone in the loop.
-
-### 📺 Watch Party (basketball)
-No tailgate for hoops, so throw a watch party at a bar or someone's house.
+### 🎉 Watch parties & tailgates
+New to it? Tap **▶ See how it works** at the top of the party screen (or in the **?** guide) for a 30-second demo that walks through hosting and what your friends see.
 
 **Hosting one**
-1. On the basketball tab, tap **Watch Party**.
-2. Pick the game and fill in **where**, the **address**, the **meet time**, your name and an optional note ("wings half off").
-3. Tap **Create & Send Invite** and text the link to your friends.
+1. Tap **🍔 Tailgate** (football tab) or **📺 Watch Party** (basketball tab) in the bottom bar.
+2. Pick **📺 Watch Party** or **🍔 Tailgate**, then the game (football or basketball).
+3. **Where's the party?** Pick from the list:
+   - 🏠 **My house** (type your address once; the app remembers it)
+   - 🏡 **A friend's house** (whose, plus their address)
+   - ⭐ **Our usual spots** (any spot you saved)
+   - 🍺 **A bar near me** (lists the closest bars and pubs; tap one to fill it in)
+   - 🅿️ **Stadium parking lot** (tailgates)
+   - ➕ **Somewhere new** (check **Save as one of our usual spots** to keep it)
+   An address is required so friends' maps go to the right place. Tap **📍 Here** to drop a map pin right where you're standing.
+4. Add the meet time, your name and a note, then tap **Create & Send Invite** and pick your group text.
+5. The **Your invite is ready** screen spells out what happens next and has **Send**, **Copy text** and **📅 My calendar** buttons.
 
 **What your friends see**
-- They tap the link (no app or sign-up needed) and answer 🙌 **Meet you there** (with how many are coming), 🤔 **Maybe**, or 😞 **Can't make it**.
-- They can change their answer any time, and there's a map button to the spot.
-
-**Forwarding**
-- Anyone can tap **Invite a friend** to pass the invite along.
-- People who answer from a forwarded link show up as "Sue *via Dave*," so you can see how word spread.
+- A link (no app or sign-up). A three-step strip at the top tells them how to answer: type a name, tap 🙌 **I'm in** (with how many), 🤔 **Maybe** or 😞 **Can't**, hit Send.
+- Tailgate guests can say what they're bringing ("brats and a cooler"); it shows next to their name.
+- After answering: **📅 Google Calendar** or **📅 iPhone / Outlook** to save it, and **📤 Invite a friend** to pass it on. Answers from a forwarded link show as "Sue *via Dave*."
+- **Open in Maps** uses the map pin or address. With neither, it says to ask the host instead of guessing a city.
 
 **Keeping track**
-- Your parties are listed at the bottom of the Watch Party screen with live counts ("4 coming · 1 maybe").
-- **Who's coming** opens your host view with everyone's answers. You can remove an answer with ×; guests can't.
+- Your parties are listed at the bottom of the party screen with live counts ("4 coming · 1 maybe").
+- **Who's coming** opens your host view with everyone's answers (remove one with ×). **Send again** the day before works as a reminder.
+
+**Tailgate food & gear checklist:** link at the bottom of the tailgate screen. Burgers, buns, cooler, grill, chairs, cornhole; check items off, add your own, put a name next to each, and **Share Plan** sends it as one text. Saved on your phone only.
 
 ### 📣 Share Hype & 🔥 Trash Talk
 - **Share Hype** writes a countdown message ("6 days until MSU vs…") and opens your phone's share menu.
@@ -77,7 +78,7 @@ No tailgate for hoops, so throw a watch party at a bar or someone's house.
 **?** guide · **🔊/🔇** fight-song intro on/off · **🌙/☀️** dark mode · **✕** back to the start screen
 
 ### 🔒 Privacy
-No accounts or sign-ups. The app counts how many phones open it using a random ID, with no names or personal info. Tailgate lists stay on your phone. Watch-party invites and answers are stored on the invite service so the host and guests can see them.
+No accounts or sign-ups. The app counts how many phones open it using a random ID, with no names or personal info. Your saved spots, home address and the tailgate checklist stay on your phone. Party invites (including the address or map pin) and answers are stored on the invite service so the host and guests can see them. **📍 Here** and **A bar near me** ask your phone for your location only when you tap them; nearby bars and street addresses come from OpenStreetMap.
 
 ### 💚 Support
 Free, ad-free, made by a Spartan fan. Tap **Chip in** near the top of the schedule, or **Support this app** at the bottom, to tip on Venmo (@Sparty-Tracker). The top strip can be hidden with ×; it comes back after two weeks, or two months after someone chips in.
@@ -94,7 +95,7 @@ Free, ad-free, made by a Spartan fan. Tap **Chip in** near the top of the schedu
 |---|---|
 | `/` | The app (`index.html` from the repo root) |
 | `/stats` | Visitor stats: opens per day, unique phones, top states |
-| `/p/<party id>` | Watch-party invite pages |
+| `/p/<party id>` | Party invite pages (watch parties and tailgates) |
 | `/api/*` | Counter, watch parties and answers ([`stats/netlify/functions`](stats/netlify/functions)) |
 | `/msu-football.ics`, `/msu-basketball.ics` | Calendar feeds, rebuilt from the schedule on every deploy |
 

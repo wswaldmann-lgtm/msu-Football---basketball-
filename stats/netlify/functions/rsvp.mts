@@ -1,4 +1,4 @@
-// Answers to a watch party.  POST /api/rsvp {id, rid, name, status, count, via}
+// Answers to a party.  POST /api/rsvp {id, rid, name, status, count, via, bring}
 // Each phone gets its own answer slot (rid), so changing your answer just overwrites it.
 // The host can remove an answer with {id, rid, remove: true, hostKey}.
 import type { Config } from "@netlify/functions";
@@ -24,7 +24,8 @@ export default async (req: Request) => {
   const name = clean(b.name, 40);
   if (!status || !name) return Response.json({ error: "name and answer required" }, { status: 400, headers: h });
   const count = Math.min(20, Math.max(1, parseInt(b.count) || 1));
-  await rsvps.setJSON(key, { name, status, count: status === "in" ? count : 1, via: clean(b.via, 40), updated: new Date().toISOString() });
+  await rsvps.setJSON(key, { name, status, count: status === "in" ? count : 1, via: clean(b.via, 40),
+    bring: status === "out" ? "" : clean(b.bring, 60), updated: new Date().toISOString() });
   return Response.json({ ok: true }, { headers: h });
 };
 

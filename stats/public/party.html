@@ -55,12 +55,23 @@ input{font:inherit;width:100%;padding:.7rem .8rem;border-radius:10px;border:1px 
 .hostbar{background:rgba(197,165,81,.16);border:1px solid rgba(197,165,81,.5);border-radius:12px;padding:.7rem .9rem;font-size:.9rem}
 .center{text-align:center;padding:3rem 1rem;color:var(--muted)}
 .foot{text-align:center;color:var(--muted);font-size:.8rem}
+.howto{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;text-align:center}
+.howto div{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.55rem .3rem;font-size:.8rem;line-height:1.25;color:var(--muted)}
+.howto b{display:block;font-family:'Oswald',sans-serif;font-size:1.05rem;color:var(--text);margin-bottom:.1rem}
+.howto-t{font-family:'Oswald',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:.4rem}
+.bring{margin-top:.6rem}
+.bring label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.25rem}
+.nextrow{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.7rem}
+.nextrow a,.nextrow button{display:block;text-align:center;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:.8rem;border:1px solid var(--border);border-radius:10px;padding:.7rem .4rem;background:transparent;color:var(--text);cursor:pointer}
+.nextrow .wide{grid-column:1/-1;background:var(--gold);border-color:var(--gold);color:#1A1A1A;font-size:.92rem}
+.who .br{color:var(--muted);font-size:.85rem}
+.nomap{display:block;margin-top:.55rem;color:var(--muted);font-size:.9rem}
 .foot a{color:inherit}
 </style>
 </head>
 <body>
 <header>
-  <div class="kicker">📺 MSU Watch Party</div>
+  <div class="kicker" id="kicker">📺 MSU Watch Party</div>
   <h1 id="game">Loading…</h1>
   <div class="when" id="when"></div>
 </header>
@@ -89,11 +100,51 @@ function rid() {
 }
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 let data = null, choice = null, count = 1;
+const NAMES = { watch: 'MSU Watch Party', tailgate: 'MSU Tailgate' };
+const isTail = () => data && data.party.kind === 'tailgate';
+const partyName = () => NAMES[isTail() ? 'tailgate' : 'watch'];
 
-function fmtGameDate(s, tba) {
+function fmtGameDate(s, tba, sport) {
   const d = new Date(s); if (isNaN(d)) return '';
-  if (tba) return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) + ' · tip-off time TBA';
-  return d.toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' tip-off';
+  const start = sport === 'football' ? 'kickoff' : 'tip-off';
+  if (tba) return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) + ' · ' + start + ' time TBA';
+  return d.toLocaleString('en-US', { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' ' + start;
+}
+
+// Calendar: start at the meet time if we can read it ("6:30 PM"), else around the game
+function meetDate(p) {
+  const g = new Date(p.gameDate); if (isNaN(g)) return null;
+  const m = String(p.time || '').match(/(\d{1,2})(?::(\d{2}))?\s*([ap])?/i); if (!m) return null;
+  let h = +m[1] % 12; const ap = (m[3] || '').toLowerCase();
+  if (ap === 'p' || (!ap && h < 11)) h += 12;
+  const d = new Date(g); d.setHours(h, +(m[2] || 0), 0, 0); return d;
+}
+function calTimes(p) {
+  const g = new Date(p.gameDate), meet = meetDate(p);
+  if (meet) return { start: meet, end: new Date(Math.max(meet.getTime() + 3 * 3600e3, p.tba ? 0 : g.getTime() + 3.5 * 3600e3)) };
+  if (p.tba) return { allDay: g };
+  return { start: new Date(g.getTime() - 3600e3), end: new Date(g.getTime() + 3.5 * 3600e3) };
+}
+const zt = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+const ymd = d => '' + d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0');
+function calInfo() {
+  const p = data.party, c = calTimes(p);
+  const title = partyName() + ': ' + (p.game || 'game');
+  const loc = [p.place, p.address].filter(Boolean).join(', ');
+  const det = (p.time ? 'Meet at ' + p.time + '\n' : '') + (p.note ? p.note + '\n' : '') + 'Invite: ' + location.origin + '/p/' + id;
+  return { p, c, title, loc, det };
+}
+function googleCal() {
+  const { c, title, loc, det } = calInfo();
+  let dates; if (c.allDay) { const n = new Date(c.allDay); n.setDate(n.getDate() + 1); dates = ymd(c.allDay) + '/' + ymd(n); } else dates = zt(c.start) + '/' + zt(c.end);
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + dates + '&location=' + encodeURIComponent(loc) + '&details=' + encodeURIComponent(det);
+}
+function appleCal() {
+  const { c, title, loc, det } = calInfo(), e = s => String(s).replace(/([,;\\])/g, '\\$1').replace(/\n/g, '\\n');
+  let when; if (c.allDay) { const n = new Date(c.allDay); n.setDate(n.getDate() + 1); when = 'DTSTART;VALUE=DATE:' + ymd(c.allDay) + '\r\nDTEND;VALUE=DATE:' + ymd(n); } else when = 'DTSTART:' + zt(c.start) + '\r\nDTEND:' + zt(c.end);
+  const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Game Tracker//Party//EN', 'BEGIN:VEVENT', 'UID:' + id + '@party', 'DTSTAMP:' + zt(new Date()), when,
+    'SUMMARY:' + e(title), 'LOCATION:' + e(loc), 'DESCRIPTION:' + e(det), 'BEGIN:VALARM', 'TRIGGER:-PT2H', 'ACTION:DISPLAY', 'DESCRIPTION:' + e(title), 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' })); a.download = 'party.ics'; document.body.appendChild(a); a.click(); a.remove();
 }
 
 async function load() {
@@ -112,25 +163,31 @@ function notFound() {
 
 function render() {
   const p = data.party, t = data.totals;
-  document.title = 'MSU Watch Party — ' + (p.game || p.place);
+  document.title = partyName() + ' — ' + (p.game || p.place);
+  document.getElementById('kicker').textContent = (isTail() ? '🍔 ' : '📺 ') + partyName();
   document.getElementById('game').textContent = p.game || 'Spartans game';
-  document.getElementById('when').textContent = fmtGameDate(p.gameDate, p.tba);
+  document.getElementById('when').textContent = fmtGameDate(p.gameDate, p.tba, p.sport);
   const me = LS.get('wp_name', '');
   const myAns = (LS.get('wp_answers', {}))[id];
   if (choice === null && myAns) { choice = myAns.status; count = myAns.count || 1; }
 
   const list = s => data.rsvps.filter(r => r.status === s);
-  const row = r => `<div class="who"><span class="nm">${esc(r.name)}</span>${r.status === 'in' && r.count > 1 ? `<span>+${r.count - 1}</span>` : ''}${r.via ? `<span class="via">via ${esc(r.via)}</span>` : ''}${data.isHost && r.rid ? `<button class="x" title="Remove" onclick="removeAns('${esc(r.rid)}','${esc(r.name)}')">×</button>` : ''}</div>`;
+  const row = r => `<div class="who"><span class="nm">${esc(r.name)}</span>${r.status === 'in' && r.count > 1 ? `<span>+${r.count - 1}</span>` : ''}${r.bring ? `<span class="br">· 🧺 ${esc(r.bring)}</span>` : ''}${r.via ? `<span class="via">via ${esc(r.via)}</span>` : ''}${data.isHost && r.rid ? `<button class="x" title="Remove" onclick="removeAns('${esc(r.rid)}','${esc(r.name)}')">×</button>` : ''}</div>`;
   const group = (s, title) => list(s).length ? `<div class="group"><h3>${title} (${list(s).length})</h3>${list(s).map(row).join('')}</div>` : '';
 
-  const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent([p.place, p.address].filter(Boolean).join(', '));
+  // A map pin wins; otherwise the address. With neither, don't let Maps guess a random city.
+  const hasPin = typeof p.lat === 'number' && typeof p.lng === 'number';
+  const mapUrl = hasPin ? 'https://www.google.com/maps/search/?api=1&query=' + p.lat + ',' + p.lng
+    : (p.address ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent([p.place, p.address].filter(Boolean).join(', ')) : '');
+  const shownAddr = p.address && !/^Map pin/.test(p.address) ? p.address : '';
   document.getElementById('main').innerHTML = `
-    ${data.isHost ? `<div class="hostbar">⭐ <b>You're hosting.</b> Everyone's answers show up below. You can remove an answer with ×.</div>` : ''}
+    ${data.isHost ? `<div class="hostbar">⭐ <b>You're hosting.</b> Everyone's answers show up below (remove one with ×). Tip: the day before, open the app and tap <b>Send again</b> as a reminder.</div>`
+      : !myAns ? `<div><div class="howto-t">How to answer · 10 seconds</div><div class="howto"><div><b>1</b>Type your name</div><div><b>2</b>Tap 🙌, 🤔 or 😞</div><div><b>3</b>Hit Send</div></div></div>` : ''}
     <div class="card">
       <h2>Where</h2>
       <div class="place">${esc(p.place)}</div>
-      ${p.address ? `<div class="addr">${esc(p.address)}</div>` : ''}
-      <a class="map" href="${mapUrl}" target="_blank" rel="noopener">📍 Open in Maps</a>
+      ${shownAddr ? `<div class="addr">${esc(shownAddr)}</div>` : ''}
+      ${mapUrl ? `<a class="map" href="${mapUrl}" target="_blank" rel="noopener">📍 Open in Maps</a>` : `<span class="nomap">No address yet. Ask ${esc(p.host || 'the host')} where exactly.</span>`}
       <div class="meta">
         ${p.time ? `<div>🕖 <b>Meet at:</b> ${esc(p.time)}</div>` : ''}
         ${p.host ? `<div>🙋 <b>Hosted by:</b> ${esc(p.host)}</div>` : ''}
@@ -142,7 +199,7 @@ function render() {
       <h2>Are you in?</h2>
       <input id="name" placeholder="Your name" maxlength="40" value="${esc(me)}">
       <div class="answers">
-        <button class="ans ${choice === 'in' ? 'on' : ''}" data-s="in" onclick="pick('in')"><span class="ic">🙌</span>Meet you there</button>
+        <button class="ans ${choice === 'in' ? 'on' : ''}" data-s="in" onclick="pick('in')"><span class="ic">🙌</span>I'm in</button>
         <button class="ans ${choice === 'maybe' ? 'on' : ''}" data-s="maybe" onclick="pick('maybe')"><span class="ic">🤔</span>Maybe</button>
         <button class="ans ${choice === 'out' ? 'on' : ''}" data-s="out" onclick="pick('out')"><span class="ic">😞</span>Can't make it</button>
       </div>
@@ -150,9 +207,19 @@ function render() {
         <span>How many in your group?</span>
         <div class="step"><button onclick="step(-1)">−</button><span id="countVal">${count}</span><button onclick="step(1)">+</button></div>
       </div>
+      ${isTail() ? `<div class="bring" id="bringRow" style="${choice === 'out' ? 'display:none' : ''}"><label for="bring">🧺 What are you bringing? (optional)</label><input id="bring" maxlength="60" placeholder="Chips, a cooler, the cornhole set…" value="${esc(myAns?.bring || '')}"></div>` : ''}
       <button class="btn" id="sendBtn" onclick="send()">${myAns ? 'Update my answer' : 'Send my answer'}</button>
       <div class="msg" id="msg"></div>
     </div>
+
+    ${myAns ? `<div class="card">
+      <h2>What's next</h2>
+      <p style="font-size:.93rem;color:var(--muted)">${myAns.status === 'out' ? "Thanks for answering. Changed your mind? Just pick a new answer above." : "Don't forget it: put it on your calendar. Know someone who'd come? Pass it on."}</p>
+      <div class="nextrow">
+        ${myAns.status !== 'out' ? `<a href="${googleCal()}" target="_blank" rel="noopener">📅 Google Calendar</a><button onclick="appleCal()">📅 iPhone / Outlook</button>` : ''}
+        <button class="wide" onclick="forward()">📤 Invite a friend</button>
+      </div>
+    </div>` : ''}
 
     <div class="card">
       <h2>Who's coming</h2>
@@ -161,14 +228,14 @@ function render() {
         <span class="pill">🤔 <b>${t.maybe}</b> maybe</span>
         <span class="pill">😞 <b>${t.out}</b> can't</span>
       </div>
-      ${data.rsvps.length ? group('in', 'Meet you there') + group('maybe', 'Maybe') + group('out', "Can't make it") : '<p class="empty" style="margin-top:.7rem">No answers yet. Be the first!</p>'}
+      ${data.rsvps.length ? group('in', "I'm in") + group('maybe', 'Maybe') + group('out', "Can't make it") : '<p class="empty" style="margin-top:.7rem">No answers yet. Be the first!</p>'}
     </div>
 
-    <button class="btn gold" onclick="forward()">📤 Invite a friend</button>
-    <div class="foot">Made with the <a href="/">Spartans Game Tracker</a> · Go Green! 💚</div>`;
+    ${myAns ? '' : `<button class="btn gold" onclick="forward()">📤 Invite a friend</button>`}
+    <div class="foot">Want to host your own? Get the free <a href="/">Spartans Game Tracker</a> · Go Green! 💚</div>`;
 }
 
-function pick(s) { choice = s; document.querySelectorAll('.ans').forEach(b => b.classList.toggle('on', b.dataset.s === s)); document.getElementById('countRow').classList.toggle('show', s === 'in'); }
+function pick(s) { choice = s; document.querySelectorAll('.ans').forEach(b => b.classList.toggle('on', b.dataset.s === s)); document.getElementById('countRow').classList.toggle('show', s === 'in'); const br = document.getElementById('bringRow'); if (br) br.style.display = s === 'out' ? 'none' : ''; }
 function step(d) { count = Math.min(20, Math.max(1, count + d)); document.getElementById('countVal').textContent = count; }
 
 async function send() {
@@ -179,10 +246,10 @@ async function send() {
   try {
     const myVia = (LS.get('wp_via', {}))[id] || via;
     const r = await fetch(API + '/rsvp', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id, rid: rid(), name, status: choice, count, via: myVia && myVia !== name ? myVia : '' }) });
+      body: JSON.stringify({ id, rid: rid(), name, status: choice, count, bring: document.getElementById('bring')?.value.trim() || '', via: myVia && myVia !== name ? myVia : '' }) });
     if (!r.ok) throw new Error((await r.json()).error || 'failed');
     LS.set('wp_name', name);
-    const a = LS.get('wp_answers', {}); a[id] = { status: choice, count }; LS.set('wp_answers', a);
+    const a = LS.get('wp_answers', {}); a[id] = { status: choice, count, bring: document.getElementById('bring')?.value.trim() || '' }; LS.set('wp_answers', a);
     await load();
     document.getElementById('msg').textContent = choice === 'in' ? '✅ You\'re on the list. See you there!' : '✅ Got it, thanks for letting them know.';
   } catch (e) { btn.disabled = false; msg.textContent = 'Couldn\'t send. Try again.'; }
@@ -198,8 +265,8 @@ function forward() {
   const me = document.getElementById('name')?.value.trim() || LS.get('wp_name', '');
   const url = location.origin + '/p/' + id + (me ? '?via=' + encodeURIComponent(me) : '');
   const p = data.party;
-  const text = `📺 MSU Watch Party: ${p.game || 'Spartans game'}\n📍 ${p.place}${p.time ? '\n🕖 ' + p.time : ''}\nAre you in? Tap to answer:`;
-  if (navigator.share) navigator.share({ title: 'MSU Watch Party', text, url }).catch(() => {});
+  const text = `${isTail() ? '🍔' : '📺'} ${partyName()}: ${p.game || 'Spartans game'}\n📍 ${p.place}${p.time ? '\n🕖 Meet at ' + p.time : ''}\n\n👉 Tap the link, add your name and pick 🙌 I'm in, 🤔 Maybe or 😞 Can't. Takes 10 seconds, no app needed:`;
+  if (navigator.share) navigator.share({ title: partyName(), text, url }).catch(() => {});
   else if (navigator.clipboard) navigator.clipboard.writeText(text + '\n' + url).then(() => { const m = document.getElementById('msg'); if (m) m.textContent = '📋 Invite copied. Paste it in a text.'; });
   else prompt('Copy this invite:', text + '\n' + url);
 }
