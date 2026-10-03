@@ -25,6 +25,8 @@ A free, unofficial fan app for Michigan State football and basketball: schedules
 4. **Tap any game** to open its preview and details.
 5. Tap **?** at the top of the app any time for the built-in guide.
 
+The first time someone opens the app, a **quick tour** dims the screen and spotlights the real buttons one at a time (countdown, game cards, the bottom bar, **?**), with a shortcut to the party demo. It shows once per phone; **▶ Take the quick tour** at the top of the **?** guide replays it.
+
 ---
 
 ## Everything in more detail

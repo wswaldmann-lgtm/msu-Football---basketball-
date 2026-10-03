@@ -551,6 +551,22 @@ body.dark .wp-label{color:#8DB9E6}
 .wp-party .a button,.wp-party .a a{flex:1;text-align:center;text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:.5rem;border-radius:8px;border:1px solid var(--border);background:var(--chip-bg);color:var(--text-primary);cursor:pointer}
 .wp-empty{font-size:.85rem;color:var(--text-muted);padding:.4rem 0}
 .wp-hide{display:none!important}
+.tour{position:fixed;inset:0;z-index:9000}
+.tour[hidden]{display:none}
+.tour-shade{position:absolute;inset:0}
+.tour-spot{position:fixed;border-radius:14px;box-shadow:0 0 0 9999px rgba(8,18,15,.72);outline:3px solid var(--gold-accent);outline-offset:2px;transition:all .35s ease;pointer-events:none}
+.tour-tip{position:fixed;left:12px;right:12px;max-width:420px;margin:0 auto;background:var(--card-bg);color:var(--text-primary);border-radius:14px;padding:.95rem 1rem .85rem;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:top .35s ease,bottom .35s ease}
+.tour-tip .k{font-family:'Oswald',sans-serif;font-weight:600;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+.tour-tip h4{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.15rem;margin:.15rem 0 .3rem}
+.tour-tip p{font-size:.9rem;line-height:1.45;color:var(--text-secondary)}
+.tour-tip .x{display:flex;align-items:center;gap:.5rem;margin-top:.8rem}
+.tour-tip .x .sk{background:none;border:none;color:var(--text-muted);font-size:.85rem;cursor:pointer;margin-right:auto;padding:.4rem 0}
+.tour-tip .x button.b{border:1px solid var(--border);background:var(--chip-bg);color:var(--text-primary);border-radius:10px;padding:.6rem .9rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:.88rem;cursor:pointer}
+.tour-tip .x button.n{background:var(--spartan-green);border-color:var(--spartan-green);color:#fff}
+.tour-tip .extra{display:block;width:100%;margin-top:.6rem;border:1.5px dashed var(--gold-accent);background:rgba(197,165,81,.12);color:var(--text-primary);border-radius:10px;padding:.55rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer}
+.tour-dots{display:flex;gap:.3rem;margin-top:.55rem}
+.tour-dots i{width:.42rem;height:.42rem;border-radius:50%;background:var(--border)}
+.tour-dots i.on{width:1.1rem;border-radius:99px;background:var(--spartan-green)}
 .wp-demo-btn{display:block;width:100%;margin:-.2rem 0 .9rem;padding:.7rem .8rem;border-radius:10px;border:1.5px dashed var(--gold-accent);background:rgba(197,165,81,.12);color:var(--text-primary);font-family:'Oswald',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.03em;cursor:pointer;text-align:left}
 .wp-demo-btn span{font-family:'Source Sans 3',sans-serif;font-weight:400;font-size:.8rem;color:var(--text-secondary)}
 .wp-kinds{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem}
@@ -2215,6 +2231,7 @@ loadScore('football');
   <div class="modal-box help-box">
     <button class="modal-close" onclick="document.getElementById('helpModal').classList.remove('open')">&times;</button>
     <h3>❓ How It Works</h3>
+    <button class="wp-demo-btn" onclick="startTour()">▶ Take the quick tour <span>(shows you which buttons to tap)</span></button>
 
     <div class="help-quick">
       <div class="hq-title">The basics</div>
@@ -2276,6 +2293,20 @@ loadScore('football');
     </details>
 
     <p class="help-foot">Unofficial fan app. Not affiliated with Florida Atlantic University. Go Owls! 💙</p>
+  </div>
+</div>
+
+<!-- Quick tour: shown once on first launch, again from the ? guide -->
+<div class="tour" id="tour" hidden>
+  <div class="tour-shade" onclick="tourGo(1)"></div>
+  <div class="tour-spot" id="tourSpot"></div>
+  <div class="tour-tip" id="tourTip" role="dialog" aria-live="polite">
+    <div class="k" id="tourK"></div>
+    <h4 id="tourH"></h4>
+    <p id="tourP"></p>
+    <button class="extra wp-hide" id="tourExtra"></button>
+    <div class="tour-dots" id="tourDots"></div>
+    <div class="x"><button class="sk" id="tourSkip" onclick="tourEnd()">Skip tour</button><button class="b" id="tourBack" onclick="tourGo(-1)">‹</button><button class="b n" id="tourNext" onclick="tourGo(1)">Next ›</button></div>
   </div>
 </div>
 
@@ -2454,6 +2485,65 @@ function copyTrash() {
 
 // ===== How It Works guide =====
 function openHelp() { document.getElementById('helpModal').classList.add('open'); }
+
+
+// ===== QUICK TOUR: points at the real buttons, once on first launch =====
+const tourSteps = [
+  { sel: '#countdownStrip', h: 'Countdown to the next game', p: 'This always counts down to the next game, football or basketball.' },
+  { sel: () => (typeof findNext === 'function' && findNext() && findNext().el) || document.querySelector('.section.active .game-card'), h: 'Tap any game', p: 'Opens the TV channel, where to stream it, the preview and the prediction. Tap again to close.' },
+  { sel: '.bottom-bar [data-bb="football"]', sel2: '.bottom-bar [data-bb="basketball"]', h: 'Football or basketball', p: 'Switch between the two schedules here at the bottom.' },
+  { sel: '.bottom-bar .bb-item:nth-child(3)', h: '⚡ Next Game', p: 'Jumps straight to the next game and opens it.' },
+  { sel: '#bbGameDay', h: 'Throw a tailgate or watch party', p: 'Pick the game and the spot (your house, a friend\'s, a bar near you), then text the invite. Friends tap the link and answer, no app needed.', extra: ['▶ Show me the 30-second party demo', () => { tourEnd(); openPartyDemo(); }] },
+  { sel: '.bottom-bar .bb-item:last-child', h: '🔥 Trash Talk', p: 'A one-liner for the group chat. 🎲 for another, 📋 to copy.' },
+  { sel: '.header .mode-toggle', h: 'Lost? Tap ?', p: 'The full guide is here any time, and so is this tour. Tip: add the app to your home screen so it opens like a real app.' },
+];
+let tourI = 0;
+function tourKey() { return 'msu_tour_done'; }
+function startTour() {
+  tourI = 0; document.getElementById('helpModal')?.classList.remove('open');
+  document.getElementById('tour').hidden = false; tourShow();
+}
+function tourEnd() { document.getElementById('tour').hidden = true; try { localStorage.setItem(tourKey(), '1'); } catch (e) {} }
+function tourGo(d) { tourI += d; if (tourI >= tourSteps.length) return tourEnd(); if (tourI < 0) tourI = 0; tourShow(); }
+function tourEl(s) { return typeof s === 'function' ? s() : document.querySelector(s); }
+function tourShow() {
+  const s = tourSteps[tourI], el = tourEl(s.sel), el2 = s.sel2 ? tourEl(s.sel2) : null;
+  if (!el) return tourGo(1);
+  const fixed = !!el.closest('.bottom-bar');
+  if (!fixed) { const y = el.getBoundingClientRect(); if (y.top < 0 || y.bottom > window.innerHeight * 0.75) window.scrollTo({ top: window.scrollY + y.top - window.innerHeight * 0.45, behavior: 'instant' }); }
+  tourText(s);
+  window._tourEls = [el, el2];
+  clearTimeout(window._tourT); tourPlace(el, el2); window._tourT = setTimeout(() => tourPlace(el, el2), 250);
+}
+function tourPlace(el, el2) {
+  {
+    let r = el.getBoundingClientRect();
+    if (el2) { const r2 = el2.getBoundingClientRect(); r = { left: Math.min(r.left, r2.left), top: Math.min(r.top, r2.top), right: Math.max(r.right, r2.right), bottom: Math.max(r.bottom, r2.bottom) }; }
+    const pad = 6, spot = document.getElementById('tourSpot'), tip = document.getElementById('tourTip');
+    const top = Math.max(4, r.top - pad), h = Math.min(window.innerHeight - 8, r.bottom - r.top + pad * 2);
+    Object.assign(spot.style, { left: Math.max(4, r.left - pad) + 'px', top: top + 'px', width: Math.min(window.innerWidth - 8, r.right - r.left + pad * 2) + 'px', height: h + 'px' });
+    const th = tip.offsetHeight || 220, below = (r.top + r.bottom) / 2 < window.innerHeight / 2;
+    let y = below ? top + h + 12 : top - th - 12;
+    y = Math.max(8, Math.min(window.innerHeight - th - 8, y));
+    tip.style.bottom = 'auto'; tip.style.top = y + 'px';
+  }
+}
+function tourText(s) {
+  document.getElementById('tourK').textContent = 'Quick tour · ' + (tourI + 1) + ' of ' + tourSteps.length;
+  document.getElementById('tourH').textContent = s.h; document.getElementById('tourP').textContent = s.p;
+  const ex = document.getElementById('tourExtra');
+  ex.classList.toggle('wp-hide', !s.extra); if (s.extra) { ex.textContent = s.extra[0]; ex.onclick = s.extra[1]; }
+  document.getElementById('tourDots').innerHTML = tourSteps.map((_, i) => '<i class="' + (i === tourI ? 'on' : '') + '"></i>').join('');
+  document.getElementById('tourBack').style.visibility = tourI ? 'visible' : 'hidden';
+  document.getElementById('tourNext').textContent = tourI === tourSteps.length - 1 ? '✓ Got it' : 'Next ›';
+  document.getElementById('tourSkip').style.visibility = tourI === tourSteps.length - 1 ? 'hidden' : 'visible';
+}
+function maybeStartTour() {
+  let done = false; try { done = !!localStorage.getItem(tourKey()); } catch (e) { done = true; }
+  if (!done && document.getElementById('tour').hidden && !document.querySelector('.tailgate-modal.open')) setTimeout(startTour, 700);
+}
+window.addEventListener('resize', () => { if (!document.getElementById('tour').hidden) tourShow(); });
+window.addEventListener('scroll', () => { if (!document.getElementById('tour').hidden && window._tourEls) tourPlace(...window._tourEls); }, { passive: true });
 
 // ===== GAME DAY PARTIES: watch parties and tailgates =====
 // Invites live on the Owls Gameday project on Netlify, so friends' answers come back to you.
@@ -3056,7 +3146,7 @@ function hideSplash(fromTap) {
   if (exited) { exited = false; window.scrollTo(0, 0); }
   clearTimeout(splashTimer);
   sp.classList.add('hide');
-  setTimeout(() => { sp.hidden = true; }, 450);
+  setTimeout(() => { sp.hidden = true; if (typeof maybeStartTour === 'function') maybeStartTour(); }, 450);
 }
 function openExit() { document.getElementById('exitSheet').hidden = false; }
 function closeExit() { document.getElementById('exitSheet').hidden = true; }
@@ -3074,7 +3164,7 @@ document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', saveS
 window.addEventListener('scroll', () => { clearTimeout(window._saveT); window._saveT = setTimeout(saveState, 300); }, { passive: true });
 document.addEventListener('visibilitychange', () => { if (document.hidden) saveState(); });
 restoreState();
-try { if (!sessionStorage.getItem('msu_splashed')) { sessionStorage.setItem('msu_splashed', '1'); showSplash(!soundOn()); } } catch (e) { showSplash(!soundOn()); }
+try { if (!sessionStorage.getItem('msu_splashed')) { sessionStorage.setItem('msu_splashed', '1'); showSplash(!soundOn()); } else maybeStartTour(); } catch (e) { showSplash(!soundOn()); }
 
 // ===== Visitor counter =====
 // One ping per app open to the Owls Gameday project on Netlify.
