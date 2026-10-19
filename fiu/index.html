@@ -2080,6 +2080,7 @@ const ESPN = {
 let liveTimers = {};
 // This team's ids in the ESPN and NCAA feeds (tools/make_team.py swaps them for other schools)
 const TEAM_ESPN_ID = '2229';
+const SCORE_API = 'https://fiu-gameday.netlify.app';
 const NCAA_SLUG = 'fiu';
 const ESPN_SUMMARY = {
   football:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=',
@@ -2089,7 +2090,7 @@ const ESPN_SUMMARY = {
 // so the phone never runs into blocked or stale feeds.
 async function apiScore(sport) {
   try {
-    const r = await fetch('/api/score?sport=' + sport + '&espn=' + TEAM_ESPN_ID + '&ncaa=' + NCAA_SLUG + '&_=' + Date.now(), {cache:'no-store'});
+    const r = await fetch(SCORE_API + '/api/score?sport=' + sport + '&espn=' + TEAM_ESPN_ID + '&ncaa=' + NCAA_SLUG + '&_=' + Date.now(), {cache:'no-store'});
     if (!r.ok) return null;
     const d = await r.json();
     if (!d.ok || !d.teams || d.teams.length < 2) return null;
@@ -2180,6 +2181,32 @@ async function loadScore(sport) {
     body.innerHTML = '<div class="live-msg">Couldn\'t load the score (' + (e && e.message || 'error') + ') — tap ↻ to retry.</div>';
   }
 }
+
+// Fill in final scores on finished games that don't have one typed in yet
+async function fillResults(sport) {
+  try {
+    const now = Date.now();
+    const cards = Array.from(document.querySelectorAll('#' + sport + ' .game-card[data-date]'))
+      .filter(c => !c.querySelector('.game-result') && new Date(c.dataset.date).getTime() + 4*3600*1000 < now);
+    if (!cards.length) return;
+    const r = await fetch(SCORE_API + '/api/results?sport=' + sport + '&espn=' + TEAM_ESPN_ID);
+    const d = await r.json();
+    if (!d.ok) return;
+    const byDate = {};
+    (d.games || []).forEach(g => { byDate[g.date] = g; });
+    cards.forEach(c => {
+      const day = new Date(c.dataset.date).toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+      const g = byDate[day];
+      if (!g) return;
+      const el = document.createElement('div');
+      el.className = 'game-result ' + (g.won ? 'win' : 'loss');
+      el.textContent = 'Final: ' + (g.won ? 'W ' : 'L ') + g.us + '–' + g.them;
+      c.querySelector('.game-info').appendChild(el);
+    });
+  } catch (e) {}
+}
+fillResults('football');
+fillResults('basketball');
 
 function toggleRank(sport) {
   const card = document.getElementById(sport + '-rank');

@@ -959,6 +959,7 @@ body.dark .wp-find{border-color:#5BBF97;color:#5BBF97}
       <div class="game-info">
         <div class="game-opponent">at Wisconsin</div>
         <div class="game-meta">12:30 PM &middot; <span class="tv-tag">BTN</span> <span class="watch-tag">FOX One</span> &middot; Camp Randall</div>
+        <div class="game-result loss">Final: L 3–31</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -979,6 +980,7 @@ body.dark .wp-find{border-color:#5BBF97;color:#5BBF97}
       <div class="game-info">
         <div class="game-opponent">Illinois</div>
         <div class="game-meta">3:30 PM &middot; <span class="tv-tag">FS1</span> &middot; Homecoming</div>
+        <div class="game-result loss">Final: L 37–38</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1002,7 +1004,8 @@ body.dark .wp-find{border-color:#5BBF97;color:#5BBF97}
       <div class="game-divider home"></div>
       <div class="game-info">
         <div class="game-opponent">Northwestern</div>
-        <div class="game-meta">Time TBD &middot; Fitzgerald's old team</div>
+        <div class="game-meta">12:00 PM &middot; Fitzgerald's old team</div>
+        <div class="game-result loss">Final: L 21–24</div>
       </div>
       <div class="game-badge badge-home">Home</div>
       <div class="game-chevron">▼</div>
@@ -1020,13 +1023,13 @@ body.dark .wp-find{border-color:#5BBF97;color:#5BBF97}
     </div></div>
   </div>
 
-  <div class="game-card" data-loc="away" data-date="2026-10-24T12:00:00-04:00" onclick="toggleCard(this)">
+  <div class="game-card" data-loc="away" data-date="2026-10-24T15:30:00-04:00" onclick="toggleCard(this)">
     <div class="game-main">
       <div class="game-date"><div class="month">Oct</div><div class="day">24</div><div class="weekday">Sat</div></div>
       <div class="game-divider away"></div>
       <div class="game-info">
         <div class="game-opponent">at UCLA</div>
-        <div class="game-meta">Time TBD &middot; Rose Bowl, Pasadena</div>
+        <div class="game-meta">3:30 PM &middot; Rose Bowl, Pasadena</div>
       </div>
       <div class="game-badge badge-away">Away</div>
       <div class="game-chevron">▼</div>
@@ -2207,6 +2210,7 @@ const ESPN = {
 let liveTimers = {};
 // This team's ids in the ESPN and NCAA feeds (tools/make_team.py swaps them for other schools)
 const TEAM_ESPN_ID = '127';
+const SCORE_API = 'https://spartans-gameday.netlify.app';
 const NCAA_SLUG = 'michigan-st';
 const ESPN_SUMMARY = {
   football:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=',
@@ -2216,7 +2220,7 @@ const ESPN_SUMMARY = {
 // so the phone never runs into blocked or stale feeds.
 async function apiScore(sport) {
   try {
-    const r = await fetch('/api/score?sport=' + sport + '&espn=' + TEAM_ESPN_ID + '&ncaa=' + NCAA_SLUG + '&_=' + Date.now(), {cache:'no-store'});
+    const r = await fetch(SCORE_API + '/api/score?sport=' + sport + '&espn=' + TEAM_ESPN_ID + '&ncaa=' + NCAA_SLUG + '&_=' + Date.now(), {cache:'no-store'});
     if (!r.ok) return null;
     const d = await r.json();
     if (!d.ok || !d.teams || d.teams.length < 2) return null;
@@ -2307,6 +2311,32 @@ async function loadScore(sport) {
     body.innerHTML = '<div class="live-msg">Couldn\'t load the score (' + (e && e.message || 'error') + ') — tap ↻ to retry.</div>';
   }
 }
+
+// Fill in final scores on finished games that don't have one typed in yet
+async function fillResults(sport) {
+  try {
+    const now = Date.now();
+    const cards = Array.from(document.querySelectorAll('#' + sport + ' .game-card[data-date]'))
+      .filter(c => !c.querySelector('.game-result') && new Date(c.dataset.date).getTime() + 4*3600*1000 < now);
+    if (!cards.length) return;
+    const r = await fetch(SCORE_API + '/api/results?sport=' + sport + '&espn=' + TEAM_ESPN_ID);
+    const d = await r.json();
+    if (!d.ok) return;
+    const byDate = {};
+    (d.games || []).forEach(g => { byDate[g.date] = g; });
+    cards.forEach(c => {
+      const day = new Date(c.dataset.date).toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
+      const g = byDate[day];
+      if (!g) return;
+      const el = document.createElement('div');
+      el.className = 'game-result ' + (g.won ? 'win' : 'loss');
+      el.textContent = 'Final: ' + (g.won ? 'W ' : 'L ') + g.us + '–' + g.them;
+      c.querySelector('.game-info').appendChild(el);
+    });
+  } catch (e) {}
+}
+fillResults('football');
+fillResults('basketball');
 
 function toggleRank(sport) {
   const card = document.getElementById(sport + '-rank');

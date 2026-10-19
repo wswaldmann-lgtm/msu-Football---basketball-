@@ -79,7 +79,7 @@ export default async (req: Request) => {
   }
 
   return new Response(JSON.stringify(best ? { ok: true, ...best } : { ok: false, tried }), {
-    headers: { "Content-Type": "application/json", "Cache-Control": "public, max-age=15" },
+    headers: { "Access-Control-Allow-Origin": "*", "Content-Type": "application/json", "Cache-Control": "public, max-age=15" },
   });
 };
 
